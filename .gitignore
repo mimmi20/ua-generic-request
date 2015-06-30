@@ -1,2 +1,6 @@
-fuel/app/logs/*/*/*
-fuel/app/cache/*/*
+vendor/
+.idea/
+.buildpath
+.settings
+.project
+composer.phar
