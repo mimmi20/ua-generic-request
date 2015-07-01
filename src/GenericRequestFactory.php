@@ -18,8 +18,6 @@
 
 namespace Wurfl\Request;
 
-use Wurfl\Utils;
-
 /**
  * Creates a Generic WURFL Request from the raw HTTP Request
  *
@@ -31,13 +29,13 @@ class GenericRequestFactory
      * Creates Generic Request from the given HTTP Request (normally $_SERVER)
      *
      * @param array $request HTTP Request
-     * @param bool  $override_sideloaded_browser_ua
+     * @param bool  $overrideSideloadedBrowserUa
      *
      * @return \Wurfl\Request\GenericRequest
      */
-    public function createRequest(array $request, $override_sideloaded_browser_ua = true)
+    public function createRequest(array $request, $overrideSideloadedBrowserUa = true)
     {
-        $userAgent        = Utils::getUserAgent($request, $override_sideloaded_browser_ua);
+        $userAgent        = Utils::getUserAgent($request, $overrideSideloadedBrowserUa);
         $userAgentProfile = Utils::getUserAgentProfile($request);
         $isXhtmlDevice    = Utils::isXhtmlRequester($request);
 
@@ -53,7 +51,7 @@ class GenericRequestFactory
      */
     public function createRequestForUserAgent($userAgent)
     {
-        $request = array('HTTP_USER_AGENT' => $userAgent);
+        $request = array(Constants::HEADER_HTTP_USERAGENT => $userAgent);
 
         return new GenericRequest($request, $userAgent, null, false);
     }

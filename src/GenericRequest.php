@@ -20,17 +20,9 @@ namespace Wurfl\Request;
 
 /**
  * Generic WURFL Request object containing User Agent, UAProf and xhtml device data; its id
- * property is the MD5 hash of the user agent
+ * property is the SHA512 hash of the user agent
  *
- * @package    WURFL_Request
- *
- * @property string                   $userAgent
- * @property string                   $userAgentNormalized
- * @property string                   $userAgentProfile
- * @property boolean                  $xhtmlDevice true if the device is known to be XHTML-MP compatible
- * @property string                   $id          Unique ID used for caching: MD5($userAgent)
- * @property \Wurfl\Request\MatchInfo $matchInfo   Information about the match (available after matching)
- * @property array                    $userAgentsWithDeviceID
+ * @package WURFL_Request
  */
 class GenericRequest
 {
@@ -47,12 +39,17 @@ class GenericRequest
     private $userAgent;
 
     /**
+     * @var string
+     */
+    private $userAgentNormalized;
+
+    /**
      * @var null|string
      */
     private $userAgentProfile;
 
     /**
-     * @var null|string
+     * @var boolean
      */
     private $xhtmlDevice;
 
@@ -62,12 +59,12 @@ class GenericRequest
     private $id;
 
     /**
-     * @var MatchInfo
+     * @var \Wurfl\Request\MatchInfo
      */
     private $matchInfo;
 
     /**
-     * @var array|null
+     * @var array
      */
     private $userAgentsWithDeviceID;
 
@@ -75,17 +72,18 @@ class GenericRequest
      * @param array  $request Original HTTP headers
      * @param string $userAgent
      * @param string $userAgentProfile
-     * @param string $xhtmlDevice
+     * @param boolean $xhtmlDevice
      */
-    public function __construct(array $request, $userAgent, $userAgentProfile = null, $xhtmlDevice = null)
+    public function __construct(array $request, $userAgent, $userAgentProfile = null, $xhtmlDevice = false)
     {
         $this->request                = $this->sanitizeHeaders($request);
         $this->userAgent              = $this->sanitizeHeaders($userAgent);
         $this->userAgentProfile       = $this->sanitizeHeaders($userAgentProfile);
         $this->xhtmlDevice            = $xhtmlDevice;
-        $this->id                     = md5($userAgent);
+        $this->id                     = hash('sha512', $userAgent);
         $this->matchInfo              = new MatchInfo();
-        $this->userAgentsWithDeviceID = null;
+        $this->userAgentsWithDeviceID = array();
+        $this->userAgentNormalized    = $this->userAgent;
     }
 
     /**
@@ -93,7 +91,7 @@ class GenericRequest
      *
      * @return array|string
      */
-    protected function sanitizeHeaders($headers)
+    private function sanitizeHeaders($headers)
     {
         if (!is_array($headers)) {
             return $this->truncateHeader($headers);
@@ -104,6 +102,86 @@ class GenericRequest
         }
 
         return $headers;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAgent()
+    {
+        return $this->userAgent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAgentNormalized()
+    {
+        return $this->userAgentNormalized;
+    }
+
+    /**
+     * @param string $userAgentNormalized
+     */
+    public function setUserAgentNormalized($userAgentNormalized)
+    {
+        $this->userAgentNormalized = $userAgentNormalized;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAgentProfile()
+    {
+        return $this->userAgentProfile;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isXhtmlDevice()
+    {
+        return $this->xhtmlDevice;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return \Wurfl\Request\MatchInfo
+     */
+    public function getMatchInfo()
+    {
+        return $this->matchInfo;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserAgentsWithDeviceID()
+    {
+        return $this->userAgentsWithDeviceID;
+    }
+
+    /**
+     * @param array $userAgentsWithDeviceID
+     */
+    public function setUserAgentsWithDeviceID(array $userAgentsWithDeviceID)
+    {
+        $this->userAgentsWithDeviceID = $userAgentsWithDeviceID;
     }
 
     /**
@@ -118,29 +196,6 @@ class GenericRequest
         }
 
         return substr($header, 0, self::MAX_HTTP_HEADER_LENGTH);
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return mixed
-     */
-    public function __get($name)
-    {
-        return $this->$name;
-    }
-
-    /**
-     * @param string $name
-     * @param mixed  $value
-     *
-     * @return GenericRequest
-     */
-    public function __set($name, $value)
-    {
-        $this->$name = $value;
-
-        return $this;
     }
 
     /**
