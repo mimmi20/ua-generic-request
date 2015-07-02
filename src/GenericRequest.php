@@ -153,6 +153,22 @@ class GenericRequest
     /**
      * @return string
      */
+    public function getBrowserUserAgent()
+    {
+        return $this->browserUserAgent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeviceUserAgent()
+    {
+        return $this->deviceUserAgent;
+    }
+
+    /**
+     * @return string
+     */
     public function getUserAgentNormalized()
     {
         return $this->userAgentNormalized;
@@ -254,21 +270,5 @@ class GenericRequest
     public function originalHeaderExists($name)
     {
         return array_key_exists($name, $this->request);
-    }
-
-    /**
-     * @return string
-     */
-    public function getBrowserUserAgent()
-    {
-        return $this->browserUserAgent;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDeviceUserAgent()
-    {
-        return $this->deviceUserAgent;
     }
 }
