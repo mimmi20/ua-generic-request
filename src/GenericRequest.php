@@ -207,7 +207,11 @@ class GenericRequest
      */
     public function getOriginalHeader($name)
     {
-        return array_key_exists($name, $this->request) ? $this->request[$name] : null;
+        if ($this->originalHeaderExists($name)) {
+            return $this->request[$name];
+        }
+
+        return null;
     }
 
     /**
@@ -221,4 +225,6 @@ class GenericRequest
     {
         return array_key_exists($name, $this->request);
     }
+
+    // @todo: add separate function for Browser-UA and Device-UA
 }
