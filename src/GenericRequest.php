@@ -44,6 +44,16 @@ class GenericRequest
     private $userAgentNormalized;
 
     /**
+     * @var string
+     */
+    private $browserUserAgent;
+
+    /**
+     * @var string
+     */
+    private $deviceUserAgent;
+
+    /**
      * @var null|string
      */
     private $userAgentProfile;
@@ -69,13 +79,21 @@ class GenericRequest
     private $userAgentsWithDeviceID;
 
     /**
-     * @param array  $request Original HTTP headers
-     * @param string $userAgent
-     * @param string $userAgentProfile
-     * @param boolean $xhtmlDevice
+     * @param array       $request Original HTTP headers
+     * @param string      $userAgent
+     * @param string|null $userAgentProfile
+     * @param boolean     $xhtmlDevice
+     * @param string|null $browserUserAgent
+     * @param string|null $deviceUserAgent
      */
-    public function __construct(array $request, $userAgent, $userAgentProfile = null, $xhtmlDevice = false)
-    {
+    public function __construct(
+        array $request,
+        $userAgent,
+        $userAgentProfile = null,
+        $xhtmlDevice = false,
+        $browserUserAgent = null,
+        $deviceUserAgent = null
+    ) {
         $this->request                = $this->sanitizeHeaders($request);
         $this->userAgent              = $this->sanitizeHeaders($userAgent);
         $this->userAgentProfile       = $this->sanitizeHeaders($userAgentProfile);
@@ -84,6 +102,18 @@ class GenericRequest
         $this->matchInfo              = new MatchInfo();
         $this->userAgentsWithDeviceID = array();
         $this->userAgentNormalized    = $this->userAgent;
+
+        if (null === $browserUserAgent) {
+            $this->browserUserAgent = $this->userAgent;
+        } else {
+            $this->browserUserAgent = $browserUserAgent;
+        }
+
+        if (null === $deviceUserAgent) {
+            $this->deviceUserAgent = $this->userAgent;
+        } else {
+            $this->deviceUserAgent = $deviceUserAgent;
+        }
     }
 
     /**
@@ -226,5 +256,19 @@ class GenericRequest
         return array_key_exists($name, $this->request);
     }
 
-    // @todo: add separate function for Browser-UA and Device-UA
+    /**
+     * @return string
+     */
+    public function getBrowserUserAgent()
+    {
+        return $this->browserUserAgent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeviceUserAgent()
+    {
+        return $this->deviceUserAgent;
+    }
 }

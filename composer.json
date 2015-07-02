@@ -2,7 +2,7 @@
     "name": "mimmi20/wurfl-generic-request",
     "description": "the Generic Request Object extracted from Wurfl for PHP 5.3",
     "type": "library",
-    "license": "MIT",
+    "license": "LGPL-2.1",
     "keywords": ["Wurfl", "Browser", "user agent", "http", "parser", "user-agent"],
     "homepage": "https://github.com/mimmi20/Wurfl",
     "require": {

@@ -40,6 +40,7 @@ class Constants
     const HEADER_SKYFIRE_VERSION    = 'HTTP_X_SKYFIRE_VERSION';
     const HEADER_BLUECOAT_VIA       = 'HTTP_X_BLUECOAT_VIA';
     const HEADER_OPERAMINI_PHONE_UA = 'HTTP_X_OPERAMINI_PHONE_UA';
+    const HEADER_UCBROWSER_UA       = 'HTTP_X_UCBROWSER_UA';
 
     const UA       = 'UA';
     const NO_MATCH = null;

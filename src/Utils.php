@@ -29,12 +29,13 @@ class Utils
      * @var array
      */
     private static $userAgentSearchOrder = array(
-        Constants::HEADER_DEVICE_STOCK_UA,
-        Constants::HEADER_DEVICE_UA,
-        Constants::HEADER_SKYFIRE_VERSION,
-        Constants::HEADER_BLUECOAT_VIA,
-        Constants::HEADER_OPERAMINI_PHONE_UA,
-        Constants::HEADER_HTTP_USERAGENT,
+        Constants::HEADER_DEVICE_STOCK_UA    => 'device',
+        Constants::HEADER_DEVICE_UA          => 'device',
+        Constants::HEADER_SKYFIRE_VERSION    => 'browser',
+        Constants::HEADER_BLUECOAT_VIA       => 'browser',
+        Constants::HEADER_OPERAMINI_PHONE_UA => 'browser',
+        Constants::HEADER_UCBROWSER_UA       => 'browser',
+        Constants::HEADER_HTTP_USERAGENT     => 'generic',
     );
 
     /**
@@ -55,7 +56,51 @@ class Utils
             return $request[Constants::UA];
         }
 
-        foreach (self::$userAgentSearchOrder as $header) {
+        foreach (array_keys(self::$userAgentSearchOrder) as $header) {
+            if (isset($request[$header])) {
+                return $request[$header];
+            }
+        }
+
+        return Constants::NO_MATCH;
+    }
+
+    /**
+     * returns the User Agent From $request or empty string if not found
+     *
+     * @param array $request HTTP Request array (normally $_SERVER)
+     *
+     * @return string|null
+     */
+    public static function getDeviceUserAgent(array $request)
+    {
+        foreach (self::$userAgentSearchOrder as $header => $type) {
+            if (!in_array($type, array('device', 'generic'))) {
+                continue;
+            }
+
+            if (isset($request[$header])) {
+                return $request[$header];
+            }
+        }
+
+        return Constants::NO_MATCH;
+    }
+
+    /**
+     * returns the User Agent From $request or empty string if not found
+     *
+     * @param array $request HTTP Request array (normally $_SERVER)
+     *
+     * @return string|null
+     */
+    public static function getBrowserUserAgent(array $request)
+    {
+        foreach (self::$userAgentSearchOrder as $header => $type) {
+            if (!in_array($type, array('browser', 'generic'))) {
+                continue;
+            }
+
             if (isset($request[$header])) {
                 return $request[$header];
             }
