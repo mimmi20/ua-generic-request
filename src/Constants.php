@@ -42,6 +42,5 @@ class Constants
     const HEADER_OPERAMINI_PHONE_UA = 'HTTP_X_OPERAMINI_PHONE_UA';
     const HEADER_UCBROWSER_UA       = 'HTTP_X_UCBROWSER_UA';
 
-    const UA       = 'UA';
-    const NO_MATCH = null;
+    const UA = 'UA';
 }
