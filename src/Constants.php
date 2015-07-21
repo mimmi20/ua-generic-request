@@ -29,6 +29,7 @@ class Constants
     const ACCEPT_HEADER_VND_WAP_XHTML_XML = 'application/vnd.wap.xhtml+xml';
     const ACCEPT_HEADER_XHTML_XML         = 'application/xhtml+xml';
     const ACCEPT_HEADER_TEXT_HTML         = 'application/text+html';
+    const ACCEPT_HEADER_ENCODING          = 'HTTP_ACCEPT_ENCODING';
 
     const HEADER_WAP_PROFILE = 'HTTP_X_WAP_PROFILE';
     const HEADER_PROFILE     = 'HTTP_PROFILE';

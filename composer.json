@@ -7,7 +7,7 @@
     "homepage": "https://github.com/mimmi20/wurfl-generic-request",
     "require": {
         "php": ">=5.3.3",
-        "mimmi20/wurfl-constants": "1.0.0"
+        "mimmi20/wurfl-constants": "~1.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*"

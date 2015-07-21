@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b2e076579a5cee57de2fa8e90ebb87d7",
+    "hash": "c4d9c0a076cb6aba307ca3c219a2026c",
     "packages": [
         {
             "name": "mimmi20/wurfl-constants",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mimmi20/wurfl-constants.git",
-                "reference": "abd53b90bc530b5191ff780c543a2b523785b220"
+                "reference": "b97ce44840e5957aa9501faaa3fc2b1e77c25be7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mimmi20/wurfl-constants/zipball/abd53b90bc530b5191ff780c543a2b523785b220",
-                "reference": "abd53b90bc530b5191ff780c543a2b523785b220",
+                "url": "https://api.github.com/repos/mimmi20/wurfl-constants/zipball/b97ce44840e5957aa9501faaa3fc2b1e77c25be7",
+                "reference": "b97ce44840e5957aa9501faaa3fc2b1e77c25be7",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "user agent",
                 "user-agent"
             ],
-            "time": "2015-07-20 20:54:43"
+            "time": "2015-07-21 18:23:08"
         }
     ],
     "packages-dev": [

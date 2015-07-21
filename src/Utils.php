@@ -64,7 +64,7 @@ class Utils
             }
         }
 
-        return WurflWurflConstants::NO_MATCH;
+        return WurflConstants::NO_MATCH;
     }
 
     /**
