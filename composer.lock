@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c4d9c0a076cb6aba307ca3c219a2026c",
+    "hash": "4b1ecc6568796b28f9ac98388b338c18",
     "packages": [
         {
             "name": "mimmi20/wurfl-constants",
