@@ -4,9 +4,10 @@
     "type": "library",
     "license": "LGPL-2.1",
     "keywords": ["Wurfl", "Browser", "user agent", "http", "parser", "user-agent"],
-    "homepage": "https://github.com/mimmi20/Wurfl",
+    "homepage": "https://github.com/mimmi20/wurfl-generic-request",
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "mimmi20/wurfl-constants": "1.0.*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
