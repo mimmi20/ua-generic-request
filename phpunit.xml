@@ -1,12 +1,13 @@
-<phpunit bootstrap="./bootstrap.php">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php">
     <testsuites>
         <testsuite name="Wurfl Generic Request Tests">
-            <directory>./</directory>
+            <directory>tests/</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">../src/</directory>
+            <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
 </phpunit>

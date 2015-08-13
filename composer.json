@@ -1,25 +1,39 @@
 {
-    "name": "mimmi20/wurfl-generic-request",
-    "description": "the Generic Request Object extracted from Wurfl for PHP 5.3",
-    "type": "library",
-    "license": "LGPL-2.1",
-    "keywords": ["Wurfl", "Browser", "user agent", "http", "parser", "user-agent"],
-    "homepage": "https://github.com/mimmi20/wurfl-generic-request",
-    "require": {
-        "php": ">=5.3.3",
-        "mimmi20/wurfl-constants": "1.0.*"
+  "name": "mimmi20/wurfl-generic-request",
+  "description": "the Generic Request Object extracted from Wurfl for PHP 5.3",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "Wurfl",
+    "generic request"
+  ],
+  "homepage": "https://github.com/mimmi20/wurfl-generic-request",
+  "authors": [
+    {
+      "name": "Thomas Müller",
+      "homepage": "https://github.com/mimmi20",
+      "role": "Developer"
     },
-    "require-dev": {
-        "phpunit/phpunit": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Wurfl\\Request\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "WurflTest\\Request\\": "tests/"
-        }
+    {
+      "name": "Contributors",
+      "homepage": "https://github.com/mimmi20/wurfl-generic-request/graphs/contributors"
     }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "mimmi20/wurfl-constants": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Wurfl\\Request\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WurflTest\\Request\\": "tests/"
+    }
+  }
 }
