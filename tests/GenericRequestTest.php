@@ -8,8 +8,7 @@ use Wurfl\Request\GenericRequest;
 /**
  * test case
  */
-class GenericRequestTest
-    extends \PHPUnit_Framework_TestCase
+class GenericRequestTest extends \PHPUnit_Framework_TestCase
 {
     public function testConstruct()
     {

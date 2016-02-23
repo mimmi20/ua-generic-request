@@ -9,8 +9,7 @@ use Wurfl\Request\GenericRequestFactory;
 /**
  * test case
  */
-class GenericRequestFactoryTest
-    extends \PHPUnit_Framework_TestCase
+class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var \Wurfl\Request\GenericRequestFactory
