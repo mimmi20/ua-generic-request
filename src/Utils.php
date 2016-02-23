@@ -11,7 +11,7 @@
  *
  *
  * @category   WURFL
- * @package    WURFL
+ *
  * @copyright  ScientiaMobile, Inc.
  * @license    GNU Affero General Public License
  */
@@ -22,8 +22,6 @@ use Wurfl\WurflConstants;
 
 /**
  * WURFL related utilities
- *
- * @package    WURFL
  */
 class Utils
 {
@@ -43,7 +41,7 @@ class Utils
     /**
      * returns the User Agent From $request or empty string if not found
      *
-     * @param array $request HTTP Request array (normally $_SERVER)
+     * @param array $request                     HTTP Request array (normally $_SERVER)
      * @param bool  $overrideSideloadedBrowserUa
      *
      * @return string|null

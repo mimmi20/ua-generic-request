@@ -11,7 +11,7 @@
  *
  *
  * @category   WURFL
- * @package    WURFL
+ *
  * @copyright  ScientiaMobile, Inc.
  * @license    GNU Affero General Public License
  */
@@ -21,8 +21,6 @@ namespace Wurfl\Request;
 /**
  * Generic WURFL Request object containing User Agent, UAProf and xhtml device data; its id
  * property is the SHA512 hash of the user agent
- *
- * @package WURFL_Request
  */
 class GenericRequest
 {
@@ -59,7 +57,7 @@ class GenericRequest
     private $userAgentProfile;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $xhtmlDevice;
 
@@ -79,10 +77,10 @@ class GenericRequest
     private $userAgentsWithDeviceID;
 
     /**
-     * @param array       $request Original HTTP headers
+     * @param array       $request          Original HTTP headers
      * @param string      $userAgent
      * @param string|null $userAgentProfile
-     * @param boolean     $xhtmlDevice
+     * @param bool        $xhtmlDevice
      * @param string|null $browserUserAgent
      * @param string|null $deviceUserAgent
      */
@@ -191,7 +189,7 @@ class GenericRequest
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isXhtmlDevice()
     {
@@ -257,7 +255,7 @@ class GenericRequest
             return $this->request[$name];
         }
 
-        return null;
+        return;
     }
 
     /**
@@ -265,7 +263,7 @@ class GenericRequest
      *
      * @param string $name
      *
-     * @return boolean
+     * @return bool
      */
     public function originalHeaderExists($name)
     {

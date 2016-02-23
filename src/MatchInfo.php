@@ -11,7 +11,7 @@
  *
  *
  * @category   WURFL
- * @package    WURFL
+ *
  * @copyright  ScientiaMobile, Inc.
  * @license    GNU Affero General Public License
  */
@@ -20,13 +20,11 @@ namespace Wurfl\Request;
 
 /**
  * Information about the matching process
- *
- * @package    WURFL_Request
  */
 class MatchInfo
 {
     /**
-     * @var boolean Response was returned from cache
+     * @var bool Response was returned from cache
      */
     public $fromCache = false;
 

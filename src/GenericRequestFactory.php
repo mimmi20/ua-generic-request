@@ -11,7 +11,7 @@
  *
  *
  * @category   WURFL
- * @package    WURFL
+ *
  * @copyright  ScientiaMobile, Inc.
  * @license    GNU Affero General Public License
  */
@@ -20,15 +20,13 @@ namespace Wurfl\Request;
 
 /**
  * Creates a Generic WURFL Request from the raw HTTP Request
- *
- * @package    WURFL_Request
  */
 class GenericRequestFactory
 {
     /**
      * Creates Generic Request from the given HTTP Request (normally $_SERVER)
      *
-     * @param array $request HTTP Request
+     * @param array $request                     HTTP Request
      * @param bool  $overrideSideloadedBrowserUa
      *
      * @return \Wurfl\Request\GenericRequest

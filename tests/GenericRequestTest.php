@@ -1,9 +1,9 @@
 <?php
+
 namespace WurflTest\Request;
 
 use Wurfl\Request\Constants;
 use Wurfl\Request\GenericRequest;
-use Wurfl\Request\GenericRequestFactory;
 
 /**
  * test case
@@ -15,7 +15,7 @@ class GenericRequestTest
     {
         $userAgent = 'testUA';
         $header    = array(
-            Constants::HEADER_HTTP_USERAGENT => $userAgent
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
         );
 
         $object = new GenericRequest($header, $userAgent, null, false);
