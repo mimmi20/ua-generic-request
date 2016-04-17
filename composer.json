@@ -20,13 +20,12 @@
     }
   ],
   "require": {
-    "php": ">=5.3.3",
-    "mimmi20/wurfl-constants": "*"
+    "php": ">=5.3.3"
   },
   "require-dev": {
-    "phpunit/phpunit": "*",
-    "squizlabs/php_codesniffer": "2.*",
-    "fabpot/php-cs-fixer": "~1.11"
+    "phpunit/phpunit": "^4.8|^5.0",
+    "squizlabs/php_codesniffer": "^2.0",
+    "fabpot/php-cs-fixer": "^1.11"
   },
   "autoload": {
     "psr-4": {

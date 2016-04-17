@@ -18,8 +18,6 @@
 
 namespace Wurfl\Request;
 
-use Wurfl\WurflConstants;
-
 /**
  * WURFL related utilities
  */
@@ -62,7 +60,7 @@ class Utils
             }
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -84,7 +82,7 @@ class Utils
             }
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -106,7 +104,7 @@ class Utils
             }
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -130,7 +128,7 @@ class Utils
             $opt              = $request[Constants::HEADER_OPT];
             $regex            = '/ns=\\d+/';
             $matches          = array();
-            $namespaceProfile = WurflConstants::NO_MATCH;
+            $namespaceProfile = null;
 
             if (preg_match($regex, $opt, $matches)) {
                 $namespaceProfile = substr($matches[0], 2) . '-Profile';
@@ -141,7 +139,7 @@ class Utils
             }
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**

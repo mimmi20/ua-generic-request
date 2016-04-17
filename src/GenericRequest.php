@@ -255,7 +255,7 @@ class GenericRequest
             return $this->request[$name];
         }
 
-        return;
+        return null;
     }
 
     /**
