@@ -52,4 +52,9 @@ class MatchInfo
      * @var string The user agent after normalization
      */
     public $normalizedUserAgent;
+
+    /**
+     * @var string The user agent after cleaning
+     */
+    public $cleanedUserAgent;
 }
