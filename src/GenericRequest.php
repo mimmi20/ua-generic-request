@@ -22,7 +22,7 @@ namespace Wurfl\Request;
  * Generic WURFL Request object containing User Agent, UAProf and xhtml device data; its id
  * property is the SHA512 hash of the user agent
  */
-class GenericRequest
+class GenericRequest implements \Serializable
 {
     const MAX_HTTP_HEADER_LENGTH = 512;
 
@@ -268,5 +268,57 @@ class GenericRequest
     public function originalHeaderExists($name)
     {
         return array_key_exists($name, $this->request);
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.1.0)<br/>
+     * String representation of object
+     *
+     * @link http://php.net/manual/en/serializable.serialize.php
+     *
+     * @return string the string representation of the object or null
+     */
+    public function serialize()
+    {
+        return serialize(
+            [
+                'request'                => $this->request,
+                'userAgent'              => $this->userAgent,
+                'userAgentNormalized'    => $this->userAgentNormalized,
+                'browserUserAgent'       => $this->browserUserAgent,
+                'deviceUserAgent'        => $this->deviceUserAgent,
+                'userAgentProfile'       => $this->userAgentProfile,
+                'xhtmlDevice'            => $this->xhtmlDevice,
+                'id'                     => $this->id,
+                'matchInfo'              => $this->matchInfo,
+                'userAgentsWithDeviceID' => $this->userAgentsWithDeviceID,
+            ]
+        );
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.1.0)<br/>
+     * Constructs the object
+     *
+     * @link http://php.net/manual/en/serializable.unserialize.php
+     *
+     * @param string $serialized <p>
+     *                           The string representation of the object.
+     *                           </p>
+     */
+    public function unserialize($serialized)
+    {
+        $unseriliazedData = unserialize($serialized);
+
+        $this->request                = $unseriliazedData['request'];
+        $this->userAgent              = $unseriliazedData['userAgent'];
+        $this->userAgentNormalized    = $unseriliazedData['userAgentNormalized'];
+        $this->browserUserAgent       = $unseriliazedData['browserUserAgent'];
+        $this->deviceUserAgent        = $unseriliazedData['deviceUserAgent'];
+        $this->userAgentProfile       = $unseriliazedData['userAgentProfile'];
+        $this->xhtmlDevice            = $unseriliazedData['xhtmlDevice'];
+        $this->id                     = $unseriliazedData['id'];
+        $this->matchInfo              = $unseriliazedData['matchInfo'];
+        $this->userAgentsWithDeviceID = $unseriliazedData['userAgentsWithDeviceID'];
     }
 }
