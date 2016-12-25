@@ -281,7 +281,7 @@ class GenericRequest implements \Serializable
     public function serialize()
     {
         return serialize(
-            [
+            array(
                 'request'                => $this->request,
                 'userAgent'              => $this->userAgent,
                 'userAgentNormalized'    => $this->userAgentNormalized,
@@ -292,7 +292,7 @@ class GenericRequest implements \Serializable
                 'id'                     => $this->id,
                 'matchInfo'              => $this->matchInfo,
                 'userAgentsWithDeviceID' => $this->userAgentsWithDeviceID,
-            ]
+            )
         );
     }
 
