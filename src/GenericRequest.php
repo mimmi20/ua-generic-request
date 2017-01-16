@@ -98,7 +98,7 @@ class GenericRequest implements \Serializable
         $this->xhtmlDevice            = $xhtmlDevice;
         $this->id                     = hash('sha512', $userAgent);
         $this->matchInfo              = new MatchInfo();
-        $this->userAgentsWithDeviceID = array();
+        $this->userAgentsWithDeviceID = [];
         $this->userAgentNormalized    = $this->userAgent;
 
         if (null === $browserUserAgent) {
@@ -281,7 +281,7 @@ class GenericRequest implements \Serializable
     public function serialize()
     {
         return serialize(
-            array(
+            [
                 'request'                => $this->request,
                 'userAgent'              => $this->userAgent,
                 'userAgentNormalized'    => $this->userAgentNormalized,
@@ -292,7 +292,7 @@ class GenericRequest implements \Serializable
                 'id'                     => $this->id,
                 'matchInfo'              => $this->matchInfo,
                 'userAgentsWithDeviceID' => $this->userAgentsWithDeviceID,
-            )
+            ]
         );
     }
 

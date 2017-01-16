@@ -26,7 +26,7 @@ class Utils
     /**
      * @var array
      */
-    private static $userAgentSearchOrder = array(
+    private static $userAgentSearchOrder = [
         Constants::HEADER_DEVICE_STOCK_UA    => 'device',
         Constants::HEADER_DEVICE_UA          => 'device',
         Constants::HEADER_SKYFIRE_VERSION    => 'browser',
@@ -34,7 +34,7 @@ class Utils
         Constants::HEADER_OPERAMINI_PHONE_UA => 'browser',
         Constants::HEADER_UCBROWSER_UA       => 'browser',
         Constants::HEADER_HTTP_USERAGENT     => 'generic',
-    );
+    ];
 
     /**
      * returns the User Agent From $request or empty string if not found
@@ -73,7 +73,7 @@ class Utils
     public static function getDeviceUserAgent(array $request)
     {
         foreach (self::$userAgentSearchOrder as $header => $type) {
-            if (!in_array($type, array('device', 'generic'))) {
+            if (!in_array($type, ['device', 'generic'])) {
                 continue;
             }
 
@@ -95,7 +95,7 @@ class Utils
     public static function getBrowserUserAgent(array $request)
     {
         foreach (self::$userAgentSearchOrder as $header => $type) {
-            if (!in_array($type, array('browser', 'generic'))) {
+            if (!in_array($type, ['browser', 'generic'])) {
                 continue;
             }
 
@@ -127,7 +127,7 @@ class Utils
         if (isset($request[Constants::HEADER_OPT])) {
             $opt              = $request[Constants::HEADER_OPT];
             $regex            = '/ns=\\d+/';
-            $matches          = array();
+            $matches          = [];
             $namespaceProfile = null;
 
             if (preg_match($regex, $opt, $matches)) {

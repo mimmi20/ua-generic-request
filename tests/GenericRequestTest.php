@@ -13,9 +13,9 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
     public function testConstruct()
     {
         $userAgent = 'testUA';
-        $header    = array(
+        $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        );
+        ];
 
         $object = new GenericRequest($header, $userAgent, null, false);
 
@@ -26,7 +26,7 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         self::assertNull($object->getUserAgentProfile());
         self::assertSame(hash('sha512', $userAgent), $object->getId());
         self::assertInstanceOf('\Wurfl\Request\MatchInfo', $object->getMatchInfo());
-        self::assertSame(array(), $object->getUserAgentsWithDeviceID());
+        self::assertSame([], $object->getUserAgentsWithDeviceID());
 
         self::assertSame($userAgent, $object->getOriginalHeader(Constants::HEADER_HTTP_USERAGENT));
         self::assertNull($object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));

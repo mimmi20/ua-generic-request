@@ -52,7 +52,7 @@ class GenericRequestFactory
      */
     public function createRequestForUserAgent($userAgent)
     {
-        $request = array(Constants::HEADER_HTTP_USERAGENT => $userAgent);
+        $request = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
 
         return new GenericRequest($request, $userAgent);
     }

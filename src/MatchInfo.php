@@ -69,7 +69,7 @@ class MatchInfo implements \Serializable
     public function serialize()
     {
         return serialize(
-            array(
+            [
                 'fromCache'           => $this->fromCache,
                 'matchType'           => $this->matchType,
                 'matcher'             => $this->matcher,
@@ -77,7 +77,7 @@ class MatchInfo implements \Serializable
                 'lookupTime'          => $this->lookupTime,
                 'normalizedUserAgent' => $this->normalizedUserAgent,
                 'cleanedUserAgent'    => $this->cleanedUserAgent,
-            )
+            ]
         );
     }
 

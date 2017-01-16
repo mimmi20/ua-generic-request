@@ -24,9 +24,9 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCreateRequest()
     {
         $userAgent = 'testUA';
-        $header    = array(
+        $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        );
+        ];
 
         $expected = new GenericRequest($header, $userAgent, null, false);
 
@@ -39,9 +39,9 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCreateRequestForUserAgent()
     {
         $userAgent = 'testUA';
-        $header    = array(
+        $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        );
+        ];
 
         $expected = new GenericRequest($header, $userAgent, null, false);
 
