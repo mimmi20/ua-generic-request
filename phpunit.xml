@@ -16,14 +16,20 @@
         <ini name="error_reporting" value="-1"/>
         <ini name="memory_limit" value="-1"/>
     </php>
+
     <testsuites>
         <testsuite name="Wurfl Generic Request Tests">
             <directory>tests/</directory>
         </testsuite>
     </testsuites>
+
     <filter>
-        <whitelist>
+        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
+    </logging>
 </phpunit>
