@@ -26,7 +26,7 @@ class Utils
     /**
      * @var array
      */
-    private static $userAgentSearchOrder = [
+    private $userAgentSearchOrder = [
         Constants::HEADER_DEVICE_STOCK_UA    => 'device',
         Constants::HEADER_DEVICE_UA          => 'device',
         Constants::HEADER_SKYFIRE_VERSION    => 'browser',
@@ -37,26 +37,38 @@ class Utils
     ];
 
     /**
-     * returns the User Agent From $request or empty string if not found
+     * @var array
+     */
+    private $request = [];
+
+    /**
+     * @param array $request
+     */
+    public function __construct(array $request = [])
+    {
+        $this->request = $request;
+    }
+
+    /**
+     * returns the User Agent or empty string if not found
      *
-     * @param array $request                     HTTP Request array (normally $_SERVER)
      * @param bool  $overrideSideloadedBrowserUa
      *
      * @return string|null
      */
-    public static function getUserAgent(array $request, $overrideSideloadedBrowserUa = true)
+    public function getUserAgent($overrideSideloadedBrowserUa = true)
     {
-        if (!$overrideSideloadedBrowserUa && isset($request[Constants::HEADER_HTTP_USERAGENT])) {
-            return $request[Constants::HEADER_HTTP_USERAGENT];
+        if (!$overrideSideloadedBrowserUa && isset($this->request[Constants::HEADER_HTTP_USERAGENT])) {
+            return $this->request[Constants::HEADER_HTTP_USERAGENT];
         }
 
-        if (isset($request[Constants::UA])) {
-            return $request[Constants::UA];
+        if (isset($this->request[Constants::UA])) {
+            return $this->request[Constants::UA];
         }
 
-        foreach (array_keys(self::$userAgentSearchOrder) as $header) {
-            if (isset($request[$header])) {
-                return $request[$header];
+        foreach (array_keys($this->userAgentSearchOrder) as $header) {
+            if (isset($this->request[$header])) {
+                return $this->request[$header];
             }
         }
 
@@ -64,21 +76,19 @@ class Utils
     }
 
     /**
-     * returns the User Agent From $request or empty string if not found
-     *
-     * @param array $request HTTP Request array (normally $_SERVER)
+     * returns the User Agent or empty string if not found
      *
      * @return string|null
      */
-    public static function getDeviceUserAgent(array $request)
+    public function getDeviceUserAgent()
     {
-        foreach (self::$userAgentSearchOrder as $header => $type) {
+        foreach ($this->userAgentSearchOrder as $header => $type) {
             if (!in_array($type, ['device', 'generic'])) {
                 continue;
             }
 
-            if (isset($request[$header])) {
-                return $request[$header];
+            if (isset($this->request[$header])) {
+                return $this->request[$header];
             }
         }
 
@@ -86,21 +96,19 @@ class Utils
     }
 
     /**
-     * returns the User Agent From $request or empty string if not found
-     *
-     * @param array $request HTTP Request array (normally $_SERVER)
+     * returns the User Agent or empty string if not found
      *
      * @return string|null
      */
-    public static function getBrowserUserAgent(array $request)
+    public function getBrowserUserAgent()
     {
-        foreach (self::$userAgentSearchOrder as $header => $type) {
+        foreach ($this->userAgentSearchOrder as $header => $type) {
             if (!in_array($type, ['browser', 'generic'])) {
                 continue;
             }
 
-            if (isset($request[$header])) {
-                return $request[$header];
+            if (isset($this->request[$header])) {
+                return $this->request[$header];
             }
         }
 
@@ -108,24 +116,22 @@ class Utils
     }
 
     /**
-     * Returns the UA Profile from the $request
-     *
-     * @param array $request HTTP Request array (normally $_SERVER)
+     * Returns the UA Profile
      *
      * @return string|null UAProf URL
      */
-    public static function getUserAgentProfile(array $request)
+    public function getUserAgentProfile()
     {
-        if (isset($request[Constants::HEADER_WAP_PROFILE])) {
-            return $request[Constants::HEADER_WAP_PROFILE];
+        if (isset($this->request[Constants::HEADER_WAP_PROFILE])) {
+            return $this->request[Constants::HEADER_WAP_PROFILE];
         }
 
-        if (isset($request[Constants::HEADER_PROFILE])) {
-            return $request[Constants::HEADER_PROFILE];
+        if (isset($this->request[Constants::HEADER_PROFILE])) {
+            return $this->request[Constants::HEADER_PROFILE];
         }
 
-        if (isset($request[Constants::HEADER_OPT])) {
-            $opt              = $request[Constants::HEADER_OPT];
+        if (isset($this->request[Constants::HEADER_OPT])) {
+            $opt              = $this->request[Constants::HEADER_OPT];
             $regex            = '/ns=\\d+/';
             $matches          = [];
             $namespaceProfile = null;
@@ -134,8 +140,8 @@ class Utils
                 $namespaceProfile = substr($matches[0], 2) . '-Profile';
             }
 
-            if ($namespaceProfile !== null && isset($request[$namespaceProfile])) {
-                return $request[$namespaceProfile];
+            if ($namespaceProfile !== null && isset($this->request[$namespaceProfile])) {
+                return $this->request[$namespaceProfile];
             }
         }
 
@@ -145,17 +151,15 @@ class Utils
     /**
      * Checks if the requester device is xhtml enabled
      *
-     * @param array $request HTTP Request array (normally $_SERVER)
-     *
      * @return bool
      */
-    public static function isXhtmlRequester(array $request)
+    public function isXhtmlRequester()
     {
-        if (!isset($request[Constants::ACCEPT_HEADER_NAME])) {
+        if (!isset($this->request[Constants::ACCEPT_HEADER_NAME])) {
             return false;
         }
 
-        $accept = $request[Constants::ACCEPT_HEADER_NAME];
+        $accept = $this->request[Constants::ACCEPT_HEADER_NAME];
 
         if ((strpos($accept, Constants::ACCEPT_HEADER_VND_WAP_XHTML_XML) !== false)
             || (strpos($accept, Constants::ACCEPT_HEADER_XHTML_XML) !== false)

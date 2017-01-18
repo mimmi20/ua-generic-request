@@ -39,11 +39,6 @@ class GenericRequest implements \Serializable
     /**
      * @var string
      */
-    private $userAgentNormalized;
-
-    /**
-     * @var string
-     */
     private $browserUserAgent;
 
     /**
@@ -67,16 +62,6 @@ class GenericRequest implements \Serializable
     private $id;
 
     /**
-     * @var \Wurfl\Request\MatchInfo
-     */
-    private $matchInfo;
-
-    /**
-     * @var array
-     */
-    private $userAgentsWithDeviceID;
-
-    /**
      * @param array       $request          Original HTTP headers
      * @param string      $userAgent
      * @param string|null $userAgentProfile
@@ -97,9 +82,6 @@ class GenericRequest implements \Serializable
         $this->userAgentProfile       = $this->sanitizeHeaders($userAgentProfile);
         $this->xhtmlDevice            = $xhtmlDevice;
         $this->id                     = hash('sha512', $userAgent);
-        $this->matchInfo              = new MatchInfo();
-        $this->userAgentsWithDeviceID = [];
-        $this->userAgentNormalized    = $this->userAgent;
 
         if (null === $browserUserAgent) {
             $this->browserUserAgent = $this->userAgent;
@@ -167,22 +149,6 @@ class GenericRequest implements \Serializable
     /**
      * @return string
      */
-    public function getUserAgentNormalized()
-    {
-        return $this->userAgentNormalized;
-    }
-
-    /**
-     * @param string $userAgentNormalized
-     */
-    public function setUserAgentNormalized($userAgentNormalized)
-    {
-        $this->userAgentNormalized = $userAgentNormalized;
-    }
-
-    /**
-     * @return string
-     */
     public function getUserAgentProfile()
     {
         return $this->userAgentProfile;
@@ -202,30 +168,6 @@ class GenericRequest implements \Serializable
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return \Wurfl\Request\MatchInfo
-     */
-    public function getMatchInfo()
-    {
-        return $this->matchInfo;
-    }
-
-    /**
-     * @return array
-     */
-    public function getUserAgentsWithDeviceID()
-    {
-        return $this->userAgentsWithDeviceID;
-    }
-
-    /**
-     * @param array $userAgentsWithDeviceID
-     */
-    public function setUserAgentsWithDeviceID(array $userAgentsWithDeviceID)
-    {
-        $this->userAgentsWithDeviceID = $userAgentsWithDeviceID;
     }
 
     /**
@@ -284,14 +226,11 @@ class GenericRequest implements \Serializable
             [
                 'request'                => $this->request,
                 'userAgent'              => $this->userAgent,
-                'userAgentNormalized'    => $this->userAgentNormalized,
                 'browserUserAgent'       => $this->browserUserAgent,
                 'deviceUserAgent'        => $this->deviceUserAgent,
                 'userAgentProfile'       => $this->userAgentProfile,
                 'xhtmlDevice'            => $this->xhtmlDevice,
                 'id'                     => $this->id,
-                'matchInfo'              => $this->matchInfo,
-                'userAgentsWithDeviceID' => $this->userAgentsWithDeviceID,
             ]
         );
     }
@@ -312,13 +251,10 @@ class GenericRequest implements \Serializable
 
         $this->request                = $unseriliazedData['request'];
         $this->userAgent              = $unseriliazedData['userAgent'];
-        $this->userAgentNormalized    = $unseriliazedData['userAgentNormalized'];
         $this->browserUserAgent       = $unseriliazedData['browserUserAgent'];
         $this->deviceUserAgent        = $unseriliazedData['deviceUserAgent'];
         $this->userAgentProfile       = $unseriliazedData['userAgentProfile'];
         $this->xhtmlDevice            = $unseriliazedData['xhtmlDevice'];
         $this->id                     = $unseriliazedData['id'];
-        $this->matchInfo              = $unseriliazedData['matchInfo'];
-        $this->userAgentsWithDeviceID = $unseriliazedData['userAgentsWithDeviceID'];
     }
 }

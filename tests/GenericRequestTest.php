@@ -20,13 +20,10 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         $object = new GenericRequest($header, $userAgent, null, false);
 
         self::assertSame($userAgent, $object->getUserAgent());
-        self::assertSame($userAgent, $object->getUserAgentNormalized());
         self::assertSame($header, $object->getRequest());
         self::assertFalse($object->isXhtmlDevice());
         self::assertNull($object->getUserAgentProfile());
         self::assertSame(hash('sha512', $userAgent), $object->getId());
-        self::assertInstanceOf('\Wurfl\Request\MatchInfo', $object->getMatchInfo());
-        self::assertSame([], $object->getUserAgentsWithDeviceID());
 
         self::assertSame($userAgent, $object->getOriginalHeader(Constants::HEADER_HTTP_USERAGENT));
         self::assertNull($object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));

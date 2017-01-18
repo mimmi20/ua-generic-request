@@ -33,13 +33,15 @@ class GenericRequestFactory
      */
     public function createRequest(array $request, $overrideSideloadedBrowserUa = true)
     {
+        $utils = new Utils($request);
+
         return new GenericRequest(
             $request,
-            Utils::getUserAgent($request, $overrideSideloadedBrowserUa),
-            Utils::getUserAgentProfile($request),
-            Utils::isXhtmlRequester($request),
-            Utils::getBrowserUserAgent($request),
-            Utils::getDeviceUserAgent($request)
+            $utils->getUserAgent($overrideSideloadedBrowserUa),
+            $utils->getUserAgentProfile(),
+            $utils->isXhtmlRequester(),
+            $utils->getBrowserUserAgent(),
+            $utils->getDeviceUserAgent()
         );
     }
 
