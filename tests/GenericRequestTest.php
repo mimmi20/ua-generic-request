@@ -10,6 +10,9 @@ use Wurfl\Request\GenericRequest;
  */
 class GenericRequestTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @covers GenericRequest::__construct
+     */
     public function testConstruct()
     {
         $userAgent = 'testUA';
