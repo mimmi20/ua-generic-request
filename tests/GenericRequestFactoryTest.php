@@ -21,9 +21,6 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
         $this->object = new GenericRequestFactory();
     }
 
-    /**
-     * @covers GenericRequestFactory::createRequest
-     */
     public function testCreateRequest()
     {
         $userAgent = 'testUA';
@@ -39,9 +36,6 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
         self::assertEquals($expected, $result);
     }
 
-    /**
-     * @covers GenericRequestFactory::createRequestForUserAgent
-     */
     public function testCreateRequestForUserAgent()
     {
         $userAgent = 'testUA';
