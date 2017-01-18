@@ -52,7 +52,7 @@ class Utils
     /**
      * returns the User Agent or empty string if not found
      *
-     * @param bool  $overrideSideloadedBrowserUa
+     * @param bool $overrideSideloadedBrowserUa
      *
      * @return string|null
      */
