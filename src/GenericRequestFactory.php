@@ -58,4 +58,60 @@ class GenericRequestFactory
 
         return new GenericRequest($request, $userAgent);
     }
+
+    /**
+     * @param array $data
+     *
+     * @return \Wurfl\Request\GenericRequest
+     */
+    public function fromArray(array $data)
+    {
+        if (isset($data['userAgent'])) {
+            $userAgent = $data['userAgent'];
+        } else {
+            $userAgent = '';
+        }
+
+        if (isset($data['request']) && is_array($data['request'])) {
+            $request = $data['request'];
+        } else {
+            $request = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
+        }
+
+        if (isset($data['browserUserAgent'])) {
+            $browserUa = $data['browserUserAgent'];
+        } else {
+            $browserUa = null;
+        }
+
+        if (isset($data['deviceUserAgent'])) {
+            $deviceUa = $data['deviceUserAgent'];
+        } else {
+            $deviceUa = null;
+        }
+
+        if (isset($data['userAgentProfile'])) {
+            $profile = $data['userAgentProfile'];
+        } else {
+            $profile = null;
+        }
+
+        if (isset($data['xhtmlDevice'])) {
+            $xhtml = $data['xhtmlDevice'];
+        } else {
+            $xhtml = false;
+        }
+
+        return new GenericRequest($request, $userAgent, $profile, $xhtml, $browserUa, $deviceUa);
+    }
+
+    /**
+     * @param string $json
+     *
+     * @return \Wurfl\Request\GenericRequest
+     */
+    public function fromJson($json)
+    {
+        return $this->fromArray((array) json_decode($json));
+    }
 }

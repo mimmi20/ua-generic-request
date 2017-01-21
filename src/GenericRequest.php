@@ -24,8 +24,6 @@ namespace Wurfl\Request;
  */
 class GenericRequest implements \Serializable
 {
-    const MAX_HTTP_HEADER_LENGTH = 512;
-
     /**
      * @var array
      */
@@ -77,9 +75,9 @@ class GenericRequest implements \Serializable
         $browserUserAgent = null,
         $deviceUserAgent = null
     ) {
-        $this->request                = $this->sanitizeHeaders($request);
-        $this->userAgent              = $this->sanitizeHeaders($userAgent);
-        $this->userAgentProfile       = $this->sanitizeHeaders($userAgentProfile);
+        $this->request                = $request;
+        $this->userAgent              = $userAgent;
+        $this->userAgentProfile       = $userAgentProfile;
         $this->xhtmlDevice            = $xhtmlDevice;
         $this->id                     = hash('sha512', $userAgent);
 
@@ -94,24 +92,6 @@ class GenericRequest implements \Serializable
         } else {
             $this->deviceUserAgent = $deviceUserAgent;
         }
-    }
-
-    /**
-     * @param array|string $headers
-     *
-     * @return array|string
-     */
-    private function sanitizeHeaders($headers)
-    {
-        if (!is_array($headers)) {
-            return $this->truncateHeader($headers);
-        }
-
-        foreach ($headers as $header => $value) {
-            $headers[$header] = $this->truncateHeader($value);
-        }
-
-        return $headers;
     }
 
     /**
@@ -171,20 +151,6 @@ class GenericRequest implements \Serializable
     }
 
     /**
-     * @param string $header
-     *
-     * @return string
-     */
-    private function truncateHeader($header)
-    {
-        if (strpos($header, 'HTTP_') !== 0 || strlen($header) <= self::MAX_HTTP_HEADER_LENGTH) {
-            return $header;
-        }
-
-        return substr($header, 0, self::MAX_HTTP_HEADER_LENGTH);
-    }
-
-    /**
      * Get the original HTTP header value from the request
      *
      * @param string $name
@@ -222,17 +188,7 @@ class GenericRequest implements \Serializable
      */
     public function serialize()
     {
-        return serialize(
-            [
-                'request'                => $this->request,
-                'userAgent'              => $this->userAgent,
-                'browserUserAgent'       => $this->browserUserAgent,
-                'deviceUserAgent'        => $this->deviceUserAgent,
-                'userAgentProfile'       => $this->userAgentProfile,
-                'xhtmlDevice'            => $this->xhtmlDevice,
-                'id'                     => $this->id,
-            ]
-        );
+        return serialize($this->toArray());
     }
 
     /**
@@ -249,12 +205,36 @@ class GenericRequest implements \Serializable
     {
         $unseriliazedData = unserialize($serialized);
 
-        $this->request                = $unseriliazedData['request'];
-        $this->userAgent              = $unseriliazedData['userAgent'];
-        $this->browserUserAgent       = $unseriliazedData['browserUserAgent'];
-        $this->deviceUserAgent        = $unseriliazedData['deviceUserAgent'];
-        $this->userAgentProfile       = $unseriliazedData['userAgentProfile'];
-        $this->xhtmlDevice            = $unseriliazedData['xhtmlDevice'];
-        $this->id                     = $unseriliazedData['id'];
+        $this->request          = $unseriliazedData['request'];
+        $this->userAgent        = $unseriliazedData['userAgent'];
+        $this->browserUserAgent = $unseriliazedData['browserUserAgent'];
+        $this->deviceUserAgent  = $unseriliazedData['deviceUserAgent'];
+        $this->userAgentProfile = $unseriliazedData['userAgentProfile'];
+        $this->xhtmlDevice      = $unseriliazedData['xhtmlDevice'];
+        $this->id               = $unseriliazedData['id'];
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'request'                => $this->request,
+            'userAgent'              => $this->userAgent,
+            'browserUserAgent'       => $this->browserUserAgent,
+            'deviceUserAgent'        => $this->deviceUserAgent,
+            'userAgentProfile'       => $this->userAgentProfile,
+            'xhtmlDevice'            => $this->xhtmlDevice,
+            'id'                     => $this->id,
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public function toJson()
+    {
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 }
