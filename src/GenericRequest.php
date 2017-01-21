@@ -60,38 +60,21 @@ class GenericRequest implements \Serializable
     private $id;
 
     /**
-     * @param array       $request          Original HTTP headers
-     * @param string      $userAgent
-     * @param string|null $userAgentProfile
-     * @param bool        $xhtmlDevice
-     * @param string|null $browserUserAgent
-     * @param string|null $deviceUserAgent
+     * @param array $request                     Original HTTP headers
+     * @param bool  $overrideSideloadedBrowserUa
      */
-    public function __construct(
-        array $request,
-        $userAgent,
-        $userAgentProfile = null,
-        $xhtmlDevice = false,
-        $browserUserAgent = null,
-        $deviceUserAgent = null
-    ) {
-        $this->request                = $request;
-        $this->userAgent              = $userAgent;
-        $this->userAgentProfile       = $userAgentProfile;
-        $this->xhtmlDevice            = $xhtmlDevice;
-        $this->id                     = hash('sha512', $userAgent);
+    public function __construct(array $request, $overrideSideloadedBrowserUa = true)
+    {
+        $this->request = $request;
 
-        if (null === $browserUserAgent) {
-            $this->browserUserAgent = $this->userAgent;
-        } else {
-            $this->browserUserAgent = $browserUserAgent;
-        }
+        $utils = new Utils($request);
 
-        if (null === $deviceUserAgent) {
-            $this->deviceUserAgent = $this->userAgent;
-        } else {
-            $this->deviceUserAgent = $deviceUserAgent;
-        }
+        $this->userAgent        = $utils->getUserAgent($overrideSideloadedBrowserUa);
+        $this->userAgentProfile = $utils->getUserAgentProfile();
+        $this->xhtmlDevice      = $utils->isXhtmlRequester();
+        $this->browserUserAgent = $utils->getBrowserUserAgent();
+        $this->deviceUserAgent  = $utils->getDeviceUserAgent();
+        $this->id               = hash('sha512', $this->userAgent);
     }
 
     /**

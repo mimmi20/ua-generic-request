@@ -16,16 +16,20 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         $userAgent = 'testUA';
         $browserUa = 'testBrowserUA';
         $deviceUa  = 'testDeviceUA';
+        $profile   = 'testProfile';
         $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            Constants::HEADER_DEVICE_UA      => $deviceUa,
+            Constants::HEADER_UCBROWSER_UA   => $browserUa,
+            Constants::HEADER_PROFILE        => $profile,
         ];
 
-        $object = new GenericRequest($header, $userAgent, null, false, $browserUa, $deviceUa);
+        $object = new GenericRequest($header, false);
 
         self::assertSame($userAgent, $object->getUserAgent());
         self::assertSame($header, $object->getRequest());
         self::assertFalse($object->isXhtmlDevice());
-        self::assertNull($object->getUserAgentProfile());
+        self::assertSame($profile, $object->getUserAgentProfile());
         self::assertSame($browserUa, $object->getBrowserUserAgent());
         self::assertSame($deviceUa, $object->getDeviceUserAgent());
         self::assertSame(hash('sha512', $userAgent), $object->getId());
@@ -37,13 +41,11 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
     public function testSerialize()
     {
         $userAgent = 'testUA';
-        $browserUa = 'testBrowserUA';
-        $deviceUa  = 'testDeviceUA';
         $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original   = new GenericRequest($header, $userAgent, null, false, $browserUa, $deviceUa);
+        $original   = new GenericRequest($header);
         $serialized = serialize($original);
         $object     = unserialize($serialized);
 
@@ -53,13 +55,11 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
     public function testToarray()
     {
         $userAgent = 'testUA';
-        $browserUa = 'testBrowserUA';
-        $deviceUa  = 'testDeviceUA';
         $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original   = new GenericRequest($header, $userAgent, null, false, $browserUa, $deviceUa);
+        $original   = new GenericRequest($header);
         $array      = $original->toArray();
         $object     = (new GenericRequestFactory())->fromArray($array);
 
@@ -69,13 +69,11 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
     public function testTojson()
     {
         $userAgent = 'testUA';
-        $browserUa = 'testBrowserUA';
-        $deviceUa  = 'testDeviceUA';
         $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original   = new GenericRequest($header, $userAgent, null, false, $browserUa, $deviceUa);
+        $original   = new GenericRequest($header);
         $json       = $original->toJson();
         $object     = (new GenericRequestFactory())->fromJson($json);
 

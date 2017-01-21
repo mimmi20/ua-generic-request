@@ -33,16 +33,7 @@ class GenericRequestFactory
      */
     public function createRequest(array $request, $overrideSideloadedBrowserUa = true)
     {
-        $utils = new Utils($request);
-
-        return new GenericRequest(
-            $request,
-            $utils->getUserAgent($overrideSideloadedBrowserUa),
-            $utils->getUserAgentProfile(),
-            $utils->isXhtmlRequester(),
-            $utils->getBrowserUserAgent(),
-            $utils->getDeviceUserAgent()
-        );
+        return new GenericRequest($request, $overrideSideloadedBrowserUa);
     }
 
     /**
@@ -54,9 +45,7 @@ class GenericRequestFactory
      */
     public function createRequestForUserAgent($userAgent)
     {
-        $request = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
-
-        return new GenericRequest($request, $userAgent);
+        return new GenericRequest([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
     }
 
     /**
@@ -66,43 +55,19 @@ class GenericRequestFactory
      */
     public function fromArray(array $data)
     {
-        if (isset($data['userAgent'])) {
-            $userAgent = $data['userAgent'];
+        if (isset($data['request'])) {
+            $request = (array) $data['request'];
         } else {
-            $userAgent = '';
-        }
+            if (isset($data['userAgent'])) {
+                $userAgent = $data['userAgent'];
+            } else {
+                $userAgent = '';
+            }
 
-        if (isset($data['request']) && is_array($data['request'])) {
-            $request = $data['request'];
-        } else {
             $request = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
         }
 
-        if (isset($data['browserUserAgent'])) {
-            $browserUa = $data['browserUserAgent'];
-        } else {
-            $browserUa = null;
-        }
-
-        if (isset($data['deviceUserAgent'])) {
-            $deviceUa = $data['deviceUserAgent'];
-        } else {
-            $deviceUa = null;
-        }
-
-        if (isset($data['userAgentProfile'])) {
-            $profile = $data['userAgentProfile'];
-        } else {
-            $profile = null;
-        }
-
-        if (isset($data['xhtmlDevice'])) {
-            $xhtml = $data['xhtmlDevice'];
-        } else {
-            $xhtml = false;
-        }
-
-        return new GenericRequest($request, $userAgent, $profile, $xhtml, $browserUa, $deviceUa);
+        return new GenericRequest($request);
     }
 
     /**
