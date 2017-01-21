@@ -33,14 +33,7 @@ class GenericRequestFactory
      */
     public function createRequest(array $request, $overrideSideloadedBrowserUa = true)
     {
-        return new GenericRequest(
-            $request,
-            Utils::getUserAgent($request, $overrideSideloadedBrowserUa),
-            Utils::getUserAgentProfile($request),
-            Utils::isXhtmlRequester($request),
-            Utils::getBrowserUserAgent($request),
-            Utils::getDeviceUserAgent($request)
-        );
+        return new GenericRequest($request, $overrideSideloadedBrowserUa);
     }
 
     /**
@@ -52,8 +45,38 @@ class GenericRequestFactory
      */
     public function createRequestForUserAgent($userAgent)
     {
-        $request = array(Constants::HEADER_HTTP_USERAGENT => $userAgent);
+        return new GenericRequest([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
+    }
 
-        return new GenericRequest($request, $userAgent);
+    /**
+     * @param array $data
+     *
+     * @return \Wurfl\Request\GenericRequest
+     */
+    public function fromArray(array $data)
+    {
+        if (isset($data['request'])) {
+            $request = (array) $data['request'];
+        } else {
+            if (isset($data['userAgent'])) {
+                $userAgent = $data['userAgent'];
+            } else {
+                $userAgent = '';
+            }
+
+            $request = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
+        }
+
+        return new GenericRequest($request);
+    }
+
+    /**
+     * @param string $json
+     *
+     * @return \Wurfl\Request\GenericRequest
+     */
+    public function fromJson($json)
+    {
+        return $this->fromArray((array) json_decode($json));
     }
 }

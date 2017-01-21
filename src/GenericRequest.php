@@ -24,8 +24,6 @@ namespace Wurfl\Request;
  */
 class GenericRequest implements \Serializable
 {
-    const MAX_HTTP_HEADER_LENGTH = 512;
-
     /**
      * @var array
      */
@@ -35,11 +33,6 @@ class GenericRequest implements \Serializable
      * @var string
      */
     private $userAgent;
-
-    /**
-     * @var string
-     */
-    private $userAgentNormalized;
 
     /**
      * @var string
@@ -67,69 +60,21 @@ class GenericRequest implements \Serializable
     private $id;
 
     /**
-     * @var \Wurfl\Request\MatchInfo
+     * @param array $request                     Original HTTP headers
+     * @param bool  $overrideSideloadedBrowserUa
      */
-    private $matchInfo;
-
-    /**
-     * @var array
-     */
-    private $userAgentsWithDeviceID;
-
-    /**
-     * @param array       $request          Original HTTP headers
-     * @param string      $userAgent
-     * @param string|null $userAgentProfile
-     * @param bool        $xhtmlDevice
-     * @param string|null $browserUserAgent
-     * @param string|null $deviceUserAgent
-     */
-    public function __construct(
-        array $request,
-        $userAgent,
-        $userAgentProfile = null,
-        $xhtmlDevice = false,
-        $browserUserAgent = null,
-        $deviceUserAgent = null
-    ) {
-        $this->request                = $this->sanitizeHeaders($request);
-        $this->userAgent              = $this->sanitizeHeaders($userAgent);
-        $this->userAgentProfile       = $this->sanitizeHeaders($userAgentProfile);
-        $this->xhtmlDevice            = $xhtmlDevice;
-        $this->id                     = hash('sha512', $userAgent);
-        $this->matchInfo              = new MatchInfo();
-        $this->userAgentsWithDeviceID = array();
-        $this->userAgentNormalized    = $this->userAgent;
-
-        if (null === $browserUserAgent) {
-            $this->browserUserAgent = $this->userAgent;
-        } else {
-            $this->browserUserAgent = $browserUserAgent;
-        }
-
-        if (null === $deviceUserAgent) {
-            $this->deviceUserAgent = $this->userAgent;
-        } else {
-            $this->deviceUserAgent = $deviceUserAgent;
-        }
-    }
-
-    /**
-     * @param array|string $headers
-     *
-     * @return array|string
-     */
-    private function sanitizeHeaders($headers)
+    public function __construct(array $request, $overrideSideloadedBrowserUa = true)
     {
-        if (!is_array($headers)) {
-            return $this->truncateHeader($headers);
-        }
+        $this->request = $request;
 
-        foreach ($headers as $header => $value) {
-            $headers[$header] = $this->truncateHeader($value);
-        }
+        $utils = new Utils($request);
 
-        return $headers;
+        $this->userAgent        = $utils->getUserAgent($overrideSideloadedBrowserUa);
+        $this->userAgentProfile = $utils->getUserAgentProfile();
+        $this->xhtmlDevice      = $utils->isXhtmlRequester();
+        $this->browserUserAgent = $utils->getBrowserUserAgent();
+        $this->deviceUserAgent  = $utils->getDeviceUserAgent();
+        $this->id               = hash('sha512', $this->userAgent);
     }
 
     /**
@@ -167,22 +112,6 @@ class GenericRequest implements \Serializable
     /**
      * @return string
      */
-    public function getUserAgentNormalized()
-    {
-        return $this->userAgentNormalized;
-    }
-
-    /**
-     * @param string $userAgentNormalized
-     */
-    public function setUserAgentNormalized($userAgentNormalized)
-    {
-        $this->userAgentNormalized = $userAgentNormalized;
-    }
-
-    /**
-     * @return string
-     */
     public function getUserAgentProfile()
     {
         return $this->userAgentProfile;
@@ -202,44 +131,6 @@ class GenericRequest implements \Serializable
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return \Wurfl\Request\MatchInfo
-     */
-    public function getMatchInfo()
-    {
-        return $this->matchInfo;
-    }
-
-    /**
-     * @return array
-     */
-    public function getUserAgentsWithDeviceID()
-    {
-        return $this->userAgentsWithDeviceID;
-    }
-
-    /**
-     * @param array $userAgentsWithDeviceID
-     */
-    public function setUserAgentsWithDeviceID(array $userAgentsWithDeviceID)
-    {
-        $this->userAgentsWithDeviceID = $userAgentsWithDeviceID;
-    }
-
-    /**
-     * @param string $header
-     *
-     * @return string
-     */
-    private function truncateHeader($header)
-    {
-        if (strpos($header, 'HTTP_') !== 0 || strlen($header) <= self::MAX_HTTP_HEADER_LENGTH) {
-            return $header;
-        }
-
-        return substr($header, 0, self::MAX_HTTP_HEADER_LENGTH);
     }
 
     /**
@@ -280,20 +171,7 @@ class GenericRequest implements \Serializable
      */
     public function serialize()
     {
-        return serialize(
-            array(
-                'request'                => $this->request,
-                'userAgent'              => $this->userAgent,
-                'userAgentNormalized'    => $this->userAgentNormalized,
-                'browserUserAgent'       => $this->browserUserAgent,
-                'deviceUserAgent'        => $this->deviceUserAgent,
-                'userAgentProfile'       => $this->userAgentProfile,
-                'xhtmlDevice'            => $this->xhtmlDevice,
-                'id'                     => $this->id,
-                'matchInfo'              => $this->matchInfo,
-                'userAgentsWithDeviceID' => $this->userAgentsWithDeviceID,
-            )
-        );
+        return serialize($this->toArray());
     }
 
     /**
@@ -310,15 +188,36 @@ class GenericRequest implements \Serializable
     {
         $unseriliazedData = unserialize($serialized);
 
-        $this->request                = $unseriliazedData['request'];
-        $this->userAgent              = $unseriliazedData['userAgent'];
-        $this->userAgentNormalized    = $unseriliazedData['userAgentNormalized'];
-        $this->browserUserAgent       = $unseriliazedData['browserUserAgent'];
-        $this->deviceUserAgent        = $unseriliazedData['deviceUserAgent'];
-        $this->userAgentProfile       = $unseriliazedData['userAgentProfile'];
-        $this->xhtmlDevice            = $unseriliazedData['xhtmlDevice'];
-        $this->id                     = $unseriliazedData['id'];
-        $this->matchInfo              = $unseriliazedData['matchInfo'];
-        $this->userAgentsWithDeviceID = $unseriliazedData['userAgentsWithDeviceID'];
+        $this->request          = $unseriliazedData['request'];
+        $this->userAgent        = $unseriliazedData['userAgent'];
+        $this->browserUserAgent = $unseriliazedData['browserUserAgent'];
+        $this->deviceUserAgent  = $unseriliazedData['deviceUserAgent'];
+        $this->userAgentProfile = $unseriliazedData['userAgentProfile'];
+        $this->xhtmlDevice      = $unseriliazedData['xhtmlDevice'];
+        $this->id               = $unseriliazedData['id'];
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'request'                => $this->request,
+            'userAgent'              => $this->userAgent,
+            'browserUserAgent'       => $this->browserUserAgent,
+            'deviceUserAgent'        => $this->deviceUserAgent,
+            'userAgentProfile'       => $this->userAgentProfile,
+            'xhtmlDevice'            => $this->xhtmlDevice,
+            'id'                     => $this->id,
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public function toJson()
+    {
+        return json_encode($this->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 }

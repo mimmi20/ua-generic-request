@@ -2,10 +2,6 @@ language: php
 sudo: false
 
 php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
   - 7.0
   - 7.1
   - nightly
@@ -19,7 +15,6 @@ env:
 
 matrix:
   allow_failures:
-  # fails due a segmentation fault
     - php: nightly
     - env: PREFER_LOWEST="--prefer-lowest"
 
@@ -30,13 +25,13 @@ before_script:
   - travis_retry composer update --optimize-autoloader --prefer-dist --prefer-stable --no-progress --no-interaction $PREFER_LOWEST
 
 script:
-  - vendor/bin/phpunit --colors --verbose --coverage-text --coverage-clover=coverage.clover
-  - php -n vendor/bin/phpcs --standard=psr2 -np src tests
+  - vendor/bin/phpunit --colors --coverage-clover=coverage.clover
+  - php -n -d memory_limit=768M vendor/bin/phpcs
   - php -n -d memory_limit=768M vendor/bin/php-cs-fixer fix --dry-run -vv
 
-#after_script:
-#  - if [ "`phpenv version-name`" == "5.3" ] || [ "`phpenv version-name`" == "5.4" ] || [ "`phpenv version-name`" == "5.5" ] || [ "`phpenv version-name`" == "5.6" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-#  - if [ "`phpenv version-name`" == "5.3" ] || [ "`phpenv version-name`" == "5.4" ] || [ "`phpenv version-name`" == "5.5" ] || [ "`phpenv version-name`" == "5.6" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
+after_success:
+  - wget https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar
+  - php -n coveralls.phar --verbose --coverage_clover=coverage.clover
 
 notifications:
   email: false
