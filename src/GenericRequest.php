@@ -22,7 +22,7 @@ namespace Wurfl\Request;
  * Generic WURFL Request object containing User Agent, UAProf and xhtml device data; its id
  * property is the SHA512 hash of the user agent
  */
-class GenericRequest implements \Serializable
+class GenericRequest
 {
     /**
      * @var array
@@ -162,42 +162,6 @@ class GenericRequest implements \Serializable
     }
 
     /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
-     * String representation of object
-     *
-     * @link http://php.net/manual/en/serializable.serialize.php
-     *
-     * @return string the string representation of the object or null
-     */
-    public function serialize()
-    {
-        return serialize($this->toArray());
-    }
-
-    /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
-     * Constructs the object
-     *
-     * @link http://php.net/manual/en/serializable.unserialize.php
-     *
-     * @param string $serialized <p>
-     *                           The string representation of the object.
-     *                           </p>
-     */
-    public function unserialize($serialized)
-    {
-        $unseriliazedData = unserialize($serialized);
-
-        $this->request          = $unseriliazedData['request'];
-        $this->userAgent        = $unseriliazedData['userAgent'];
-        $this->browserUserAgent = $unseriliazedData['browserUserAgent'];
-        $this->deviceUserAgent  = $unseriliazedData['deviceUserAgent'];
-        $this->userAgentProfile = $unseriliazedData['userAgentProfile'];
-        $this->xhtmlDevice      = $unseriliazedData['xhtmlDevice'];
-        $this->id               = $unseriliazedData['id'];
-    }
-
-    /**
      * @return array
      */
     public function toArray()
@@ -211,13 +175,5 @@ class GenericRequest implements \Serializable
             'xhtmlDevice'            => $this->xhtmlDevice,
             'id'                     => $this->id,
         ];
-    }
-
-    /**
-     * @return string
-     */
-    public function toJson()
-    {
-        return json_encode($this->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 }

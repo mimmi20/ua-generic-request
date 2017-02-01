@@ -56,7 +56,7 @@ class GenericRequestFactory
     public function fromArray(array $data)
     {
         if (isset($data['request'])) {
-            $request = (array) $data['request'];
+            $request = $data['request'];
         } else {
             if (isset($data['userAgent'])) {
                 $userAgent = $data['userAgent'];
@@ -68,15 +68,5 @@ class GenericRequestFactory
         }
 
         return new GenericRequest($request);
-    }
-
-    /**
-     * @param string $json
-     *
-     * @return \Wurfl\Request\GenericRequest
-     */
-    public function fromJson($json)
-    {
-        return $this->fromArray((array) json_decode($json));
     }
 }
