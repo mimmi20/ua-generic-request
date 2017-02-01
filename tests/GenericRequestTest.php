@@ -38,20 +38,6 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         self::assertNull($object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));
     }
 
-    public function testSerialize()
-    {
-        $userAgent = 'testUA';
-        $header    = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        ];
-
-        $original   = new GenericRequest($header);
-        $serialized = serialize($original);
-        $object     = unserialize($serialized);
-
-        self::assertEquals($original, $object);
-    }
-
     public function testToarray()
     {
         $userAgent = 'testUA';
@@ -62,20 +48,6 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         $original   = new GenericRequest($header);
         $array      = $original->toArray();
         $object     = (new GenericRequestFactory())->fromArray($array);
-
-        self::assertEquals($original, $object);
-    }
-
-    public function testTojson()
-    {
-        $userAgent = 'testUA';
-        $header    = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        ];
-
-        $original   = new GenericRequest($header);
-        $json       = $original->toJson();
-        $object     = (new GenericRequestFactory())->fromJson($json);
 
         self::assertEquals($original, $object);
     }
