@@ -56,7 +56,7 @@ class GenericRequestFactory
     public function fromArray(array $data)
     {
         if (isset($data['request'])) {
-            $request = $data['request'];
+            $request = (array) $data['request'];
         } else {
             if (isset($data['userAgent'])) {
                 $userAgent = $data['userAgent'];
