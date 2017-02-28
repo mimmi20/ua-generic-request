@@ -1,21 +1,14 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
+ * This file is part of the wurfl-generic-request package.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * Refer to the COPYING.txt file distributed with this package.
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace Wurfl\Request;
 
 /**
@@ -71,8 +64,6 @@ class Utils
                 return $this->request[$header];
             }
         }
-
-        return null;
     }
 
     /**
@@ -91,8 +82,6 @@ class Utils
                 return $this->request[$header];
             }
         }
-
-        return null;
     }
 
     /**
@@ -111,8 +100,6 @@ class Utils
                 return $this->request[$header];
             }
         }
-
-        return null;
     }
 
     /**
@@ -137,15 +124,13 @@ class Utils
             $namespaceProfile = null;
 
             if (preg_match($regex, $opt, $matches)) {
-                $namespaceProfile = substr($matches[0], 2) . '-Profile';
+                $namespaceProfile = mb_substr($matches[0], 2) . '-Profile';
             }
 
             if ($namespaceProfile !== null && isset($this->request[$namespaceProfile])) {
                 return $this->request[$namespaceProfile];
             }
         }
-
-        return null;
     }
 
     /**
@@ -161,9 +146,9 @@ class Utils
 
         $accept = $this->request[Constants::ACCEPT_HEADER_NAME];
 
-        if ((strpos($accept, Constants::ACCEPT_HEADER_VND_WAP_XHTML_XML) !== false)
-            || (strpos($accept, Constants::ACCEPT_HEADER_XHTML_XML) !== false)
-            || (strpos($accept, Constants::ACCEPT_HEADER_TEXT_HTML) !== false)
+        if ((mb_strpos($accept, Constants::ACCEPT_HEADER_VND_WAP_XHTML_XML) !== false)
+            || (mb_strpos($accept, Constants::ACCEPT_HEADER_XHTML_XML) !== false)
+            || (mb_strpos($accept, Constants::ACCEPT_HEADER_TEXT_HTML) !== false)
         ) {
             return true;
         }
