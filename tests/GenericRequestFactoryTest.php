@@ -44,7 +44,7 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
         self::assertSame($userAgent, $result->getUserAgent());
-        self::assertNull($result->getUserAgentProfile());
+        self::assertSame('', $result->getUserAgentProfile());
     }
 
     public function testCreateRequestFromEmptyHeaders()
@@ -57,8 +57,8 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
-        self::assertNull($result->getUserAgent());
-        self::assertNull($result->getUserAgentProfile());
+        self::assertSame('', $result->getUserAgent());
+        self::assertSame('', $result->getUserAgentProfile());
     }
 
     public function testCreateRequestForUserAgent()
@@ -75,7 +75,7 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
         self::assertSame($userAgent, $result->getUserAgent());
-        self::assertNull($result->getUserAgentProfile());
+        self::assertSame('', $result->getUserAgentProfile());
     }
 
     public function testToarray()

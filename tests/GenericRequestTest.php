@@ -44,7 +44,7 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         self::assertSame(hash('sha512', $userAgent), $object->getId());
 
         self::assertSame($userAgent, $object->getOriginalHeader(Constants::HEADER_HTTP_USERAGENT));
-        self::assertNull($object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));
+        self::assertSame('', $object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));
     }
 
     public function testToarray()
