@@ -1,5 +1,14 @@
 <?php
+/**
+ * This file is part of the wurfl-generic-request package.
+ *
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
+declare(strict_types = 1);
 namespace WurflTest\Request;
 
 use Wurfl\Request\Constants;
@@ -35,7 +44,7 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
         self::assertSame($userAgent, $result->getUserAgent());
-        self::assertNull($result->getUserAgentProfile());
+        self::assertSame('', $result->getUserAgentProfile());
     }
 
     public function testCreateRequestFromEmptyHeaders()
@@ -48,8 +57,8 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
-        self::assertNull($result->getUserAgent());
-        self::assertNull($result->getUserAgentProfile());
+        self::assertSame('', $result->getUserAgent());
+        self::assertSame('', $result->getUserAgentProfile());
     }
 
     public function testCreateRequestForUserAgent()
@@ -66,7 +75,7 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
         self::assertSame($userAgent, $result->getUserAgent());
-        self::assertNull($result->getUserAgentProfile());
+        self::assertSame('', $result->getUserAgentProfile());
     }
 
     public function testToarray()

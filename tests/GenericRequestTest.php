@@ -1,5 +1,14 @@
 <?php
+/**
+ * This file is part of the wurfl-generic-request package.
+ *
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
+declare(strict_types = 1);
 namespace WurflTest\Request;
 
 use Wurfl\Request\Constants;
@@ -35,7 +44,7 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         self::assertSame(hash('sha512', $userAgent), $object->getId());
 
         self::assertSame($userAgent, $object->getOriginalHeader(Constants::HEADER_HTTP_USERAGENT));
-        self::assertNull($object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));
+        self::assertSame('', $object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));
     }
 
     public function testToarray()
