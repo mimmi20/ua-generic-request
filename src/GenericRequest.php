@@ -67,7 +67,7 @@ class GenericRequest
         $this->xhtmlDevice      = $utils->isXhtmlRequester();
         $this->browserUserAgent = $utils->getBrowserUserAgent();
         $this->deviceUserAgent  = $utils->getDeviceUserAgent();
-        $this->id               = hash('sha512', $this->userAgent);
+        $this->id               = hash('sha512', (string) $this->userAgent);
     }
 
     /**
@@ -138,6 +138,8 @@ class GenericRequest
         if ($this->originalHeaderExists($name)) {
             return $this->request[$name];
         }
+
+        return '';
     }
 
     /**

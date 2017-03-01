@@ -47,7 +47,7 @@ class Utils
      *
      * @param bool $overrideSideloadedBrowserUa
      *
-     * @return string|null
+     * @return string
      */
     public function getUserAgent($overrideSideloadedBrowserUa = true)
     {
@@ -64,12 +64,14 @@ class Utils
                 return $this->request[$header];
             }
         }
+
+        return '';
     }
 
     /**
      * returns the User Agent or empty string if not found
      *
-     * @return string|null
+     * @return string
      */
     public function getDeviceUserAgent()
     {
@@ -82,12 +84,14 @@ class Utils
                 return $this->request[$header];
             }
         }
+
+        return '';
     }
 
     /**
      * returns the User Agent or empty string if not found
      *
-     * @return string|null
+     * @return string
      */
     public function getBrowserUserAgent()
     {
@@ -100,12 +104,14 @@ class Utils
                 return $this->request[$header];
             }
         }
+
+        return '';
     }
 
     /**
      * Returns the UA Profile
      *
-     * @return string|null UAProf URL
+     * @return string UAProf URL
      */
     public function getUserAgentProfile()
     {
@@ -131,6 +137,8 @@ class Utils
                 return $this->request[$namespaceProfile];
             }
         }
+
+        return '';
     }
 
     /**
