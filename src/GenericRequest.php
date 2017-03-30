@@ -20,7 +20,7 @@ class GenericRequest
     /**
      * @var array
      */
-    private $request;
+    private $headers;
 
     /**
      * @var string
@@ -58,7 +58,7 @@ class GenericRequest
      */
     public function __construct(array $request, $overrideSideloadedBrowserUa = true)
     {
-        $this->request = $request;
+        $this->headers = $request;
 
         $utils = new Utils($request);
 
@@ -73,9 +73,9 @@ class GenericRequest
     /**
      * @return array
      */
-    public function getRequest()
+    public function getHeaders()
     {
-        return $this->request;
+        return $this->headers;
     }
 
     /**
@@ -136,7 +136,7 @@ class GenericRequest
     public function getOriginalHeader($name)
     {
         if ($this->originalHeaderExists($name)) {
-            return $this->request[$name];
+            return $this->headers[$name];
         }
 
         return '';
@@ -151,22 +151,28 @@ class GenericRequest
      */
     public function originalHeaderExists($name)
     {
-        return array_key_exists($name, $this->request);
+        return array_key_exists($name, $this->headers);
     }
 
     /**
+     * @param bool $complete
+     *
      * @return array
      */
-    public function toArray()
+    public function toArray($complete = true)
     {
-        return [
-            'request'                => $this->request,
-            'userAgent'              => $this->userAgent,
-            'browserUserAgent'       => $this->browserUserAgent,
-            'deviceUserAgent'        => $this->deviceUserAgent,
-            'userAgentProfile'       => $this->userAgentProfile,
-            'xhtmlDevice'            => $this->xhtmlDevice,
-            'id'                     => $this->id,
-        ];
+        if ($complete) {
+            return [
+                'headers'          => $this->headers,
+                'userAgent'        => $this->userAgent,
+                'browserUserAgent' => $this->browserUserAgent,
+                'deviceUserAgent'  => $this->deviceUserAgent,
+                'userAgentProfile' => $this->userAgentProfile,
+                'xhtmlDevice'      => $this->xhtmlDevice,
+                'id'               => $this->id,
+            ];
+        }
+
+        return $this->headers;
     }
 }

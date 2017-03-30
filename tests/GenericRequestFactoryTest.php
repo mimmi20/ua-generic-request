@@ -18,7 +18,7 @@ use Wurfl\Request\GenericRequestFactory;
 /**
  * test case
  */
-class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
+class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var \Wurfl\Request\GenericRequestFactory
@@ -68,7 +68,7 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $expected = new GenericRequest($header, $userAgent, null, false);
+        $expected = new GenericRequest($header, false);
 
         $result = $this->object->createRequestForUserAgent($userAgent);
 
@@ -95,6 +95,33 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
         self::assertSame($userAgent, $result->getUserAgent());
     }
 
+    public function testToarrayWithUaInHeaderArray()
+    {
+        $userAgent = 'testUA';
+        $result    = $this->object->fromArray(['headers' => [Constants::HEADER_HTTP_USERAGENT => $userAgent]]);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+    }
+
+    public function testToarrayWithUaInRequestArray()
+    {
+        $userAgent = 'testUA';
+        $result    = $this->object->fromArray(['request' => [Constants::HEADER_HTTP_USERAGENT => $userAgent]]);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+    }
+
+    public function testToarrayWithUaSimple()
+    {
+        $userAgent = 'testUA';
+        $result    = $this->object->fromArray([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+    }
+
     public function testCreateRequestFromParam()
     {
         $userAgent = 'testUA';
@@ -104,7 +131,7 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
             Constants::HEADER_WAP_PROFILE => $profile,
         ];
 
-        $expected = new GenericRequest($header, $userAgent, $profile, false);
+        $expected = new GenericRequest($header, false);
 
         $result = $this->object->createRequest($header, false);
 
