@@ -113,6 +113,15 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
         self::assertSame($userAgent, $result->getUserAgent());
     }
 
+    public function testToarrayWithUaSimple()
+    {
+        $userAgent = 'testUA';
+        $result    = $this->object->fromArray([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+    }
+
     public function testCreateRequestFromParam()
     {
         $userAgent = 'testUA';

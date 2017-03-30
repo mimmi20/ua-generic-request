@@ -173,6 +173,6 @@ class GenericRequest
             ];
         }
 
-        return ['headers' => $this->headers];
+        return $this->headers;
     }
 }

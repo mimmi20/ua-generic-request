@@ -26,17 +26,17 @@ class GenericRequestTest extends \PHPUnit\Framework\TestCase
         $browserUa = 'testBrowserUA';
         $deviceUa  = 'testDeviceUA';
         $profile   = 'testProfile';
-        $header    = [
+        $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
             Constants::HEADER_DEVICE_UA      => $deviceUa,
             Constants::HEADER_UCBROWSER_UA   => $browserUa,
             Constants::HEADER_PROFILE        => $profile,
         ];
 
-        $object = new GenericRequest($header, false);
+        $object = new GenericRequest($headers, false);
 
         self::assertSame($userAgent, $object->getUserAgent());
-        self::assertSame($header, $object->getHeaders());
+        self::assertSame($headers, $object->getHeaders());
         self::assertFalse($object->isXhtmlDevice());
         self::assertSame($profile, $object->getUserAgentProfile());
         self::assertSame($browserUa, $object->getBrowserUserAgent());
@@ -50,11 +50,11 @@ class GenericRequestTest extends \PHPUnit\Framework\TestCase
     public function testToarray()
     {
         $userAgent = 'testUA';
-        $header    = [
+        $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original   = new GenericRequest($header);
+        $original   = new GenericRequest($headers);
         $array      = $original->toArray();
         $object     = (new GenericRequestFactory())->fromArray($array);
 
@@ -64,13 +64,13 @@ class GenericRequestTest extends \PHPUnit\Framework\TestCase
     public function testToarraySimple()
     {
         $userAgent = 'testUA';
-        $header    = [
+        $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original   = new GenericRequest($header);
+        $original   = new GenericRequest($headers);
         $array      = $original->toArray(false);
 
-        self::assertEquals(['headers' => $header], $array);
+        self::assertEquals($headers, $array);
     }
 }

@@ -48,7 +48,9 @@ class GenericRequestFactory
      */
     public function fromArray(array $data)
     {
-        if (isset($data['headers'])) {
+        if (isset($data[Constants::HEADER_HTTP_USERAGENT])) {
+            $request = $data;
+        } elseif (isset($data['headers'])) {
             $request = (array) $data['headers'];
         } elseif (isset($data['request'])) {
             $request = (array) $data['request'];
