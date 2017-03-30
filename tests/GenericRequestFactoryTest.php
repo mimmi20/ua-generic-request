@@ -18,7 +18,7 @@ use Wurfl\Request\GenericRequestFactory;
 /**
  * test case
  */
-class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
+class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var \Wurfl\Request\GenericRequestFactory
@@ -90,6 +90,24 @@ class GenericRequestFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $userAgent = 'testUA';
         $result    = $this->object->fromArray(['userAgent' => $userAgent]);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+    }
+
+    public function testToarrayWithUaInHeaderArray()
+    {
+        $userAgent = 'testUA';
+        $result    = $this->object->fromArray(['headers' => [Constants::HEADER_HTTP_USERAGENT => $userAgent]]);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+    }
+
+    public function testToarrayWithUaInRequestArray()
+    {
+        $userAgent = 'testUA';
+        $result    = $this->object->fromArray(['request' => [Constants::HEADER_HTTP_USERAGENT => $userAgent]]);
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertSame($userAgent, $result->getUserAgent());

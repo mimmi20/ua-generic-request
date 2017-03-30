@@ -18,7 +18,7 @@ use Wurfl\Request\GenericRequestFactory;
 /**
  * test case
  */
-class GenericRequestTest extends \PHPUnit_Framework_TestCase
+class GenericRequestTest extends \PHPUnit\Framework\TestCase
 {
     public function testConstruct()
     {
@@ -36,7 +36,7 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         $object = new GenericRequest($header, false);
 
         self::assertSame($userAgent, $object->getUserAgent());
-        self::assertSame($header, $object->getRequest());
+        self::assertSame($header, $object->getHeaders());
         self::assertFalse($object->isXhtmlDevice());
         self::assertSame($profile, $object->getUserAgentProfile());
         self::assertSame($browserUa, $object->getBrowserUserAgent());
@@ -59,5 +59,18 @@ class GenericRequestTest extends \PHPUnit_Framework_TestCase
         $object     = (new GenericRequestFactory())->fromArray($array);
 
         self::assertEquals($original, $object);
+    }
+
+    public function testToarraySimple()
+    {
+        $userAgent = 'testUA';
+        $header    = [
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+        ];
+
+        $original   = new GenericRequest($header);
+        $array      = $original->toArray(false);
+
+        self::assertEquals(['headers' => $header], $array);
     }
 }
