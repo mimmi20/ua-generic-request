@@ -68,7 +68,7 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $expected = new GenericRequest($header, $userAgent, null, false);
+        $expected = new GenericRequest($header, false);
 
         $result = $this->object->createRequestForUserAgent($userAgent);
 
@@ -131,7 +131,7 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
             Constants::HEADER_WAP_PROFILE => $profile,
         ];
 
-        $expected = new GenericRequest($header, $userAgent, $profile, false);
+        $expected = new GenericRequest($header, false);
 
         $result = $this->object->createRequest($header, false);
 
