@@ -73,7 +73,7 @@ class GenericRequestFactory
     }
 
     /**
-     * Create a Generic Request from the given $userAgent
+     * Create a Generic Request from a given PSR-7 HTTP message
      *
      * @param \Psr\Http\Message\MessageInterface $message
      *
