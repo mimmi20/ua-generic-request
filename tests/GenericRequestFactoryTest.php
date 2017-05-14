@@ -47,13 +47,30 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
         self::assertSame('', $result->getUserAgentProfile());
     }
 
+    public function testCreateRequestFromArray()
+    {
+        $userAgent = 'testUA';
+        $header    = [
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+        ];
+
+        $expected = new GenericRequest($header, false);
+
+        $result = $this->object->createRequestFromArray($header, false);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertEquals($expected, $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+        self::assertSame('', $result->getUserAgentProfile());
+    }
+
     public function testCreateRequestFromEmptyHeaders()
     {
         $header    = [];
 
         $expected = new GenericRequest($header, false);
 
-        $result = $this->object->createRequest($header, false);
+        $result = $this->object->createRequestFromArray($header, false);
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
@@ -71,6 +88,23 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
         $expected = new GenericRequest($header, false);
 
         $result = $this->object->createRequestForUserAgent($userAgent);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertEquals($expected, $result);
+        self::assertSame($userAgent, $result->getUserAgent());
+        self::assertSame('', $result->getUserAgentProfile());
+    }
+
+    public function testCreateRequestFromString()
+    {
+        $userAgent = 'testUA';
+        $header    = [
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+        ];
+
+        $expected = new GenericRequest($header, false);
+
+        $result = $this->object->createRequestFromString($userAgent);
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
@@ -126,14 +160,14 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
     {
         $userAgent = 'testUA';
         $profile   = 'testProfile';
-        $header    = [
+        $headers   = [
             Constants::UA                 => $userAgent,
             Constants::HEADER_WAP_PROFILE => $profile,
         ];
 
-        $expected = new GenericRequest($header, false);
+        $expected = new GenericRequest($headers, false);
 
-        $result = $this->object->createRequest($header, false);
+        $result = $this->object->createRequestFromArray($headers, false);
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
@@ -146,16 +180,16 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
         $userAgent = 'testUA';
         $deviceUa  = 'testDeviceUa';
         $profile   = 'testProfile';
-        $header    = [
+        $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
             Constants::HEADER_DEVICE_UA      => $deviceUa,
             Constants::HEADER_PROFILE        => $profile,
             Constants::ACCEPT_HEADER_NAME    => Constants::ACCEPT_HEADER_XHTML_XML,
         ];
 
-        $expected = new GenericRequest($header, true);
+        $expected = new GenericRequest($headers, true);
 
-        $result = $this->object->createRequest($header, true);
+        $result = $this->object->createRequestFromArray($headers, true);
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
@@ -171,7 +205,7 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
         $userAgent = 'testUA';
         $deviceUa  = 'testDeviceUa';
         $profile   = 'testProfile';
-        $header    = [
+        $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
             Constants::HEADER_DEVICE_UA      => $deviceUa,
             Constants::HEADER_OPT            => 'ns=01234',
@@ -179,9 +213,9 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
             '=01234-Profile'                 => $profile,
         ];
 
-        $expected = new GenericRequest($header, true);
+        $expected = new GenericRequest($headers, true);
 
-        $result = $this->object->createRequest($header, true);
+        $result = $this->object->createRequestFromArray($headers, true);
 
         self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
         self::assertEquals($expected, $result);
@@ -190,5 +224,35 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
         self::assertSame($deviceUa, $result->getDeviceUserAgent());
         self::assertSame($profile, $result->getUserAgentProfile());
         self::assertFalse($result->isXhtmlDevice());
+    }
+
+    public function testCreateRequestFromPsr7Message()
+    {
+        $userAgent = 'testUA';
+        $deviceUa  = 'testDeviceUa';
+        $headers   = [
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            Constants::HEADER_DEVICE_UA      => $deviceUa,
+        ];
+
+        $messageHeaders = [
+            Constants::HEADER_HTTP_USERAGENT => [$userAgent],
+            Constants::HEADER_DEVICE_UA      => [$deviceUa],
+        ];
+
+        $expected = new GenericRequest($headers, true);
+
+        $message = $this->createMock('\Psr\Http\Message\MessageInterface');
+        $message->expects(self::once())
+            ->method('getHeaders')
+            ->willReturn($messageHeaders);
+
+        $result = $this->object->createRequestFromPsr7Message($message);
+
+        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertEquals($expected, $result);
+        self::assertSame($deviceUa, $result->getUserAgent());
+        self::assertSame($userAgent, $result->getBrowserUserAgent());
+        self::assertSame($deviceUa, $result->getDeviceUserAgent());
     }
 }

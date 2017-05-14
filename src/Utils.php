@@ -20,13 +20,18 @@ class Utils
      * @var array
      */
     private $userAgentSearchOrder = [
-        Constants::HEADER_DEVICE_STOCK_UA    => 'device',
-        Constants::HEADER_DEVICE_UA          => 'device',
-        Constants::HEADER_SKYFIRE_VERSION    => 'browser',
-        Constants::HEADER_BLUECOAT_VIA       => 'browser',
-        Constants::HEADER_OPERAMINI_PHONE_UA => 'browser',
-        Constants::HEADER_UCBROWSER_UA       => 'browser',
-        Constants::HEADER_HTTP_USERAGENT     => 'generic',
+        Constants::HEADER_DEVICE_STOCK_UA     => 'device',
+        Constants::HEADER_DEVICE_UA           => 'device',
+        Constants::HEADER_UCBROWSER_DEVICE_UA => 'device',
+        Constants::HEADER_SKYFIRE_PHONE       => 'device',
+        Constants::HEADER_SKYFIRE_VERSION     => 'browser',
+        Constants::HEADER_BLUECOAT_VIA        => 'browser',
+        Constants::HEADER_OPERAMINI_PHONE_UA  => 'browser',
+        Constants::HEADER_BOLT_PHONE_UA       => 'browser',
+        Constants::HEADER_UCBROWSER_UA        => 'browser',
+        Constants::HEADER_MOBILE_UA           => 'browser',
+        Constants::HEADER_ORIGINAL_UA         => 'generic',
+        Constants::HEADER_HTTP_USERAGENT      => 'generic',
     ];
 
     /**
