@@ -71,4 +71,36 @@ class GenericRequestTest extends TestCase
 
         self::assertEquals($headers, $array);
     }
+
+    /**
+     * @return void
+     */
+    public function testForDevice(): void
+    {
+        $userAgent = 'testUA';
+        $headers   = [
+            Constants::HEADER_DEVICE_UA => $userAgent,
+        ];
+
+        $original = new GenericRequest($headers);
+        $ua       = $original->getDeviceUserAgent();
+
+        self::assertEquals($userAgent, $ua);
+    }
+
+    /**
+     * @return void
+     */
+    public function testForBrowser(): void
+    {
+        $userAgent = 'testUA';
+        $headers   = [
+            Constants::HEADER_UCBROWSER_UA => $userAgent,
+        ];
+
+        $original = new GenericRequest($headers);
+        $ua       = $original->getBrowserUserAgent();
+
+        self::assertEquals($userAgent, $ua);
+    }
 }
