@@ -79,13 +79,13 @@ class GenericRequestTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_DEVICE_UA => $userAgent,
+            Constants::HEADER_UCBROWSER_UA => $userAgent,
         ];
 
         $original = new GenericRequest($headers);
         $ua       = $original->getDeviceUserAgent();
 
-        self::assertEquals($userAgent, $ua);
+        self::assertEquals('', $ua);
     }
 
     /**
@@ -95,12 +95,12 @@ class GenericRequestTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_UCBROWSER_UA => $userAgent,
+            Constants::HEADER_DEVICE_UA => $userAgent,
         ];
 
         $original = new GenericRequest($headers);
         $ua       = $original->getBrowserUserAgent();
 
-        self::assertEquals($userAgent, $ua);
+        self::assertEquals('', $ua);
     }
 }
