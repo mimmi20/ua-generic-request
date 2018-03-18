@@ -16,9 +16,6 @@ use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
 
-/**
- * test case
- */
 class GenericRequestTest extends TestCase
 {
     /**

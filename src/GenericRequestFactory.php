@@ -13,9 +13,6 @@ namespace UaRequest;
 
 use Psr\Http\Message\MessageInterface;
 
-/**
- * Creates a Generic WURFL Request from the raw HTTP Request
- */
 class GenericRequestFactory
 {
     /**
