@@ -1,75 +1,76 @@
 <?php
 /**
- * This file is part of the wurfl-generic-request package.
+ * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 declare(strict_types = 1);
-namespace WurflTest\Request;
+namespace UaRequestTest;
 
-use Wurfl\Request\Constants;
-use Wurfl\Request\GenericRequest;
-use Wurfl\Request\GenericRequestFactory;
+use PHPUnit\Framework\TestCase;
+use UaRequest\Constants;
+use UaRequest\GenericRequest;
+use UaRequest\GenericRequestFactory;
 
 /**
  * test case
  */
-class GenericRequestTest extends \PHPUnit\Framework\TestCase
+class GenericRequestTest extends TestCase
 {
-    public function testConstruct()
+    /**
+     * @return void
+     */
+    public function testConstruct(): void
     {
         $userAgent = 'testUA';
         $browserUa = 'testBrowserUA';
         $deviceUa  = 'testDeviceUA';
-        $profile   = 'testProfile';
         $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
             Constants::HEADER_DEVICE_UA      => $deviceUa,
             Constants::HEADER_UCBROWSER_UA   => $browserUa,
-            Constants::HEADER_PROFILE        => $profile,
         ];
 
-        $object = new GenericRequest($headers, false);
+        $object = new GenericRequest($headers);
 
-        self::assertSame($userAgent, $object->getUserAgent());
         self::assertSame($headers, $object->getHeaders());
-        self::assertFalse($object->isXhtmlDevice());
-        self::assertSame($profile, $object->getUserAgentProfile());
         self::assertSame($browserUa, $object->getBrowserUserAgent());
         self::assertSame($deviceUa, $object->getDeviceUserAgent());
-        self::assertSame(hash('sha512', $userAgent), $object->getId());
-
-        self::assertSame($userAgent, $object->getOriginalHeader(Constants::HEADER_HTTP_USERAGENT));
-        self::assertSame('', $object->getOriginalHeader(Constants::HEADER_DEVICE_STOCK_UA));
     }
 
-    public function testToarray()
+    /**
+     * @return void
+     */
+    public function testToarray(): void
     {
         $userAgent = 'testUA';
         $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original   = new GenericRequest($headers);
-        $array      = $original->toArray();
-        $object     = (new GenericRequestFactory())->fromArray($array);
+        $original = new GenericRequest($headers);
+        $array    = $original->getHeaders();
+        $object   = (new GenericRequestFactory())->createRequestFromArray($array);
 
         self::assertEquals($original, $object);
     }
 
-    public function testToarraySimple()
+    /**
+     * @return void
+     */
+    public function testToarraySimple(): void
     {
         $userAgent = 'testUA';
         $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original   = new GenericRequest($headers);
-        $array      = $original->toArray(false);
+        $original = new GenericRequest($headers);
+        $array    = $original->getHeaders();
 
         self::assertEquals($headers, $array);
     }
