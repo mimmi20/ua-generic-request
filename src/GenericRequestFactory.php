@@ -12,6 +12,7 @@ declare(strict_types = 1);
 namespace UaRequest;
 
 use Psr\Http\Message\MessageInterface;
+use Zend\Diactoros\ServerRequestFactory;
 
 class GenericRequestFactory
 {
@@ -24,7 +25,21 @@ class GenericRequestFactory
      */
     public function createRequestFromArray(array $headers): GenericRequest
     {
-        return new GenericRequest($headers);
+        $upperCaseHeaders = [];
+
+        foreach ($headers as $header => $value) {
+            $upperCaseHeader = mb_strtoupper(str_replace('-', '_', $header));
+
+            if (0 !== mb_strpos($upperCaseHeader, 'HTTP_')) {
+                $upperCaseHeader = 'HTTP_' . $upperCaseHeader;
+            }
+
+            $upperCaseHeaders[$upperCaseHeader] = $value;
+        }
+
+        $message = ServerRequestFactory::fromGlobals($upperCaseHeaders);
+
+        return new GenericRequest($message);
     }
 
     /**
@@ -36,7 +51,9 @@ class GenericRequestFactory
      */
     public function createRequestFromString(string $userAgent): GenericRequest
     {
-        return new GenericRequest([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
+        $message = ServerRequestFactory::fromGlobals([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
+
+        return new GenericRequest($message);
     }
 
     /**
@@ -48,12 +65,6 @@ class GenericRequestFactory
      */
     public function createRequestFromPsr7Message(MessageInterface $message): GenericRequest
     {
-        $headers = [];
-
-        foreach ($message->getHeaders() as $name => $values) {
-            $headers[$name] = implode(', ', $values);
-        }
-
-        return new GenericRequest($headers);
+        return new GenericRequest($message);
     }
 }

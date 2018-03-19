@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
+use Zend\Diactoros\ServerRequestFactory;
 
 class GenericRequestTest extends TestCase
 {
@@ -32,9 +33,15 @@ class GenericRequestTest extends TestCase
             Constants::HEADER_UCBROWSER_UA   => $browserUa,
         ];
 
-        $object = new GenericRequest($headers);
+        $expectedHeaders = [
+            'user-agent'          => $userAgent,
+            'x-device-user-agent' => $deviceUa,
+            'x-ucbrowser-ua'      => $browserUa,
+        ];
 
-        self::assertSame($headers, $object->getHeaders());
+        $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+
+        self::assertSame($expectedHeaders, $object->getHeaders());
         self::assertSame($browserUa, $object->getBrowserUserAgent());
         self::assertSame($deviceUa, $object->getDeviceUserAgent());
     }
@@ -49,7 +56,7 @@ class GenericRequestTest extends TestCase
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original = new GenericRequest($headers);
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
         $array    = $original->getHeaders();
         $object   = (new GenericRequestFactory())->createRequestFromArray($array);
 
@@ -66,10 +73,10 @@ class GenericRequestTest extends TestCase
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original = new GenericRequest($headers);
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
         $array    = $original->getHeaders();
 
-        self::assertEquals($headers, $array);
+        self::assertEquals(['user-agent' => $userAgent], $array);
     }
 
     /**
@@ -82,7 +89,7 @@ class GenericRequestTest extends TestCase
             Constants::HEADER_UCBROWSER_UA => $userAgent,
         ];
 
-        $original = new GenericRequest($headers);
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
         $ua       = $original->getDeviceUserAgent();
 
         self::assertEquals('', $ua);
@@ -98,9 +105,29 @@ class GenericRequestTest extends TestCase
             Constants::HEADER_DEVICE_UA => $userAgent,
         ];
 
-        $original = new GenericRequest($headers);
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
         $ua       = $original->getBrowserUserAgent();
 
         self::assertEquals('', $ua);
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetFilteredHeaders(): void
+    {
+        $userAgent       = 'testUA';
+        $expectedHeaders = [
+            'x-device-user-agent' => $userAgent,
+        ];
+        $headers = [
+            Constants::HEADER_DEVICE_UA => $userAgent,
+            'via'                       => 'test',
+        ];
+
+        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        $resultHeaders = $original->getFilteredHeaders();
+
+        self::assertEquals($expectedHeaders, $resultHeaders);
     }
 }

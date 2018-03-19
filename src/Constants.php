@@ -40,5 +40,5 @@ class Constants
 
     public const HEADER_MOBILE_UA = 'HTTP_X_MOBILE_UA';
 
-    public const HEADER_REQUEST_WITH = 'HTTP_X_REQUEST_WITH';
+    public const HEADER_REQUESTED_WITH = 'HTTP_X_REQUESTED_WITH';
 }
