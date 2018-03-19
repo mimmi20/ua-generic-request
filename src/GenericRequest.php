@@ -1,20 +1,18 @@
 <?php
 /**
- * This file is part of the wurfl-generic-request package.
+ * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 declare(strict_types = 1);
-namespace Wurfl\Request;
+namespace UaRequest;
 
-/**
- * Generic WURFL Request object containing User Agent, UAProf and xhtml device data; its id
- * property is the SHA512 hash of the user agent
- */
+use UaRequest\GenericRequest\Utils;
+
 class GenericRequest
 {
     /**
@@ -23,57 +21,17 @@ class GenericRequest
     private $headers;
 
     /**
-     * @var string
+     * @param array $headers
      */
-    private $userAgent;
-
-    /**
-     * @var string
-     */
-    private $browserUserAgent;
-
-    /**
-     * @var string
-     */
-    private $deviceUserAgent;
-
-    /**
-     * @var null|string
-     */
-    private $userAgentProfile;
-
-    /**
-     * @var bool
-     */
-    private $xhtmlDevice;
-
-    /**
-     * @var string
-     */
-    private $id;
-
-    /**
-     * @param array $request                     Original HTTP headers
-     * @param bool  $overrideSideloadedBrowserUa
-     */
-    public function __construct(array $request, $overrideSideloadedBrowserUa = true)
+    public function __construct(array $headers)
     {
-        $this->headers = $request;
-
-        $utils = new Utils($request);
-
-        $this->userAgent        = $utils->getUserAgent($overrideSideloadedBrowserUa);
-        $this->userAgentProfile = $utils->getUserAgentProfile();
-        $this->xhtmlDevice      = $utils->isXhtmlRequester();
-        $this->browserUserAgent = $utils->getBrowserUserAgent();
-        $this->deviceUserAgent  = $utils->getDeviceUserAgent();
-        $this->id               = hash('sha512', (string) $this->userAgent);
+        $this->headers = $headers;
     }
 
     /**
      * @return array
      */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->headers;
     }
@@ -81,98 +39,16 @@ class GenericRequest
     /**
      * @return string
      */
-    public function getUserAgent()
+    public function getBrowserUserAgent(): string
     {
-        return $this->userAgent;
+        return (new Utils($this->headers))->getBrowserUserAgent();
     }
 
     /**
      * @return string
      */
-    public function getBrowserUserAgent()
+    public function getDeviceUserAgent(): string
     {
-        return $this->browserUserAgent;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDeviceUserAgent()
-    {
-        return $this->deviceUserAgent;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserAgentProfile()
-    {
-        return $this->userAgentProfile;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isXhtmlDevice()
-    {
-        return $this->xhtmlDevice;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Get the original HTTP header value from the request
-     *
-     * @param string $name
-     *
-     * @return string
-     */
-    public function getOriginalHeader($name)
-    {
-        if ($this->originalHeaderExists($name)) {
-            return $this->headers[$name];
-        }
-
-        return '';
-    }
-
-    /**
-     * Checks if the original HTTP header is set in the request
-     *
-     * @param string $name
-     *
-     * @return bool
-     */
-    public function originalHeaderExists($name)
-    {
-        return array_key_exists($name, $this->headers);
-    }
-
-    /**
-     * @param bool $complete
-     *
-     * @return array
-     */
-    public function toArray($complete = true)
-    {
-        if ($complete) {
-            return [
-                'headers'          => $this->headers,
-                'userAgent'        => $this->userAgent,
-                'browserUserAgent' => $this->browserUserAgent,
-                'deviceUserAgent'  => $this->deviceUserAgent,
-                'userAgentProfile' => $this->userAgentProfile,
-                'xhtmlDevice'      => $this->xhtmlDevice,
-                'id'               => $this->id,
-            ];
-        }
-
-        return $this->headers;
+        return (new Utils($this->headers))->getDeviceUserAgent();
     }
 }

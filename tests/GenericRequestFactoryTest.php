@@ -1,232 +1,97 @@
 <?php
 /**
- * This file is part of the wurfl-generic-request package.
+ * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 declare(strict_types = 1);
-namespace WurflTest\Request;
+namespace UaRequestTest;
 
-use Wurfl\Request\Constants;
-use Wurfl\Request\GenericRequest;
-use Wurfl\Request\GenericRequestFactory;
+use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\MessageInterface;
+use UaRequest\Constants;
+use UaRequest\GenericRequest;
+use UaRequest\GenericRequestFactory;
 
-/**
- * test case
- */
-class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
+class GenericRequestFactoryTest extends TestCase
 {
     /**
-     * @var \Wurfl\Request\GenericRequestFactory
+     * @var \UaRequest\GenericRequestFactory
      */
-    private $object = null;
+    private $object;
 
-    public function setUp()
+    /**
+     * @return void
+     */
+    public function setUp(): void
     {
         $this->object = new GenericRequestFactory();
     }
 
-    public function testCreateRequest()
+    /**
+     * @return void
+     */
+    public function testCreateRequestFromArray(): void
     {
         $userAgent = 'testUA';
         $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $expected = new GenericRequest($header, false);
+        $expected = new GenericRequest($header);
 
-        $result = $this->object->createRequest($header, false);
+        $result = $this->object->createRequestFromArray($header);
 
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertInstanceOf(GenericRequest::class, $result);
         self::assertEquals($expected, $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-        self::assertSame('', $result->getUserAgentProfile());
+        self::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
-    public function testCreateRequestFromArray()
+    /**
+     * @return void
+     */
+    public function testCreateRequestFromEmptyHeaders(): void
+    {
+        $header = [];
+
+        $expected = new GenericRequest($header);
+
+        $result = $this->object->createRequestFromArray($header);
+
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertEquals($expected, $result);
+        self::assertSame('', $result->getBrowserUserAgent());
+    }
+
+    /**
+     * @return void
+     */
+    public function testCreateRequestFromString(): void
     {
         $userAgent = 'testUA';
         $header    = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $expected = new GenericRequest($header, false);
-
-        $result = $this->object->createRequestFromArray($header, false);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertEquals($expected, $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-        self::assertSame('', $result->getUserAgentProfile());
-    }
-
-    public function testCreateRequestFromEmptyHeaders()
-    {
-        $header    = [];
-
-        $expected = new GenericRequest($header, false);
-
-        $result = $this->object->createRequestFromArray($header, false);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertEquals($expected, $result);
-        self::assertSame('', $result->getUserAgent());
-        self::assertSame('', $result->getUserAgentProfile());
-    }
-
-    public function testCreateRequestForUserAgent()
-    {
-        $userAgent = 'testUA';
-        $header    = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        ];
-
-        $expected = new GenericRequest($header, false);
-
-        $result = $this->object->createRequestForUserAgent($userAgent);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertEquals($expected, $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-        self::assertSame('', $result->getUserAgentProfile());
-    }
-
-    public function testCreateRequestFromString()
-    {
-        $userAgent = 'testUA';
-        $header    = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        ];
-
-        $expected = new GenericRequest($header, false);
+        $expected = new GenericRequest($header);
 
         $result = $this->object->createRequestFromString($userAgent);
 
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertInstanceOf(GenericRequest::class, $result);
         self::assertEquals($expected, $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-        self::assertSame('', $result->getUserAgentProfile());
-    }
-
-    public function testToarray()
-    {
-        $result = $this->object->fromArray([]);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertSame('', $result->getUserAgent());
-    }
-
-    public function testToarrayWithUa()
-    {
-        $userAgent = 'testUA';
-        $result    = $this->object->fromArray(['userAgent' => $userAgent]);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-    }
-
-    public function testToarrayWithUaInHeaderArray()
-    {
-        $userAgent = 'testUA';
-        $result    = $this->object->fromArray(['headers' => [Constants::HEADER_HTTP_USERAGENT => $userAgent]]);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-    }
-
-    public function testToarrayWithUaInRequestArray()
-    {
-        $userAgent = 'testUA';
-        $result    = $this->object->fromArray(['request' => [Constants::HEADER_HTTP_USERAGENT => $userAgent]]);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-    }
-
-    public function testToarrayWithUaSimple()
-    {
-        $userAgent = 'testUA';
-        $result    = $this->object->fromArray([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-    }
-
-    public function testCreateRequestFromParam()
-    {
-        $userAgent = 'testUA';
-        $profile   = 'testProfile';
-        $headers   = [
-            Constants::UA                 => $userAgent,
-            Constants::HEADER_WAP_PROFILE => $profile,
-        ];
-
-        $expected = new GenericRequest($headers, false);
-
-        $result = $this->object->createRequestFromArray($headers, false);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertEquals($expected, $result);
-        self::assertSame($userAgent, $result->getUserAgent());
-        self::assertSame($profile, $result->getUserAgentProfile());
-    }
-
-    public function testCreateRequestFromHeader()
-    {
-        $userAgent = 'testUA';
-        $deviceUa  = 'testDeviceUa';
-        $profile   = 'testProfile';
-        $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-            Constants::HEADER_DEVICE_UA      => $deviceUa,
-            Constants::HEADER_PROFILE        => $profile,
-            Constants::ACCEPT_HEADER_NAME    => Constants::ACCEPT_HEADER_XHTML_XML,
-        ];
-
-        $expected = new GenericRequest($headers, true);
-
-        $result = $this->object->createRequestFromArray($headers, true);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertEquals($expected, $result);
-        self::assertSame($deviceUa, $result->getUserAgent());
         self::assertSame($userAgent, $result->getBrowserUserAgent());
-        self::assertSame($deviceUa, $result->getDeviceUserAgent());
-        self::assertSame($profile, $result->getUserAgentProfile());
-        self::assertTrue($result->isXhtmlDevice());
     }
 
-    public function testCreateRequestFromOptHeader()
-    {
-        $userAgent = 'testUA';
-        $deviceUa  = 'testDeviceUa';
-        $profile   = 'testProfile';
-        $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-            Constants::HEADER_DEVICE_UA      => $deviceUa,
-            Constants::HEADER_OPT            => 'ns=01234',
-            Constants::ACCEPT_HEADER_NAME    => 'irregular',
-            '=01234-Profile'                 => $profile,
-        ];
-
-        $expected = new GenericRequest($headers, true);
-
-        $result = $this->object->createRequestFromArray($headers, true);
-
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
-        self::assertEquals($expected, $result);
-        self::assertSame($deviceUa, $result->getUserAgent());
-        self::assertSame($userAgent, $result->getBrowserUserAgent());
-        self::assertSame($deviceUa, $result->getDeviceUserAgent());
-        self::assertSame($profile, $result->getUserAgentProfile());
-        self::assertFalse($result->isXhtmlDevice());
-    }
-
-    public function testCreateRequestFromPsr7Message()
+    /**
+     * @throws \ReflectionException
+     *
+     * @return void
+     */
+    public function testCreateRequestFromPsr7Message(): void
     {
         $userAgent = 'testUA';
         $deviceUa  = 'testDeviceUa';
@@ -240,18 +105,17 @@ class GenericRequestFactoryTest extends \PHPUnit\Framework\TestCase
             Constants::HEADER_DEVICE_UA      => [$deviceUa],
         ];
 
-        $expected = new GenericRequest($headers, true);
+        $expected = new GenericRequest($headers);
 
-        $message = $this->createMock('\Psr\Http\Message\MessageInterface');
+        $message = $this->createMock(MessageInterface::class);
         $message->expects(self::once())
             ->method('getHeaders')
             ->willReturn($messageHeaders);
 
         $result = $this->object->createRequestFromPsr7Message($message);
 
-        self::assertInstanceOf('\Wurfl\Request\GenericRequest', $result);
+        self::assertInstanceOf('\UaRequest\GenericRequest', $result);
         self::assertEquals($expected, $result);
-        self::assertSame($deviceUa, $result->getUserAgent());
         self::assertSame($userAgent, $result->getBrowserUserAgent());
         self::assertSame($deviceUa, $result->getDeviceUserAgent());
     }
