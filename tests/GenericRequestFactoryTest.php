@@ -12,10 +12,10 @@ declare(strict_types = 1);
 namespace UaRequestTest;
 
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\MessageInterface;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
+use Zend\Diactoros\ServerRequestFactory;
 
 class GenericRequestFactoryTest extends TestCase
 {
@@ -38,13 +38,13 @@ class GenericRequestFactoryTest extends TestCase
     public function testCreateRequestFromArray(): void
     {
         $userAgent = 'testUA';
-        $header    = [
+        $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $expected = new GenericRequest($header);
+        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
-        $result = $this->object->createRequestFromArray($header);
+        $result = $this->object->createRequestFromArray($headers);
 
         self::assertInstanceOf(GenericRequest::class, $result);
         self::assertEquals($expected, $result);
@@ -56,11 +56,11 @@ class GenericRequestFactoryTest extends TestCase
      */
     public function testCreateRequestFromEmptyHeaders(): void
     {
-        $header = [];
+        $headers = [];
 
-        $expected = new GenericRequest($header);
+        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
-        $result = $this->object->createRequestFromArray($header);
+        $result = $this->object->createRequestFromArray($headers);
 
         self::assertInstanceOf(GenericRequest::class, $result);
         self::assertEquals($expected, $result);
@@ -73,11 +73,11 @@ class GenericRequestFactoryTest extends TestCase
     public function testCreateRequestFromString(): void
     {
         $userAgent = 'testUA';
-        $header    = [
+        $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $expected = new GenericRequest($header);
+        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
         $result = $this->object->createRequestFromString($userAgent);
 
@@ -87,8 +87,6 @@ class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \ReflectionException
-     *
      * @return void
      */
     public function testCreateRequestFromPsr7Message(): void
@@ -100,21 +98,11 @@ class GenericRequestFactoryTest extends TestCase
             Constants::HEADER_DEVICE_UA      => $deviceUa,
         ];
 
-        $messageHeaders = [
-            Constants::HEADER_HTTP_USERAGENT => [$userAgent],
-            Constants::HEADER_DEVICE_UA      => [$deviceUa],
-        ];
+        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
-        $expected = new GenericRequest($headers);
+        $result = $this->object->createRequestFromPsr7Message(ServerRequestFactory::fromGlobals($headers));
 
-        $message = $this->createMock(MessageInterface::class);
-        $message->expects(self::once())
-            ->method('getHeaders')
-            ->willReturn($messageHeaders);
-
-        $result = $this->object->createRequestFromPsr7Message($message);
-
-        self::assertInstanceOf('\UaRequest\GenericRequest', $result);
+        self::assertInstanceOf(GenericRequest::class, $result);
         self::assertEquals($expected, $result);
         self::assertSame($userAgent, $result->getBrowserUserAgent());
         self::assertSame($deviceUa, $result->getDeviceUserAgent());

@@ -1,13 +1,32 @@
-Wurfl Generic Request
-=====================
+# UA Generic Request
 
-extracted the GenericRequest object from Wurfl
+[![Latest Stable Version](https://poser.pugx.org/mimmi20/ua-generic-request/v/stable?format=flat-square)](https://packagist.org/packages/mimmi20/ua-generic-request)
+[![Latest Unstable Version](https://poser.pugx.org/mimmi20/ua-generic-request/v/unstable?format=flat-square)](https://packagist.org/packages/mimmi20/ua-generic-request)
+[![License](https://poser.pugx.org/mimmi20/ua-generic-request/license?format=flat-square)](https://packagist.org/packages/mimmi20/ua-generic-request)
 
-[![Build Status](https://api.travis-ci.org/mimmi20/wurfl-generic-request.png?branch=master)](https://travis-ci.org/mimmi20/wurfl-generic-request)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mimmi20/wurfl-generic-request/badges/quality-score.png?s=5e88e19d3a659f74ca468170d70c30c94c4ab2c0)](https://scrutinizer-ci.com/g/mimmi20/wurfl-generic-request/)
-[![Code Coverage](https://scrutinizer-ci.com/g/mimmi20/wurfl-generic-request/badges/coverage.png?s=b9a661d611e63c513c3d6800572c3f06e520bae4)](https://scrutinizer-ci.com/g/mimmi20/wurfl-generic-request/)
+## Code Status
+
+[![Build Status](https://travis-ci.org/mimmi20/ua-generic-request.svg?branch=master)](https://travis-ci.org/mimmi20/ua-generic-request)
+[![codecov](https://codecov.io/gh/mimmi20/ua-generic-request/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/ua-generic-request)
+[![Maintainability](https://api.codeclimate.com/v1/badges/736bbda1b89fa1ea9027/maintainability)](https://codeclimate.com/github/mimmi20/ua-generic-request/maintainability)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/ua-generic-request.svg)](http://isitmaintained.com/project/mimmi20/ua-generic-request "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/ua-generic-request.svg)](http://isitmaintained.com/project/mimmi20/ua-generic-request "Percentage of issues still open")
+[![Dependency Status](https://gemnasium.com/badges/github.com/mimmi20/ua-generic-request.svg)](https://gemnasium.com/github.com/mimmi20/ua-generic-request)
+
+
+## Requirements
+
+This library requires PHP 7.1+.
+
+## Installation
+
+Run the command below to install via Composer
+
+```shell
+composer require mimmi20/ua-generic-request
+```
 
 Submitting bugs and feature requests
 ------------------------------------
 
-Bugs and feature request are tracked on [GitHub](https://github.com/mimmi20/wurfl-generic-request/issues)
+Bugs and feature request are tracked on [GitHub](https://github.com/mimmi20/ua-generic-request/issues)
