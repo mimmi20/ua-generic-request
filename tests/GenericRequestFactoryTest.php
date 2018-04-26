@@ -107,4 +107,48 @@ class GenericRequestFactoryTest extends TestCase
         self::assertSame($userAgent, $result->getBrowserUserAgent());
         self::assertSame($deviceUa, $result->getDeviceUserAgent());
     }
+
+    /**
+     * @return void
+     */
+    public function testCreateRequestFromInvalidString(): void
+    {
+        $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
+        $resultUa  = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY-PM)';
+        $headers   = [
+            Constants::HEADER_HTTP_USERAGENT => $resultUa,
+        ];
+
+        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+
+        $result = $this->object->createRequestFromString($userAgent);
+
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertEquals($expected, $result);
+        self::assertSame($resultUa, $result->getBrowserUserAgent());
+    }
+
+    /**
+     * @return void
+     */
+    public function testCreateRequestFromInvalidArray(): void
+    {
+        $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
+        $headers   = [
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+        ];
+
+        $resultUa        = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY-PM)';
+        $expectedHeaders = [
+            Constants::HEADER_HTTP_USERAGENT => $resultUa,
+        ];
+
+        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($expectedHeaders));
+
+        $result = $this->object->createRequestFromArray($headers);
+
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertEquals($expected, $result);
+        self::assertSame($resultUa, $result->getBrowserUserAgent());
+    }
 }
