@@ -12,6 +12,7 @@ declare(strict_types = 1);
 namespace UaRequest;
 
 use Psr\Http\Message\MessageInterface;
+use Zend\Diactoros\HeaderSecurity;
 use Zend\Diactoros\ServerRequestFactory;
 
 class GenericRequestFactory
@@ -34,12 +35,16 @@ class GenericRequestFactory
                 $upperCaseHeader = 'HTTP_' . $upperCaseHeader;
             }
 
+            if (!HeaderSecurity::isValid($value)) {
+                $value = $this->filterHeader($value);
+            }
+
             $upperCaseHeaders[$upperCaseHeader] = $value;
         }
 
         $message = ServerRequestFactory::fromGlobals($upperCaseHeaders);
 
-        return new GenericRequest($message);
+        return $this->createRequestFromPsr7Message($message);
     }
 
     /**
@@ -51,9 +56,13 @@ class GenericRequestFactory
      */
     public function createRequestFromString(string $userAgent): GenericRequest
     {
+        if (!HeaderSecurity::isValid($userAgent)) {
+            $userAgent = $this->filterHeader($userAgent);
+        }
+
         $message = ServerRequestFactory::fromGlobals([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
 
-        return new GenericRequest($message);
+        return $this->createRequestFromPsr7Message($message);
     }
 
     /**
@@ -66,5 +75,21 @@ class GenericRequestFactory
     public function createRequestFromPsr7Message(MessageInterface $message): GenericRequest
     {
         return new GenericRequest($message);
+    }
+
+    /**
+     * @param string $userAgent
+     *
+     * @return string
+     */
+    private function filterHeader(string $userAgent): string
+    {
+        $userAgent = preg_replace(
+            "#(?:(?:(?<!\r)\n)|(?:\r(?!\n))|(?:\r\n(?![ \t])))#",
+            '-',
+            $userAgent
+        );
+
+        return preg_replace('/[^\x09\x0a\x0d\x20-\x7E\x80-\xFE]/', '-', $userAgent);
     }
 }
