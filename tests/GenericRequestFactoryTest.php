@@ -113,9 +113,10 @@ class GenericRequestFactoryTest extends TestCase
      */
     public function testCreateRequestFromInvalidString(): void
     {
-        $userAgent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUYPM)';
+        $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
+        $resultUa  = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY-PM)';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            Constants::HEADER_HTTP_USERAGENT => $resultUa,
         ];
 
         $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
@@ -124,6 +125,6 @@ class GenericRequestFactoryTest extends TestCase
 
         self::assertInstanceOf(GenericRequest::class, $result);
         self::assertEquals($expected, $result);
-        self::assertSame($userAgent, $result->getBrowserUserAgent());
+        self::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 }
