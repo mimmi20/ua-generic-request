@@ -17,7 +17,7 @@ use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
 use Zend\Diactoros\ServerRequestFactory;
 
-class GenericRequestFactoryTest extends TestCase
+final class GenericRequestFactoryTest extends TestCase
 {
     /**
      * @var \UaRequest\GenericRequestFactory

@@ -12,14 +12,14 @@ declare(strict_types = 1);
 namespace UaRequest;
 
 use Psr\Http\Message\MessageInterface;
-use Zend\Diactoros\ServerRequestFactory;
+use function Zend\Diactoros\marshalHeadersFromSapi;
 
-class GenericRequest
+final class GenericRequest implements GenericRequestInterface
 {
     /**
      * @var array
      */
-    private $userAgentSearchOrder = [
+    private const SEARCH_ORDER = [
         Constants::HEADER_DEVICE_STOCK_UA     => 'device',
         Constants::HEADER_DEVICE_UA           => 'device',
         Constants::HEADER_UCBROWSER_DEVICE_UA => 'device',
@@ -80,12 +80,12 @@ class GenericRequest
      */
     public function getBrowserUserAgent(): string
     {
-        foreach (ServerRequestFactory::marshalHeaders($this->userAgentSearchOrder) as $header => $type) {
+        foreach (marshalHeadersFromSapi(self::SEARCH_ORDER) as $header => $type) {
             if (!in_array($type, ['browser', 'generic'])) {
                 continue;
             }
 
-            if (isset($this->filteredHeaders[$header])) {
+            if (array_key_exists($header, $this->filteredHeaders)) {
                 return $this->filteredHeaders[$header];
             }
         }
@@ -98,12 +98,12 @@ class GenericRequest
      */
     public function getDeviceUserAgent(): string
     {
-        foreach (ServerRequestFactory::marshalHeaders($this->userAgentSearchOrder) as $header => $type) {
+        foreach (marshalHeadersFromSapi(self::SEARCH_ORDER) as $header => $type) {
             if (!in_array($type, ['device', 'generic'])) {
                 continue;
             }
 
-            if (isset($this->filteredHeaders[$header])) {
+            if (array_key_exists($header, $this->filteredHeaders)) {
                 return $this->filteredHeaders[$header];
             }
         }
@@ -116,7 +116,7 @@ class GenericRequest
      */
     private function filterHeaders(): void
     {
-        foreach (array_keys(ServerRequestFactory::marshalHeaders($this->userAgentSearchOrder)) as $header) {
+        foreach (array_keys(marshalHeadersFromSapi(self::SEARCH_ORDER)) as $header) {
             if (!array_key_exists($header, $this->headers)) {
                 continue;
             }
