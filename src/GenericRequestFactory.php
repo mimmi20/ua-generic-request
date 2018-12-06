@@ -15,7 +15,7 @@ use Psr\Http\Message\MessageInterface;
 use Zend\Diactoros\HeaderSecurity;
 use Zend\Diactoros\ServerRequestFactory;
 
-class GenericRequestFactory
+final class GenericRequestFactory implements GenericRequestFactoryInterface
 {
     /**
      * Creates Generic Request from the given HTTP Request (normally $_SERVER).
@@ -78,18 +78,24 @@ class GenericRequestFactory
     }
 
     /**
-     * @param string $userAgent
+     * @param string $header
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string
      */
-    private function filterHeader(string $userAgent): string
+    private function filterHeader(string $header): string
     {
-        $userAgent = preg_replace(
-            "#(?:(?:(?<!\r)\n)|(?:\r(?!\n))|(?:\r\n(?![ \t])))#",
+        $filtered = preg_replace(
+            ["#(?:(?:(?<!\r)\n)|(?:\r(?!\n))|(?:\r\n(?![ \t])))#", '/[^\x09\x0a\x0d\x20-\x7E\x80-\xFE]/'],
             '-',
-            $userAgent
+            $header
         );
 
-        return preg_replace('/[^\x09\x0a\x0d\x20-\x7E\x80-\xFE]/', '-', $userAgent);
+        if (null === $filtered) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while filtering header "%s"', $header));
+        }
+
+        return $filtered;
     }
 }

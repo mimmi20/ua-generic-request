@@ -14,7 +14,7 @@ namespace UaRequest;
 /**
  * API Constants
  */
-class Constants
+final class Constants
 {
     public const HEADER_HTTP_USERAGENT = 'HTTP_USER_AGENT';
 
