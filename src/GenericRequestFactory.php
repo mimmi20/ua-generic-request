@@ -80,22 +80,14 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
     /**
      * @param string $header
      *
-     * @throws \UnexpectedValueException
-     *
      * @return string
      */
     private function filterHeader(string $header): string
     {
-        $filtered = preg_replace(
+        return (string) preg_replace(
             ["#(?:(?:(?<!\r)\n)|(?:\r(?!\n))|(?:\r\n(?![ \t])))#", '/[^\x09\x0a\x0d\x20-\x7E\x80-\xFE]/'],
             '-',
             $header
         );
-
-        if (null === $filtered) {
-            throw new \UnexpectedValueException(sprintf('an error occurecd while filtering header "%s"', $header));
-        }
-
-        return $filtered;
     }
 }
