@@ -100,10 +100,10 @@ final class GenericRequestTest extends TestCase
      */
     public function testForDevice2(): void
     {
-        $userAgent = 'testUA';
+        $userAgent  = 'testUA';
         $userAgent2 = 'testUA2';
-        $headers   = [
-            Constants::HEADER_UCBROWSER_UA => $userAgent,
+        $headers    = [
+            Constants::HEADER_UCBROWSER_UA   => $userAgent,
             Constants::HEADER_HTTP_USERAGENT => $userAgent2,
         ];
 
@@ -134,10 +134,10 @@ final class GenericRequestTest extends TestCase
      */
     public function testForBrowser2(): void
     {
-        $userAgent = 'testUA';
+        $userAgent  = 'testUA';
         $userAgent2 = 'testUA2';
-        $headers   = [
-            Constants::HEADER_DEVICE_UA => $userAgent,
+        $headers    = [
+            Constants::HEADER_DEVICE_UA    => $userAgent,
             Constants::HEADER_UCBROWSER_UA => $userAgent2,
         ];
 
