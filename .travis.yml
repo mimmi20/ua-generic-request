@@ -96,7 +96,7 @@ jobs:
         - echo 'opcache.enable=1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
         - echo 'opcache.enable_cli=1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
         - travis_retry composer self-update
-      script: vendor/bin/infection --min-covered-msi=95 --min-msi=95
+      script: vendor/bin/infection --min-covered-msi=94 --min-msi=94
 
 notifications:
   email: false
