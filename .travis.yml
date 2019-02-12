@@ -111,7 +111,7 @@ jobs:
         - echo 'zend.assertions=1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
         - echo 'assert.exception=On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
         - composer self-update
-      script: vendor/bin/infection --min-covered-msi=94 --min-msi=94
+      script: vendor/bin/infection --min-covered-msi=22 --min-msi=22
 
 notifications:
   email: false
