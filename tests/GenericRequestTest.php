@@ -86,7 +86,7 @@ final class GenericRequestTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_UCBROWSER_UA => $userAgent,
+            Constants::HEADER_BOLT_PHONE_UA => $userAgent,
         ];
 
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
@@ -103,7 +103,7 @@ final class GenericRequestTest extends TestCase
         $userAgent  = 'testUA';
         $userAgent2 = 'testUA2';
         $headers    = [
-            Constants::HEADER_UCBROWSER_UA   => $userAgent,
+            Constants::HEADER_BOLT_PHONE_UA  => $userAgent,
             Constants::HEADER_HTTP_USERAGENT => $userAgent2,
         ];
 
@@ -143,6 +143,40 @@ final class GenericRequestTest extends TestCase
 
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
         $ua       = $original->getBrowserUserAgent();
+
+        self::assertEquals($userAgent2, $ua);
+    }
+
+    /**
+     * @return void
+     */
+    public function testForPlatform(): void
+    {
+        $userAgent = 'testUA';
+        $headers   = [
+            Constants::HEADER_DEVICE_UA => $userAgent,
+        ];
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        $ua       = $original->getPlatformUserAgent();
+
+        self::assertEquals('', $ua);
+    }
+
+    /**
+     * @return void
+     */
+    public function testForPlatform2(): void
+    {
+        $userAgent  = 'testUA';
+        $userAgent2 = 'testUA2';
+        $headers    = [
+            Constants::HEADER_DEVICE_UA => $userAgent,
+            Constants::HEADER_UA_OS     => $userAgent2,
+        ];
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        $ua       = $original->getPlatformUserAgent();
 
         self::assertEquals($userAgent2, $ua);
     }

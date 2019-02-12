@@ -34,6 +34,8 @@ final class Constants
 
     public const HEADER_UCBROWSER_DEVICE_UA = 'HTTP_X_UCBROWSER_DEVICE_UA';
 
+    public const HEADER_UCBROWSER_DEVICE = 'HTTP_X_UCBROWSER_DEVICE';
+
     public const HEADER_ORIGINAL_UA = 'HTTP_X_ORIGINAL_USER_AGENT';
 
     public const HEADER_BOLT_PHONE_UA = 'HTTP_X_BOLT_PHONE_UA';
@@ -41,4 +43,8 @@ final class Constants
     public const HEADER_MOBILE_UA = 'HTTP_X_MOBILE_UA';
 
     public const HEADER_REQUESTED_WITH = 'HTTP_X_REQUESTED_WITH';
+
+    public const HEADER_UA_OS = 'HTTP_UA_OS';
+
+    public const HEADER_BAIDU_FLYFLOW = 'HTTP_BAIDU_FLYFLOW';
 }
