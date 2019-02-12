@@ -19,25 +19,6 @@ final class GenericRequest implements GenericRequestInterface
     /**
      * @var array
      */
-    private const SEARCH_ORDER = [
-        Constants::HEADER_DEVICE_STOCK_UA     => 'device',
-        Constants::HEADER_DEVICE_UA           => 'device',
-        Constants::HEADER_UCBROWSER_DEVICE_UA => 'device',
-        Constants::HEADER_SKYFIRE_PHONE       => 'device',
-        Constants::HEADER_OPERAMINI_PHONE_UA  => 'device',
-        Constants::HEADER_SKYFIRE_VERSION     => 'browser',
-        Constants::HEADER_BLUECOAT_VIA        => 'browser',
-        Constants::HEADER_BOLT_PHONE_UA       => 'browser',
-        Constants::HEADER_UCBROWSER_UA        => 'browser',
-        Constants::HEADER_MOBILE_UA           => 'browser',
-        Constants::HEADER_REQUESTED_WITH      => 'browser',
-        Constants::HEADER_ORIGINAL_UA         => 'generic',
-        Constants::HEADER_HTTP_USERAGENT      => 'generic',
-    ];
-
-    /**
-     * @var array
-     */
     private $headers;
 
     /**
@@ -80,11 +61,20 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getBrowserUserAgent(): string
     {
-        foreach (marshalHeadersFromSapi(self::SEARCH_ORDER) as $header => $type) {
-            if (!in_array($type, ['browser', 'generic'])) {
-                continue;
-            }
+        $headers = [
+            Constants::HEADER_SKYFIRE_VERSION    => true,
+            Constants::HEADER_BLUECOAT_VIA       => true,
+            Constants::HEADER_BOLT_PHONE_UA      => true,
+            Constants::HEADER_UCBROWSER_UA       => true,
+            Constants::HEADER_MOBILE_UA          => true,
+            Constants::HEADER_REQUESTED_WITH     => true,
+            Constants::HEADER_ORIGINAL_UA        => true,
+            Constants::HEADER_DEVICE_STOCK_UA    => true,
+            Constants::HEADER_OPERAMINI_PHONE_UA => true,
+            Constants::HEADER_HTTP_USERAGENT     => true,
+        ];
 
+        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
             if (array_key_exists($header, $this->filteredHeaders)) {
                 return $this->filteredHeaders[$header];
             }
@@ -98,11 +88,46 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getDeviceUserAgent(): string
     {
-        foreach (marshalHeadersFromSapi(self::SEARCH_ORDER) as $header => $type) {
-            if (!in_array($type, ['device', 'generic'])) {
-                continue;
-            }
+        $headers = [
+            Constants::HEADER_DEVICE_STOCK_UA     => true,
+            Constants::HEADER_DEVICE_UA           => true,
+            Constants::HEADER_UCBROWSER_DEVICE    => true,
+            Constants::HEADER_UCBROWSER_DEVICE_UA => true,
+            Constants::HEADER_UCBROWSER_UA        => true,
+            Constants::HEADER_SKYFIRE_PHONE       => true,
+            Constants::HEADER_OPERAMINI_PHONE_UA  => true,
+            Constants::HEADER_ORIGINAL_UA         => true,
+            Constants::HEADER_BAIDU_FLYFLOW       => true,
+            Constants::HEADER_HTTP_USERAGENT      => true,
+        ];
 
+        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
+            if (array_key_exists($header, $this->filteredHeaders)) {
+                return $this->filteredHeaders[$header];
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlatformUserAgent(): string
+    {
+        $headers = [
+            Constants::HEADER_UA_OS           => true,
+            Constants::HEADER_SKYFIRE_VERSION => true,
+            Constants::HEADER_BLUECOAT_VIA    => true,
+            Constants::HEADER_BOLT_PHONE_UA   => true,
+            Constants::HEADER_UCBROWSER_UA    => true,
+            Constants::HEADER_MOBILE_UA       => true,
+            Constants::HEADER_REQUESTED_WITH  => true,
+            Constants::HEADER_ORIGINAL_UA     => true,
+            Constants::HEADER_HTTP_USERAGENT  => true,
+        ];
+
+        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
             if (array_key_exists($header, $this->filteredHeaders)) {
                 return $this->filteredHeaders[$header];
             }
@@ -116,7 +141,26 @@ final class GenericRequest implements GenericRequestInterface
      */
     private function filterHeaders(): void
     {
-        foreach (array_keys(marshalHeadersFromSapi(self::SEARCH_ORDER)) as $header) {
+        $headers = [
+            Constants::HEADER_DEVICE_STOCK_UA     => true,
+            Constants::HEADER_DEVICE_UA           => true,
+            Constants::HEADER_UCBROWSER_DEVICE_UA => true,
+            Constants::HEADER_UCBROWSER_DEVICE    => true,
+            Constants::HEADER_UCBROWSER_UA        => true,
+            Constants::HEADER_SKYFIRE_PHONE       => true,
+            Constants::HEADER_OPERAMINI_PHONE_UA  => true,
+            Constants::HEADER_SKYFIRE_VERSION     => true,
+            Constants::HEADER_BLUECOAT_VIA        => true,
+            Constants::HEADER_BOLT_PHONE_UA       => true,
+            Constants::HEADER_MOBILE_UA           => true,
+            Constants::HEADER_REQUESTED_WITH      => true,
+            Constants::HEADER_ORIGINAL_UA         => true,
+            Constants::HEADER_UA_OS               => true,
+            Constants::HEADER_BAIDU_FLYFLOW       => true,
+            Constants::HEADER_HTTP_USERAGENT      => true,
+        ];
+
+        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
             if (!array_key_exists($header, $this->headers)) {
                 continue;
             }

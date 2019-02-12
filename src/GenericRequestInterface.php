@@ -32,4 +32,9 @@ interface GenericRequestInterface
      * @return string
      */
     public function getDeviceUserAgent(): string;
+
+    /**
+     * @return string
+     */
+    public function getPlatformUserAgent(): string;
 }
