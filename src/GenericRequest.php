@@ -90,7 +90,6 @@ final class GenericRequest implements GenericRequestInterface
     {
         $headers = [
             Constants::HEADER_DEVICE_STOCK_UA     => true,
-            Constants::HEADER_DEVICE_UA           => true,
             Constants::HEADER_UCBROWSER_UA        => true,
             Constants::HEADER_UCBROWSER_DEVICE_UA => true,
             Constants::HEADER_UCBROWSER_DEVICE    => true,
