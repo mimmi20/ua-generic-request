@@ -91,9 +91,9 @@ final class GenericRequest implements GenericRequestInterface
         $headers = [
             Constants::HEADER_DEVICE_STOCK_UA     => true,
             Constants::HEADER_DEVICE_UA           => true,
-            Constants::HEADER_UCBROWSER_DEVICE    => true,
-            Constants::HEADER_UCBROWSER_DEVICE_UA => true,
             Constants::HEADER_UCBROWSER_UA        => true,
+            Constants::HEADER_UCBROWSER_DEVICE_UA => true,
+            Constants::HEADER_UCBROWSER_DEVICE    => true,
             Constants::HEADER_SKYFIRE_PHONE       => true,
             Constants::HEADER_OPERAMINI_PHONE_UA  => true,
             Constants::HEADER_ORIGINAL_UA         => true,
@@ -158,6 +158,7 @@ final class GenericRequest implements GenericRequestInterface
             Constants::HEADER_UA_OS               => true,
             Constants::HEADER_BAIDU_FLYFLOW       => true,
             Constants::HEADER_HTTP_USERAGENT      => true,
+            Constants::HEADER_WAP_PROFILE         => true,
         ];
 
         foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {

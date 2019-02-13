@@ -47,4 +47,6 @@ final class Constants
     public const HEADER_UA_OS = 'HTTP_UA_OS';
 
     public const HEADER_BAIDU_FLYFLOW = 'HTTP_BAIDU_FLYFLOW';
+
+    public const HEADER_WAP_PROFILE = 'HTTP_X_WAP_PROFILE';
 }
