@@ -28,15 +28,15 @@ final class GenericRequestTest extends TestCase
         $browserUa = 'testBrowserUA';
         $deviceUa  = 'testDeviceUA';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-            Constants::HEADER_DEVICE_UA      => $deviceUa,
-            Constants::HEADER_UCBROWSER_UA   => $browserUa,
+            Constants::HEADER_HTTP_USERAGENT  => $userAgent,
+            Constants::HEADER_DEVICE_STOCK_UA => $deviceUa,
+            Constants::HEADER_UCBROWSER_UA    => $browserUa,
         ];
 
         $expectedHeaders = [
-            'user-agent'          => $userAgent,
-            'x-device-user-agent' => $deviceUa,
-            'x-ucbrowser-ua'      => $browserUa,
+            'user-agent'      => $userAgent,
+            'device-stock-ua' => $deviceUa,
+            'x-ucbrowser-ua'  => $browserUa,
         ];
 
         $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
