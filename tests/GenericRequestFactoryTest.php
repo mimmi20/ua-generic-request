@@ -94,8 +94,8 @@ final class GenericRequestFactoryTest extends TestCase
         $userAgent = 'testUA';
         $deviceUa  = 'testDeviceUa';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-            Constants::HEADER_DEVICE_UA      => $deviceUa,
+            Constants::HEADER_HTTP_USERAGENT      => $userAgent,
+            Constants::HEADER_UCBROWSER_DEVICE_UA => $deviceUa,
         ];
 
         $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
