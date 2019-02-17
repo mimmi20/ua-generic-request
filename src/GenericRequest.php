@@ -13,11 +13,12 @@ namespace UaRequest;
 
 use Psr\Http\Message\MessageInterface;
 use function Zend\Diactoros\marshalHeadersFromSapi;
+use Zend\Http\Headers;
 
 final class GenericRequest implements GenericRequestInterface
 {
     /**
-     * @var array
+     * @var \Zend\Http\Headers
      */
     private $headers;
 
@@ -31,10 +32,10 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function __construct(MessageInterface $message)
     {
-        $this->headers = [];
+        $this->headers = new Headers();
 
         foreach (array_keys($message->getHeaders()) as $header) {
-            $this->headers[$header] = $message->getHeaderLine($header);
+            $this->headers->addHeaderLine($header, $message->getHeaderLine($header));
         }
 
         $this->filterHeaders();
@@ -45,7 +46,7 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getHeaders(): array
     {
-        return $this->headers;
+        return $this->headers->toArray();
     }
 
     /**
@@ -161,7 +162,7 @@ final class GenericRequest implements GenericRequestInterface
         ];
 
         foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
-            if (!array_key_exists($header, $this->headers)) {
+            if (!$this->headers->has($header)) {
                 continue;
             }
 
