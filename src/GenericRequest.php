@@ -12,30 +12,53 @@ declare(strict_types = 1);
 namespace UaRequest;
 
 use Psr\Http\Message\MessageInterface;
-use function Zend\Diactoros\marshalHeadersFromSapi;
-use Zend\Http\Headers;
+use UaRequest\Header\HeaderLoader;
+use BrowserDetector\Loader\NotFoundException;
 
 final class GenericRequest implements GenericRequestInterface
 {
     /**
-     * @var \Zend\Http\Headers
+     * @var array
      */
-    private $headers;
+    private $headers = [];
 
     /**
      * @var array
      */
     private $filteredHeaders = [];
 
+    private const HEADERS = [
+        Constants::HEADER_DEVICE_STOCK_UA    ,
+        Constants::HEADER_DEVICE_UA          ,
+        Constants::HEADER_UCBROWSER_DEVICE_UA,
+        Constants::HEADER_UCBROWSER_DEVICE   ,
+        Constants::HEADER_UCBROWSER_PHONE_UA ,
+        Constants::HEADER_UCBROWSER_PHONE    ,
+        Constants::HEADER_UCBROWSER_UA       ,
+        Constants::HEADER_SKYFIRE_PHONE      ,
+        Constants::HEADER_OPERAMINI_PHONE_UA ,
+        Constants::HEADER_OPERAMINI_PHONE    ,
+        Constants::HEADER_SKYFIRE_VERSION    ,
+        Constants::HEADER_BLUECOAT_VIA       ,
+        Constants::HEADER_BOLT_PHONE_UA      ,
+        Constants::HEADER_MOBILE_UA          ,
+        Constants::HEADER_REQUESTED_WITH     ,
+        Constants::HEADER_ORIGINAL_UA        ,
+        Constants::HEADER_UA_OS              ,
+        Constants::HEADER_BAIDU_FLYFLOW      ,
+        Constants::HEADER_PUFFIN_UA          ,
+        Constants::HEADER_USERAGENT          ,
+        Constants::HEADER_WAP_PROFILE        ,
+        Constants::HEADER_NB_CONTENT         ,
+    ];
+
     /**
      * @param MessageInterface $message
      */
     public function __construct(MessageInterface $message)
     {
-        $this->headers = new Headers();
-
         foreach (array_keys($message->getHeaders()) as $header) {
-            $this->headers->addHeaderLine($header, $message->getHeaderLine($header));
+            $this->headers[$header] = $message->getHeaderLine($header);
         }
 
         $this->filterHeaders();
@@ -46,7 +69,7 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getHeaders(): array
     {
-        return $this->headers->toArray();
+        return $this->headers;
     }
 
     /**
@@ -72,10 +95,10 @@ final class GenericRequest implements GenericRequestInterface
             Constants::HEADER_ORIGINAL_UA        => true,
             Constants::HEADER_DEVICE_STOCK_UA    => true,
             Constants::HEADER_OPERAMINI_PHONE_UA => true,
-            Constants::HEADER_HTTP_USERAGENT     => true,
+            Constants::HEADER_USERAGENT     => true,
         ];
 
-        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
+        foreach (array_keys($headers) as $header) {
             if (array_key_exists($header, $this->filteredHeaders)) {
                 return $this->filteredHeaders[$header];
             }
@@ -98,10 +121,10 @@ final class GenericRequest implements GenericRequestInterface
             Constants::HEADER_OPERAMINI_PHONE_UA  => true,
             Constants::HEADER_ORIGINAL_UA         => true,
             Constants::HEADER_BAIDU_FLYFLOW       => true,
-            Constants::HEADER_HTTP_USERAGENT      => true,
+            Constants::HEADER_USERAGENT      => true,
         ];
 
-        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
+        foreach (array_keys($headers) as $header) {
             if (array_key_exists($header, $this->filteredHeaders)) {
                 return $this->filteredHeaders[$header];
             }
@@ -124,10 +147,10 @@ final class GenericRequest implements GenericRequestInterface
             Constants::HEADER_MOBILE_UA       => true,
             Constants::HEADER_REQUESTED_WITH  => true,
             Constants::HEADER_ORIGINAL_UA     => true,
-            Constants::HEADER_HTTP_USERAGENT  => true,
+            Constants::HEADER_USERAGENT  => true,
         ];
 
-        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
+        foreach (array_keys($headers) as $header) {
             if (array_key_exists($header, $this->filteredHeaders)) {
                 return $this->filteredHeaders[$header];
             }
@@ -141,32 +164,20 @@ final class GenericRequest implements GenericRequestInterface
      */
     private function filterHeaders(): void
     {
-        $headers = [
-            Constants::HEADER_DEVICE_STOCK_UA     => true,
-            Constants::HEADER_DEVICE_UA           => true,
-            Constants::HEADER_UCBROWSER_DEVICE_UA => true,
-            Constants::HEADER_UCBROWSER_DEVICE    => true,
-            Constants::HEADER_UCBROWSER_UA        => true,
-            Constants::HEADER_SKYFIRE_PHONE       => true,
-            Constants::HEADER_OPERAMINI_PHONE_UA  => true,
-            Constants::HEADER_SKYFIRE_VERSION     => true,
-            Constants::HEADER_BLUECOAT_VIA        => true,
-            Constants::HEADER_BOLT_PHONE_UA       => true,
-            Constants::HEADER_MOBILE_UA           => true,
-            Constants::HEADER_REQUESTED_WITH      => true,
-            Constants::HEADER_ORIGINAL_UA         => true,
-            Constants::HEADER_UA_OS               => true,
-            Constants::HEADER_BAIDU_FLYFLOW       => true,
-            Constants::HEADER_HTTP_USERAGENT      => true,
-            Constants::HEADER_WAP_PROFILE         => true,
-        ];
+        $loader = new HeaderLoader();
 
-        foreach (array_keys(marshalHeadersFromSapi($headers)) as $header) {
-            if (!$this->headers->has($header)) {
+        foreach (self::HEADERS as $header) {
+            if (!array_key_exists($header, $this->headers)) {
                 continue;
             }
 
-            $this->filteredHeaders[$header] = $this->headers[$header];
+            try {
+                $headerObj = $loader->load($header, $this->headers[$header]);
+            } catch (NotFoundException $e) {
+                continue;
+            }
+
+            $this->filteredHeaders[$header] = $headerObj;
         }
     }
 }

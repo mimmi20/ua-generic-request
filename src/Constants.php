@@ -18,35 +18,49 @@ final class Constants
 {
     public const HEADER_HTTP_USERAGENT = 'HTTP_USER_AGENT';
 
-    public const HEADER_DEVICE_STOCK_UA = 'HTTP_DEVICE_STOCK_UA';
+    public const HEADER_USERAGENT = 'user-agent';
 
-    public const HEADER_DEVICE_UA = 'HTTP_X_DEVICE_USER_AGENT';
+    public const HEADER_DEVICE_STOCK_UA = 'device-stock-ua';
 
-    public const HEADER_SKYFIRE_VERSION = 'HTTP_X_SKYFIRE_VERSION';
+    public const HEADER_DEVICE_UA = 'x-device-user-agent';
 
-    public const HEADER_SKYFIRE_PHONE = 'HTTP_X_SKYFIRE_PHONE';
+    public const HEADER_SKYFIRE_VERSION = 'x-skyfire-version';
 
-    public const HEADER_BLUECOAT_VIA = 'HTTP_X_BLUECOAT_VIA';
+    public const HEADER_SKYFIRE_PHONE = 'x-skyfire-phone';
 
-    public const HEADER_OPERAMINI_PHONE_UA = 'HTTP_X_OPERAMINI_PHONE_UA';
+    public const HEADER_BLUECOAT_VIA = 'x-bluecoat-via';
 
-    public const HEADER_UCBROWSER_UA = 'HTTP_X_UCBROWSER_UA';
+    public const HEADER_OPERAMINI_PHONE_UA = 'x-operamini-phone-ua';
 
-    public const HEADER_UCBROWSER_DEVICE_UA = 'HTTP_X_UCBROWSER_DEVICE_UA';
+    public const HEADER_OPERAMINI_PHONE = 'x-operamini-phone';
 
-    public const HEADER_UCBROWSER_DEVICE = 'HTTP_X_UCBROWSER_DEVICE';
+    public const HEADER_UCBROWSER_UA = 'x-ucbrowser-ua';
 
-    public const HEADER_ORIGINAL_UA = 'HTTP_X_ORIGINAL_USER_AGENT';
+    public const HEADER_UCBROWSER_DEVICE_UA = 'x-ucbrowser-device-ua';
 
-    public const HEADER_BOLT_PHONE_UA = 'HTTP_X_BOLT_PHONE_UA';
+    public const HEADER_UCBROWSER_DEVICE = 'x-ucbrowser-device';
 
-    public const HEADER_MOBILE_UA = 'HTTP_X_MOBILE_UA';
+    public const HEADER_UCBROWSER_PHONE_UA = 'x-ucbrowser-phone-ua';
 
-    public const HEADER_REQUESTED_WITH = 'HTTP_X_REQUESTED_WITH';
+    public const HEADER_UCBROWSER_PHONE = 'x-ucbrowser-phone';
 
-    public const HEADER_UA_OS = 'HTTP_UA_OS';
+    public const HEADER_ORIGINAL_UA = 'x-original-user-agent';
 
-    public const HEADER_BAIDU_FLYFLOW = 'HTTP_BAIDU_FLYFLOW';
+    public const HEADER_BOLT_PHONE_UA = 'x-bolt-phone-ua';
 
-    public const HEADER_WAP_PROFILE = 'HTTP_X_WAP_PROFILE';
+    public const HEADER_MOBILE_UA = 'x-mobile-ua';
+
+    public const HEADER_REQUESTED_WITH = 'x-requested-with';
+
+    public const HEADER_UA_OS = 'ua-os';
+
+    public const HEADER_BAIDU_FLYFLOW = 'baidu-flyflow';
+
+    public const HEADER_WAP_PROFILE = 'x-wap-profile';
+
+    public const HEADER_PUFFIN_UA = 'x-puffin-ua';
+
+    public const HEADER_MOBILE_GATEWAY = 'x-mobile-gateway';
+
+    public const HEADER_NB_CONTENT = 'x-nb-content';
 }
