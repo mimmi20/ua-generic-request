@@ -11,9 +11,6 @@
 declare(strict_types = 1);
 namespace UaRequest\Header;
 
-/**
- * Interface for HTTP Header classes.
- */
 interface HeaderInterface
 {
     /**
@@ -29,15 +26,6 @@ interface HeaderInterface
      * @return string
      */
     public function getFieldValue(): string;
-
-    /**
-     * Cast to string
-     *
-     * Returns in form of "NAME: VALUE"
-     *
-     * @return string
-     */
-    public function toString(): string;
 
     public function hasDeviceInfo(): bool;
 
