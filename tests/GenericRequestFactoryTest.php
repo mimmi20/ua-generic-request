@@ -39,15 +39,13 @@ final class GenericRequestFactoryTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            Constants::HEADER_USERAGENT => $userAgent,
         ];
-
-        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
         $result = $this->object->createRequestFromArray($headers);
 
         self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expected, $result);
+        self::assertEquals($headers, $result->getHeaders());
         self::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
@@ -58,12 +56,10 @@ final class GenericRequestFactoryTest extends TestCase
     {
         $headers = [];
 
-        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
-
         $result = $this->object->createRequestFromArray($headers);
 
         self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expected, $result);
+        self::assertEquals($headers, $result->getHeaders());
         self::assertSame('', $result->getBrowserUserAgent());
     }
 
@@ -74,15 +70,13 @@ final class GenericRequestFactoryTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            Constants::HEADER_USERAGENT => $userAgent,
         ];
-
-        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
         $result = $this->object->createRequestFromString($userAgent);
 
         self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expected, $result);
+        self::assertEquals($headers, $result->getHeaders());
         self::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
@@ -94,16 +88,18 @@ final class GenericRequestFactoryTest extends TestCase
         $userAgent = 'testUA';
         $deviceUa  = 'testDeviceUa';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT      => $userAgent,
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            'HTTP_X_UCBROWSER_DEVICE_UA'     => $deviceUa,
+        ];
+        $expectedHeaders = [
+            Constants::HEADER_USERAGENT           => $userAgent,
             Constants::HEADER_UCBROWSER_DEVICE_UA => $deviceUa,
         ];
-
-        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
         $result = $this->object->createRequestFromPsr7Message(ServerRequestFactory::fromGlobals($headers));
 
         self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expected, $result);
+        self::assertEquals($expectedHeaders, $result->getHeaders());
         self::assertSame($userAgent, $result->getBrowserUserAgent());
         self::assertSame($deviceUa, $result->getDeviceUserAgent());
     }
@@ -116,15 +112,13 @@ final class GenericRequestFactoryTest extends TestCase
         $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
         $resultUa  = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY-PM)';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $resultUa,
+            Constants::HEADER_USERAGENT => $resultUa,
         ];
-
-        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
 
         $result = $this->object->createRequestFromString($userAgent);
 
         self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expected, $result);
+        self::assertEquals($headers, $result->getHeaders());
         self::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 
@@ -140,15 +134,13 @@ final class GenericRequestFactoryTest extends TestCase
 
         $resultUa        = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY-PM)';
         $expectedHeaders = [
-            Constants::HEADER_HTTP_USERAGENT => $resultUa,
+            Constants::HEADER_USERAGENT => $resultUa,
         ];
-
-        $expected = new GenericRequest(ServerRequestFactory::fromGlobals($expectedHeaders));
 
         $result = $this->object->createRequestFromArray($headers);
 
         self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expected, $result);
+        self::assertEquals($expectedHeaders, $result->getHeaders());
         self::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 }

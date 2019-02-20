@@ -1,0 +1,14 @@
+com.browser2345
+this.is.a.fake.id.to.test.unknown.ids
+me.android.browser
+com.android.browser
+com.mx.browser
+mobi.mgeek.TunnyBrowser
+com.tencent.mm
+com.asus.browser
+com.UCMobile.lab
+com.oupeng.browser
+com.lenovo.browser
+derek.iSurf
+com.aliyun.mobile.browser
+XMLHttpRequest

@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
+use UaRequest\Header\HeaderLoaderInterface;
 use Zend\Diactoros\ServerRequestFactory;
 
 final class GenericRequestTest extends TestCase
@@ -25,12 +26,12 @@ final class GenericRequestTest extends TestCase
     public function testConstruct(): void
     {
         $userAgent = 'testUA';
-        $browserUa = 'testBrowserUA';
+        $browserUa = 'pr(testBrowserUA)';
         $deviceUa  = 'testDeviceUA';
         $headers   = [
-            Constants::HEADER_HTTP_USERAGENT  => $userAgent,
-            Constants::HEADER_DEVICE_STOCK_UA => $deviceUa,
-            Constants::HEADER_UCBROWSER_UA    => $browserUa,
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            'HTTP_DEVICE_STOCK_UA'           => $deviceUa,
+            'HTTP_X_UCBROWSER_UA'            => $browserUa,
         ];
 
         $expectedHeaders = [
@@ -39,7 +40,10 @@ final class GenericRequestTest extends TestCase
             'x-ucbrowser-ua'  => $browserUa,
         ];
 
-        $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
 
         self::assertSame($expectedHeaders, $object->getHeaders());
         self::assertSame($browserUa, $object->getBrowserUserAgent());
@@ -56,11 +60,18 @@ final class GenericRequestTest extends TestCase
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        $expectedHeaders = [
+            'user-agent' => $userAgent,
+        ];
+
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $array    = $original->getHeaders();
         $object   = (new GenericRequestFactory())->createRequestFromArray($array);
 
-        self::assertEquals($original, $object);
+        self::assertSame($expectedHeaders, $object->getHeaders());
     }
 
     /**
@@ -73,7 +84,10 @@ final class GenericRequestTest extends TestCase
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $array    = $original->getHeaders();
 
         self::assertEquals(['user-agent' => $userAgent], $array);
@@ -86,10 +100,13 @@ final class GenericRequestTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_BOLT_PHONE_UA => $userAgent,
+            'HTTP_DEVICE_STOCK_UA' => $userAgent,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getDeviceUserAgent();
 
         self::assertEquals('', $ua);
@@ -103,11 +120,14 @@ final class GenericRequestTest extends TestCase
         $userAgent  = 'testUA';
         $userAgent2 = 'testUA2';
         $headers    = [
-            Constants::HEADER_BOLT_PHONE_UA  => $userAgent,
+            'HTTP_DEVICE_STOCK_UA'           => $userAgent,
             Constants::HEADER_HTTP_USERAGENT => $userAgent2,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getDeviceUserAgent();
 
         self::assertEquals($userAgent2, $ua);
@@ -120,10 +140,13 @@ final class GenericRequestTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_DEVICE_UA => $userAgent,
+            'HTTP_DEVICE_STOCK_UA' => $userAgent,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getBrowserUserAgent();
 
         self::assertEquals('', $ua);
@@ -137,11 +160,14 @@ final class GenericRequestTest extends TestCase
         $userAgent  = 'testUA';
         $userAgent2 = 'testUA2';
         $headers    = [
-            Constants::HEADER_DEVICE_UA    => $userAgent,
-            Constants::HEADER_UCBROWSER_UA => $userAgent2,
+            'HTTP_DEVICE_STOCK_UA' => $userAgent,
+            'HTTP_X_UCBROWSER_UA'  => $userAgent2,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getBrowserUserAgent();
 
         self::assertEquals($userAgent2, $ua);
@@ -154,10 +180,13 @@ final class GenericRequestTest extends TestCase
     {
         $userAgent = 'testUA';
         $headers   = [
-            Constants::HEADER_DEVICE_UA => $userAgent,
+            'HTTP_DEVICE_STOCK_UA' => $userAgent,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getPlatformUserAgent();
 
         self::assertEquals('', $ua);
@@ -171,11 +200,14 @@ final class GenericRequestTest extends TestCase
         $userAgent  = 'testUA';
         $userAgent2 = 'testUA2';
         $headers    = [
-            Constants::HEADER_DEVICE_UA => $userAgent,
-            Constants::HEADER_UA_OS     => $userAgent2,
+            'HTTP_DEVICE_STOCK_UA' => $userAgent,
+            'HTTP_UA_OS'           => $userAgent2,
         ];
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getPlatformUserAgent();
 
         self::assertEquals($userAgent2, $ua);
@@ -188,14 +220,17 @@ final class GenericRequestTest extends TestCase
     {
         $userAgent       = 'testUA';
         $expectedHeaders = [
-            'x-device-user-agent' => $userAgent,
+            'device-stock-ua' => $userAgent,
         ];
         $headers = [
-            Constants::HEADER_DEVICE_UA => $userAgent,
-            'via'                       => 'test',
+            'HTTP_DEVICE_STOCK_UA' => $userAgent,
+            'via'                  => 'test',
         ];
 
-        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers));
+        /** @var HeaderLoaderInterface $loader */
+        $loader = $this->createMock(HeaderLoaderInterface::class);
+
+        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $resultHeaders = $original->getFilteredHeaders();
 
         self::assertEquals($expectedHeaders, $resultHeaders);

@@ -18,3 +18,4 @@ tests/temp/*.php
 tests/temp/*.ini
 .php_cs.cache
 infection-*.log
+clover.xml
