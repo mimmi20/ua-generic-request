@@ -11,8 +11,6 @@
 declare(strict_types = 1);
 namespace UaRequest\Header;
 
-use UaRequest\Constants;
-
 final class XRequestedWith implements HeaderInterface
 {
     /**
@@ -31,21 +29,11 @@ final class XRequestedWith implements HeaderInterface
     }
 
     /**
-     * Retrieve header name
-     *
-     * @return string
-     */
-    public function getFieldName(): string
-    {
-        return Constants::HEADER_REQUESTED_WITH;
-    }
-
-    /**
      * Retrieve header value
      *
      * @return string
      */
-    public function getFieldValue(): string
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -63,6 +51,10 @@ final class XRequestedWith implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
+        if (preg_match('/xmlhttprequest|fake/i', $this->value)) {
+            return false;
+        }
+
         return true;
     }
 

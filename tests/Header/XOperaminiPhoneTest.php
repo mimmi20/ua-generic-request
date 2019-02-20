@@ -12,34 +12,57 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\XOperaminiPhone;
 
 class XOperaminiPhoneTest extends TestCase
 {
-    public function testHasEngineInfo(): void
+    /**
+     * @dataProvider providerUa
+     *
+     * @param string $ua
+     * @param bool   $hasDeviceInfo
+     *
+     * @return void
+     */
+    public function testData(string $ua, bool $hasDeviceInfo): void
     {
+        $header = new XOperaminiPhone($ua);
+
+        self::assertSame($ua, $header->getValue());
+        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo());
+        self::assertFalse($header->hasBrowserInfo());
+        self::assertFalse($header->hasPlatformInfo());
+        self::assertFalse($header->hasEngineInfo());
     }
 
-    public function testHasDeviceInfo(): void
+    /**
+     * @return array[]
+     */
+    public function providerUa(): array
     {
-    }
-
-    public function testHasPlatformInfo(): void
-    {
-    }
-
-    public function testHasBrowserInfo(): void
-    {
-    }
-
-    public function testGetFieldName(): void
-    {
-    }
-
-    public function testGetFieldValue(): void
-    {
-    }
-
-    public function test__construct(): void
-    {
+        return [
+            ['RIM # BlackBerry 8520', true],
+            ['Samsung # GT-S8500', true],
+            ['Samsung # GT-i8000', true],
+            ['RIM # BlackBerry 8900', true],
+            ['HTC # Touch Pro/T7272/TyTn III', true],
+            ['Android #', false],
+            ['? # ?', false],
+            ['BlackBerry # 9700', true],
+            ['Blackberry # 9300', true],
+            ['Samsung # SCH-U380', true],
+            ['Pantech # TXT8045', true],
+            ['ZTE # F-450', true],
+            ['LG # VN271', true],
+            ['Casio # C781', true],
+            ['Samsung # SCH-U485', true],
+            ['Pantech # CDM8992', true],
+            ['LG # VN530', true],
+            ['Samsung # SCH-U680', true],
+            ['Pantech # CDM8999', true],
+            ['Apple # iPhone', true],
+            ['Motorola # A1000', true],
+            ['HTC # HD2', true],
+        ];
     }
 }

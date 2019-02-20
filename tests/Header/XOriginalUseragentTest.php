@@ -12,34 +12,23 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\XOriginalUseragent;
 
 class XOriginalUseragentTest extends TestCase
 {
-    public function testHasDeviceInfo(): void
+    /**
+     * @return void
+     */
+    public function testData(): void
     {
-    }
+        $ua = 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3';
 
-    public function testGetFieldName(): void
-    {
-    }
+        $header = new XOriginalUseragent($ua);
 
-    public function testHasEngineInfo(): void
-    {
-    }
-
-    public function test__construct(): void
-    {
-    }
-
-    public function testGetFieldValue(): void
-    {
-    }
-
-    public function testHasBrowserInfo(): void
-    {
-    }
-
-    public function testHasPlatformInfo(): void
-    {
+        self::assertSame($ua, $header->getValue());
+        self::assertTrue($header->hasDeviceInfo());
+        self::assertTrue($header->hasBrowserInfo());
+        self::assertTrue($header->hasPlatformInfo());
+        self::assertTrue($header->hasEngineInfo());
     }
 }

@@ -11,8 +11,6 @@
 declare(strict_types = 1);
 namespace UaRequest\Header;
 
-use UaRequest\Constants;
-
 final class XUcbrowserDevice implements HeaderInterface
 {
     /**
@@ -31,21 +29,11 @@ final class XUcbrowserDevice implements HeaderInterface
     }
 
     /**
-     * Retrieve header name
-     *
-     * @return string
-     */
-    public function getFieldName(): string
-    {
-        return Constants::HEADER_UCBROWSER_DEVICE;
-    }
-
-    /**
      * Retrieve header value
      *
      * @return string
      */
-    public function getFieldValue(): string
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -55,7 +43,7 @@ final class XUcbrowserDevice implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), ['j2me', 'opera'])) {
+        if (in_array(mb_strtolower($this->value), ['j2me', 'opera', 'jblend'])) {
             return false;
         }
 

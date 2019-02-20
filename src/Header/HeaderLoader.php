@@ -45,8 +45,8 @@ final class HeaderLoader implements HeaderLoaderInterface
     }
 
     /**
-     * @param string|null $key
-     * @param string      $value
+     * @param string      $key
+     * @param string|null $value
      *
      * @throws \BrowserDetector\Loader\NotFoundException
      *

@@ -12,34 +12,22 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\UaOs;
 
 class UaOsTest extends TestCase
 {
-    public function test__construct(): void
+    /**
+     * @return void
+     */
+    public function testData(): void
     {
-    }
+        $ua     = 'Windows CE (Smartphone) - Version 5.2';
+        $header = new UaOs($ua);
 
-    public function testHasEngineInfo(): void
-    {
-    }
-
-    public function testHasBrowserInfo(): void
-    {
-    }
-
-    public function testGetFieldName(): void
-    {
-    }
-
-    public function testHasPlatformInfo(): void
-    {
-    }
-
-    public function testGetFieldValue(): void
-    {
-    }
-
-    public function testHasDeviceInfo(): void
-    {
+        self::assertSame($ua, $header->getValue());
+        self::assertFalse($header->hasDeviceInfo());
+        self::assertFalse($header->hasBrowserInfo());
+        self::assertTrue($header->hasPlatformInfo());
+        self::assertFalse($header->hasEngineInfo());
     }
 }

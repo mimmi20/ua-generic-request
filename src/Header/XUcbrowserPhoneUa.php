@@ -11,8 +11,6 @@
 declare(strict_types = 1);
 namespace UaRequest\Header;
 
-use UaRequest\Constants;
-
 final class XUcbrowserPhoneUa implements HeaderInterface
 {
     /**
@@ -31,21 +29,11 @@ final class XUcbrowserPhoneUa implements HeaderInterface
     }
 
     /**
-     * Retrieve header name
-     *
-     * @return string
-     */
-    public function getFieldName(): string
-    {
-        return Constants::HEADER_UCBROWSER_PHONE_UA;
-    }
-
-    /**
      * Retrieve header value
      *
      * @return string
      */
-    public function getFieldValue(): string
+    public function getValue(): string
     {
         return $this->value;
     }
