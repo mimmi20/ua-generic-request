@@ -12,34 +12,43 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\XUcbrowserPhoneUa;
 
 class XUcbrowserPhoneUaTest extends TestCase
 {
-    public function testHasBrowserInfo(): void
+    /**
+     * @dataProvider providerUa
+     *
+     * @param string $ua
+     * @param bool   $hasDeviceInfo
+     * @param bool   $hasBrowserInfo
+     *
+     * @return void
+     */
+    public function testData(string $ua, bool $hasDeviceInfo, bool $hasBrowserInfo): void
     {
+        $header = new XUcbrowserPhoneUa($ua);
+
+        self::assertSame($ua, $header->getValue());
+        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo());
+        self::assertSame($hasBrowserInfo, $header->hasBrowserInfo());
+        self::assertFalse($header->hasPlatformInfo());
+        self::assertFalse($header->hasEngineInfo());
     }
 
-    public function testHasEngineInfo(): void
+    /**
+     * @return array[]
+     */
+    public function providerUa(): array
     {
-    }
-
-    public function testGetFieldName(): void
-    {
-    }
-
-    public function testHasDeviceInfo(): void
-    {
-    }
-
-    public function testHasPlatformInfo(): void
-    {
-    }
-
-    public function testGetFieldValue(): void
-    {
-    }
-
-    public function test__construct(): void
-    {
+        return [
+            ['maui browser', false, true],
+            ['nokia701', true, false],
+            ['sunmicro', true, false],
+            ['nokiac3-01', true, false],
+            ['nokia305', true, false],
+            ['gt-s5233s', true, false],
+            ['sonyericssonj108i', true, false],
+        ];
     }
 }

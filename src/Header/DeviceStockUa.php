@@ -11,8 +11,6 @@
 declare(strict_types = 1);
 namespace UaRequest\Header;
 
-use UaRequest\Constants;
-
 final class DeviceStockUa implements HeaderInterface
 {
     /**
@@ -31,21 +29,11 @@ final class DeviceStockUa implements HeaderInterface
     }
 
     /**
-     * Retrieve header name
-     *
-     * @return string
-     */
-    public function getFieldName(): string
-    {
-        return Constants::HEADER_DEVICE_STOCK_UA;
-    }
-
-    /**
      * Retrieve header value
      *
      * @return string
      */
-    public function getFieldValue(): string
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -55,7 +43,11 @@ final class DeviceStockUa implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        return true;
+        if (preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc/i', mb_strtolower($this->value))) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -63,6 +55,10 @@ final class DeviceStockUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
+        if (preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin/i', mb_strtolower($this->value))) {
+            return true;
+        }
+
         return false;
     }
 
@@ -71,6 +67,10 @@ final class DeviceStockUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
+        if (preg_match('/bada|android|blackberry|brew|iphone|mre|windows/i', mb_strtolower($this->value))) {
+            return true;
+        }
+
         return false;
     }
 

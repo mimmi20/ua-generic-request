@@ -12,34 +12,49 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\XRequestedWith;
 
 class XRequestedWithTest extends TestCase
 {
-    public function testHasDeviceInfo(): void
+    /**
+     * @dataProvider providerUa
+     *
+     * @param string $ua
+     * @param bool   $hasBrowserInfo
+     *
+     * @return void
+     */
+    public function testData(string $ua, bool $hasBrowserInfo): void
     {
+        $header = new XRequestedWith($ua);
+
+        self::assertSame($ua, $header->getValue());
+        self::assertFalse($header->hasDeviceInfo());
+        self::assertSame($hasBrowserInfo, $header->hasBrowserInfo());
+        self::assertFalse($header->hasPlatformInfo());
+        self::assertFalse($header->hasEngineInfo());
     }
 
-    public function testGetFieldValue(): void
+    /**
+     * @return array[]
+     */
+    public function providerUa(): array
     {
-    }
-
-    public function test__construct(): void
-    {
-    }
-
-    public function testGetFieldName(): void
-    {
-    }
-
-    public function testHasEngineInfo(): void
-    {
-    }
-
-    public function testHasPlatformInfo(): void
-    {
-    }
-
-    public function testHasBrowserInfo(): void
-    {
+        return [
+            ['com.browser2345', true],
+            ['this.is.a.fake.id.to.test.unknown.ids', false],
+            ['me.android.browser', true],
+            ['com.android.browser', true],
+            ['com.mx.browser', true],
+            ['mobi.mgeek.TunnyBrowser', true],
+            ['com.tencent.mm', true],
+            ['com.asus.browser', true],
+            ['com.UCMobile.lab', true],
+            ['com.oupeng.browser', true],
+            ['com.lenovo.browser', true],
+            ['derek.iSurf', true],
+            ['com.aliyun.mobile.browser', true],
+            ['XMLHttpRequest', false],
+        ];
     }
 }

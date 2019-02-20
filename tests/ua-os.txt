@@ -1,3 +1,0 @@
-Windows CE (Pocket PC) - Version 6
-Windows CE (Pocket PC) - Version 5.2
-Windows CE (Smartphone) - Version 5.2

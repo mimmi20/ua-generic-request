@@ -96,7 +96,7 @@ final class GenericRequest implements GenericRequestInterface
     {
         foreach ($this->filteredHeaders as $header) {
             if ($header->hasBrowserInfo()) {
-                return $header->getFieldValue();
+                return $header->getValue();
             }
         }
 
@@ -110,7 +110,7 @@ final class GenericRequest implements GenericRequestInterface
     {
         foreach ($this->filteredHeaders as $header) {
             if ($header->hasDeviceInfo()) {
-                return $header->getFieldValue();
+                return $header->getValue();
             }
         }
 
@@ -124,7 +124,7 @@ final class GenericRequest implements GenericRequestInterface
     {
         foreach ($this->filteredHeaders as $header) {
             if ($header->hasPlatformInfo()) {
-                return $header->getFieldValue();
+                return $header->getValue();
             }
         }
 

@@ -12,34 +12,23 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\Useragent;
 
 class UseragentTest extends TestCase
 {
-    public function testHasDeviceInfo(): void
+    /**
+     * @return void
+     */
+    public function testData(): void
     {
-    }
+        $ua = 'Windows CE (Smartphone) - Version 5.2';
 
-    public function testGetFieldName(): void
-    {
-    }
+        $header = new Useragent($ua);
 
-    public function test__construct(): void
-    {
-    }
-
-    public function testHasEngineInfo(): void
-    {
-    }
-
-    public function testHasBrowserInfo(): void
-    {
-    }
-
-    public function testGetFieldValue(): void
-    {
-    }
-
-    public function testHasPlatformInfo(): void
-    {
+        self::assertSame($ua, $header->getValue());
+        self::assertTrue($header->hasDeviceInfo());
+        self::assertTrue($header->hasBrowserInfo());
+        self::assertTrue($header->hasPlatformInfo());
+        self::assertTrue($header->hasEngineInfo());
     }
 }

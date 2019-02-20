@@ -12,34 +12,41 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\XUcbrowserPhone;
 
 class XUcbrowserPhoneTest extends TestCase
 {
-    public function testHasPlatformInfo(): void
+    /**
+     * @dataProvider providerUa
+     *
+     * @param string $ua
+     * @param bool   $hasDeviceInfo
+     *
+     * @return void
+     */
+    public function testData(string $ua, bool $hasDeviceInfo): void
     {
+        $header = new XUcbrowserPhone($ua);
+
+        self::assertSame($ua, $header->getValue());
+        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo());
+        self::assertFalse($header->hasBrowserInfo());
+        self::assertFalse($header->hasPlatformInfo());
+        self::assertFalse($header->hasEngineInfo());
     }
 
-    public function testHasBrowserInfo(): void
+    /**
+     * @return array[]
+     */
+    public function providerUa(): array
     {
-    }
-
-    public function testHasEngineInfo(): void
-    {
-    }
-
-    public function test__construct(): void
-    {
-    }
-
-    public function testGetFieldValue(): void
-    {
-    }
-
-    public function testGetFieldName(): void
-    {
-    }
-
-    public function testHasDeviceInfo(): void
-    {
+        return [
+            ['nokia701', true],
+            ['sunmicro', true],
+            ['nokiac3-01', true],
+            ['nokia305', true],
+            ['gt-s5233s', true],
+            ['sonyericssonj108i', true],
+        ];
     }
 }

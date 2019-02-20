@@ -14,18 +14,11 @@ namespace UaRequest\Header;
 interface HeaderInterface
 {
     /**
-     * Retrieve header name
-     *
-     * @return string
-     */
-    public function getFieldName(): string;
-
-    /**
      * Retrieve header value
      *
      * @return string
      */
-    public function getFieldValue(): string;
+    public function getValue(): string;
 
     /**
      * @return bool

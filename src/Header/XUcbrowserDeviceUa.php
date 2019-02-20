@@ -11,8 +11,6 @@
 declare(strict_types = 1);
 namespace UaRequest\Header;
 
-use UaRequest\Constants;
-
 final class XUcbrowserDeviceUa implements HeaderInterface
 {
     /**
@@ -31,21 +29,11 @@ final class XUcbrowserDeviceUa implements HeaderInterface
     }
 
     /**
-     * Retrieve header name
-     *
-     * @return string
-     */
-    public function getFieldName(): string
-    {
-        return Constants::HEADER_UCBROWSER_DEVICE_UA;
-    }
-
-    /**
      * Retrieve header value
      *
      * @return string
      */
-    public function getFieldValue(): string
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -67,6 +55,10 @@ final class XUcbrowserDeviceUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
+        if (preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin/i', mb_strtolower($this->value))) {
+            return true;
+        }
+
         return false;
     }
 
@@ -75,6 +67,10 @@ final class XUcbrowserDeviceUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
+        if (preg_match('/bada|android|blackberry|brew|iphone|mre|windows/i', mb_strtolower($this->value))) {
+            return true;
+        }
+
         return false;
     }
 

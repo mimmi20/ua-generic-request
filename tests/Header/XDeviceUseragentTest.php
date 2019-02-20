@@ -12,34 +12,37 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\TestCase;
+use UaRequest\Header\XDeviceUseragent;
 
 class XDeviceUseragentTest extends TestCase
 {
-    public function testGetFieldValue(): void
+    /**
+     * @dataProvider providerUa
+     *
+     * @param string $ua
+     * @param bool   $hasDeviceInfo
+     *
+     * @return void
+     */
+    public function testData(string $ua, bool $hasDeviceInfo): void
     {
+        $header = new XDeviceUseragent($ua);
+
+        self::assertSame($ua, $header->getValue());
+        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo());
+        self::assertFalse($header->hasBrowserInfo());
+        self::assertFalse($header->hasPlatformInfo());
+        self::assertFalse($header->hasEngineInfo());
     }
 
-    public function testGetFieldName(): void
+    /**
+     * @return array[]
+     */
+    public function providerUa(): array
     {
-    }
-
-    public function testHasBrowserInfo(): void
-    {
-    }
-
-    public function testHasPlatformInfo(): void
-    {
-    }
-
-    public function testHasEngineInfo(): void
-    {
-    }
-
-    public function testHasDeviceInfo(): void
-    {
-    }
-
-    public function test__construct(): void
-    {
+        return [
+            ['Nokia6288/2.0 (05.94) Profile/MIDP-2.0 Configuration/CLDC-1.1', true],
+            ['Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3', true],
+        ];
     }
 }
