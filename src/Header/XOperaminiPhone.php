@@ -22,13 +22,13 @@ final class XOperaminiPhone implements HeaderInterface
 
     /**
      * Useragent constructor.
+     *
      * @param string $value
      */
     public function __construct(string $value)
     {
         $this->value = $value;
     }
-
 
     /**
      * Retrieve header name
@@ -50,25 +50,37 @@ final class XOperaminiPhone implements HeaderInterface
         return $this->value;
     }
 
+    /**
+     * @return bool
+     */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(strtolower($this->value), ['? # ?', 'android #'])) {
+        if (in_array(mb_strtolower($this->value), ['? # ?', 'android #'])) {
             return false;
         }
 
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function hasBrowserInfo(): bool
     {
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function hasPlatformInfo(): bool
     {
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function hasEngineInfo(): bool
     {
         return false;

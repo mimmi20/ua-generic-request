@@ -27,11 +27,23 @@ interface HeaderInterface
      */
     public function getFieldValue(): string;
 
+    /**
+     * @return bool
+     */
     public function hasDeviceInfo(): bool;
 
+    /**
+     * @return bool
+     */
     public function hasBrowserInfo(): bool;
 
+    /**
+     * @return bool
+     */
     public function hasPlatformInfo(): bool;
 
+    /**
+     * @return bool
+     */
     public function hasEngineInfo(): bool;
 }

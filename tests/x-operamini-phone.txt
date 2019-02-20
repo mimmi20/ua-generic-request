@@ -1,0 +1,22 @@
+RIM # BlackBerry 8520
+Samsung # GT-S8500
+Samsung # GT-i8000
+RIM # BlackBerry 8900
+HTC # Touch Pro/T7272/TyTn III
+Android #
+? # ?
+BlackBerry # 9700
+Blackberry # 9300
+Samsung # SCH-U380
+Pantech # TXT8045
+ZTE # F-450
+LG # VN271
+Casio # C781
+Samsung # SCH-U485
+Pantech # CDM8992
+LG # VN530
+Samsung # SCH-U680
+Pantech # CDM8999
+Apple # iPhone
+Motorola # A1000
+HTC # HD2

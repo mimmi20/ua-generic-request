@@ -22,13 +22,13 @@ final class XUcbrowserUa implements HeaderInterface
 
     /**
      * Useragent constructor.
+     *
      * @param string $value
      */
     public function __construct(string $value)
     {
         $this->value = $value;
     }
-
 
     /**
      * Retrieve header name
@@ -50,6 +50,9 @@ final class XUcbrowserUa implements HeaderInterface
         return $this->value;
     }
 
+    /**
+     * @return bool
+     */
     public function hasDeviceInfo(): bool
     {
         $matches = [];
@@ -65,17 +68,26 @@ final class XUcbrowserUa implements HeaderInterface
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function hasBrowserInfo(): bool
     {
         $matches = [];
-
+        var_dump($this->value);
         if (!preg_match('/pr\(([^\)]+)\)/', $this->value, $matches)) {
+            var_dump(2);
+
             return false;
         }
+        var_dump(1);
 
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function hasPlatformInfo(): bool
     {
         $matches = [];
@@ -87,6 +99,9 @@ final class XUcbrowserUa implements HeaderInterface
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function hasEngineInfo(): bool
     {
         $matches = [];

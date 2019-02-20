@@ -16,12 +16,12 @@ use BrowserDetector\Loader\LoaderInterface;
 interface HeaderLoaderInterface extends LoaderInterface
 {
     /**
-     * @param string $key
-     * @param string $value
+     * @param string|null $key
+     * @param string      $value
      *
      * @throws \BrowserDetector\Loader\NotFoundException
      *
      * @return \UaRequest\Header\HeaderInterface
      */
-    public function load(string $key, string $value): HeaderInterface;
+    public function load(string $key, ?string $value = null): HeaderInterface;
 }

@@ -1,0 +1,12 @@
+iPhone OS/iPad4,1/1536x2048
+Android/D6503/1080x1776
+Android/SM-G900F/1080x1920
+Android/Nexus 10/1600x2464
+Android/SAMSUNG-SM-N910A/1440x2560
+Android/bq Edison/1280x752
+iPhone OS/iPhone6,1/320x568
+Android/LenovoA3300-HV/600x976
+Android/SM-T310/1280x800
+iPhone OS/iPhone7,1/1242x2208
+iPhone OS/iPad4,1/1024x768
+iPhone OS/iPhone 3GS/320x480

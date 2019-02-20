@@ -1,0 +1,21 @@
+nokia#200
+nokia#C2-01
+samsung#-GT-C3312
+j2me
+nokia#501
+nokia#C7-00
+samsung#-GT-S3850
+samsung#-GT-S5250
+samsung#-GT-S8600
+NOKIA # 6120c
+Nokia # E7-00
+Jblend
+nokia#501s
+nokia#503s
+nokia#Asha230DualSIM
+samsung#-gt-s5380d
+samsung#-GT-S5380K
+samsung#-GT-S5253
+tcl#-C616
+maui e800
+Opera

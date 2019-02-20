@@ -11,9 +11,10 @@
 declare(strict_types = 1);
 namespace UaRequest;
 
-use Psr\Http\Message\MessageInterface;
-use UaRequest\Header\HeaderLoader;
 use BrowserDetector\Loader\NotFoundException;
+use Psr\Http\Message\MessageInterface;
+use UaRequest\Header\HeaderInterface;
+use UaRequest\Header\HeaderLoaderInterface;
 
 final class GenericRequest implements GenericRequestInterface
 {
@@ -23,40 +24,48 @@ final class GenericRequest implements GenericRequestInterface
     private $headers = [];
 
     /**
-     * @var array
+     * @var HeaderInterface[]
      */
     private $filteredHeaders = [];
 
+    /**
+     * @var HeaderLoaderInterface
+     */
+    private $loader;
+
     private const HEADERS = [
-        Constants::HEADER_DEVICE_STOCK_UA    ,
-        Constants::HEADER_DEVICE_UA          ,
+        Constants::HEADER_DEVICE_STOCK_UA,
+        Constants::HEADER_DEVICE_UA,
         Constants::HEADER_UCBROWSER_DEVICE_UA,
-        Constants::HEADER_UCBROWSER_DEVICE   ,
-        Constants::HEADER_UCBROWSER_PHONE_UA ,
-        Constants::HEADER_UCBROWSER_PHONE    ,
-        Constants::HEADER_UCBROWSER_UA       ,
-        Constants::HEADER_SKYFIRE_PHONE      ,
-        Constants::HEADER_OPERAMINI_PHONE_UA ,
-        Constants::HEADER_OPERAMINI_PHONE    ,
-        Constants::HEADER_SKYFIRE_VERSION    ,
-        Constants::HEADER_BLUECOAT_VIA       ,
-        Constants::HEADER_BOLT_PHONE_UA      ,
-        Constants::HEADER_MOBILE_UA          ,
-        Constants::HEADER_REQUESTED_WITH     ,
-        Constants::HEADER_ORIGINAL_UA        ,
-        Constants::HEADER_UA_OS              ,
-        Constants::HEADER_BAIDU_FLYFLOW      ,
-        Constants::HEADER_PUFFIN_UA          ,
-        Constants::HEADER_USERAGENT          ,
-        Constants::HEADER_WAP_PROFILE        ,
-        Constants::HEADER_NB_CONTENT         ,
+        Constants::HEADER_UCBROWSER_DEVICE,
+        Constants::HEADER_UCBROWSER_PHONE_UA,
+        Constants::HEADER_UCBROWSER_PHONE,
+        Constants::HEADER_UCBROWSER_UA,
+        Constants::HEADER_SKYFIRE_PHONE,
+        Constants::HEADER_OPERAMINI_PHONE_UA,
+        Constants::HEADER_OPERAMINI_PHONE,
+        Constants::HEADER_SKYFIRE_VERSION,
+        Constants::HEADER_BLUECOAT_VIA,
+        Constants::HEADER_BOLT_PHONE_UA,
+        Constants::HEADER_MOBILE_UA,
+        Constants::HEADER_REQUESTED_WITH,
+        Constants::HEADER_ORIGINAL_UA,
+        Constants::HEADER_UA_OS,
+        Constants::HEADER_BAIDU_FLYFLOW,
+        Constants::HEADER_PUFFIN_UA,
+        Constants::HEADER_USERAGENT,
+        Constants::HEADER_WAP_PROFILE,
+        Constants::HEADER_NB_CONTENT,
     ];
 
     /**
-     * @param MessageInterface $message
+     * @param MessageInterface      $message
+     * @param HeaderLoaderInterface $loader
      */
-    public function __construct(MessageInterface $message)
+    public function __construct(MessageInterface $message, HeaderLoaderInterface $loader)
     {
+        $this->loader = $loader;
+
         foreach (array_keys($message->getHeaders()) as $header) {
             $this->headers[$header] = $message->getHeaderLine($header);
         }
@@ -85,22 +94,9 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getBrowserUserAgent(): string
     {
-        $headers = [
-            Constants::HEADER_SKYFIRE_VERSION    => true,
-            Constants::HEADER_BLUECOAT_VIA       => true,
-            Constants::HEADER_BOLT_PHONE_UA      => true,
-            Constants::HEADER_UCBROWSER_UA       => true,
-            Constants::HEADER_MOBILE_UA          => true,
-            Constants::HEADER_REQUESTED_WITH     => true,
-            Constants::HEADER_ORIGINAL_UA        => true,
-            Constants::HEADER_DEVICE_STOCK_UA    => true,
-            Constants::HEADER_OPERAMINI_PHONE_UA => true,
-            Constants::HEADER_USERAGENT     => true,
-        ];
-
-        foreach (array_keys($headers) as $header) {
-            if (array_key_exists($header, $this->filteredHeaders)) {
-                return $this->filteredHeaders[$header];
+        foreach ($this->filteredHeaders as $header) {
+            if ($header->hasBrowserInfo()) {
+                return $header->getFieldValue();
             }
         }
 
@@ -112,21 +108,9 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getDeviceUserAgent(): string
     {
-        $headers = [
-            Constants::HEADER_DEVICE_STOCK_UA     => true,
-            Constants::HEADER_UCBROWSER_UA        => true,
-            Constants::HEADER_UCBROWSER_DEVICE_UA => true,
-            Constants::HEADER_UCBROWSER_DEVICE    => true,
-            Constants::HEADER_SKYFIRE_PHONE       => true,
-            Constants::HEADER_OPERAMINI_PHONE_UA  => true,
-            Constants::HEADER_ORIGINAL_UA         => true,
-            Constants::HEADER_BAIDU_FLYFLOW       => true,
-            Constants::HEADER_USERAGENT      => true,
-        ];
-
-        foreach (array_keys($headers) as $header) {
-            if (array_key_exists($header, $this->filteredHeaders)) {
-                return $this->filteredHeaders[$header];
+        foreach ($this->filteredHeaders as $header) {
+            if ($header->hasDeviceInfo()) {
+                return $header->getFieldValue();
             }
         }
 
@@ -138,21 +122,9 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getPlatformUserAgent(): string
     {
-        $headers = [
-            Constants::HEADER_UA_OS           => true,
-            Constants::HEADER_SKYFIRE_VERSION => true,
-            Constants::HEADER_BLUECOAT_VIA    => true,
-            Constants::HEADER_BOLT_PHONE_UA   => true,
-            Constants::HEADER_UCBROWSER_UA    => true,
-            Constants::HEADER_MOBILE_UA       => true,
-            Constants::HEADER_REQUESTED_WITH  => true,
-            Constants::HEADER_ORIGINAL_UA     => true,
-            Constants::HEADER_USERAGENT  => true,
-        ];
-
-        foreach (array_keys($headers) as $header) {
-            if (array_key_exists($header, $this->filteredHeaders)) {
-                return $this->filteredHeaders[$header];
+        foreach ($this->filteredHeaders as $header) {
+            if ($header->hasPlatformInfo()) {
+                return $header->getFieldValue();
             }
         }
 
@@ -164,15 +136,13 @@ final class GenericRequest implements GenericRequestInterface
      */
     private function filterHeaders(): void
     {
-        $loader = new HeaderLoader();
-
         foreach (self::HEADERS as $header) {
             if (!array_key_exists($header, $this->headers)) {
                 continue;
             }
 
             try {
-                $headerObj = $loader->load($header, $this->headers[$header]);
+                $headerObj = $this->loader->load($header, $this->headers[$header]);
             } catch (NotFoundException $e) {
                 continue;
             }

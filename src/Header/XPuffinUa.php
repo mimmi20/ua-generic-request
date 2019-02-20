@@ -22,13 +22,13 @@ final class XPuffinUa implements HeaderInterface
 
     /**
      * Useragent constructor.
+     *
      * @param string $value
      */
     public function __construct(string $value)
     {
         $this->value = $value;
     }
-
 
     /**
      * Retrieve header name
@@ -50,21 +50,33 @@ final class XPuffinUa implements HeaderInterface
         return $this->value;
     }
 
+    /**
+     * @return bool
+     */
     public function hasDeviceInfo(): bool
     {
         return true;
     }
 
+    /**
+     * @return bool
+     */
     public function hasBrowserInfo(): bool
     {
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function hasPlatformInfo(): bool
     {
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function hasEngineInfo(): bool
     {
         return false;

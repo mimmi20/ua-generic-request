@@ -12,6 +12,7 @@ declare(strict_types = 1);
 namespace UaRequest;
 
 use Psr\Http\Message\MessageInterface;
+use UaRequest\Header\HeaderLoader;
 use Zend\Diactoros\HeaderSecurity;
 use Zend\Diactoros\ServerRequestFactory;
 
@@ -74,7 +75,7 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
      */
     public function createRequestFromPsr7Message(MessageInterface $message): GenericRequest
     {
-        return new GenericRequest($message);
+        return new GenericRequest($message, new HeaderLoader());
     }
 
     /**
