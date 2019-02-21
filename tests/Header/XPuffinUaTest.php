@@ -28,11 +28,11 @@ class XPuffinUaTest extends TestCase
     {
         $header = new XPuffinUa($ua);
 
-        self::assertSame($ua, $header->getValue());
-        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo());
-        self::assertFalse($header->hasBrowserInfo());
-        self::assertFalse($header->hasPlatformInfo());
-        self::assertFalse($header->hasEngineInfo());
+        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo(), 'device info mismatch');
+        self::assertFalse($header->hasBrowserInfo(), 'browser info mismatch');
+        self::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
+        self::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
     }
 
     /**

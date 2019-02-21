@@ -38,7 +38,7 @@ class HeaderLoaderTest extends TestCase
     public function testLoadFail(): void
     {
         $this->expectException(NotFoundException::class);
-        $this->expectExceptionMessage('hehe');
+        $this->expectExceptionMessage('the header with name "unknown header" was not found');
 
         $this->subject->load('unknown header');
     }

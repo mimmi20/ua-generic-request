@@ -49,7 +49,7 @@ final class XUcbrowserUa implements HeaderInterface
             return false;
         }
 
-        if ('j2me' === $matches[1]) {
+        if ('j2me' === $matches[1] || 'Opera' === $matches[1]) {
             return false;
         }
 
@@ -62,13 +62,10 @@ final class XUcbrowserUa implements HeaderInterface
     public function hasBrowserInfo(): bool
     {
         $matches = [];
-        var_dump($this->value);
-        if (!preg_match('/pr\(([^\)]+)\)/', $this->value, $matches)) {
-            var_dump(2);
 
+        if (!preg_match('/pr\(([^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
-        var_dump(1);
 
         return true;
     }

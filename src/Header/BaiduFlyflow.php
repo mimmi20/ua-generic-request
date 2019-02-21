@@ -43,7 +43,7 @@ final class BaiduFlyflow implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), [';htc;htc;'])) {
+        if (preg_match('/;htc;htc;/i', mb_strtolower($this->value))) {
             return false;
         }
 

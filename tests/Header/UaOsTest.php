@@ -24,10 +24,10 @@ class UaOsTest extends TestCase
         $ua     = 'Windows CE (Smartphone) - Version 5.2';
         $header = new UaOs($ua);
 
-        self::assertSame($ua, $header->getValue());
-        self::assertFalse($header->hasDeviceInfo());
-        self::assertFalse($header->hasBrowserInfo());
-        self::assertTrue($header->hasPlatformInfo());
-        self::assertFalse($header->hasEngineInfo());
+        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertFalse($header->hasDeviceInfo(), 'device info mismatch');
+        self::assertFalse($header->hasBrowserInfo(), 'browser info mismatch');
+        self::assertTrue($header->hasPlatformInfo(), 'platform info mismatch');
+        self::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
     }
 }
