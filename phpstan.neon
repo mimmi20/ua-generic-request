@@ -22,4 +22,4 @@ parameters:
   excludes_analyse:
     - */tests/*/data/*
   ignoreErrors:
-#    - '~MockObject~'
+    - '~MockObject~'

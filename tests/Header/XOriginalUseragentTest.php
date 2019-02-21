@@ -25,10 +25,10 @@ class XOriginalUseragentTest extends TestCase
 
         $header = new XOriginalUseragent($ua);
 
-        self::assertSame($ua, $header->getValue());
-        self::assertTrue($header->hasDeviceInfo());
-        self::assertTrue($header->hasBrowserInfo());
-        self::assertTrue($header->hasPlatformInfo());
-        self::assertTrue($header->hasEngineInfo());
+        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertTrue($header->hasDeviceInfo(), 'device info mismatch');
+        self::assertTrue($header->hasBrowserInfo(), 'browser info mismatch');
+        self::assertTrue($header->hasPlatformInfo(), 'platform info mismatch');
+        self::assertTrue($header->hasEngineInfo(), 'engine info mismatch');
     }
 }

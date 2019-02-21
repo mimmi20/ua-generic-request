@@ -86,7 +86,13 @@ final class GenericRequest implements GenericRequestInterface
      */
     public function getFilteredHeaders(): array
     {
-        return $this->filteredHeaders;
+        $headers = [];
+
+        foreach ($this->filteredHeaders as $name => $header) {
+            $headers[$name] = $header->getValue();
+        }
+
+        return $headers;
     }
 
     /**

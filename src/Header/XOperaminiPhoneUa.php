@@ -47,7 +47,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
             return false;
         }
 
-        if (preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc/i', mb_strtolower($this->value))) {
+        if (preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|pantech|lg|casio|zte|mi 2sc/i', mb_strtolower($this->value))) {
             return true;
         }
 
@@ -59,7 +59,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        if (preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin/i', mb_strtolower($this->value))) {
+        if (preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin|opera|blackberry/i', mb_strtolower($this->value))) {
             return true;
         }
 
@@ -71,7 +71,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        if (preg_match('/bada|android|blackberry|brew|iphone|mre|windows/i', mb_strtolower($this->value))) {
+        if (preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', mb_strtolower($this->value))) {
             return true;
         }
 

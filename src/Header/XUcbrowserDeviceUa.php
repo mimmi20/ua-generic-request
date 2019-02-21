@@ -55,7 +55,7 @@ final class XUcbrowserDeviceUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        if (preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin/i', mb_strtolower($this->value))) {
+        if (preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin|opera|blackberry/i', mb_strtolower($this->value))) {
             return true;
         }
 
@@ -67,7 +67,7 @@ final class XUcbrowserDeviceUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        if (preg_match('/bada|android|blackberry|brew|iphone|mre|windows/i', mb_strtolower($this->value))) {
+        if (preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|symbian/i', mb_strtolower($this->value))) {
             return true;
         }
 

@@ -29,11 +29,11 @@ class XUcbrowserPhoneUaTest extends TestCase
     {
         $header = new XUcbrowserPhoneUa($ua);
 
-        self::assertSame($ua, $header->getValue());
-        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo());
-        self::assertSame($hasBrowserInfo, $header->hasBrowserInfo());
-        self::assertFalse($header->hasPlatformInfo());
-        self::assertFalse($header->hasEngineInfo());
+        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo(), 'device info mismatch');
+        self::assertSame($hasBrowserInfo, $header->hasBrowserInfo(), 'browser info mismatch');
+        self::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
+        self::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
     }
 
     /**
