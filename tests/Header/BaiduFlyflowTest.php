@@ -14,13 +14,16 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\BaiduFlyflow;
 
-class BaiduFlyflowTest extends TestCase
+final class BaiduFlyflowTest extends TestCase
 {
     /**
      * @dataProvider providerUa
      *
      * @param string $ua
      * @param bool   $hasDeviceInfo
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */

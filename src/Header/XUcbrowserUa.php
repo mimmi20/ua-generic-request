@@ -45,7 +45,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!preg_match('/dv\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/dv\(([^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 
@@ -63,7 +63,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!preg_match('/pr\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/pr\(([^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 
@@ -77,7 +77,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!preg_match('/ov\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/ov\(([^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 
@@ -91,7 +91,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!preg_match('/re\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/re\(([^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 

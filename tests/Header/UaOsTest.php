@@ -14,9 +14,12 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\UaOs;
 
-class UaOsTest extends TestCase
+final class UaOsTest extends TestCase
 {
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testData(): void

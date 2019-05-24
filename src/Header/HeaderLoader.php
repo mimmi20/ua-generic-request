@@ -17,21 +17,21 @@ use UaRequest\Constants;
 final class HeaderLoader implements HeaderLoaderInterface
 {
     private const OPTIONS = [
-        Constants::HEADER_BAIDU_FLYFLOW       => BaiduFlyflow::class,
-        Constants::HEADER_DEVICE_STOCK_UA     => DeviceStockUa::class,
-        Constants::HEADER_UA_OS               => UaOs::class,
-        Constants::HEADER_USERAGENT           => Useragent::class,
-        Constants::HEADER_DEVICE_UA           => XDeviceUseragent::class,
-        Constants::HEADER_OPERAMINI_PHONE     => XOperaminiPhone::class,
-        Constants::HEADER_OPERAMINI_PHONE_UA  => XOperaminiPhoneUa::class,
-        Constants::HEADER_ORIGINAL_UA         => XOriginalUseragent::class,
-        Constants::HEADER_PUFFIN_UA           => XPuffinUa::class,
-        Constants::HEADER_REQUESTED_WITH      => XRequestedWith::class,
-        Constants::HEADER_UCBROWSER_DEVICE    => XUcbrowserDevice::class,
+        Constants::HEADER_BAIDU_FLYFLOW => BaiduFlyflow::class,
+        Constants::HEADER_DEVICE_STOCK_UA => DeviceStockUa::class,
+        Constants::HEADER_UA_OS => UaOs::class,
+        Constants::HEADER_USERAGENT => Useragent::class,
+        Constants::HEADER_DEVICE_UA => XDeviceUseragent::class,
+        Constants::HEADER_OPERAMINI_PHONE => XOperaminiPhone::class,
+        Constants::HEADER_OPERAMINI_PHONE_UA => XOperaminiPhoneUa::class,
+        Constants::HEADER_ORIGINAL_UA => XOriginalUseragent::class,
+        Constants::HEADER_PUFFIN_UA => XPuffinUa::class,
+        Constants::HEADER_REQUESTED_WITH => XRequestedWith::class,
+        Constants::HEADER_UCBROWSER_DEVICE => XUcbrowserDevice::class,
         Constants::HEADER_UCBROWSER_DEVICE_UA => XUcbrowserDeviceUa::class,
-        Constants::HEADER_UCBROWSER_PHONE     => XUcbrowserPhone::class,
-        Constants::HEADER_UCBROWSER_PHONE_UA  => XUcbrowserPhoneUa::class,
-        Constants::HEADER_UCBROWSER_UA        => XUcbrowserUa::class,
+        Constants::HEADER_UCBROWSER_PHONE => XUcbrowserPhone::class,
+        Constants::HEADER_UCBROWSER_PHONE_UA => XUcbrowserPhoneUa::class,
+        Constants::HEADER_UCBROWSER_UA => XUcbrowserUa::class,
     ];
 
     /**

@@ -14,13 +14,16 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\XPuffinUa;
 
-class XPuffinUaTest extends TestCase
+final class XPuffinUaTest extends TestCase
 {
     /**
      * @dataProvider providerUa
      *
      * @param string $ua
      * @param bool   $hasDeviceInfo
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */

@@ -43,11 +43,11 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), ['mozilla/5.0 (bada 2.0.0)', 'motorola'])) {
+        if (in_array(mb_strtolower($this->value), ['mozilla/5.0 (bada 2.0.0)', 'motorola'], true)) {
             return false;
         }
 
-        if (preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|pantech|lg|casio|zte|mi 2sc/i', mb_strtolower($this->value))) {
+        if ((bool) preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|pantech|lg|casio|zte|mi 2sc/i', mb_strtolower($this->value))) {
             return true;
         }
 
@@ -59,7 +59,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        if (preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin|opera|blackberry/i', mb_strtolower($this->value))) {
+        if ((bool) preg_match('/msie|dorado|opera|safari|obigo|netfront|s40ovibrowser|dolfin|opera|blackberry/i', mb_strtolower($this->value))) {
             return true;
         }
 
@@ -71,7 +71,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        if (preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', mb_strtolower($this->value))) {
+        if ((bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', mb_strtolower($this->value))) {
             return true;
         }
 

@@ -43,7 +43,7 @@ final class XOperaminiPhone implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), ['? # ?', 'android #'])) {
+        if (in_array(mb_strtolower($this->value), ['? # ?', 'android #'], true)) {
             return false;
         }
 
