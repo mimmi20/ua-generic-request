@@ -142,11 +142,12 @@ final class GenericRequest implements GenericRequestInterface
      */
     private function filterHeaders(): void
     {
-        foreach (self::HEADERS as $header) {
-            if (!array_key_exists($header, $this->headers)) {
-                continue;
-            }
+        $headers  = $this->headers;
+        $filtered = array_filter(self::HEADERS, static function ($value) use ($headers) {
+            return array_key_exists($value, $headers);
+        });
 
+        foreach ($filtered as $header) {
             try {
                 $headerObj = $this->loader->load($header, $this->headers[$header]);
             } catch (NotFoundException $e) {
