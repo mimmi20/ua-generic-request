@@ -22,6 +22,9 @@ use Zend\Diactoros\ServerRequestFactory;
 final class GenericRequestTest extends TestCase
 {
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testConstruct(): void
@@ -31,14 +34,14 @@ final class GenericRequestTest extends TestCase
         $deviceUa  = 'testDeviceUA';
         $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
-            'HTTP_DEVICE_STOCK_UA'           => $deviceUa,
-            'HTTP_X_UCBROWSER_UA'            => $browserUa,
+            'HTTP_DEVICE_STOCK_UA' => $deviceUa,
+            'HTTP_X_UCBROWSER_UA' => $browserUa,
         ];
 
         $expectedHeaders = [
-            'user-agent'      => $userAgent,
+            'user-agent' => $userAgent,
             'device-stock-ua' => $deviceUa,
-            'x-ucbrowser-ua'  => $browserUa,
+            'x-ucbrowser-ua' => $browserUa,
         ];
 
         $header1 = $this->getMockBuilder(HeaderInterface::class)
@@ -99,6 +102,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testToarray(): void
@@ -141,6 +147,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testToarraySimple(): void
@@ -178,6 +187,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testForDevice(): void
@@ -215,6 +227,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testForDevice2(): void
@@ -223,7 +238,7 @@ final class GenericRequestTest extends TestCase
         $userAgent2 = 'testUA2';
         $headers    = [
             'HTTP_DEVICE_STOCK_UA' => $userAgent,
-            'HTTP_USER_AGENT'      => $userAgent2,
+            'HTTP_USER_AGENT' => $userAgent2,
         ];
 
         $header1 = $this->getMockBuilder(HeaderInterface::class)
@@ -269,6 +284,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testForBrowser(): void
@@ -306,6 +324,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testForBrowser2(): void
@@ -314,7 +335,7 @@ final class GenericRequestTest extends TestCase
         $userAgent2 = 'testUA2';
         $headers    = [
             'HTTP_DEVICE_STOCK_UA' => $userAgent,
-            'HTTP_X_UCBROWSER_UA'  => $userAgent2,
+            'HTTP_X_UCBROWSER_UA' => $userAgent2,
         ];
 
         $header1 = $this->getMockBuilder(HeaderInterface::class)
@@ -360,6 +381,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testForPlatform(): void
@@ -397,6 +421,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testForPlatform2(): void
@@ -405,7 +432,7 @@ final class GenericRequestTest extends TestCase
         $userAgent2 = 'Windows CE (Smartphone) - Version 5.2';
         $headers    = [
             'HTTP_DEVICE_STOCK_UA' => $userAgent,
-            'HTTP_UA_OS'           => $userAgent2,
+            'HTTP_UA_OS' => $userAgent2,
         ];
 
         $header1 = $this->getMockBuilder(HeaderInterface::class)
@@ -451,6 +478,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testGetFilteredHeaders(): void
@@ -461,7 +491,7 @@ final class GenericRequestTest extends TestCase
         ];
         $headers = [
             'HTTP_DEVICE_STOCK_UA' => $userAgent,
-            'via'                  => 'test',
+            'via' => 'test',
         ];
 
         $header = $this->getMockBuilder(HeaderInterface::class)

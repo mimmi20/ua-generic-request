@@ -17,7 +17,7 @@ use UaRequest\Constants;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoader;
 
-class HeaderLoaderTest extends TestCase
+final class HeaderLoaderTest extends TestCase
 {
     /**
      * @var \UaRequest\Header\HeaderLoader
@@ -33,6 +33,8 @@ class HeaderLoaderTest extends TestCase
     }
 
     /**
+     * @throws \BrowserDetector\Loader\NotFoundException
+     *
      * @return void
      */
     public function testLoadFail(): void
@@ -44,6 +46,10 @@ class HeaderLoaderTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \BrowserDetector\Loader\NotFoundException
+     *
      * @return void
      */
     public function testLoadOk(): void
@@ -56,6 +62,9 @@ class HeaderLoaderTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testHas(): void

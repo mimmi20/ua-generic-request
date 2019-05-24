@@ -14,13 +14,16 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\XRequestedWith;
 
-class XRequestedWithTest extends TestCase
+final class XRequestedWithTest extends TestCase
 {
     /**
      * @dataProvider providerUa
      *
      * @param string $ua
      * @param bool   $hasBrowserInfo
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */

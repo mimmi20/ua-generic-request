@@ -14,13 +14,16 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\XUcbrowserDevice;
 
-class XUcbrowserDeviceTest extends TestCase
+final class XUcbrowserDeviceTest extends TestCase
 {
     /**
      * @dataProvider providerUa
      *
      * @param string $ua
      * @param bool   $hasDeviceInfo
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */

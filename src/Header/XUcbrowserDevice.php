@@ -43,7 +43,7 @@ final class XUcbrowserDevice implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), ['j2me', 'opera', 'jblend'])) {
+        if (in_array(mb_strtolower($this->value), ['j2me', 'opera', 'jblend'], true)) {
             return false;
         }
 

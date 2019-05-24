@@ -14,7 +14,7 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\XUcbrowserUa;
 
-class XUcbrowserUaTest extends TestCase
+final class XUcbrowserUaTest extends TestCase
 {
     /**
      * @dataProvider providerUa
@@ -24,6 +24,9 @@ class XUcbrowserUaTest extends TestCase
      * @param bool   $hasBrowserInfo
      * @param bool   $hasPlatformInfo
      * @param bool   $hasEngineInfo
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */

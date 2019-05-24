@@ -33,6 +33,9 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testCreateRequestFromArray(): void
@@ -50,6 +53,9 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testCreateRequestFromEmptyHeaders(): void
@@ -64,6 +70,9 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testCreateRequestFromString(): void
@@ -81,6 +90,9 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testCreateRequestFromPsr7Message(): void
@@ -89,10 +101,10 @@ final class GenericRequestFactoryTest extends TestCase
         $deviceUa  = 'testDeviceUa';
         $headers   = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
-            'HTTP_X_UCBROWSER_DEVICE_UA'     => $deviceUa,
+            'HTTP_X_UCBROWSER_DEVICE_UA' => $deviceUa,
         ];
         $expectedHeaders = [
-            Constants::HEADER_USERAGENT           => $userAgent,
+            Constants::HEADER_USERAGENT => $userAgent,
             Constants::HEADER_UCBROWSER_DEVICE_UA => $deviceUa,
         ];
 
@@ -105,6 +117,9 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testCreateRequestFromInvalidString(): void
@@ -123,6 +138,9 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testCreateRequestFromInvalidArray(): void

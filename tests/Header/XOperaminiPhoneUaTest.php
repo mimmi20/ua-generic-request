@@ -14,7 +14,7 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\XOperaminiPhoneUa;
 
-class XOperaminiPhoneUaTest extends TestCase
+final class XOperaminiPhoneUaTest extends TestCase
 {
     /**
      * @dataProvider providerUa
@@ -23,6 +23,9 @@ class XOperaminiPhoneUaTest extends TestCase
      * @param bool   $hasDeviceInfo
      * @param bool   $hasBrowserInfo
      * @param bool   $hasPlatformInfo
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */

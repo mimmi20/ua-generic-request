@@ -14,7 +14,7 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\DeviceStockUa;
 
-class DeviceStockUaTest extends TestCase
+final class DeviceStockUaTest extends TestCase
 {
     /**
      * @dataProvider providerUa
@@ -23,6 +23,9 @@ class DeviceStockUaTest extends TestCase
      * @param bool   $hasDeviceInfo
      * @param bool   $hasBrowserInfo
      * @param bool   $hasPlatformInfo
+     *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */
