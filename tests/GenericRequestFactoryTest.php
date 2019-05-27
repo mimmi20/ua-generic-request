@@ -27,7 +27,7 @@ final class GenericRequestFactoryTest extends TestCase
     /**
      * @return void
      */
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->object = new GenericRequestFactory();
     }
@@ -47,9 +47,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromArray($headers);
 
-        self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($headers, $result->getHeaders());
-        self::assertSame($userAgent, $result->getBrowserUserAgent());
+        static::assertInstanceOf(GenericRequest::class, $result);
+        static::assertSame($headers, $result->getHeaders());
+        static::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
     /**
@@ -64,9 +64,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromArray($headers);
 
-        self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($headers, $result->getHeaders());
-        self::assertSame('', $result->getBrowserUserAgent());
+        static::assertInstanceOf(GenericRequest::class, $result);
+        static::assertSame($headers, $result->getHeaders());
+        static::assertSame('', $result->getBrowserUserAgent());
     }
 
     /**
@@ -84,9 +84,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromString($userAgent);
 
-        self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($headers, $result->getHeaders());
-        self::assertSame($userAgent, $result->getBrowserUserAgent());
+        static::assertInstanceOf(GenericRequest::class, $result);
+        static::assertSame($headers, $result->getHeaders());
+        static::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
     /**
@@ -110,10 +110,10 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromPsr7Message(ServerRequestFactory::fromGlobals($headers));
 
-        self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expectedHeaders, $result->getHeaders());
-        self::assertSame($userAgent, $result->getBrowserUserAgent());
-        self::assertSame($deviceUa, $result->getDeviceUserAgent());
+        static::assertInstanceOf(GenericRequest::class, $result);
+        static::assertSame($expectedHeaders, $result->getHeaders());
+        static::assertSame($userAgent, $result->getBrowserUserAgent());
+        static::assertSame($deviceUa, $result->getDeviceUserAgent());
     }
 
     /**
@@ -132,9 +132,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromString($userAgent);
 
-        self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($headers, $result->getHeaders());
-        self::assertSame($resultUa, $result->getBrowserUserAgent());
+        static::assertInstanceOf(GenericRequest::class, $result);
+        static::assertSame($headers, $result->getHeaders());
+        static::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 
     /**
@@ -157,8 +157,8 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromArray($headers);
 
-        self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertEquals($expectedHeaders, $result->getHeaders());
-        self::assertSame($resultUa, $result->getBrowserUserAgent());
+        static::assertInstanceOf(GenericRequest::class, $result);
+        static::assertSame($expectedHeaders, $result->getHeaders());
+        static::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 }

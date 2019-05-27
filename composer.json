@@ -37,6 +37,10 @@
     "phpunit/phpunit": "^7.5 || ^8.0",
     "squizlabs/php_codesniffer": "^3.4"
   },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
   "autoload": {
     "psr-4": {
       "UaRequest\\": "src/"
@@ -48,9 +52,5 @@
     }
   },
   "minimum-stability": "stable",
-  "prefer-stable": true,
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  }
+  "prefer-stable": true
 }
