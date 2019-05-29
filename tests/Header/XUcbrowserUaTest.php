@@ -96,6 +96,7 @@ final class XUcbrowserUaTest extends TestCase
             ['pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 510);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);', true, true, true, true],
             ['pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC C620e);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(720*1280);ss(480*853);er(U);bt(UC);nm(0);im(0);sr(1);nt(2);up(U2/1.0.0);pm(1);', true, true, true, true],
             ['pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_eu_turkey_355);pr(UCBrowser/3.0.1.302);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);', true, true, true, true],
+            ['pf(Windows);la(en-US);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);', false, false, false, false],
         ];
     }
 }

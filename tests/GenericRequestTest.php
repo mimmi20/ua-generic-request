@@ -11,6 +11,7 @@
 declare(strict_types = 1);
 namespace UaRequestTest;
 
+use BrowserDetector\Loader\NotFoundException;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
@@ -513,6 +514,47 @@ final class GenericRequestTest extends TestCase
         $loader->expects(static::once())
             ->method('load')
             ->willReturn($header);
+
+        /** @var HeaderLoaderInterface $loader */
+        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
+        $resultHeaders = $original->getFilteredHeaders();
+
+        static::assertSame($expectedHeaders, $resultHeaders);
+    }
+
+    /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
+     * @return void
+     */
+    public function testGetFilteredHeadersWithLoadException(): void
+    {
+        $userAgent       = 'SAMSUNG-GT-S8500';
+        $expectedHeaders = [];
+        $headers         = [
+            'HTTP_DEVICE_STOCK_UA' => $userAgent,
+            'via' => 'test',
+        ];
+
+        $header = $this->getMockBuilder(HeaderInterface::class)
+            ->getMock();
+        $header->expects(static::never())
+            ->method('getValue');
+        $header->expects(static::never())
+            ->method('hasPlatformInfo')
+            ->willReturn(true);
+        $header->expects(static::never())
+            ->method('hasBrowserInfo')
+            ->willReturn(false);
+        $header->expects(static::never())
+            ->method('hasDeviceInfo')
+            ->willReturn(false);
+        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+            ->getMock();
+        $loader->expects(static::once())
+            ->method('load')
+            ->willThrowException(new NotFoundException('not-found'));
 
         /** @var HeaderLoaderInterface $loader */
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
