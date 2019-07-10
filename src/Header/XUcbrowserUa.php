@@ -45,11 +45,11 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/dv\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/dv\((?P<device>[^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 
-        if ('j2me' === $matches[1] || 'Opera' === $matches[1]) {
+        if ('j2me' === $matches['device'] || 'Opera' === $matches['device']) {
             return false;
         }
 
@@ -63,7 +63,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/pr\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/pr\((?P<browser>[^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 
@@ -77,7 +77,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/ov\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/ov\((?P<platform>[^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 
@@ -91,7 +91,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/re\(([^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/re\((?P<engine>[^\)]+)\)/', $this->value, $matches)) {
             return false;
         }
 

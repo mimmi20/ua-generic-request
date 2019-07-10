@@ -55,7 +55,7 @@ final class XUcbrowserDeviceUaTest extends TestCase
             ['?', false, false, false],
             ['SAMSUNG-GT-C3312/1.0 NetFront/4.2 Profile/MIDP-2.0 Configuration/CLDC-1.1', true, true, false],
             ['SAMSUNG-GT-S3770K/S3770KDDKH4 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1', true, true, false],
-            ['MOT-A1200e/1.0 LinuxOS/2.4.20 Release/1.31.2007 Browser/Opera8.00 Profile/MIDP-2.0 Configuration/CLDC-1.1 Software/R541_G_11.56.11R', true, true, false],
+            ['MOT-A1200e/1.0 LinuxOS/2.4.20 Release/1.31.2007 Browser/Opera8.00 Profile/MIDP-2.0 Configuration/CLDC-1.1 Software/R541_G_11.56.11R', true, false, false],
             ['SAMSUNG-GT-S3850/1.0 SHP/VPP/R5 Dolfin/2.0 NexPlayer/3.0 SMM-MMS/1.2.0 profile/MIDP-2.1 configuration/CLDC-1.1 OPN-B', true, true, false],
             ['Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5250/S5250XEKC1; U; Bada/1.0; uk-ua) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.0 Mobile WQVGA SMM-MMS/1.2.0 NexPlayer/3.0 profile/MIDP-2.1 configuration/CLDC-1.1 OPN-B', true, true, true],
             ['Mozilla/5.0 (SymbianOS/9.2; U; Series60/3.1 NOKIA6120c/07.20; Profile/MIDP-2.0 Configuration/CLDC-1.1) AppleWebKit/413 (KHTML, like Gecko) Safari/413', true, true, true],
@@ -71,8 +71,8 @@ final class XUcbrowserDeviceUaTest extends TestCase
             ['Mozilla/4.0 (BREW 3.1.5; U; en-us; Sanyo; NetFront/3.5.1/AMB) Boost SCP6760', true, true, true],
             ['Mozilla/5.0_(OneTouch-710C/710C_OMH_V1.6; U; REX/4.3;BREW/3.1.5.189; Profile/MIDP-2.0_Configuration/CLDC-1.1; 240*320; CTC/2.0)_Obigo Browser/1.14', true, true, true],
             ['NetFront/3.5.1(BREW 5.0.2.1; U; en-us; Samsung ; NetFront/3.5.1/WAP) Boost M260 MMP/2.0 Profile/MIDP-2.1 Configuration/CLDC-1.1', true, true, true],
-            ['MOT-EX226 MIDP-2.0/CLDC-1.1 Release/31.12.2010 Browser/Opera Sync/SyncClient1.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 Opera/9.80 (MTK; U; en-US) Presto/2.5.28 Version/10.10', true, true, true],
-            ['ASTRO36_TD/v3 (MRE\2.3.00(20480) resolution\320480 chipset\MT6255 touch\1 tpannel\1 camera\0 gsensor\0 keyboard\reduced) MAUI/10A1032MP_ASTRO_W1052 Release/31.12.2010 Browser/Opera Profile/MIDP-2.0 Configuration/CLDC-1.1 Sync/SyncClient1.1 Opera/9.80 (MTK; Nucleus; Opera Mobi/4000; U; en-US) Presto/2.5.28 Version/10.10', true, true, true],
+            ['MOT-EX226 MIDP-2.0/CLDC-1.1 Release/31.12.2010 Browser/Opera Sync/SyncClient1.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 Opera/9.80 (MTK; U; en-US) Presto/2.5.28 Version/10.10', true, false, true],
+            ['ASTRO36_TD/v3 (MRE\2.3.00(20480) resolution\320480 chipset\MT6255 touch\1 tpannel\1 camera\0 gsensor\0 keyboard\reduced) MAUI/10A1032MP_ASTRO_W1052 Release/31.12.2010 Browser/Opera Profile/MIDP-2.0 Configuration/CLDC-1.1 Sync/SyncClient1.1 Opera/9.80 (MTK; Nucleus; Opera Mobi/4000; U; en-US) Presto/2.5.28 Version/10.10', true, false, true],
         ];
     }
 }

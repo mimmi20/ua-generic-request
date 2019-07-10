@@ -36,11 +36,11 @@ final class GenericRequest implements GenericRequestInterface
     private const HEADERS = [
         Constants::HEADER_DEVICE_STOCK_UA,
         Constants::HEADER_DEVICE_UA,
+        Constants::HEADER_UCBROWSER_UA,
         Constants::HEADER_UCBROWSER_DEVICE_UA,
         Constants::HEADER_UCBROWSER_DEVICE,
         Constants::HEADER_UCBROWSER_PHONE_UA,
         Constants::HEADER_UCBROWSER_PHONE,
-        Constants::HEADER_UCBROWSER_UA,
         Constants::HEADER_SKYFIRE_PHONE,
         Constants::HEADER_OPERAMINI_PHONE_UA,
         Constants::HEADER_OPERAMINI_PHONE,
