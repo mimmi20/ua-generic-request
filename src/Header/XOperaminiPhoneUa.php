@@ -71,7 +71,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        if ((bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', mb_strtolower($this->value))) {
+        if ((bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|mre/i', mb_strtolower($this->value))) {
             return true;
         }
 

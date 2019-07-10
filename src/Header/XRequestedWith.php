@@ -51,7 +51,7 @@ final class XRequestedWith implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        if ((bool) preg_match('/xmlhttprequest|fake/i', $this->value)) {
+        if (0 < preg_match('/xmlhttprequest|fake/i', $this->value)) {
             return false;
         }
 
