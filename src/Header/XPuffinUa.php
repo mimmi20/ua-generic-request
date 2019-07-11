@@ -59,6 +59,12 @@ final class XPuffinUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
+        $matches = [];
+
+        if (0 < preg_match('/(?P<platform>Android|iPhone OS)/', $this->value, $matches)) {
+            return true;
+        }
+
         return false;
     }
 

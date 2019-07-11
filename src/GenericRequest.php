@@ -34,13 +34,13 @@ final class GenericRequest implements GenericRequestInterface
     private $loader;
 
     private const HEADERS = [
-        Constants::HEADER_DEVICE_STOCK_UA,
         Constants::HEADER_DEVICE_UA,
         Constants::HEADER_UCBROWSER_UA,
         Constants::HEADER_UCBROWSER_DEVICE_UA,
         Constants::HEADER_UCBROWSER_DEVICE,
         Constants::HEADER_UCBROWSER_PHONE_UA,
         Constants::HEADER_UCBROWSER_PHONE,
+        Constants::HEADER_DEVICE_STOCK_UA,
         Constants::HEADER_SKYFIRE_PHONE,
         Constants::HEADER_OPERAMINI_PHONE_UA,
         Constants::HEADER_OPERAMINI_PHONE,
@@ -130,6 +130,20 @@ final class GenericRequest implements GenericRequestInterface
     {
         foreach ($this->filteredHeaders as $header) {
             if ($header->hasPlatformInfo()) {
+                return $header->getValue();
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getEngineUserAgent(): string
+    {
+        foreach ($this->filteredHeaders as $header) {
+            if ($header->hasEngineInfo()) {
                 return $header->getValue();
             }
         }

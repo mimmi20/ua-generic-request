@@ -37,4 +37,9 @@ interface GenericRequestInterface
      * @return string
      */
     public function getPlatformUserAgent(): string;
+
+    /**
+     * @return string
+     */
+    public function getEngineUserAgent(): string;
 }
