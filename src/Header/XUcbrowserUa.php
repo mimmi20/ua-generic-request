@@ -45,7 +45,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/dv\((?P<device>[^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/dv\((?P<device>[^\)]+)\);/', $this->value, $matches)) {
             return false;
         }
 
@@ -63,7 +63,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/pr\((?P<browser>[^\)]+)\)/', $this->value, $matches)) {
+        if (!(bool) preg_match('/pr\((?P<browser>[^\)]+)\);/', $this->value, $matches)) {
             return false;
         }
 
@@ -77,7 +77,11 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/ov\((?P<platform>[^\)]+)\)/', $this->value, $matches)) {
+        if (0 < preg_match('/ov\((?P<platform>[\d_]+)\);/', $this->value, $matches)) {
+            return false;
+        }
+
+        if (!(bool) preg_match('/ov\((?P<platform>[^\)]+)\);/', $this->value, $matches)) {
             return false;
         }
 

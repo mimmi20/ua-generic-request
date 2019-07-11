@@ -43,6 +43,10 @@ final class XUcbrowserPhone implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
+        if (in_array(mb_strtolower($this->value), ['maui browser', 'sunmicro'], true)) {
+            return false;
+        }
+
         return true;
     }
 
@@ -51,6 +55,10 @@ final class XUcbrowserPhone implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
+        if ('maui browser' === $this->value) {
+            return true;
+        }
+
         return false;
     }
 

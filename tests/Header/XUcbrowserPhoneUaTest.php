@@ -47,7 +47,7 @@ final class XUcbrowserPhoneUaTest extends TestCase
         return [
             ['maui browser', false, true],
             ['nokia701', true, false],
-            ['sunmicro', true, false],
+            ['sunmicro', false, false],
             ['nokiac3-01', true, false],
             ['nokia305', true, false],
             ['gt-s5233s', true, false],
