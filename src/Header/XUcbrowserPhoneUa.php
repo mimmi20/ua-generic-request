@@ -43,7 +43,7 @@ final class XUcbrowserPhoneUa implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if ('maui browser' === $this->value) {
+        if (in_array(mb_strtolower($this->value), ['maui browser', 'sunmicro'], true)) {
             return false;
         }
 

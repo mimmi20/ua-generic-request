@@ -21,19 +21,20 @@ final class XUcbrowserPhoneTest extends TestCase
      *
      * @param string $ua
      * @param bool   $hasDeviceInfo
+     * @param bool   $hasBrowserInfo
      *
      * @throws \PHPUnit\Framework\ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
      */
-    public function testData(string $ua, bool $hasDeviceInfo): void
+    public function testData(string $ua, bool $hasDeviceInfo, bool $hasBrowserInfo): void
     {
         $header = new XUcbrowserPhone($ua);
 
         static::assertSame($ua, $header->getValue(), 'header mismatch');
         static::assertSame($hasDeviceInfo, $header->hasDeviceInfo(), 'device info mismatch');
-        static::assertFalse($header->hasBrowserInfo(), 'browser info mismatch');
+        static::assertSame($hasBrowserInfo, $header->hasBrowserInfo(), 'browser info mismatch');
         static::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
         static::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
     }
@@ -44,12 +45,13 @@ final class XUcbrowserPhoneTest extends TestCase
     public function providerUa(): array
     {
         return [
-            ['nokia701', true],
-            ['sunmicro', true],
-            ['nokiac3-01', true],
-            ['nokia305', true],
-            ['gt-s5233s', true],
-            ['sonyericssonj108i', true],
+            ['maui browser', false, true],
+            ['nokia701', true, false],
+            ['sunmicro', false, false],
+            ['nokiac3-01', true, false],
+            ['nokia305', true, false],
+            ['gt-s5233s', true, false],
+            ['sonyericssonj108i', true, false],
         ];
     }
 }
