@@ -165,15 +165,16 @@ final class GenericRequestFactoryTest extends TestCase
     /**
      * @dataProvider providerUa
      *
-     * @param array $headers
+     * @param array  $headers
      * @param string $expectedDeviceUa
      * @param string $expectedBrowserUa
      * @param string $expectedPlatformUa
      * @param string $expectedEngineUa
      *
-     * @return void
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws \PHPUnit\Framework\ExpectationFailedException
+     *
+     * @return void
      */
     public function testData(array $headers, string $expectedDeviceUa, string $expectedBrowserUa, string $expectedPlatformUa, string $expectedEngineUa): void
     {
