@@ -14,6 +14,7 @@ parameters:
     - '~Call to static method PHPUnit\\Framework\\Assert::assertInstanceOf\(\) .* will always evaluate to true~'
     - '~Method UaRequest\\Header\\HeaderLoader.*::load\(\) has parameter \$value with null as default value~'
     - '~Method UaRequest\\Header\\HeaderLoader.*::load\(\) has parameter \$value with a nullable type declaration~'
+    - '~Useless \@throws~'
   exceptionRules:
     reportUnusedCatchesOfUncheckedExceptions: false
     uncheckedExceptions: []

@@ -4,120 +4,120 @@
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 6.12; Microsoft ZuneHD 4.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 6"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 6.12; Microsoft ZuneHD 4.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 6.12; Microsoft ZuneHD 4.5)",
+        "Windows CE (Pocket PC) - Version 6",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 6.12; Microsoft ZuneHD 4.5)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; Galaxy Nexus Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/5.0 Mb2345Browser/4.0 Mobile Safari/534.30",
             "x-requested-with": "com.browser2345"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; Galaxy Nexus Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/5.0 Mb2345Browser/4.0 Mobile Safari/534.30",
+        "com.browser2345",
+        "Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; Galaxy Nexus Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/5.0 Mb2345Browser/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; Galaxy Nexus Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/5.0 Mb2345Browser/4.0 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7",
             "x-requested-with": "com.browser2345"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7",
+        "com.browser2345",
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7",
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HUAWEI; W2-U00)",
             "baidu-flyflow": "Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12"
         },
-        "",
-        "",
-        "",
-        ""
+        "Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HUAWEI; W2-U00)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HUAWEI; W2-U00)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HUAWEI; W2-U00)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Nokia 526)",
             "baidu-flyflow": "Microsoft Windows NT 8.10.14219.0;4.0.30508.0;NOKIA;RM-997_apac_prc_906;e7477c026c2d2dab09d667a0d502a19faf960316;2.5.0.12"
         },
-        "",
-        "",
-        "",
-        ""
+        "Microsoft Windows NT 8.10.14219.0;4.0.30508.0;NOKIA;RM-997_apac_prc_906;e7477c026c2d2dab09d667a0d502a19faf960316;2.5.0.12",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Nokia 526)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Nokia 526)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Nokia 526)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; HD7 T9292)",
             "baidu-flyflow": "Microsoft Windows CE 7.10.8862;3.7.11140.0;HTC;HTC;f96cbdcb5bb37bb7bea3fdf0443f9c24ccc92597;1.0.3.3"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; HD7 T9292)",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; HD7 T9292)",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; HD7 T9292)",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; HD7 T9292)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 625)",
             "baidu-flyflow": "Microsoft Windows CE 8.10.14219.0;4.0.30508.0;NOKIA;RM-941_eu_belarus_russia_215;d0be80b1a6380df0429cef6d36f56a9b318115fe;1.0.3.3"
         },
-        "",
-        "",
-        "",
-        ""
+        "Microsoft Windows CE 8.10.14219.0;4.0.30508.0;NOKIA;RM-941_eu_belarus_russia_215;d0be80b1a6380df0429cef6d36f56a9b318115fe;1.0.3.3",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 625)",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 625)",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 625)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7 MG (Novarra-Vision/6.1)",
             "x-device-user-agent": "Nokia6288/2.0 (05.94) Profile/MIDP-2.0 Configuration/CLDC-1.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "Nokia6288/2.0 (05.94) Profile/MIDP-2.0 Configuration/CLDC-1.1",
+        "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7 MG (Novarra-Vision/6.1)",
+        "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7 MG (Novarra-Vision/6.1)",
+        "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7 MG (Novarra-Vision/6.1)"
     ],
     [
         {
             "user-agent": "Opera/9.80 (BlackBerry; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10",
             "x-operamini-phone": "RIM # BlackBerry 8520"
         },
-        "",
-        "",
-        "",
-        ""
+        "RIM # BlackBerry 8520",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
             "x-operamini-phone": "Samsung # GT-S8500"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung # GT-S8500",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
             "x-operamini-phone": "Samsung # GT-i8000"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung # GT-i8000",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10",
             "x-operamini-phone": "RIM # BlackBerry 8520"
         },
-        "",
-        "",
-        "",
-        ""
+        "RIM # BlackBerry 8520",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -125,10 +125,10 @@
             "x-operamini-phone": "RIM # BlackBerry 8520",
             "x-operamini-phone-ua": "BlackBerry8520/5.0.0.681 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/613"
         },
-        "",
-        "",
-        "",
-        ""
+        "BlackBerry8520/5.0.0.681 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/613",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10",
+        "BlackBerry8520/5.0.0.681 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/613",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35659/35.6497; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -136,10 +136,10 @@
             "x-operamini-phone": "RIM # BlackBerry 8900",
             "x-operamini-phone-ua": "BlackBerry8900/5.0.0.1113 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/100"
         },
-        "",
-        "",
-        "",
-        ""
+        "BlackBerry8900/5.0.0.1113 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/100",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35667/35.6680; U; xx) Presto/2.8.119 Version/11.10",
+        "BlackBerry8900/5.0.0.1113 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/100",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35667/35.6680; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -147,10 +147,10 @@
             "x-operamini-phone": "Samsung # GT-i8000",
             "x-operamini-phone-ua": "SAMSUNG-GT-i8000/1.0 (Windows CE; Opera Mobi; U; en) Opera 9.5 UNTRUSTED/1.0"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-i8000/1.0 (Windows CE; Opera Mobi; U; en) Opera 9.5 UNTRUSTED/1.0",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
+        "SAMSUNG-GT-i8000/1.0 (Windows CE; Opera Mobi; U; en) Opera 9.5 UNTRUSTED/1.0",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -158,10 +158,10 @@
             "x-operamini-phone-ua": "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/S5380DZHLB1; U; Bada/2.0; zh-cn) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B",
             "device-stock-ua": "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/S5380DZHLB1; U; Bada/2.0; zh-cn) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/S5380DZHLB1; U; Bada/2.0; zh-cn) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.7382; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/S5380DZHLB1; U; Bada/2.0; zh-cn) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B",
+        "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/S5380DZHLB1; U; Bada/2.0; zh-cn) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B"
     ],
     [
         {
@@ -169,10 +169,10 @@
             "x-operamini-phone": "HTC # Touch Pro/T7272/TyTn III",
             "x-operamini-phone-ua": "HTC_Touch_Pro_T7272"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_Touch_Pro_T7272",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21594/37.6116; U; xx) Presto/2.12.423 Version/12.16",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21594/37.6116; U; xx) Presto/2.12.423 Version/12.16",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21594/37.6116; U; xx) Presto/2.12.423 Version/12.16"
     ],
     [
         {
@@ -181,240 +181,240 @@
             "device-stock-ua": "SAMSUNG-GT-S8500",
             "x-operamini-phone-ua": "SAMSUNG-GT-S8500"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-S8500",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35626/35.6368; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36",
             "x-puffin-ua": "iPhone OS/iPad4,1/1536x2048"
         },
-        "",
-        "",
-        "",
-        ""
+        "iPhone OS/iPad4,1/1536x2048",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36",
+        "iPhone OS/iPad4,1/1536x2048",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AP",
             "x-puffin-ua": "Android/D6503/1080x1776"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/D6503/1080x1776",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AP",
+        "Android/D6503/1080x1776",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AP"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AP",
             "x-puffin-ua": "Android/SM-G900F/1080x1920"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/SM-G900F/1080x1920",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AP",
+        "Android/SM-G900F/1080x1920",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AP"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AT",
             "x-puffin-ua": "Android/Nexus 10/1600x2464"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/Nexus 10/1600x2464",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AT",
+        "Android/Nexus 10/1600x2464",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.0.4.931AT"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.2.1212AP",
             "x-puffin-ua": "Android/SAMSUNG-SM-N910A/1440x2560"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/SAMSUNG-SM-N910A/1440x2560",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.2.1212AP",
+        "Android/SAMSUNG-SM-N910A/1440x2560",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.2.1212AP"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.4.1387AT",
             "x-puffin-ua": "Android/bq Edison/1280x752"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/bq Edison/1280x752",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.4.1387AT",
+        "Android/bq Edison/1280x752",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.4.1387AT"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.4IP",
             "x-puffin-ua": "iPhone OS/iPhone6,1/320x568"
         },
-        "",
-        "",
-        "",
-        ""
+        "iPhone OS/iPhone6,1/320x568",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.4IP",
+        "iPhone OS/iPhone6,1/320x568",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.1.4IP"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.2.0.1824AT",
             "x-puffin-ua": "Android/LenovoA3300-HV/600x976"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/LenovoA3300-HV/600x976",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.2.0.1824AT",
+        "Android/LenovoA3300-HV/600x976",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.2.0.1824AT"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.3.0.1852AT",
             "x-puffin-ua": "Android/Nexus 10/1600x2464"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/Nexus 10/1600x2464",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.3.0.1852AT",
+        "Android/Nexus 10/1600x2464",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.3.0.1852AT"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.3.0.1852AT",
             "x-puffin-ua": "Android/SM-T310/1280x800"
         },
-        "",
-        "",
-        "",
-        ""
+        "Android/SM-T310/1280x800",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.3.0.1852AT",
+        "Android/SM-T310/1280x800",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.3.0.1852AT"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.4.1IP",
             "x-puffin-ua": "iPhone OS/iPhone7,1/1242x2208"
         },
-        "",
-        "",
-        "",
-        ""
+        "iPhone OS/iPhone7,1/1242x2208",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.4.1IP",
+        "iPhone OS/iPhone7,1/1242x2208",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.4.1IP"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.5.0IT",
             "x-puffin-ua": "iPhone OS/iPad4,1/1024x768"
         },
-        "",
-        "",
-        "",
-        ""
+        "iPhone OS/iPad4,1/1024x768",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.5.0IT",
+        "iPhone OS/iPad4,1/1024x768",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.5.0IT"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.6.1IT",
             "x-puffin-ua": "iPhone OS/iPad4,1/1536x2048"
         },
-        "",
-        "",
-        "",
-        ""
+        "iPhone OS/iPad4,1/1536x2048",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.6.1IT",
+        "iPhone OS/iPad4,1/1536x2048",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/30.0.1599.114 Safari/537.36 Puffin/4.6.1IT"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)",
             "x-ucbrowser-phone-ua": "maui browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)",
+        "maui browser",
+        "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)",
+        "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.2.2; xx; Lenovo A369i Build/JDQ39) AppleWebKit/534.31 (KHTML, like Gecko) UCBrowser/9.1.0.297 U3/0.8.0 Mobile Safari/534.31",
             "x-ucbrowser-ua": "pf(Linux);la(en-US);re(AppleWebKit/534.31 (KHTML, like Gecko));dv(Lenovo A369i Build/JDQ39);pr(UCBrowser/9.1.0.297);ov(Android 4.2.2);pi(480*762);ss(480*762);up(U3/0.8.0);er(U);bt(GZ);pm(1);bv(1);nm(0);im(0);sr(0);nt(3);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Linux);la(en-US);re(AppleWebKit/534.31 (KHTML, like Gecko));dv(Lenovo A369i Build/JDQ39);pr(UCBrowser/9.1.0.297);ov(Android 4.2.2);pi(480*762);ss(480*762);up(U3/0.8.0);er(U);bt(GZ);pm(1);bv(1);nm(0);im(0);sr(0);nt(3);",
+        "pf(Linux);la(en-US);re(AppleWebKit/534.31 (KHTML, like Gecko));dv(Lenovo A369i Build/JDQ39);pr(UCBrowser/9.1.0.297);ov(Android 4.2.2);pi(480*762);ss(480*762);up(U3/0.8.0);er(U);bt(GZ);pm(1);bv(1);nm(0);im(0);sr(0);nt(3);",
+        "pf(Linux);la(en-US);re(AppleWebKit/534.31 (KHTML, like Gecko));dv(Lenovo A369i Build/JDQ39);pr(UCBrowser/9.1.0.297);ov(Android 4.2.2);pi(480*762);ss(480*762);up(U3/0.8.0);er(U);bt(GZ);pm(1);bv(1);nm(0);im(0);sr(0);nt(3);",
+        "pf(Linux);la(en-US);re(AppleWebKit/534.31 (KHTML, like Gecko));dv(Lenovo A369i Build/JDQ39);pr(UCBrowser/9.1.0.297);ov(Android 4.2.2);pi(480*762);ss(480*762);up(U3/0.8.0);er(U);bt(GZ);pm(1);bv(1);nm(0);im(0);sr(0);nt(3);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X; xx) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11D257 UCBrowser/10.2.0.517 Mobile",
             "x-ucbrowser-ua": "dv(iPh4,1);pr(UCBrowser/10.2.0.517);ov(7_1_2);ss(320x416);bt(UC);pm(0);bv(0);nm(0);im(0);nt(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "dv(iPh4,1);pr(UCBrowser/10.2.0.517);ov(7_1_2);ss(320x416);bt(UC);pm(0);bv(0);nm(0);im(0);nt(1);",
+        "dv(iPh4,1);pr(UCBrowser/10.2.0.517);ov(7_1_2);ss(320x416);bt(UC);pm(0);bv(0);nm(0);im(0);nt(1);",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X; xx) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11D257 UCBrowser/10.2.0.517 Mobile",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X; xx) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11D257 UCBrowser/10.2.0.517 Mobile"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_2 like Mac OS X; xx) AppleWebKit/600.1.4.12.4 (KHTML, like Gecko) Mobile/12B440 UCBrowser/9.3.0.326 Mobile",
             "x-ucbrowser-ua": "pf(44);la(en-US);dv(iPh4,1);pr(UCBrowser);ov(8_1_2);pi(640x960);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(44);la(en-US);dv(iPh4,1);pr(UCBrowser);ov(8_1_2);pi(640x960);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);",
+        "pf(44);la(en-US);dv(iPh4,1);pr(UCBrowser);ov(8_1_2);pi(640x960);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_2 like Mac OS X; xx) AppleWebKit/600.1.4.12.4 (KHTML, like Gecko) Mobile/12B440 UCBrowser/9.3.0.326 Mobile",
+        "pf(44);la(en-US);dv(iPh4,1);pr(UCBrowser);ov(8_1_2);pi(640x960);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_2 like Mac OS X; xx) AppleWebKit/600.1.4.12.4 (KHTML, like Gecko) Mobile/12B440 UCBrowser/9.3.0.326 Mobile",
             "x-ucbrowser-ua": "pf(44);la(en-US);dv(iPh6,2);pr(UCBrowser);ov(8_1_2);pi(640x1136);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(44);la(en-US);dv(iPh6,2);pr(UCBrowser);ov(8_1_2);pi(640x1136);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);",
+        "pf(44);la(en-US);dv(iPh6,2);pr(UCBrowser);ov(8_1_2);pi(640x1136);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_2 like Mac OS X; xx) AppleWebKit/600.1.4.12.4 (KHTML, like Gecko) Mobile/12B440 UCBrowser/9.3.0.326 Mobile",
+        "pf(44);la(en-US);dv(iPh6,2);pr(UCBrowser);ov(8_1_2);pi(640x1136);ss(320x416);er(U);bt(GJ);up();re(AppleWebKit/600.1.4.12.4 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);"
     ],
     [
         {
             "user-agent": "NokiaE72-1/UCWEB8.9.0.253/28/999",
             "x-ucbrowser-ua": "pf(Symbian);er(U);la(zh-CN);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE72-1);pr(UCBrowser/8.9.0.253);ov(S60V3);pi(320*240);ss(320*240);bt(UC);pm(1);bv(0);nm(0);im(0);sr(2);nt(2)"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Symbian);er(U);la(zh-CN);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE72-1);pr(UCBrowser/8.9.0.253);ov(S60V3);pi(320*240);ss(320*240);bt(UC);pm(1);bv(0);nm(0);im(0);sr(2);nt(2)",
+        "pf(Symbian);er(U);la(zh-CN);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE72-1);pr(UCBrowser/8.9.0.253);ov(S60V3);pi(320*240);ss(320*240);bt(UC);pm(1);bv(0);nm(0);im(0);sr(2);nt(2)",
+        "pf(Symbian);er(U);la(zh-CN);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE72-1);pr(UCBrowser/8.9.0.253);ov(S60V3);pi(320*240);ss(320*240);bt(UC);pm(1);bv(0);nm(0);im(0);sr(2);nt(2)",
+        "pf(Symbian);er(U);la(zh-CN);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE72-1);pr(UCBrowser/8.9.0.253);ov(S60V3);pi(320*240);ss(320*240);bt(UC);pm(1);bv(0);nm(0);im(0);sr(2);nt(2)"
     ],
     [
         {
             "user-agent": "UCWEB/2.0 (MIDP-2.0; U; Adr 4.1.2; xx; GT-S7262) U2/1.0.0 UCBrowser/9.4.1.482 U2/1.0.0 Mobile",
             "x-ucbrowser-ua": "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7262);pr(UCBrowser/9.4.1.482);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7262);pr(UCBrowser/9.4.1.482);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7262);pr(UCBrowser/9.4.1.482);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "UCWEB/2.0 (MIDP-2.0; U; Adr 4.1.2; xx; GT-S7262) U2/1.0.0 UCBrowser/9.4.1.482 U2/1.0.0 Mobile",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7262);pr(UCBrowser/9.4.1.482);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
     ],
     [
         {
             "user-agent": "UCWEB/2.0 (Windows; U; wds 7.10; en-US; NOKIA; Lumia 710) U2/1.0.0 UCBrowser/3.2.0.340 U2/1.0.0 Mobile",
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);"
     ],
     [
         {
             "user-agent": "UCWEB/2.0 (Windows; U; wds 7.10; xx; NOKIA; Lumia 710) U2/1.0.0 UCBrowser/3.2.0.340 U2/1.0.0 Mobile",
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(2);nt(1);up(U2/1.0.0);pm(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(2);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(2);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(2);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 710);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(2);nt(1);up(U2/1.0.0);pm(1);"
     ],
     [
         {
             "user-agent": "UCWEB/2.0 (Windows; U; wds 7.10; xx; NOKIA; Lumia 800) U2/1.0.0 UCBrowser/3.2.0.340 U2/1.0.0 Mobile",
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 800);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 800);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 800);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 800);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 800);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);"
     ],
     [
         {
@@ -422,10 +422,10 @@
             "x-ucbrowser-phone-ua": "nokia701",
             "x-ucbrowser-phone": "nokia701"
         },
-        "",
-        "",
-        "",
-        ""
+        "nokia701",
+        "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2) UCBrowser/8.6.0.199/84/352 UNTRUSTED/1.0 3gpp-gba",
+        "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2) UCBrowser/8.6.0.199/84/352 UNTRUSTED/1.0 3gpp-gba",
+        "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2;.NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2) UCBrowser/8.6.0.199/84/352 UNTRUSTED/1.0 3gpp-gba"
     ],
     [
         {
@@ -433,10 +433,10 @@
             "x-ucbrowser-phone": "sunmicro",
             "x-ucbrowser-phone-ua": "sunmicro"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; xx) AppleWebKit/534.1+ (KHTML, Like Gecko) Version/6.0.0.141 Mobile Safari/534.1+",
+        "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; xx) AppleWebKit/534.1+ (KHTML, Like Gecko) Version/6.0.0.141 Mobile Safari/534.1+",
+        "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; xx) AppleWebKit/534.1+ (KHTML, Like Gecko) Version/6.0.0.141 Mobile Safari/534.1+",
+        "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; xx) AppleWebKit/534.1+ (KHTML, Like Gecko) Version/6.0.0.141 Mobile Safari/534.1+"
     ],
     [
         {
@@ -444,10 +444,10 @@
             "x-ucbrowser-phone-ua": "nokiac3-01",
             "x-ucbrowser-phone": "nokiac3-01"
         },
-        "",
-        "",
-        "",
-        ""
+        "nokiac3-01",
+        "NokiaC3-01/5.0 (06.05) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0(Java; U; MIDP-2.0; xx; nokiac3-01) U2/1.0.0 UCBrowser/8.8.0.227 U2/1.0.0 Mobile UNTRUSTED/1.0",
+        "NokiaC3-01/5.0 (06.05) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0(Java; U; MIDP-2.0; xx; nokiac3-01) U2/1.0.0 UCBrowser/8.8.0.227 U2/1.0.0 Mobile UNTRUSTED/1.0",
+        "NokiaC3-01/5.0 (06.05) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0(Java; U; MIDP-2.0; xx; nokiac3-01) U2/1.0.0 UCBrowser/8.8.0.227 U2/1.0.0 Mobile UNTRUSTED/1.0"
     ],
     [
         {
@@ -455,10 +455,10 @@
             "x-ucbrowser-ua": "pf(Linux);la(en-US);re(U2/1.0.0);dv(Micromax_A36);pr(UCBrowser/9.4.0.460);ov(2.3.5);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
             "x-ucbrowser-device-ua": "Mozilla/5.0 (Linux; U; Android 2.3.5; en-US; Micromax_A36 Build/MocorDroid2.3.5_Trout) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(Micromax_A36);pr(UCBrowser/9.4.0.460);ov(2.3.5);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(Micromax_A36);pr(UCBrowser/9.4.0.460);ov(2.3.5);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "Mozilla/5.0 (Linux; U; Android 2.3.5; en-US; Micromax_A36 Build/MocorDroid2.3.5_Trout) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(Micromax_A36);pr(UCBrowser/9.4.0.460);ov(2.3.5);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
     ],
     [
         {
@@ -466,10 +466,10 @@
             "x-ucbrowser-phone": "nokia305",
             "x-ucbrowser-phone-ua": "nokia305"
         },
-        "",
-        "",
-        "",
-        ""
+        "nokia305",
+        "UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCBrowser/8.7.0.218 U2/1.0.0 Mobile",
+        "UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCBrowser/8.7.0.218 U2/1.0.0 Mobile",
+        "UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCBrowser/8.7.0.218 U2/1.0.0 Mobile"
     ],
     [
         {
@@ -477,10 +477,10 @@
             "x-ucbrowser-ua": "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7562);pr(UCBrowser/9.4.0.460);ov(4.0.4);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
             "x-ucbrowser-device-ua": "Mozilla/5.0 (Linux; U; Android 4.0.4; en-US; GT-S7562 Build/IMM76I) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7562);pr(UCBrowser/9.4.0.460);ov(4.0.4);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7562);pr(UCBrowser/9.4.0.460);ov(4.0.4);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "Mozilla/5.0 (Linux; U; Android 4.0.4; en-US; GT-S7562 Build/IMM76I) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(GT-S7562);pr(UCBrowser/9.4.0.460);ov(4.0.4);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
     ],
     [
         {
@@ -488,10 +488,10 @@
             "x-ucbrowser-device-ua": "Mozilla/5.0 (Linux; U; Android 4.1.2; en-US; Nokia_X Build/JZO54K) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1",
             "x-ucbrowser-ua": "pf(Linux);la(en-US);re(U2/1.0.0);dv(Nokia_X);pr(UCBrowser/9.4.0.460);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(Nokia_X);pr(UCBrowser/9.4.0.460);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(Nokia_X);pr(UCBrowser/9.4.0.460);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; en-US; Nokia_X Build/JZO54K) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(Nokia_X);pr(UCBrowser/9.4.0.460);ov(4.1.2);pi(480*800);ss(480*800);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
     ],
     [
         {
@@ -499,10 +499,10 @@
             "x-ucbrowser-ua": "pf(Linux);la(en-US);re(U2/1.0.0);dv(KYY21);pr(UCBrowser/9.5.1.494);ov(4.2.2);pi(720*1280);ss(720*1280);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
             "x-ucbrowser-device-ua": "Mozilla/5.0 (Linux; U; Android 4.2.2; en-US; KYY21 Build/209.0.1700) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(KYY21);pr(UCBrowser/9.5.1.494);ov(4.2.2);pi(720*1280);ss(720*1280);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(KYY21);pr(UCBrowser/9.5.1.494);ov(4.2.2);pi(720*1280);ss(720*1280);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "Mozilla/5.0 (Linux; U; Android 4.2.2; en-US; KYY21 Build/209.0.1700) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(KYY21);pr(UCBrowser/9.5.1.494);ov(4.2.2);pi(720*1280);ss(720*1280);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
     ],
     [
         {
@@ -510,10 +510,10 @@
             "x-ucbrowser-ua": "pf(Linux);la(en-US);re(U2/1.0.0);dv(TECNO_S3);pr(UCBrowser/8.8.1.359);ov(4.2.2);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
             "x-ucbrowser-device-ua": "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; TECNO S3 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(TECNO_S3);pr(UCBrowser/8.8.1.359);ov(4.2.2);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(TECNO_S3);pr(UCBrowser/8.8.1.359);ov(4.2.2);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);",
+        "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; TECNO S3 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "pf(Linux);la(en-US);re(U2/1.0.0);dv(TECNO_S3);pr(UCBrowser/8.8.1.359);ov(4.2.2);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);nm(0);im(0);sr(2);nt(99);"
     ],
     [
         {
@@ -521,10 +521,10 @@
             "x-ucbrowser-phone": "gt-s5233s",
             "x-ucbrowser-phone-ua": "gt-s5233s"
         },
-        "",
-        "",
-        "",
-        ""
+        "gt-s5233s",
+        "UCWEB/2.0(Java; U; MIDP-2.0; xx; gt-s5233s) U2/1.0.0 UCBrowser/8.7.1.234 U2/1.0.0 Mobile UNTRUSTED/1.0",
+        "UCWEB/2.0(Java; U; MIDP-2.0; xx; gt-s5233s) U2/1.0.0 UCBrowser/8.7.1.234 U2/1.0.0 Mobile UNTRUSTED/1.0",
+        "UCWEB/2.0(Java; U; MIDP-2.0; xx; gt-s5233s) U2/1.0.0 UCBrowser/8.7.1.234 U2/1.0.0 Mobile UNTRUSTED/1.0"
     ],
     [
         {
@@ -533,10 +533,10 @@
             "x-ucbrowser-device-ua": "Mozilla/5.0 (Series40; Nokia200/11.81; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/3.7.0.0.11",
             "x-ucbrowser-device": "nokia#200"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia200);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia200);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia200);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia200);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -545,10 +545,10 @@
             "x-ucbrowser-device-ua": "?",
             "x-ucbrowser-ua": "pf(Java);la(pl-PL);re(U2/1.0.0);dv(NokiaC2-01);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(pl-PL);re(U2/1.0.0);dv(NokiaC2-01);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(pl-PL);re(U2/1.0.0);dv(NokiaC2-01);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(pl-PL);re(U2/1.0.0);dv(NokiaC2-01);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(pl-PL);re(U2/1.0.0);dv(NokiaC2-01);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -557,10 +557,10 @@
             "x-ucbrowser-device-ua": "SAMSUNG-GT-C3312/1.0 NetFront/4.2 Profile/MIDP-2.0 Configuration/CLDC-1.1",
             "x-ucbrowser-ua": "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-C3312);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-C3312);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-C3312);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-C3312);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-C3312);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -569,10 +569,10 @@
             "x-ucbrowser-device-ua": "SAMSUNG-GT-S3770K/S3770KDDKH4 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1",
             "x-ucbrowser-device": "j2me"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-S3770K/S3770KDDKH4 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -581,10 +581,10 @@
             "x-ucbrowser-device-ua": "MOT-A1200e/1.0 LinuxOS/2.4.20 Release/1.31.2007 Browser/Opera8.00 Profile/MIDP-2.0 Configuration/CLDC-1.1 Software/R541_G_11.56.11R",
             "x-ucbrowser-ua": "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "MOT-A1200e/1.0 LinuxOS/2.4.20 Release/1.31.2007 Browser/Opera8.00 Profile/MIDP-2.0 Configuration/CLDC-1.1 Software/R541_G_11.56.11R",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -593,10 +593,10 @@
             "x-ucbrowser-phone": "sonyericssonj108i",
             "x-ucbrowser-ua": "pf(Java);la(en-US);re(U2/1.0.0);dv(sonyericssonj108i);pr(UCBrowser/8.8.0.227);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(sonyericssonj108i);pr(UCBrowser/8.8.0.227);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(sonyericssonj108i);pr(UCBrowser/8.8.0.227);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(sonyericssonj108i);pr(UCBrowser/8.8.0.227);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(sonyericssonj108i);pr(UCBrowser/8.8.0.227);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -605,10 +605,10 @@
             "x-ucbrowser-device-ua": "?",
             "x-ucbrowser-ua": "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -617,10 +617,10 @@
             "x-ucbrowser-device-ua": "?",
             "x-ucbrowser-device": "nokia#C7-00"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaC7-00);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(360*640);ss(360*640);up(U2/1.0.0);er(U);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaC7-00);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(360*640);ss(360*640);up(U2/1.0.0);er(U);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaC7-00);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(360*640);ss(360*640);up(U2/1.0.0);er(U);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaC7-00);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(360*640);ss(360*640);up(U2/1.0.0);er(U);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -629,10 +629,10 @@
             "x-ucbrowser-device-ua": "SAMSUNG-GT-S3850/1.0 SHP/VPP/R5 Dolfin/2.0 NexPlayer/3.0 SMM-MMS/1.2.0 profile/MIDP-2.1 configuration/CLDC-1.1 OPN-B",
             "x-ucbrowser-device": "samsung#-GT-S3850"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S3850);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*260);ss(240*260);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S3850);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*260);ss(240*260);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S3850);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*260);ss(240*260);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S3850);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*260);ss(240*260);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -641,10 +641,10 @@
             "x-ucbrowser-device-ua": "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5250/S5250XEKC1; U; Bada/1.0; uk-ua) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.0 Mobile WQVGA SMM-MMS/1.2.0 NexPlayer/3.0 profile/MIDP-2.1 configuration/CLDC-1.1 OPN-B",
             "x-ucbrowser-ua": "pf(Java);la(ru);re(U2/1.0.0);dv(SAMSUNG-GT-S5250);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(ru);re(U2/1.0.0);dv(SAMSUNG-GT-S5250);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(ru);re(U2/1.0.0);dv(SAMSUNG-GT-S5250);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(ru);re(U2/1.0.0);dv(SAMSUNG-GT-S5250);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(ru);re(U2/1.0.0);dv(SAMSUNG-GT-S5250);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -653,10 +653,10 @@
             "x-ucbrowser-device-ua": "?",
             "x-ucbrowser-device": "samsung#-GT-S8600"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S8600);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(1);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S8600);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(1);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S8600);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(1);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S8600);pr(UCBrowser/9.5.0.449);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(1);sr(0);nt(99);"
     ],
     [
         {
@@ -665,10 +665,10 @@
             "x-ucbrowser-device-ua": "Mozilla/5.0 (SymbianOS/9.2; U; Series60/3.1 NOKIA6120c/07.20; Profile/MIDP-2.0 Configuration/CLDC-1.1) AppleWebKit/413 (KHTML, like Gecko) Safari/413",
             "x-ucbrowser-ua": "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NOKIA6120c);pr(UCBrowser/9.2.0.336);ov(S60V3);pi(240*320);ss(240*320);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(2);nt(1)"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NOKIA6120c);pr(UCBrowser/9.2.0.336);ov(S60V3);pi(240*320);ss(240*320);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(2);nt(1)",
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NOKIA6120c);pr(UCBrowser/9.2.0.336);ov(S60V3);pi(240*320);ss(240*320);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(2);nt(1)",
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NOKIA6120c);pr(UCBrowser/9.2.0.336);ov(S60V3);pi(240*320);ss(240*320);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(2);nt(1)",
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NOKIA6120c);pr(UCBrowser/9.2.0.336);ov(S60V3);pi(240*320);ss(240*320);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(2);nt(1)"
     ],
     [
         {
@@ -677,10 +677,10 @@
             "x-ucbrowser-device-ua": "Mozilla/5.0 (Symbian/3; Series60/5.3 NokiaE7-00/1.040.1511; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.4.1.14 Mobile Safari/533.4 3gpp-gba",
             "x-ucbrowser-ua": "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE7-00);pr(UCBrowser/9.2.0.336);ov(S60V5);pi(360*640);ss(360*640);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(2);nt(2)"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE7-00);pr(UCBrowser/9.2.0.336);ov(S60V5);pi(360*640);ss(360*640);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(2);nt(2)",
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE7-00);pr(UCBrowser/9.2.0.336);ov(S60V5);pi(360*640);ss(360*640);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(2);nt(2)",
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE7-00);pr(UCBrowser/9.2.0.336);ov(S60V5);pi(360*640);ss(360*640);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(2);nt(2)",
+        "pf(Symbian);er(U);la(en-US);up(U2/1.0.0);re(U2/1.0.0);dv(NokiaE7-00);pr(UCBrowser/9.2.0.336);ov(S60V5);pi(360*640);ss(360*640);bt(GJ);pm(0);bv(0);nm(1);im(0);sr(2);nt(2)"
     ],
     [
         {
@@ -689,330 +689,330 @@
             "x-ucbrowser-device-ua": "?",
             "x-ucbrowser-device": "Jblend"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Jblend);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Jblend);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Jblend);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Jblend);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 4.1.2; LG-F160L Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.23 Mobile Safari/537.36",
             "x-requested-with": "this.is.a.fake.id.to.test.unknown.ids"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 4.1.2; LG-F160L Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.23 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.1.2; LG-F160L Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.23 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.1.2; LG-F160L Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.23 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.1.2; LG-F160L Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.23 Mobile Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36",
             "x-requested-with": "me.android.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36",
+        "me.android.browser",
+        "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 4.4.2; SM-G900F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36",
             "x-requested-with": "com.android.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 4.4.2; SM-G900F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36",
+        "com.android.browser",
+        "Mozilla/5.0 (Linux; Android 4.4.2; SM-G900F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.4.2; SM-G900F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 4.4.2; XT1021 Build/KXC20.82-13) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 MxBrowser/4.3.0.2000  Maxthon/4.3.0.2000 Maxthon/4.3.0.2000",
             "x-requested-with": "com.mx.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 4.4.2; XT1021 Build/KXC20.82-13) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 MxBrowser/4.3.0.2000  Maxthon/4.3.0.2000 Maxthon/4.3.0.2000",
+        "com.mx.browser",
+        "Mozilla/5.0 (Linux; Android 4.4.2; XT1021 Build/KXC20.82-13) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 MxBrowser/4.3.0.2000  Maxthon/4.3.0.2000 Maxthon/4.3.0.2000",
+        "Mozilla/5.0 (Linux; Android 4.4.2; XT1021 Build/KXC20.82-13) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36 MxBrowser/4.3.0.2000  Maxthon/4.3.0.2000 Maxthon/4.3.0.2000"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 4.4.4; GT-I9100 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36",
             "x-requested-with": "mobi.mgeek.TunnyBrowser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 4.4.4; GT-I9100 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36",
+        "mobi.mgeek.TunnyBrowser",
+        "Mozilla/5.0 (Linux; Android 4.4.4; GT-I9100 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.4.4; GT-I9100 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 4.4.4; MI 2 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 MicroMessenger/5.4.0.51_r798589.480 NetType/WIFI",
             "x-requested-with": "com.tencent.mm"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 4.4.4; MI 2 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 MicroMessenger/5.4.0.51_r798589.480 NetType/WIFI",
+        "com.tencent.mm",
+        "Mozilla/5.0 (Linux; Android 4.4.4; MI 2 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 MicroMessenger/5.4.0.51_r798589.480 NetType/WIFI",
+        "Mozilla/5.0 (Linux; Android 4.4.4; MI 2 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 MicroMessenger/5.4.0.51_r798589.480 NetType/WIFI"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 5.0; ASUS_T00J Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36",
             "x-requested-with": "com.asus.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 5.0; ASUS_T00J Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36",
+        "com.asus.browser",
+        "Mozilla/5.0 (Linux; Android 5.0; ASUS_T00J Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 5.0; ASUS_T00J Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2S Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 UCBrowser/10.4.0.558 U3/0.8.0 Mobile Safari/537.36",
             "x-requested-with": "com.UCMobile.lab"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2S Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 UCBrowser/10.4.0.558 U3/0.8.0 Mobile Safari/537.36",
+        "com.UCMobile.lab",
+        "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2S Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 UCBrowser/10.4.0.558 U3/0.8.0 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2S Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 UCBrowser/10.4.0.558 U3/0.8.0 Mobile Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2SC Build/JRO03L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Oupeng/9.2.1.73039 Mobile Safari/534.30 (securitypay,securityinstalled)",
             "x-requested-with": "com.oupeng.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2SC Build/JRO03L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Oupeng/9.2.1.73039 Mobile Safari/534.30 (securitypay,securityinstalled)",
+        "com.oupeng.browser",
+        "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2SC Build/JRO03L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Oupeng/9.2.1.73039 Mobile Safari/534.30 (securitypay,securityinstalled)",
+        "Mozilla/5.0 (Linux; U; Android 4.1.1; zh-CN; MI 2SC Build/JRO03L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Oupeng/9.2.1.73039 Mobile Safari/534.30 (securitypay,securityinstalled)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; Lenovo TAB S8-50F/BMAIN) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.4.2 Mobile Safari/534.30",
             "x-requested-with": "com.lenovo.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; Lenovo TAB S8-50F/BMAIN) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.4.2 Mobile Safari/534.30",
+        "com.lenovo.browser",
+        "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; Lenovo TAB S8-50F/BMAIN) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.4.2 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; Lenovo TAB S8-50F/BMAIN) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.4.2 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "iSurf version /v1.0",
             "x-requested-with": "derek.iSurf"
         },
-        "",
-        "",
-        "",
-        ""
+        "iSurf version /v1.0",
+        "derek.iSurf",
+        "iSurf version /v1.0",
+        "iSurf version /v1.0"
     ],
     [
         {
             "user-agent": "no-ua",
             "x-requested-with": "com.mx.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "no-ua",
+        "com.mx.browser",
+        "no-ua",
+        "no-ua"
     ],
     [
         {
             "user-agent": "Alcatel_A205G-B/1.0 ObigoInternetBrowser/Q05A[TF014404009534395004115512532586563]",
             "x-wap-profile": "http://www-ccpp.tcl-ta.com/files/Alcatel_A205G-B.rdf"
         },
-        "",
-        "",
-        "",
-        ""
+        "Alcatel_A205G-B/1.0 ObigoInternetBrowser/Q05A[TF014404009534395004115512532586563]",
+        "Alcatel_A205G-B/1.0 ObigoInternetBrowser/Q05A[TF014404009534395004115512532586563]",
+        "Alcatel_A205G-B/1.0 ObigoInternetBrowser/Q05A[TF014404009534395004115512532586563]",
+        "Alcatel_A205G-B/1.0 ObigoInternetBrowser/Q05A[TF014404009534395004115512532586563]"
     ],
     [
         {
             "user-agent": "LG-KP500 Teleca/WAP2.0 MIDP-2.0/CLDC-1.1",
             "x-wap-profile": "http://gsm.lge.com/html/gsm/LG-KP500.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "LG-KP500 Teleca/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "LG-KP500 Teleca/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "LG-KP500 Teleca/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "LG-KP500 Teleca/WAP2.0 MIDP-2.0/CLDC-1.1"
     ],
     [
         {
             "user-agent": "MOT-EX116 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1",
             "x-wap-profile": "http://uaprof.motorola.com/phoneconfig/ex116/Profile/ex116.rdf"
         },
-        "",
-        "",
-        "",
-        ""
+        "MOT-EX116 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "MOT-EX116 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "MOT-EX116 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "MOT-EX116 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile6.0) Sprint T7380",
             "x-wap-profile": "http://device.sprintpcs.com/HTC/PPCT7380SP/2046514.rdf"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile6.0) Sprint T7380",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile6.0) Sprint T7380",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile6.0) Sprint T7380",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile6.0) Sprint T7380"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (LG-C195 AppleWebkit/531 Browser/Phantom/V2.0 Widget/LGMW/3.0 MMS/LG-MMS-V1.0/1.2 Java/ASVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1)",
             "x-wap-profile": "http://gsm.lge.com/html/gsm/LG-C195-M3-D1.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (LG-C195 AppleWebkit/531 Browser/Phantom/V2.0 Widget/LGMW/3.0 MMS/LG-MMS-V1.0/1.2 Java/ASVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1)",
+        "Mozilla/5.0 (LG-C195 AppleWebkit/531 Browser/Phantom/V2.0 Widget/LGMW/3.0 MMS/LG-MMS-V1.0/1.2 Java/ASVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1)",
+        "Mozilla/5.0 (LG-C195 AppleWebkit/531 Browser/Phantom/V2.0 Widget/LGMW/3.0 MMS/LG-MMS-V1.0/1.2 Java/ASVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1)",
+        "Mozilla/5.0 (LG-C195 AppleWebkit/531 Browser/Phantom/V2.0 Widget/LGMW/3.0 MMS/LG-MMS-V1.0/1.2 Java/ASVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; Android 4.4.2; xx; SAMSUNG SM-N9005 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36",
             "x-wap-profile": "http://wap.samsungmobile.com/uaprof/SM-N9005.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; Android 4.4.2; xx; SAMSUNG SM-N9005 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.4.2; xx; SAMSUNG SM-N9005 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.4.2; xx; SAMSUNG SM-N9005 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36",
+        "Mozilla/5.0 (Linux; Android 4.4.2; xx; SAMSUNG SM-N9005 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.0.3; xx; A500 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30",
             "x-wap-profile": "http://support.acer.com/UAprofile/Acer_A500_IML74K_Profile.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.0.3; xx; A500 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.0.3; xx; A500 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.0.3; xx; A500 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.0.3; xx; A500 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.0.4; xx; SonyST23i Build/11.0.A.5.8) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-wap-profile": "http://uaprof.sonymobile.com/ST23iR402.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.0.4; xx; SonyST23i Build/11.0.A.5.8) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.0.4; xx; SonyST23i Build/11.0.A.5.8) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.0.4; xx; SonyST23i Build/11.0.A.5.8) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.0.4; xx; SonyST23i Build/11.0.A.5.8) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-wap-profile": "\u0022http://wap.samsungmobile.com/uaprof/GT-I9100.xml\u0022"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-wap-profile": "http://wap.samsungmobile.com/uaprof/GT-I9100.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.1.2; xx; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "Nokia208/2.0 (03.39) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; xx; Nokia208) U2/1.0.0 UCBrowser/9.5.0.449 U2/1.0.0 Mobile",
             "x-wap-profile": "http://nds1.nds.nokia.com/uaprof/Nokia208r100.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Nokia208/2.0 (03.39) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; xx; Nokia208) U2/1.0.0 UCBrowser/9.5.0.449 U2/1.0.0 Mobile",
+        "Nokia208/2.0 (03.39) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; xx; Nokia208) U2/1.0.0 UCBrowser/9.5.0.449 U2/1.0.0 Mobile",
+        "Nokia208/2.0 (03.39) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; xx; Nokia208) U2/1.0.0 UCBrowser/9.5.0.449 U2/1.0.0 Mobile",
+        "Nokia208/2.0 (03.39) Profile/MIDP-2.1 Configuration/CLDC-1.1 UCWEB/2.0 (Java; U; MIDP-2.0; xx; Nokia208) U2/1.0.0 UCBrowser/9.5.0.449 U2/1.0.0 Mobile"
     ],
     [
         {
             "user-agent": "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.24702/29.3757; U; xx)",
             "x-wap-profile": "http://www.zte.com.cn/mobile/uaprof/Vodafone550.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.24702/29.3757; U; xx)",
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.24702/29.3757; U; xx)",
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.24702/29.3757; U; xx)",
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.24702/29.3757; U; xx)"
     ],
     [
         {
             "user-agent": "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.25137/29.3757; U; xx)",
             "x-wap-profile": "http://www.zte.com.cn/mobile/uaprof/W1.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.25137/29.3757; U; xx)",
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.25137/29.3757; U; xx)",
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.25137/29.3757; U; xx)",
+        "Opera/9.50 (J2ME/MIDP; Opera Mini/5.1.25137/29.3757; U; xx)"
     ],
     [
         {
             "user-agent": "SAMSUNG-GT-S5610/S5610XXLI1 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1",
             "x-wap-profile": "http://wap.samsungmobile.com/uaprof/GT-S5610_3G.rdf"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-S5610/S5610XXLI1 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1",
+        "SAMSUNG-GT-S5610/S5610XXLI1 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1",
+        "SAMSUNG-GT-S5610/S5610XXLI1 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1",
+        "SAMSUNG-GT-S5610/S5610XXLI1 NetFront/4.1 Profile/MIDP-2.0 Configuration/CLDC-1.1"
     ],
     [
         {
             "user-agent": "SAMSUNG-SGH-i900/1.0 Opera 9.5",
             "x-wap-profile": "http://wap.samsungmobile.com/uaprof/SGH-i900.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-SGH-i900/1.0 Opera 9.5",
+        "SAMSUNG-SGH-i900/1.0 Opera 9.5",
+        "SAMSUNG-SGH-i900/1.0 Opera 9.5",
+        "SAMSUNG-SGH-i900/1.0 Opera 9.5"
     ],
     [
         {
             "user-agent": "dopodT8588/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 Opera/9.7 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1",
             "x-wap-profile": "http://www.htcmms.com.tw/gen/HTC_HD2_T8585-1.0.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "dopodT8588/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 Opera/9.7 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1",
+        "dopodT8588/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 Opera/9.7 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1",
+        "dopodT8588/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 Opera/9.7 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1",
+        "dopodT8588/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 Opera/9.7 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; C2 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-requested-with": "com.aliyun.mobile.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; C2 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "com.aliyun.mobile.browser",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; C2 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; C2 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; G9 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-requested-with": "com.aliyun.mobile.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; G9 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "com.aliyun.mobile.browser",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; G9 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; G9 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; GO N1-Y Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-requested-with": "com.aliyun.mobile.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; GO N1-Y Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "com.aliyun.mobile.browser",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; GO N1-Y Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; GO N1-Y Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; R819T Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-requested-with": "com.aliyun.mobile.browser"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; R819T Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "com.aliyun.mobile.browser",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; R819T Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; AliyunOS 2.0; Android 4.0 Compatible; xx; R819T Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
@@ -1022,10 +1022,10 @@
             "x-operamini-phone-ua": "Mozilla/5.0 (Linux; U; Android 4.2.5; zh-cn; MI 2SC Build/YunOS) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
             "x-operamini-features": "advanced, httpping, routing, camera, viewport, file_system, folding, touch, download"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Linux; U; Android 4.2.5; zh-cn; MI 2SC Build/YunOS) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Opera/9.80 (Android; Opera Mini/7.8.35214/34.1571; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0 (Linux; U; Android 4.2.5; zh-cn; MI 2SC Build/YunOS) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "Mozilla/5.0 (Linux; U; Android 4.2.5; zh-cn; MI 2SC Build/YunOS) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     ],
     [
         {
@@ -1034,10 +1034,10 @@
             "x-ucbrowser-device": "nokia#501s",
             "x-ucbrowser-device-ua": "Nokia501s/2.0 (10.0.12) Profile/MIDP-2.1 Configuration/CLDC-1.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -1046,10 +1046,10 @@
             "x-ucbrowser-device": "nokia#501",
             "x-ucbrowser-device-ua": "Nokia501/2.0 (14.0.4) Profile/MIDP-2.1 Configuration/CLDC-1.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -1058,10 +1058,10 @@
             "x-ucbrowser-device": "nokia#501",
             "x-ucbrowser-device-ua": "Nokia501/2.0 (10.0.14) Profile/MIDP-2.1 Configuration/CLDC-1.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(en);re(U2/1.0.0);dv(Nokia501);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -1070,10 +1070,10 @@
             "x-ucbrowser-device": "nokia#503s",
             "x-ucbrowser-device-ua": "Nokia503s/2.0 (14.0.4) Profile/MIDP-2.1 Configuration/CLDC-1.1"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(fr-FR);re(U2/1.0.0);dv(Nokia503s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(fr-FR);re(U2/1.0.0);dv(Nokia503s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(fr-FR);re(U2/1.0.0);dv(Nokia503s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);",
+        "pf(Java);la(fr-FR);re(U2/1.0.0);dv(Nokia503s);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -1082,10 +1082,10 @@
             "x-ucbrowser-device-ua": "NokiaAsha230DualSIM/2.0 (14.0.4) Profile/MIDP-2.1 Configuration/CLDC-1.1",
             "x-ucbrowser-ua": "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaAsha230DualSIM);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(1);im(0);sr(0);nt(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaAsha230DualSIM);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(1);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaAsha230DualSIM);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(1);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaAsha230DualSIM);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(1);im(0);sr(0);nt(1);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(NokiaAsha230DualSIM);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(1);im(0);sr(0);nt(1);"
     ],
     [
         {
@@ -1095,10 +1095,10 @@
             "x-operamini-phone-ua": "Mozilla/5.0 (Series40; Nokia501/11.1.1/java_runtime_version=Nokia_Asha_1_1_1; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/3.9.0.0.22",
             "x-operamini-features": "httpping, advanced, routing, folding, touch, file_system"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Series40; Nokia501/11.1.1/java_runtime_version=Nokia_Asha_1_1_1; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/3.9.0.0.22",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.5.33867/35.3527; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.5.33867/35.3527; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0 (Series40; Nokia501/11.1.1/java_runtime_version=Nokia_Asha_1_1_1; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/3.9.0.0.22"
     ],
     [
         {
@@ -1108,10 +1108,10 @@
             "x-operamini-phone-ua": "Mozilla/5.0 (Series40; Nokia501/11.1.1/java_runtime_version=Nokia_Asha_1_1_1; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/3.1.1.0.27",
             "x-operamini-features": "httpping, advanced, routing, touch, camera, file_system, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Series40; Nokia501/11.1.1/java_runtime_version=Nokia_Asha_1_1_1; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/3.1.1.0.27",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/34.1394; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/34.1394; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0 (Series40; Nokia501/11.1.1/java_runtime_version=Nokia_Asha_1_1_1; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/3.1.1.0.27"
     ],
     [
         {
@@ -1120,10 +1120,10 @@
             "x-ucbrowser-device": "samsung#-gt-s5380d",
             "x-ucbrowser-device-ua": "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/S5380DGTLE1; U; Bada/2.0; en-us) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(samsung-gt-s5380d);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(samsung-gt-s5380d);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(samsung-gt-s5380d);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(samsung-gt-s5380d);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -1132,10 +1132,10 @@
             "x-ucbrowser-device": "samsung#-GT-S5380K",
             "x-ucbrowser-device-ua": "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380K/S5380KDDLD1; U; Bada/2.0; en-us) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5380K);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5380K);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5380K);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5380K);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -1144,10 +1144,10 @@
             "x-ucbrowser-device": "samsung#-GT-S5253",
             "x-ucbrowser-device-ua": "Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5253/S5253DDJI7; U; Bada/1.0; en-us) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.0 Mobile WQVGA SMM-MMS/1.2.0 OPN-B"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5253);pr(UCBrowser/9.3.0.326);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5253);pr(UCBrowser/9.3.0.326);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5253);pr(UCBrowser/9.3.0.326);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(SAMSUNG-GT-S5253);pr(UCBrowser/9.3.0.326);ov(MIDP-2.0);pi(240*400);ss(240*400);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -1157,10 +1157,10 @@
             "x-operamini-phone-ua": "Mozilla/5.0 (Bada 2.0.0)",
             "x-operamini-features": "advanced, routing, viewport, touch, file_system, download"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (Bada; Opera Mini/6.5/31.1395; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (Bada; Opera Mini/6.5/31.1395; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0 (Bada 2.0.0)",
+        "Opera/9.80 (Bada; Opera Mini/6.5/31.1395; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1170,10 +1170,10 @@
             "x-operamini-phone-ua": "SAMSUNG-GT-S8500",
             "x-operamini-features": "httpping, advanced, routing, file_system, folding, camera, touch"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-S8500",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/32.1151; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/32.1151; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/32.1151; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1183,50 +1183,50 @@
             "x-operamini-phone-ua": "SAMSUNG-GT-S8500",
             "x-operamini-features": "httpping, advanced, folding, routing, camera, file_system, touch"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-S8500",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35158/34.1624; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35158/34.1624; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/8.0.35158/34.1624; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "MQQBrowser/for Blackberry2.0.0 (BlackBerry9310/7.1.0.768)",
             "q-ua": "BBQBM20_GA/200016&BBMMTT_3/200016&BB&201518&BlackBerry93107.1.0.&0&6347&V3"
         },
-        "",
-        "",
-        "",
-        ""
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9310/7.1.0.768)",
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9310/7.1.0.768)",
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9310/7.1.0.768)",
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9310/7.1.0.768)"
     ],
     [
         {
             "user-agent": "MQQBrowser/for Blackberry2.0.0 (BlackBerry9380/7.1.0.714)",
             "q-ua": "BBQBM20_GA/200016&BBMMTT_3/200016&BB&223021&BlackBerry93807.1.0.&0&6347&V3"
         },
-        "",
-        "",
-        "",
-        ""
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9380/7.1.0.714)",
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9380/7.1.0.714)",
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9380/7.1.0.714)",
+        "MQQBrowser/for Blackberry2.0.0 (BlackBerry9380/7.1.0.714)"
     ],
     [
         {
             "user-agent": "OneBrowser/for Blackberry3.0.0 (BlackBerry9320/7.1.0.398)",
             "q-ua": "BBQBM30_ibibo/300001&BBMMTT_3/300001&BB&201518&BlackBerry93207.1.0.&6001&8976&V3"
         },
-        "",
-        "",
-        "",
-        ""
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9320/7.1.0.398)",
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9320/7.1.0.398)",
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9320/7.1.0.398)",
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9320/7.1.0.398)"
     ],
     [
         {
             "user-agent": "OneBrowser/for Blackberry3.0.0 (BlackBerry9800/6.0.0.747)",
             "q-ua": "BBQBM30_ibibo/300001&BBMMTT_3/300001&BB&223021&BlackBerry98006.0.0.&0&8976&V3"
         },
-        "",
-        "",
-        "",
-        ""
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9800/6.0.0.747)",
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9800/6.0.0.747)",
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9800/6.0.0.747)",
+        "OneBrowser/for Blackberry3.0.0 (BlackBerry9800/6.0.0.747)"
     ],
     [
         {
@@ -1235,10 +1235,10 @@
             "x-operamini-phone-ua": "BlackBerry8520/5.0.0.1036 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/613",
             "x-operamini-features": "httpping, advanced, routing, folding, touch, camera, file_system"
         },
-        "",
-        "",
-        "",
-        ""
+        "BlackBerry8520/5.0.0.1036 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/613",
+        "Opera/9.80 (X11; Linux zvav; U; xx) Presto/2.8.119 Version/11.10",
+        "BlackBerry8520/5.0.0.1036 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/613",
+        "Opera/9.80 (X11; Linux zvav; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1248,10 +1248,10 @@
             "x-operamini-phone-ua": "BlackBerry9700/5.0.0.235 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/1",
             "x-operamini-features": "httpping, advanced, routing, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "BlackBerry9700/5.0.0.235 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/1",
+        "Opera/9.80 (BlackBerry; Opera Mini/4.4.26736/34.818; U; xx) Presto/2.8.119 Version/11.10",
+        "BlackBerry9700/5.0.0.235 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/1",
+        "Opera/9.80 (BlackBerry; Opera Mini/4.4.26736/34.818; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1261,10 +1261,10 @@
             "x-operamini-phone-ua": "BlackBerry9300",
             "x-operamini-features": "httpping, advanced, routing, file_system, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "BlackBerry9300",
+        "Opera/9.80 (BlackBerry; Opera Mini/4.6.32744/32.1214; U; xx) Presto/2.8.119 Version/11.10",
+        "BlackBerry9300",
+        "Opera/9.80 (BlackBerry; Opera Mini/4.6.32744/32.1214; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1274,10 +1274,10 @@
             "x-operamini-phone-ua": "BlackBerry8530/5.0.0.973 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/105",
             "x-operamini-features": "advanced, httpping, folding, file_system, touch, camera, routing"
         },
-        "",
-        "",
-        "",
-        ""
+        "BlackBerry8530/5.0.0.973 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/105",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35667/35.3781; U; xx) Presto/2.8.119 Version/11.10",
+        "BlackBerry8530/5.0.0.973 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/105",
+        "Opera/9.80 (BlackBerry; Opera Mini/8.0.35667/35.3781; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1286,10 +1286,10 @@
             "x-ucbrowser-device": "j2me",
             "x-ucbrowser-ua": "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (BREW 3.1.5; U; en-us; Sanyo; NetFront/3.5.1/AMB) Boost SCP6760",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -1298,10 +1298,10 @@
             "x-operamini-phone-ua": "Samsung SCH-U380",
             "x-operamini-phone": "Samsung # SCH-U380"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/5.0/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/5.0/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/5.0/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380"
     ],
     [
         {
@@ -1310,10 +1310,10 @@
             "x-operamini-phone-ua": "Pantech TXT8045",
             "x-operamini-phone": "Pantech # TXT8045"
         },
-        "",
-        "",
-        "",
-        ""
+        "Pantech TXT8045",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 320X240 Pantech TXT8045",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 320X240 Pantech TXT8045",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 320X240 Pantech TXT8045"
     ],
     [
         {
@@ -1322,10 +1322,10 @@
             "x-operamini-phone-ua": "ZTE F-450",
             "x-operamini-phone": "ZTE # F-450"
         },
-        "",
-        "",
-        "",
-        ""
+        "ZTE F-450",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 320X240 ZTE F-450",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 320X240 ZTE F-450",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 320X240 ZTE F-450"
     ],
     [
         {
@@ -1334,10 +1334,10 @@
             "x-operamini-phone-ua": "LG VN271",
             "x-operamini-phone": "LG # VN271"
         },
-        "",
-        "",
-        "",
-        ""
+        "LG VN271",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 400X240 LG VN271",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 400X240 LG VN271",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2338; U; xx) Presto/2.8.119 400X240 LG VN271"
     ],
     [
         {
@@ -1346,10 +1346,10 @@
             "x-operamini-phone-ua": "ZTE F-450",
             "x-operamini-phone": "ZTE # F-450"
         },
-        "",
-        "",
-        "",
-        ""
+        "ZTE F-450",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2354; U; xx) Presto/2.8.119 320X240 ZTE F-450",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2354; U; xx) Presto/2.8.119 320X240 ZTE F-450",
+        "Opera/9.80 (BREW; Opera Mini/5.1/27.2354; U; xx) Presto/2.8.119 320X240 ZTE F-450"
     ],
     [
         {
@@ -1358,10 +1358,10 @@
             "x-operamini-phone-ua": "Casio C781",
             "x-operamini-phone": "Casio # C781"
         },
-        "",
-        "",
-        "",
-        ""
+        "Casio C781",
+        "Opera/9.80 (BREW; Opera Mini/6.0.0/27.2354; U; xx) Presto/2.8.119 240X320 Casio C781",
+        "Opera/9.80 (BREW; Opera Mini/6.0.0/27.2354; U; xx) Presto/2.8.119 240X320 Casio C781",
+        "Opera/9.80 (BREW; Opera Mini/6.0.0/27.2354; U; xx) Presto/2.8.119 240X320 Casio C781"
     ],
     [
         {
@@ -1370,10 +1370,10 @@
             "x-operamini-phone": "Samsung # SCH-U380",
             "x-operamini-phone-ua": "Samsung SCH-U380"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X320 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X320 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X320 Samsung SCH-U380"
     ],
     [
         {
@@ -1382,10 +1382,10 @@
             "x-operamini-phone": "Samsung # SCH-U485",
             "x-operamini-phone-ua": "Samsung SCH-U485"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X320 Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X320 Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X320 Samsung SCH-U485"
     ],
     [
         {
@@ -1394,10 +1394,10 @@
             "x-operamini-phone": "Pantech # CDM8992",
             "x-operamini-phone-ua": "Pantech CDM8992"
         },
-        "",
-        "",
-        "",
-        ""
+        "Pantech CDM8992",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X400 Pantech CDM8992",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X400 Pantech CDM8992",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 240X400 Pantech CDM8992"
     ],
     [
         {
@@ -1406,10 +1406,10 @@
             "x-operamini-phone": "Samsung # SCH-U380",
             "x-operamini-features": "advanced, download, file_system, touch, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2338; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380"
     ],
     [
         {
@@ -1418,10 +1418,10 @@
             "x-operamini-phone-ua": "LG VN530",
             "x-operamini-features": "advanced, download, file_system, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "LG VN530",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2339; U; xx) Presto/2.8.119 320X240 LG VN530",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2339; U; xx) Presto/2.8.119 320X240 LG VN530",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2339; U; xx) Presto/2.8.119 320X240 LG VN530"
     ],
     [
         {
@@ -1430,10 +1430,10 @@
             "x-operamini-phone": "Samsung # SCH-U380",
             "x-operamini-phone-ua": "Samsung SCH-U380"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U380"
     ],
     [
         {
@@ -1442,10 +1442,10 @@
             "x-operamini-phone-ua": "Samsung SCH-U485",
             "x-operamini-phone": "Samsung # SCH-U485"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U485"
     ],
     [
         {
@@ -1454,10 +1454,10 @@
             "x-operamini-phone-ua": "Samsung SCH-U680",
             "x-operamini-features": "advanced, download, file_system, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U680",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U680",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U680",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X320 Samsung SCH-U680"
     ],
     [
         {
@@ -1466,10 +1466,10 @@
             "x-operamini-phone": "Pantech # CDM8999",
             "x-operamini-phone-ua": "Pantech CDM8999"
         },
-        "",
-        "",
-        "",
-        ""
+        "Pantech CDM8999",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X400 Pantech CDM8999",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X400 Pantech CDM8999",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 240X400 Pantech CDM8999"
     ],
     [
         {
@@ -1478,10 +1478,10 @@
             "x-operamini-features": "advanced, download, file_system, folding",
             "x-operamini-phone-ua": "LG VN530"
         },
-        "",
-        "",
-        "",
-        ""
+        "LG VN530",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 LG VN530",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 LG VN530",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 LG VN530"
     ],
     [
         {
@@ -1490,10 +1490,10 @@
             "x-operamini-phone": "Samsung # SCH-U380",
             "x-operamini-features": "advanced, download, file_system, touch, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U380"
     ],
     [
         {
@@ -1502,10 +1502,10 @@
             "x-operamini-features": "advanced, download, file_system, folding",
             "x-operamini-phone": "Samsung # SCH-U485"
         },
-        "",
-        "",
-        "",
-        ""
+        "Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U485",
+        "Opera/9.80 (BREW; Opera Mini/6.0.3/27.2354; U; xx) Presto/2.8.119 320X240 Samsung SCH-U485"
     ],
     [
         {
@@ -1514,10 +1514,10 @@
             "x-ucbrowser-device-ua": "Mozilla/5.0_(OneTouch-710C/710C_OMH_V1.6; U; REX/4.3;BREW/3.1.5.189; Profile/MIDP-2.0_Configuration/CLDC-1.1; 240*320; CTC/2.0)_Obigo Browser/1.14",
             "x-ucbrowser-ua": "pf(Java);la(id);re(U2/1.0.0);dv(TCL-C616);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(id);re(U2/1.0.0);dv(TCL-C616);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(id);re(U2/1.0.0);dv(TCL-C616);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(id);re(U2/1.0.0);dv(TCL-C616);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(id);re(U2/1.0.0);dv(TCL-C616);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(240*320);ss(240*320);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -1526,10 +1526,10 @@
             "x-ucbrowser-device-ua": "NetFront/3.5.1(BREW 5.0.2.1; U; en-us; Samsung ; NetFront/3.5.1/WAP) Boost M260 MMP/2.0 Profile/MIDP-2.1 Configuration/CLDC-1.1",
             "x-ucbrowser-ua": "pf(Java);la(zh-CN);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.0.0.261);ov(MIDP-2.0);pi(128*160);ss(128*160);up(U2/1.0.0);er(U);bt(UC);pm(1);bv(0);nm(2);im(1);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "NetFront/3.5.1(BREW 5.0.2.1; U; en-us; Samsung ; NetFront/3.5.1/WAP) Boost M260 MMP/2.0 Profile/MIDP-2.1 Configuration/CLDC-1.1",
+        "pf(Java);la(zh-CN);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.0.0.261);ov(MIDP-2.0);pi(128*160);ss(128*160);up(U2/1.0.0);er(U);bt(UC);pm(1);bv(0);nm(2);im(1);sr(0);nt(99);",
+        "pf(Java);la(zh-CN);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.0.0.261);ov(MIDP-2.0);pi(128*160);ss(128*160);up(U2/1.0.0);er(U);bt(UC);pm(1);bv(0);nm(2);im(1);sr(0);nt(99);",
+        "pf(Java);la(zh-CN);re(U2/1.0.0);dv(j2me);pr(UCBrowser/9.0.0.261);ov(MIDP-2.0);pi(128*160);ss(128*160);up(U2/1.0.0);er(U);bt(UC);pm(1);bv(0);nm(2);im(1);sr(0);nt(99);"
     ],
     [
         {
@@ -1539,10 +1539,10 @@
             "x-operamini-phone-ua": "NativeOperaMini(Haier;Native Opera Mini/4.2.99;id;BREW 3.1.5)",
             "x-operamini-phone": "? # ?"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (BREW; Opera Mini/4.2.99/34.1244; U; xx) Presto/2.8.119 Version/11.10",
+        "NativeOperaMini(Haier;Native Opera Mini/4.2.99;id;BREW 3.1.5)",
+        "NativeOperaMini(Haier;Native Opera Mini/4.2.99;id;BREW 3.1.5)",
+        "Opera/9.80 (BREW; Opera Mini/4.2.99/34.1244; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1552,10 +1552,10 @@
             "x-operamini-features": "httpping, advanced, routing, folding",
             "x-operamini-phone-ua": "Mozilla/5.0_(Smartfren-E781A/E2_SQID_V0.1.6; U; REX/4.3;BREW/3.1.5.189; Profile/MIDP-2.0_Configuration/CLDC-1.1; 240*320; CTC/2.0)_Obigo Browser/Q7"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0_(Smartfren-E781A/E2_SQID_V0.1.6; U; REX/4.3;BREW/3.1.5.189; Profile/MIDP-2.0_Configuration/CLDC-1.1; 240*320; CTC/2.0)_Obigo Browser/Q7",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.4.31891/34.1526; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0_(Smartfren-E781A/E2_SQID_V0.1.6; U; REX/4.3;BREW/3.1.5.189; Profile/MIDP-2.0_Configuration/CLDC-1.1; 240*320; CTC/2.0)_Obigo Browser/Q7",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.4.31891/34.1526; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1565,10 +1565,10 @@
             "x-operamini-phone": "? # ?",
             "x-operamini-features": "advanced, httpping, routing, folding, file_system, camera"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (Brew MP 1.0.2; U; en-us; Kyocera; NetFront/4.1/AMB) Sprint E4255",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/34.1016; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/4.0 (Brew MP 1.0.2; U; en-us; Kyocera; NetFront/4.1/AMB) Sprint E4255",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/34.1016; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1578,50 +1578,50 @@
             "x-operamini-features": "advanced, httpping, routing, file_system, folding, camera",
             "x-operamini-phone": "? # ?"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (BREW 3.1.5; U; en-us; Sanyo; NetFront/3.5.1/AMB) Sprint SCP-6760",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/34.1853; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/4.0 (BREW 3.1.5; U; en-us; Sanyo; NetFront/3.5.1/AMB) Sprint SCP-6760",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/34.1853; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/534.35 (KHTML, like Gecko)  Chrome/11.0.696.65 Safari/534.35 Puffin/2.0.7961",
             "x-puffin-ua": "iPhone OS/iPhone 3GS/320x480"
         },
-        "",
-        "",
-        "",
-        ""
+        "iPhone OS/iPhone 3GS/320x480",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/534.35 (KHTML, like Gecko)  Chrome/11.0.696.65 Safari/534.35 Puffin/2.0.7961",
+        "iPhone OS/iPhone 3GS/320x480",
+        "Mozilla/5.0 (X11; U; Linux x86_64; xx) AppleWebKit/534.35 (KHTML, like Gecko)  Chrome/11.0.696.65 Safari/534.35 Puffin/2.0.7961"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0_1 like Mac OS X; xx) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9A405 UCBrowser/9.1.0.287 Mobile",
             "x-ucbrowser-ua": "pf(42);la(zh-CN);dv(iPh3,1);pr(UCBrowser);ov(5_0_1);pi(640x960);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/534.46 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(42);la(zh-CN);dv(iPh3,1);pr(UCBrowser);ov(5_0_1);pi(640x960);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/534.46 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);",
+        "pf(42);la(zh-CN);dv(iPh3,1);pr(UCBrowser);ov(5_0_1);pi(640x960);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/534.46 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0_1 like Mac OS X; xx) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9A405 UCBrowser/9.1.0.287 Mobile",
+        "pf(42);la(zh-CN);dv(iPh3,1);pr(UCBrowser);ov(5_0_1);pi(640x960);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/534.46 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(1);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X; xx) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11A501 UCBrowser/9.3.2.356 Mobile",
             "x-ucbrowser-ua": "pf(44);la(zh-CN);dv(iPd5,1);pr(UCBrowser);ov(7_0_2);pi(640x1136);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/537.51.1 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(44);la(zh-CN);dv(iPd5,1);pr(UCBrowser);ov(7_0_2);pi(640x1136);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/537.51.1 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);",
+        "pf(44);la(zh-CN);dv(iPd5,1);pr(UCBrowser);ov(7_0_2);pi(640x1136);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/537.51.1 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_2 like Mac OS X; xx) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11A501 UCBrowser/9.3.2.356 Mobile",
+        "pf(44);la(zh-CN);dv(iPd5,1);pr(UCBrowser);ov(7_0_2);pi(640x1136);ss(320x416);er(U);bt(UM);up();re(AppleWebKit/537.51.1 (KHTML, like Gecko));pm(0);bv(0);nm(0);im(0);nt(2);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D201 MobileIron/1.3.0 Version/7.1.1 Safari/537.51.2",
             "x-mobileiron-securebrowser-managed-by": "MobileIron"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D201 MobileIron/1.3.0 Version/7.1.1 Safari/537.51.2",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D201 MobileIron/1.3.0 Version/7.1.1 Safari/537.51.2",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D201 MobileIron/1.3.0 Version/7.1.1 Safari/537.51.2",
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D201 MobileIron/1.3.0 Version/7.1.1 Safari/537.51.2"
     ],
     [
         {
@@ -1629,10 +1629,10 @@
             "x-original-user-agent": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3",
             "x-device-user-agent": "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3",
+        "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3",
+        "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3",
+        "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3"
     ],
     [
         {
@@ -1642,10 +1642,10 @@
             "x-operamini-phone-ua": "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5",
             "device-stock-ua": "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.14912/34.818; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5",
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5"
     ],
     [
         {
@@ -1655,10 +1655,10 @@
             "x-operamini-phone": "? # ?",
             "x-operamini-features": "advanced, routing, download, file_system, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31223/31.1448; U; xx) Presto/2.8.119 Version/11.10",
+        "OperaMini(MAUI_MRE;Opera Mini/4.4.31223;en)",
+        "OperaMini(MAUI_MRE;Opera Mini/4.4.31223;en)",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31223/31.1448; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1668,10 +1668,10 @@
             "x-operamini-phone": "? # ?",
             "device-stock-ua": "OperaMini(Fucus/Unknown;Opera Mini/4.4.31223;en)"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31223/34.1606; U; xx) Presto/2.8.119 Version/11.10",
+        "OperaMini(Fucus/Unknown;Opera Mini/4.4.31223;en)",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31223/34.1606; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31223/34.1606; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1681,10 +1681,10 @@
             "device-stock-ua": "OperaMini(Lava-Discover135;Opera Mini/4.4.31762;en)",
             "x-operamini-features": "httpping, advanced, routing, file_system, download, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "OperaMini(Lava-Discover135;Opera Mini/4.4.31762;en)",
+        "OperaMini(Lava-Discover135;Opera Mini/4.4.31762;en)",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31762/35.3312; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31762/35.3312; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1694,10 +1694,10 @@
             "device-stock-ua": "OperaMini(Gionee_1305;Opera Mini/4.4.31989;en)",
             "x-operamini-phone": "? # ?"
         },
-        "",
-        "",
-        "",
-        ""
+        "OperaMini(Gionee_1305;Opera Mini/4.4.31989;en)",
+        "OperaMini(Gionee_1305;Opera Mini/4.4.31989;en)",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31989/30.3793; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/4.4.31989/30.3793; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1707,10 +1707,10 @@
             "x-operamini-phone": "? # ?",
             "x-operamini-features": "advanced, httpping, routing, download, file_system, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (MAUI Runtime; Opera Mini/6.1.27412/35.3781; U; xx) Presto/2.8.119 Version/11.10",
+        "NativeOperaMini(MRE_VER_3000;240X320;MT6256;V/;Opera Mini/6.1.27412;en)",
+        "NativeOperaMini(MRE_VER_3000;240X320;MT6256;V/;Opera Mini/6.1.27412;en)",
+        "Opera/9.80 (MAUI Runtime; Opera Mini/6.1.27412/35.3781; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1719,10 +1719,10 @@
             "x-ucbrowser-device-ua": "MOT-EX226 MIDP-2.0/CLDC-1.1 Release/31.12.2010 Browser/Opera Sync/SyncClient1.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 Opera/9.80 (MTK; U; en-US) Presto/2.5.28 Version/10.10",
             "x-ucbrowser-ua": "pf(Java);la(Pt-BR);re(U2/1.0.0);dv(maui e800);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Java);la(Pt-BR);re(U2/1.0.0);dv(maui e800);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(Pt-BR);re(U2/1.0.0);dv(maui e800);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(Pt-BR);re(U2/1.0.0);dv(maui e800);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);",
+        "pf(Java);la(Pt-BR);re(U2/1.0.0);dv(maui e800);pr(UCBrowser/9.2.0.311);ov(MIDP-2.0);pi(320*240);ss(320*240);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(2);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -1731,10 +1731,10 @@
             "x-ucbrowser-device-ua": "ASTRO36_TD/v3 (MRE\\2.3.00(20480) resolution\\320480 chipset\\MT6255 touch\\1 tpannel\\1 camera\\0 gsensor\\0 keyboard\\reduced) MAUI/10A1032MP_ASTRO_W1052 Release/31.12.2010 Browser/Opera Profile/MIDP-2.0 Configuration/CLDC-1.1 Sync/SyncClient1.1 Opera/9.80 (MTK; Nucleus; Opera Mobi/4000; U; en-US) Presto/2.5.28 Version/10.10",
             "x-ucbrowser-ua": "pf(Java);la(en-US);re(U2/1.0.0);dv(Opera);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
         },
-        "",
-        "",
-        "",
-        ""
+        "ASTRO36_TD/v3 (MRE\\2.3.00(20480) resolution\\320480 chipset\\MT6255 touch\\1 tpannel\\1 camera\\0 gsensor\\0 keyboard\\reduced) MAUI/10A1032MP_ASTRO_W1052 Release/31.12.2010 Browser/Opera Profile/MIDP-2.0 Configuration/CLDC-1.1 Sync/SyncClient1.1 Opera/9.80 (MTK; Nucleus; Opera Mobi/4000; U; en-US) Presto/2.5.28 Version/10.10",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Opera);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Opera);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);",
+        "pf(Java);la(en-US);re(U2/1.0.0);dv(Opera);pr(UCBrowser/9.4.1.377);ov(MIDP-2.0);pi(320*480);ss(320*480);up(U2/1.0.0);er(U);bt(GJ);pm(1);bv(0);nm(0);im(0);sr(0);nt(99);"
     ],
     [
         {
@@ -1744,10 +1744,10 @@
             "x-operamini-phone-ua": "NativeOperaMini(MTK;Native Opera Mini/4.2.1198;fr)",
             "device-stock-ua": "NativeOperaMini(MTK;Native Opera Mini/4.2.1198;fr)"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (MTK; Opera Mini/2.1198/34.1445; U; xx) Presto/2.8.119 Version/11.10",
+        "NativeOperaMini(MTK;Native Opera Mini/4.2.1198;fr)",
+        "NativeOperaMini(MTK;Native Opera Mini/4.2.1198;fr)",
+        "Opera/9.80 (MTK; Opera Mini/2.1198/34.1445; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1757,10 +1757,10 @@
             "x-operamini-phone": "? # ?",
             "x-operamini-phone-ua": "NativeOperaMini(MTK;Opera Mini/5.1.3119;es)"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (MTK; Opera Mini/5.1.3119/34.1153; U; xx) Presto/2.8.119 Version/11.10",
+        "NativeOperaMini(MTK;Opera Mini/5.1.3119;es)",
+        "NativeOperaMini(MTK;Opera Mini/5.1.3119;es)",
+        "Opera/9.80 (MTK; Opera Mini/5.1.3119/34.1153; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1770,10 +1770,10 @@
             "x-operamini-phone": "? # ?",
             "device-stock-ua": "NativeOperaMini(MTK/Unknown;Opera Mini/7.0.32977;en-US)"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (MTK; Opera Mini/7.0.32977/34.1576; U; xx) Presto/2.8.119 Version/11.10",
+        "NativeOperaMini(MTK/Unknown;Opera Mini/7.0.32977;en-US)",
+        "NativeOperaMini(MTK/Unknown;Opera Mini/7.0.32977;en-US)",
+        "Opera/9.80 (MTK; Opera Mini/7.0.32977/34.1576; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1783,10 +1783,10 @@
             "x-operamini-features": "httpping, advanced, routing, folding, file_system, download",
             "device-stock-ua": "NativeOperaMini(Spreadtrum/Unknown;Native Opera Mini/4.4.29625;pt)"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (SpreadTrum; Opera Mini/4.4.29625/34.1970; U; xx) Presto/2.8.119 Version/11.10",
+        "NativeOperaMini(Spreadtrum/Unknown;Native Opera Mini/4.4.29625;pt)",
+        "Opera/9.80 (SpreadTrum; Opera Mini/4.4.29625/34.1970; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (SpreadTrum; Opera Mini/4.4.29625/34.1970; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1796,10 +1796,10 @@
             "x-operamini-phone": "? # ?",
             "x-operamini-features": "advanced, httpping, routing, file_system, download, folding"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (SpreadTrum; Opera Mini/4.4.31227/34.1088; U; xx) Presto/2.8.119 Version/11.10",
+        "NativeOperaMini(Spreadtrum/HW Version:        SC6531_OPENPHONE;Native Opera Mini/4.4.31227;en)",
+        "Opera/9.80 (SpreadTrum; Opera Mini/4.4.31227/34.1088; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (SpreadTrum; Opera Mini/4.4.31227/34.1088; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1809,10 +1809,10 @@
             "x-operamini-features": "advanced, httpping, routing, folding, file_system",
             "device-stock-ua": "PhilipsX2300/W1245_V12 ThreadX_OS/4.0 MOCOR/W12 Release/11.08.2012 Browser/Dorado1.0"
         },
-        "",
-        "",
-        "",
-        ""
+        "PhilipsX2300/W1245_V12 ThreadX_OS/4.0 MOCOR/W12 Release/11.08.2012 Browser/Dorado1.0",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.5.33867/35.3088; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.5.33867/35.3088; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (J2ME/MIDP; Opera Mini/4.5.33867/35.3088; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -1822,570 +1822,570 @@
             "x-operamini-features": "httpping, advanced, folding, file_system, download",
             "device-stock-ua": "ReksioVRE(196683)"
         },
-        "",
-        "",
-        "",
-        ""
+        "Opera/9.80 (VRE; Opera Mini/4.2/32.1312; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (VRE; Opera Mini/4.2/32.1312; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (VRE; Opera Mini/4.2/32.1312; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (VRE; Opera Mini/4.2/32.1312; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "HD_mini_T5555 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HD_mini_T5555 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "HD_mini_T5555 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HD_mini_T5555 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)"
     ],
     [
         {
             "user-agent": "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HTC_HD2_T8585 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)"
     ],
     [
         {
             "user-agent": "HTC_P3650 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_P3650 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6)",
+        "HTC_P3650 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HTC_P3650 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6)"
     ],
     [
         {
             "user-agent": "HTC_P3700 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_P3700 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "HTC_P3700 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HTC_P3700 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)"
     ],
     [
         {
             "user-agent": "HTC_P4550/TYTN_II Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_P4550/TYTN_II Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "HTC_P4550/TYTN_II Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HTC_P4550/TYTN_II Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)"
     ],
     [
         {
             "user-agent": "HTC_Touch_Diamond2_T5360 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_Touch_Diamond2_T5360 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "HTC_Touch_Diamond2_T5360 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HTC_Touch_Diamond2_T5360 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "HTC_Touch_Pro2_T7373 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "HTC_Touch_Pro2_T7373 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "HTC_Touch_Pro2_T7373 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "HTC_Touch_Pro2_T7373 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "K-Touch_W366_CUCC/1.0 WindowsMobileOS/6.5 Release/30.10.2009 Browser/MSIE-6.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "K-Touch_W366_CUCC/1.0 WindowsMobileOS/6.5 Release/30.10.2009 Browser/MSIE-6.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "K-Touch_W366_CUCC/1.0 WindowsMobileOS/6.5 Release/30.10.2009 Browser/MSIE-6.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "K-Touch_W366_CUCC/1.0 WindowsMobileOS/6.5 Release/30.10.2009 Browser/MSIE-6.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) PPC; 240x320; HTC_Touch_Viva_T2223; OpVer 86.157.15.753",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) PPC; 240x320; HTC_Touch_Viva_T2223; OpVer 86.157.15.753",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) PPC; 240x320; HTC_Touch_Viva_T2223; OpVer 86.157.15.753",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) PPC; 240x320; HTC_Touch_Viva_T2223; OpVer 86.157.15.753"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) Sprint:PPC6800",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) Sprint:PPC6800",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) Sprint:PPC6800",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) Sprint:PPC6800"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6) HPiPAQ610/1.0 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; PPC; 240x320)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6) HPiPAQ610/1.0 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; PPC; 240x320)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6) HPiPAQ610/1.0 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; PPC; 240x320)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6) HPiPAQ610/1.0 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; PPC; 240x320)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 320x240; VZW; UTStar-XV6175.1; Windows Mobile 6.5 Standard;",
             "ua-os": "Windows CE (Smartphone) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 320x240; VZW; UTStar-XV6175.1; Windows Mobile 6.5 Standard;",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 320x240; VZW; UTStar-XV6175.1; Windows Mobile 6.5 Standard;",
+        "Windows CE (Smartphone) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 320x240; VZW; UTStar-XV6175.1; Windows Mobile 6.5 Standard;"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 480x800 SAMSUNG SCH-i920 PPC",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 480x800 SAMSUNG SCH-i920 PPC",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 480x800 SAMSUNG SCH-i920 PPC",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) 480x800 SAMSUNG SCH-i920 PPC"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) H-21",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) H-21",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) H-21",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) H-21"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) HTC_Touch_Pro2_T7379",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) HTC_Touch_Pro2_T7379",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) HTC_Touch_Pro2_T7379",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) HTC_Touch_Pro2_T7379"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) LG-GW550 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1",
             "ua-os": "Windows CE (Smartphone) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) LG-GW550 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) LG-GW550 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1",
+        "Windows CE (Smartphone) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) LG-GW550 Obigo/WAP2.0 MIDP-2.0/CLDC-1.1"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) PPC; 240x320; HTC_Mega-T3333-Orange; OpVer 113.128.10.702",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) PPC; 240x320; HTC_Mega-T3333-Orange; OpVer 113.128.10.702",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) PPC; 240x320; HTC_Mega-T3333-Orange; OpVer 113.128.10.702",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) PPC; 240x320; HTC_Mega-T3333-Orange; OpVer 113.128.10.702"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) SAMSUNG-GT-i8000V/BUII1",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) SAMSUNG-GT-i8000V/BUII1",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) SAMSUNG-GT-i8000V/BUII1",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) SAMSUNG-GT-i8000V/BUII1"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) T-Mobile_LEO",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) T-Mobile_LEO",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) T-Mobile_LEO",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) T-Mobile_LEO"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) acer_S200",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) acer_S200",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) acer_S200",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) acer_S200"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)  480x800 LGE VS750",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)  480x800 LGE VS750",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)  480x800 LGE VS750",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)  480x800 LGE VS750"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_ES405B_312",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_ES405B_312",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_ES405B_312",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_ES405B_312"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_MC659B_44000",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_MC659B_44000",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_MC659B_44000",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Motorola_MC659B_44000"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HD2_T8585; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HD2_T8585; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HD2_T8585; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HD2_T8585; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch2_T3333; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch2_T3333; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch2_T3333; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch2_T3333; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5.3.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5.3.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5.3.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5.3.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Pro2_T7373; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Pro2_T7373; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Pro2_T7373; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Pro2_T7373; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_312; Windows Phone 6.5.3.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_312; Windows Phone 6.5.3.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_312; Windows Phone 6.5.3.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_312; Windows Phone 6.5.3.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_44.000; Windows Phone 6.5.3.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_44.000; Windows Phone 6.5.3.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_44.000; Windows Phone 6.5.3.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_ES405B_44.000; Windows Phone 6.5.3.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_21103; Windows Phone 6.5.3.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_21103; Windows Phone 6.5.3.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_21103; Windows Phone 6.5.3.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_21103; Windows Phone 6.5.3.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_40211; Windows Phone 6.5.3.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_40211; Windows Phone 6.5.3.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_40211; Windows Phone 6.5.3.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Motorola_MC659B_40211; Windows Phone 6.5.3.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SonyEricssonX2/R3AA; Profile/MIDP-2.1; Configuration/CLDC-1.1; Windows Phone 6.5.3.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SonyEricssonX2/R3AA; Profile/MIDP-2.1; Configuration/CLDC-1.1; Windows Phone 6.5.3.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SonyEricssonX2/R3AA; Profile/MIDP-2.1; Configuration/CLDC-1.1; Windows Phone 6.5.3.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SonyEricssonX2/R3AA; Profile/MIDP-2.1; Configuration/CLDC-1.1; Windows Phone 6.5.3.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; T-Mobile_LEO; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; T-Mobile_LEO; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; T-Mobile_LEO; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; T-Mobile_LEO; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Toshiba/TG01/02; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Toshiba/TG01/02; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Toshiba/TG01/02; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Toshiba/TG01/02; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5.3.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5.3.5)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5.3.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; Windows Phone 6.5.3.5)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; XV6975)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; XV6975)",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; XV6975)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; XV6975)"
     ],
     [
         {
             "user-agent": "Mozilla/4.0 LG-GM750Q Browser/IE8.12 MMS/LGMMSv1.0/1.2 Java/LGVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 LG-GM750Q Browser/IE8.12 MMS/LGMMSv1.0/1.2 Java/LGVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Mozilla/4.0 LG-GM750Q Browser/IE8.12 MMS/LGMMSv1.0/1.2 Java/LGVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 LG-GM750Q Browser/IE8.12 MMS/LGMMSv1.0/1.2 Java/LGVM/1.1 Profile/MIDP-2.1 Configuration/CLDC-1.1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SAMSUNG-GT-i8000/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)"
     ],
     [
         {
             "user-agent": "SAMSUNG-GT-i8000Orange/BVIJ1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-GT-i8000Orange/BVIJ1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "SAMSUNG-GT-i8000Orange/BVIJ1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SAMSUNG-GT-i8000Orange/BVIJ1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "SAMSUNG-SCH-M715/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-SCH-M715/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "SAMSUNG-SCH-M715/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SAMSUNG-SCH-M715/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "SAMSUNG-SGH-I637/UCIG1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
             "ua-os": "Windows CE (Smartphone) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-SGH-I637/UCIG1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "SAMSUNG-SGH-I637/UCIG1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)",
+        "Windows CE (Smartphone) - Version 5.2",
+        "SAMSUNG-SGH-I637/UCIG1 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5)"
     ],
     [
         {
             "user-agent": "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)"
     ],
     [
         {
             "user-agent": "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.7)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.7)",
+        "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.7)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SAMSUNG-SGH-i780/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.7)"
     ],
     [
         {
             "user-agent": "SAMSUNG-SGH-i900/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SAMSUNG-SGH-i900/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "SAMSUNG-SGH-i900/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SAMSUNG-SGH-i900/1.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11)"
     ],
     [
         {
             "user-agent": "SonyEricssonM1i/R1BA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SonyEricssonM1i/R1BA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1",
+        "SonyEricssonM1i/R1BA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SonyEricssonM1i/R1BA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1"
     ],
     [
         {
             "user-agent": "SonyEricssonX2/R3AA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "SonyEricssonX2/R3AA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1",
+        "SonyEricssonX2/R3AA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "SonyEricssonX2/R3AA Browser/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.5) Profile/MIDP-2.1 Configuration/CLDC-1.1"
     ],
     [
         {
             "user-agent": "Vodafone/1.0/SAMSUNG-GT-B7610/NBUIK3 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Vodafone/1.0/SAMSUNG-GT-B7610/NBUIK3 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Vodafone/1.0/SAMSUNG-GT-B7610/NBUIK3 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Vodafone/1.0/SAMSUNG-GT-B7610/NBUIK3 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
             "user-agent": "Vodafone/1.0/SEX1i/R2AA Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) UP.Link/6.3.1.20.0 Profile/MIDP-2.0 Configuration/CLDC-1.1",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Vodafone/1.0/SEX1i/R2AA Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) UP.Link/6.3.1.20.0 Profile/MIDP-2.0 Configuration/CLDC-1.1",
+        "Vodafone/1.0/SEX1i/R2AA Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) UP.Link/6.3.1.20.0 Profile/MIDP-2.0 Configuration/CLDC-1.1",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Vodafone/1.0/SEX1i/R2AA Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.11) UP.Link/6.3.1.20.0 Profile/MIDP-2.0 Configuration/CLDC-1.1"
     ],
     [
         {
             "user-agent": "dopodT8388/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 IE/6.0 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "dopodT8388/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 IE/6.0 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "dopodT8388/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 IE/6.0 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "dopodT8388/1.0 WindowsMobile/6.5 CEOS/5.2 release/5.0 IE/6.0 WAP2.0 Profile/MIDP2.0 Configuration/CLDC1.1 Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0)"
     ],
     [
         {
@@ -2393,10 +2393,10 @@
             "ua-color": "color16",
             "ua-os": "Windows CE (Pocket PC) - Version 5.2"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) Sprint T7380",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) Sprint T7380",
+        "Windows CE (Pocket PC) - Version 5.2",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 8.12; MSIEMobile 6.0) Sprint T7380"
     ],
     [
         {
@@ -2406,10 +2406,10 @@
             "x-operamini-phone-ua": "Motorola",
             "x-operamini-features": "httpping, advanced, download, file_system"
         },
-        "",
-        "",
-        "",
-        ""
+        "Motorola # A1000",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21595/32.1214; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21595/32.1214; U; xx) Presto/2.8.119 Version/11.10",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21595/32.1214; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
@@ -2419,130 +2419,130 @@
             "x-operamini-phone-ua": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)",
             "x-operamini-features": "httpping, advanced, routing, file_system, download"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21595/34.1606; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21595/34.1606; U; xx) Presto/2.8.119 Version/11.10"
     ],
     [
         {
             "user-agent": "MQQBrowser/1.0/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-910apacprc200)",
             "q-ua": "WPQB10_GA/100001&SMTT_3/020100&WP8&0014&RM-910apacprc200&0&9218&V3"
         },
-        "",
-        "",
-        "",
-        ""
+        "MQQBrowser/1.0/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-910apacprc200)",
+        "MQQBrowser/1.0/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-910apacprc200)",
+        "MQQBrowser/1.0/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-910apacprc200)",
+        "MQQBrowser/1.0/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-910apacprc200)"
     ],
     [
         {
             "user-agent": "MQQBrowser/3.6/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-892apachongko)",
             "q-ua": "WPQB36_GA/360926&SMTT_3/020100&WP8&305014&RM-892apachongko&71100&9288&V3"
         },
-        "",
-        "",
-        "",
-        ""
+        "MQQBrowser/3.6/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-892apachongko)",
+        "MQQBrowser/3.6/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-892apachongko)",
+        "MQQBrowser/3.6/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-892apachongko)",
+        "MQQBrowser/3.6/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; NOKIA; RM-892apachongko)"
     ],
     [
         {
             "user-agent": "MQQBrowser/3.7/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; HTC; HTC6990LVW)",
             "q-ua": "WPQB37_GA/370995&SMTT_3/020100&WP8&305014&HTC6990LVW&71100&9337&V3"
         },
-        "",
-        "",
-        "",
-        ""
+        "MQQBrowser/3.7/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; HTC; HTC6990LVW)",
+        "MQQBrowser/3.7/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; HTC; HTC6990LVW)",
+        "MQQBrowser/3.7/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; HTC; HTC6990LVW)",
+        "MQQBrowser/3.7/Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; HTC; HTC6990LVW)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; xx; rv:1.9.0.5) Gecko/200900101 Firefox/3.0.5",
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_im_mea3_380);pr(UCBrowser/3.4.1.407);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_im_mea3_380);pr(UCBrowser/3.4.1.407);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_im_mea3_380);pr(UCBrowser/3.4.1.407);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_im_mea3_380);pr(UCBrowser/3.4.1.407);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_im_mea3_380);pr(UCBrowser/3.4.1.407);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; ARM; Touch; WPDesktop) UCBrowser/3.1.1.343",
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC  8S by HTC);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC  8S by HTC);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC  8S by HTC);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC  8S by HTC);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC  8S by HTC);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10512)",
             "baidu-flyflow": "Microsoft Windows NT 8.0.10512.0;4.0.50829.0;NOKIA;RM-822_apac_prc_204;ca23bc5b9a1777612837b43014640b3cce62fc50;2.5.0.12"
         },
-        "",
-        "",
-        "",
-        ""
+        "Microsoft Windows NT 8.0.10512.0;4.0.50829.0;NOKIA;RM-822_apac_prc_204;ca23bc5b9a1777612837b43014640b3cce62fc50;2.5.0.12",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10512)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10512)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10512)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10521)",
             "baidu-flyflow": "Microsoft Windows NT 8.0.10521.0;4.0.50829.0;NOKIA;RM-821_apac_hong_kong_234;03988de8b2eab0b1cadee6ec115612692262e40d;2.5.0.12"
         },
-        "",
-        "",
-        "",
-        ""
+        "Microsoft Windows NT 8.0.10521.0;4.0.50829.0;NOKIA;RM-821_apac_hong_kong_234;03988de8b2eab0b1cadee6ec115612692262e40d;2.5.0.12",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10521)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10521)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; IEMobile/10.0; WPDesktop) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10521)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; A620e)",
             "x-ucbrowser-ua": "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC A620e);pr(UCBrowser/3.4.1.407);ov(wds 8.10);pi(480*800);ss(480*800);er(U);bt(UC);nm(0);im(0);sr(2);nt(2);pm(0);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC A620e);pr(UCBrowser/3.4.1.407);ov(wds 8.10);pi(480*800);ss(480*800);er(U);bt(UC);nm(0);im(0);sr(2);nt(2);pm(0);",
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC A620e);pr(UCBrowser/3.4.1.407);ov(wds 8.10);pi(480*800);ss(480*800);er(U);bt(UC);nm(0);im(0);sr(2);nt(2);pm(0);",
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC A620e);pr(UCBrowser/3.4.1.407);ov(wds 8.10);pi(480*800);ss(480*800);er(U);bt(UC);nm(0);im(0);sr(2);nt(2);pm(0);",
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC A620e);pr(UCBrowser/3.4.1.407);ov(wds 8.10);pi(480*800);ss(480*800);er(U);bt(UC);nm(0);im(0);sr(2);nt(2);pm(0);"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; A620e) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10327)",
             "baidu-flyflow": "Microsoft Windows NT 8.0.10327.0;4.0.50829.0;HTC;A620e;cadbcd6ff7d136b26075066cd7e9b382f0f6e896;2.5.0.12"
         },
-        "",
-        "",
-        "",
-        ""
+        "Microsoft Windows NT 8.0.10327.0;4.0.50829.0;HTC;A620e;cadbcd6ff7d136b26075066cd7e9b382f0f6e896;2.5.0.12",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; A620e) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10327)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; A620e) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10327)",
+        "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; HTC; A620e) baidubrowser/2.5.0.12 (Baidu; P3 8.0.10327)"
     ],
     [
         {
             "user-agent": "UCWEB/2.0 (Windows; U; wds 7.10; xx; HTC; Radar C110e) U2/1.0.0 UCBrowser/3.1.1.343 U2/1.0.0 Mobile",
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC Radar C110e);pr(UCBrowser/3.1.1.343);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC Radar C110e);pr(UCBrowser/3.1.1.343);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC Radar C110e);pr(UCBrowser/3.1.1.343);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC Radar C110e);pr(UCBrowser/3.1.1.343);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(HTC Radar C110e);pr(UCBrowser/3.1.1.343);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);up(U2/1.0.0);pm(1);"
     ],
     [
         {
             "user-agent": "UCWEB/2.0 (Windows; U; wds 7.10; xx; NOKIA; Lumia 510) U2/1.0.0 UCBrowser/3.2.0.340 U2/1.0.0 Mobile",
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 510);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 510);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 510);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 510);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA Lumia 510);pr(UCBrowser/3.2.0.340);ov(wds 7.10);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(2);up(U2/1.0.0);pm(1);"
     ],
     [
         {
             "user-agent": "UCWEB/2.0 (Windows; U; wds 8.0; xx; HTC; C620e) U2/1.0.0 UCBrowser/3.1.1.343 U2/1.0.0 Mobile",
             "x-ucbrowser-ua": "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC C620e);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(720*1280);ss(480*853);er(U);bt(UC);nm(0);im(0);sr(1);nt(2);up(U2/1.0.0);pm(1);"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC C620e);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(720*1280);ss(480*853);er(U);bt(UC);nm(0);im(0);sr(1);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC C620e);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(720*1280);ss(480*853);er(U);bt(UC);nm(0);im(0);sr(1);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC C620e);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(720*1280);ss(480*853);er(U);bt(UC);nm(0);im(0);sr(1);nt(2);up(U2/1.0.0);pm(1);",
+        "pf(Windows);la(zh-CN);re(U2/1.0.0);dv(HTC C620e);pr(UCBrowser/3.1.1.343);ov(wds 8.0);pi(720*1280);ss(480*853);er(U);bt(UC);nm(0);im(0);sr(1);nt(2);up(U2/1.0.0);pm(1);"
     ],
     [
         {
@@ -2550,10 +2550,10 @@
             "x-ucbrowser-ua": "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_eu_turkey_355);pr(UCBrowser/3.0.1.302);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);",
             "ua-cpu": "ARM"
         },
-        "",
-        "",
-        "",
-        ""
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_eu_turkey_355);pr(UCBrowser/3.0.1.302);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_eu_turkey_355);pr(UCBrowser/3.0.1.302);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_eu_turkey_355);pr(UCBrowser/3.0.1.302);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);",
+        "pf(Windows);la(en-US);re(U2/1.0.0);dv(NOKIA RM-914_eu_turkey_355);pr(UCBrowser/3.0.1.302);ov(wds 8.0);pi(480*800);ss(480*800);er(U);bt(GJ);nm(0);im(0);sr(0);nt(1);pm(0);"
     ],
     [
         {
@@ -2562,10 +2562,10 @@
             "x-mobile-gateway": "Novarra-Vision/8.1 (Default)",
             "x-nb-content": "xhtml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Series40; NOKIALumia900; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/1.8.0.50.5",
+        "Mozilla/5.0 (Series40; NOKIALumia900; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/1.8.0.50.5",
+        "Mozilla/5.0 (Series40; NOKIALumia900; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/1.8.0.50.5",
+        "Mozilla/5.0 (Series40; NOKIALumia900; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/1.8.0.50.5"
     ],
     [
         {
@@ -2575,69 +2575,69 @@
             "x-operamini-phone-ua": "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 710)",
             "x-operamini-features": "httpping, advanced, routing, download, file_system"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 710)",
+        "Opera/9.80 (Windows Mobile; Opera Mini/5.1.21594/35.2989; U; xx) Presto/2.8.119 Version/11.10",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 710)",
+        "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 710)"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1",
             "x-wap-profile": "http://gsm.lge.com/html/gsm/E400-M6-D2.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1",
+        "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1",
+        "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1",
+        "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5G77 Safari/525.20",
             "x-wap-profile": "http://wap.sonyericsson.com/UAprof/SK17iR411.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5G77 Safari/525.20",
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5G77 Safari/525.20",
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5G77 Safari/525.20",
+        "Mozilla/5.0 (iPhone; U; CPU iPhone OS 2_2 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5G77 Safari/525.20"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36",
             "x-requested-with": "XMLHttpRequest"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
             "x-wap-profile": "http://useragentprofile.hmdglobal.com/uaprof/Nokia33103Gr100.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
             "x-wap-profile": "http://useragentprofile.hmdglobal.com/uaprof/Nokia88104Gr100.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+        "Mozilla/5.0 (Mobile; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5"
     ],
     [
         {
             "user-agent": "Mozilla/5.0 (Mobile; ALCATEL4044C; rv:37.0) Gecko/37.0 Firefox/37.0 KaiOS/1.0",
             "x-wap-profile": "http://www-ccpp.tcl-ta.com/files/4044C.xml"
         },
-        "",
-        "",
-        "",
-        ""
+        "Mozilla/5.0 (Mobile; ALCATEL4044C; rv:37.0) Gecko/37.0 Firefox/37.0 KaiOS/1.0",
+        "Mozilla/5.0 (Mobile; ALCATEL4044C; rv:37.0) Gecko/37.0 Firefox/37.0 KaiOS/1.0",
+        "Mozilla/5.0 (Mobile; ALCATEL4044C; rv:37.0) Gecko/37.0 Firefox/37.0 KaiOS/1.0",
+        "Mozilla/5.0 (Mobile; ALCATEL4044C; rv:37.0) Gecko/37.0 Firefox/37.0 KaiOS/1.0"
     ]
 ]
