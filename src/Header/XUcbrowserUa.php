@@ -77,7 +77,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (0 < preg_match('/ov\((?P<platform>[\d_]+)\);/', $this->value, $matches)) {
+        if (0 < preg_match('/ov\((?P<platform>[\d_\.]+)\);/', $this->value, $matches)) {
             return false;
         }
 
