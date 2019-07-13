@@ -23,7 +23,7 @@ final class DeviceStockUaTest extends TestCase
      * @param bool   $hasDeviceInfo
      * @param bool   $hasBrowserInfo
      * @param bool   $hasPlatformInfo
-     * @param bool $hasEngineInfo
+     * @param bool   $hasEngineInfo
      *
      * @throws \PHPUnit\Framework\ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
