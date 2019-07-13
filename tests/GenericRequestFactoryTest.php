@@ -192,6 +192,11 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @throws \Symfony\Component\Finder\Exception\DirectoryNotFoundException
+     * @throws \LogicException
+     * @throws \RuntimeException
+     * @throws \UnexpectedValueException
+     *
      * @return array[]
      */
     public function providerUa(): array
