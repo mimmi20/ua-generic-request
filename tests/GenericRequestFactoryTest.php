@@ -50,9 +50,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromArray($headers);
 
-        static::assertInstanceOf(GenericRequest::class, $result);
-        static::assertSame($headers, $result->getHeaders());
-        static::assertSame($userAgent, $result->getBrowserUserAgent());
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertSame($headers, $result->getHeaders());
+        self::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
     /**
@@ -67,9 +67,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromArray($headers);
 
-        static::assertInstanceOf(GenericRequest::class, $result);
-        static::assertSame($headers, $result->getHeaders());
-        static::assertSame('', $result->getBrowserUserAgent());
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertSame($headers, $result->getHeaders());
+        self::assertSame('', $result->getBrowserUserAgent());
     }
 
     /**
@@ -87,9 +87,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromString($userAgent);
 
-        static::assertInstanceOf(GenericRequest::class, $result);
-        static::assertSame($headers, $result->getHeaders());
-        static::assertSame($userAgent, $result->getBrowserUserAgent());
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertSame($headers, $result->getHeaders());
+        self::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
     /**
@@ -113,10 +113,10 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromPsr7Message(ServerRequestFactory::fromGlobals($headers));
 
-        static::assertInstanceOf(GenericRequest::class, $result);
-        static::assertSame($expectedHeaders, $result->getHeaders());
-        static::assertSame($userAgent, $result->getBrowserUserAgent());
-        static::assertSame($deviceUa, $result->getDeviceUserAgent());
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertSame($expectedHeaders, $result->getHeaders());
+        self::assertSame($userAgent, $result->getBrowserUserAgent());
+        self::assertSame($deviceUa, $result->getDeviceUserAgent());
     }
 
     /**
@@ -135,9 +135,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromString($userAgent);
 
-        static::assertInstanceOf(GenericRequest::class, $result);
-        static::assertSame($headers, $result->getHeaders());
-        static::assertSame($resultUa, $result->getBrowserUserAgent());
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertSame($headers, $result->getHeaders());
+        self::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 
     /**
@@ -160,9 +160,9 @@ final class GenericRequestFactoryTest extends TestCase
 
         $result = $this->object->createRequestFromArray($headers);
 
-        static::assertInstanceOf(GenericRequest::class, $result);
-        static::assertSame($expectedHeaders, $result->getHeaders());
-        static::assertSame($resultUa, $result->getBrowserUserAgent());
+        self::assertInstanceOf(GenericRequest::class, $result);
+        self::assertSame($expectedHeaders, $result->getHeaders());
+        self::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 
     /**
@@ -183,12 +183,12 @@ final class GenericRequestFactoryTest extends TestCase
     {
         $result = $this->object->createRequestFromArray($headers);
 
-        static::assertInstanceOf(GenericRequest::class, $result);
+        self::assertInstanceOf(GenericRequest::class, $result);
 
-        static::assertSame($expectedDeviceUa, $result->getDeviceUserAgent(), 'device-ua mismatch');
-        static::assertSame($expectedBrowserUa, $result->getBrowserUserAgent(), 'browser-ua mismatch');
-        static::assertSame($expectedPlatformUa, $result->getPlatformUserAgent(), 'platform-ua mismatch');
-        static::assertSame($expectedEngineUa, $result->getEngineUserAgent(), 'engine-ua mismatch');
+        self::assertSame($expectedDeviceUa, $result->getDeviceUserAgent(), 'device-ua mismatch');
+        self::assertSame($expectedBrowserUa, $result->getBrowserUserAgent(), 'browser-ua mismatch');
+        self::assertSame($expectedPlatformUa, $result->getPlatformUserAgent(), 'platform-ua mismatch');
+        self::assertSame($expectedEngineUa, $result->getEngineUserAgent(), 'engine-ua mismatch');
     }
 
     /**

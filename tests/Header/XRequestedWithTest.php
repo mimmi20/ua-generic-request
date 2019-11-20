@@ -31,11 +31,11 @@ final class XRequestedWithTest extends TestCase
     {
         $header = new XRequestedWith($ua);
 
-        static::assertSame($ua, $header->getValue(), 'header mismatch');
-        static::assertFalse($header->hasDeviceInfo(), 'device info mismatch');
-        static::assertSame($hasBrowserInfo, $header->hasBrowserInfo(), 'browser info mismatch');
-        static::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
-        static::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
+        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertFalse($header->hasDeviceInfo(), 'device info mismatch');
+        self::assertSame($hasBrowserInfo, $header->hasBrowserInfo(), 'browser info mismatch');
+        self::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
+        self::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
     }
 
     /**
