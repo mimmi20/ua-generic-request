@@ -31,11 +31,11 @@ final class XDeviceUseragentTest extends TestCase
     {
         $header = new XDeviceUseragent($ua);
 
-        static::assertSame($ua, $header->getValue(), 'header mismatch');
-        static::assertSame($hasDeviceInfo, $header->hasDeviceInfo(), 'device info mismatch');
-        static::assertFalse($header->hasBrowserInfo(), 'browser info mismatch');
-        static::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
-        static::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
+        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo(), 'device info mismatch');
+        self::assertFalse($header->hasBrowserInfo(), 'browser info mismatch');
+        self::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
+        self::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
     }
 
     /**

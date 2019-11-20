@@ -57,8 +57,8 @@ final class HeaderLoaderTest extends TestCase
         $value  = 'header-value';
         $header = $this->subject->load(Constants::HEADER_USERAGENT, $value);
 
-        static::assertInstanceOf(HeaderInterface::class, $header);
-        static::assertSame($value, $header->getValue());
+        self::assertInstanceOf(HeaderInterface::class, $header);
+        self::assertSame($value, $header->getValue());
     }
 
     /**
@@ -69,6 +69,6 @@ final class HeaderLoaderTest extends TestCase
      */
     public function testHas(): void
     {
-        static::assertTrue($this->subject->has(Constants::HEADER_USERAGENT));
+        self::assertTrue($this->subject->has(Constants::HEADER_USERAGENT));
     }
 }
