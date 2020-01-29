@@ -8,10 +8,8 @@
 
 [![Build Status](https://travis-ci.org/mimmi20/ua-generic-request.svg?branch=master)](https://travis-ci.org/mimmi20/ua-generic-request)
 [![codecov](https://codecov.io/gh/mimmi20/ua-generic-request/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/ua-generic-request)
-[![Maintainability](https://api.codeclimate.com/v1/badges/736bbda1b89fa1ea9027/maintainability)](https://codeclimate.com/github/mimmi20/ua-generic-request/maintainability)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/ua-generic-request.svg)](http://isitmaintained.com/project/mimmi20/ua-generic-request "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/ua-generic-request.svg)](http://isitmaintained.com/project/mimmi20/ua-generic-request "Percentage of issues still open")
-[![Dependency Status](https://gemnasium.com/badges/github.com/mimmi20/ua-generic-request.svg)](https://gemnasium.com/github.com/mimmi20/ua-generic-request)
 
 
 ## Requirements
