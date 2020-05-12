@@ -7,6 +7,8 @@ update_configs:
       - "mimmi20"
     default_reviewers:
       - "mimmi20"
+    default_labels:
+      - "dependencies"
     directory: "/"
     package_manager: "php:composer"
     update_schedule: "live"
@@ -17,5 +19,7 @@ update_configs:
     ignored_updates:
       - match:
           dependency_name: "phpunit/phpunit"
+      - match:
+          dependency_name: "infection/infection"
       - match:
           dependency_name: "symfony/finder"
