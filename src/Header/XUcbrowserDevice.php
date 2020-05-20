@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class XUcbrowserDevice implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -43,11 +39,7 @@ final class XUcbrowserDevice implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), ['j2me', 'opera', 'jblend'], true)) {
-            return false;
-        }
-
-        return true;
+        return !in_array(mb_strtolower($this->value), ['j2me', 'opera', 'jblend'], true);
     }
 
     /**

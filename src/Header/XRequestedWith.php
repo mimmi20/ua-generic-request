@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class XRequestedWith implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -51,11 +47,7 @@ final class XRequestedWith implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        if (0 < preg_match('/xmlhttprequest|fake/i', $this->value)) {
-            return false;
-        }
-
-        return true;
+        return 0 >= preg_match('/xmlhttprequest|fake/i', $this->value);
     }
 
     /**

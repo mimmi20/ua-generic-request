@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class XUcbrowserUa implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -49,11 +45,7 @@ final class XUcbrowserUa implements HeaderInterface
             return false;
         }
 
-        if ('j2me' === $matches['device'] || 'Opera' === $matches['device']) {
-            return false;
-        }
-
-        return true;
+        return 'j2me' !== $matches['device'] && 'Opera' !== $matches['device'];
     }
 
     /**
@@ -61,13 +53,7 @@ final class XUcbrowserUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        $matches = [];
-
-        if (!(bool) preg_match('/pr\((?P<browser>[^\)]+)\);/', $this->value, $matches)) {
-            return false;
-        }
-
-        return true;
+        return (bool) preg_match('/pr\((?P<browser>[^\)]+)\);/', $this->value);
     }
 
     /**
@@ -75,17 +61,11 @@ final class XUcbrowserUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        $matches = [];
-
-        if (0 < preg_match('/ov\((?P<platform>[\d_\.]+)\);/', $this->value, $matches)) {
+        if (0 < preg_match('/ov\((?P<platform>[\d_\.]+)\);/', $this->value)) {
             return false;
         }
 
-        if (!(bool) preg_match('/ov\((?P<platform>[^\)]+)\);/', $this->value, $matches)) {
-            return false;
-        }
-
-        return true;
+        return (bool) preg_match('/ov\((?P<platform>[^\)]+)\);/', $this->value);
     }
 
     /**
@@ -93,12 +73,6 @@ final class XUcbrowserUa implements HeaderInterface
      */
     public function hasEngineInfo(): bool
     {
-        $matches = [];
-
-        if (!(bool) preg_match('/re\((?P<engine>[^\)]+)\)/', $this->value, $matches)) {
-            return false;
-        }
-
-        return true;
+        return (bool) preg_match('/re\((?P<engine>[^\)]+)\)/', $this->value);
     }
 }

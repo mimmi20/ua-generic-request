@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class XPuffinUa implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -59,13 +55,7 @@ final class XPuffinUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        $matches = [];
-
-        if (0 < preg_match('/(?P<platform>Android|iPhone OS)/', $this->value, $matches)) {
-            return true;
-        }
-
-        return false;
+        return 0 < preg_match('/(?P<platform>Android|iPhone OS)/', $this->value);
     }
 
     /**

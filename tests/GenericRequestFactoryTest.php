@@ -22,9 +22,7 @@ use Zend\Diactoros\ServerRequestFactory;
 
 final class GenericRequestFactoryTest extends TestCase
 {
-    /**
-     * @var \UaRequest\GenericRequestFactory
-     */
+    /** @var \UaRequest\GenericRequestFactory */
     private $object;
 
     /**
@@ -44,9 +42,7 @@ final class GenericRequestFactoryTest extends TestCase
     public function testCreateRequestFromArray(): void
     {
         $userAgent = 'testUA';
-        $headers   = [
-            Constants::HEADER_USERAGENT => $userAgent,
-        ];
+        $headers   = [Constants::HEADER_USERAGENT => $userAgent];
 
         $result = $this->object->createRequestFromArray($headers);
 
@@ -81,9 +77,7 @@ final class GenericRequestFactoryTest extends TestCase
     public function testCreateRequestFromString(): void
     {
         $userAgent = 'testUA';
-        $headers   = [
-            Constants::HEADER_USERAGENT => $userAgent,
-        ];
+        $headers   = [Constants::HEADER_USERAGENT => $userAgent];
 
         $result = $this->object->createRequestFromString($userAgent);
 
@@ -129,9 +123,7 @@ final class GenericRequestFactoryTest extends TestCase
     {
         $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
         $resultUa  = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY-PM)';
-        $headers   = [
-            Constants::HEADER_USERAGENT => $resultUa,
-        ];
+        $headers   = [Constants::HEADER_USERAGENT => $resultUa];
 
         $result = $this->object->createRequestFromString($userAgent);
 
@@ -149,14 +141,10 @@ final class GenericRequestFactoryTest extends TestCase
     public function testCreateRequestFromInvalidArray(): void
     {
         $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
-        $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        ];
+        $headers   = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
 
         $resultUa        = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY-PM)';
-        $expectedHeaders = [
-            Constants::HEADER_USERAGENT => $resultUa,
-        ];
+        $expectedHeaders = [Constants::HEADER_USERAGENT => $resultUa];
 
         $result = $this->object->createRequestFromArray($headers);
 

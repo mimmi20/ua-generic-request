@@ -18,19 +18,13 @@ use UaRequest\Header\HeaderLoaderInterface;
 
 final class GenericRequest implements GenericRequestInterface
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $headers = [];
 
-    /**
-     * @var HeaderInterface[]
-     */
+    /** @var HeaderInterface[] */
     private $filteredHeaders = [];
 
-    /**
-     * @var HeaderLoaderInterface
-     */
+    /** @var HeaderLoaderInterface */
     private $loader;
 
     private const HEADERS = [

@@ -117,13 +117,9 @@ final class GenericRequestTest extends TestCase
     public function testToarray(): void
     {
         $userAgent = 'testUA';
-        $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        ];
+        $headers   = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
 
-        $expectedHeaders = [
-            'user-agent' => $userAgent,
-        ];
+        $expectedHeaders = ['user-agent' => $userAgent];
 
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
@@ -165,9 +161,7 @@ final class GenericRequestTest extends TestCase
     public function testToarraySimple(): void
     {
         $userAgent = 'testUA';
-        $headers   = [
-            Constants::HEADER_HTTP_USERAGENT => $userAgent,
-        ];
+        $headers   = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
 
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
@@ -208,9 +202,7 @@ final class GenericRequestTest extends TestCase
     public function testForDevice(): void
     {
         $userAgent = 'testUA';
-        $headers   = [
-            'HTTP_DEVICE_STOCK_UA' => $userAgent,
-        ];
+        $headers   = ['HTTP_DEVICE_STOCK_UA' => $userAgent];
 
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
@@ -314,9 +306,7 @@ final class GenericRequestTest extends TestCase
     public function testForBrowser(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
-        $headers   = [
-            'HTTP_DEVICE_STOCK_UA' => $userAgent,
-        ];
+        $headers   = ['HTTP_DEVICE_STOCK_UA' => $userAgent];
 
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
@@ -420,9 +410,7 @@ final class GenericRequestTest extends TestCase
     public function testForPlatform(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
-        $headers   = [
-            'HTTP_DEVICE_STOCK_UA' => $userAgent,
-        ];
+        $headers   = ['HTTP_DEVICE_STOCK_UA' => $userAgent];
 
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
@@ -526,9 +514,7 @@ final class GenericRequestTest extends TestCase
     public function testForEngine(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
-        $headers   = [
-            'HTTP_DEVICE_STOCK_UA' => $userAgent,
-        ];
+        $headers   = ['HTTP_DEVICE_STOCK_UA' => $userAgent];
 
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
@@ -632,10 +618,8 @@ final class GenericRequestTest extends TestCase
     public function testGetFilteredHeaders(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
-        $expectedHeaders = [
-            'device-stock-ua' => $userAgent,
-        ];
-        $headers = [
+        $expectedHeaders = ['device-stock-ua' => $userAgent];
+        $headers         = [
             'HTTP_DEVICE_STOCK_UA' => $userAgent,
             'via' => 'test',
         ];
