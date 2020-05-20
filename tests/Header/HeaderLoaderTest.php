@@ -19,9 +19,7 @@ use UaRequest\Header\HeaderLoader;
 
 final class HeaderLoaderTest extends TestCase
 {
-    /**
-     * @var \UaRequest\Header\HeaderLoader
-     */
+    /** @var \UaRequest\Header\HeaderLoader */
     private $subject;
 
     /**

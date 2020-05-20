@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class Useragent implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)

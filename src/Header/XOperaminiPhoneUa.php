@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class XOperaminiPhoneUa implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -47,11 +43,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
             return false;
         }
 
-        if (0 < preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|pantech|lg|casio|zte|mi 2sc/i', mb_strtolower($this->value))) {
-            return true;
-        }
-
-        return false;
+        return 0 < preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|pantech|lg|casio|zte|mi 2sc/i', mb_strtolower($this->value));
     }
 
     /**
@@ -59,11 +51,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        if (0 < preg_match('/opera mini/i', mb_strtolower($this->value))) {
-            return true;
-        }
-
-        return false;
+        return 0 < preg_match('/opera mini/i', mb_strtolower($this->value));
     }
 
     /**
@@ -71,11 +59,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        if (0 < preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|mre/i', mb_strtolower($this->value))) {
-            return true;
-        }
-
-        return false;
+        return 0 < preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|mre/i', mb_strtolower($this->value));
     }
 
     /**
@@ -83,10 +67,6 @@ final class XOperaminiPhoneUa implements HeaderInterface
      */
     public function hasEngineInfo(): bool
     {
-        if (0 < preg_match('/trident|presto|webkit|gecko/i', mb_strtolower($this->value))) {
-            return true;
-        }
-
-        return false;
+        return 0 < preg_match('/trident|presto|webkit|gecko/i', mb_strtolower($this->value));
     }
 }

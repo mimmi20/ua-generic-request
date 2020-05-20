@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class BaiduFlyflow implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -43,11 +39,9 @@ final class BaiduFlyflow implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if ((bool) preg_match('/;htc;htc;/i', mb_strtolower($this->value))) {
-            return false;
-        }
+        $hasMatch = preg_match('/;htc;htc;/i', mb_strtolower($this->value));
 
-        return true;
+        return false === $hasMatch || 0 === $hasMatch;
     }
 
     /**

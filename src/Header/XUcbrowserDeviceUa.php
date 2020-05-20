@@ -13,14 +13,10 @@ namespace UaRequest\Header;
 
 final class XUcbrowserDeviceUa implements HeaderInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $value;
 
     /**
-     * Useragent constructor.
-     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -43,11 +39,7 @@ final class XUcbrowserDeviceUa implements HeaderInterface
      */
     public function hasDeviceInfo(): bool
     {
-        if ('?' === $this->value) {
-            return false;
-        }
-
-        return true;
+        return '?' !== $this->value;
     }
 
     /**
@@ -55,11 +47,7 @@ final class XUcbrowserDeviceUa implements HeaderInterface
      */
     public function hasBrowserInfo(): bool
     {
-        if ((bool) preg_match('/msie|dorado|safari|obigo|netfront|s40ovibrowser|dolfin|(?<!browser\/)opera(?!\/9\.80| mobi)|blackberry/i', mb_strtolower($this->value))) {
-            return true;
-        }
-
-        return false;
+        return (bool) preg_match('/msie|dorado|safari|obigo|netfront|s40ovibrowser|dolfin|(?<!browser\/)opera(?!\/9\.80| mobi)|blackberry/i', mb_strtolower($this->value));
     }
 
     /**
@@ -67,11 +55,7 @@ final class XUcbrowserDeviceUa implements HeaderInterface
      */
     public function hasPlatformInfo(): bool
     {
-        if ((bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|symbian|mre/i', mb_strtolower($this->value))) {
-            return true;
-        }
-
-        return false;
+        return (bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|symbian|mre/i', mb_strtolower($this->value));
     }
 
     /**
