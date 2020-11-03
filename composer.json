@@ -22,7 +22,6 @@
     "psr/http-message": "~1.0.1"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "~2.8.0",
     "infection/infection": "~0.13.6 || ~0.18",
     "mimmi20/coding-standard": "~1.0.4",
     "mimmi20/json-class": "~2.0.14",
