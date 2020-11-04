@@ -22,7 +22,7 @@
     "psr/http-message": "~1.0.1"
   },
   "require-dev": {
-    "infection/infection": "~0.13.6 || ~0.18",
+    "infection/infection": "~0.13.6 || ~0.18.2 || ~0.20.2",
     "mimmi20/coding-standard": "~1.0.4",
     "mimmi20/json-class": "~2.0.14",
     "pepakriz/phpstan-exception-rules": "~0.11.1",
@@ -31,7 +31,7 @@
     "phpstan/phpstan-deprecation-rules": "~0.12.5",
     "phpstan/phpstan-phpunit": "~0.12.16",
     "phpunit/phpunit": "~7.5.20 || ~8.5.8 || ~9.4.2",
-    "symfony/finder": "~4.4.15 || ~5.1.7"
+    "symfony/finder": "~4.4.16 || ~5.1.8"
   },
   "config": {
     "platform": {
