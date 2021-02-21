@@ -17,21 +17,21 @@
   ],
   "require": {
     "php": "^7.1.3 || ^8.0.0",
-    "laminas/laminas-diactoros": "~2.4.1 || ~2.5.0",
-    "mimmi20/browser-detector-loader-interface": "~3.0.13",
-    "psr/http-message": "~1.0.1"
+    "laminas/laminas-diactoros": "^2.4.1",
+    "mimmi20/browser-detector-loader-interface": "^3.0.14",
+    "psr/http-message": "^1.0.1"
   },
   "require-dev": {
-    "infection/infection": "~0.13.6 || ~0.18 || ~0.21.0",
-    "mimmi20/coding-standard": "~1.0.9",
-    "mimmi20/json-class": "~2.0.17",
-    "pepakriz/phpstan-exception-rules": "~0.11.6",
-    "phpstan/extension-installer": "~1.1.0",
-    "phpstan/phpstan": "~0.12.77",
-    "phpstan/phpstan-deprecation-rules": "~0.12.6",
-    "phpstan/phpstan-phpunit": "~0.12.17",
-    "phpunit/phpunit": "~7.5.20 || ~8.5.14 || ~9.5.2",
-    "symfony/finder": "~4.4.19 || ~5.2.3"
+    "infection/infection": "^0.13.6 || ^0.18 || ^0.21.0",
+    "mimmi20/coding-standard": "^1.0.10",
+    "mimmi20/json-class": "^2.0.17",
+    "pepakriz/phpstan-exception-rules": "^0.11.6",
+    "phpstan/extension-installer": "^1.1.0",
+    "phpstan/phpstan": "^0.12.78",
+    "phpstan/phpstan-deprecation-rules": "^0.12.6",
+    "phpstan/phpstan-phpunit": "^0.12.17",
+    "phpunit/phpunit": "^7.5.20 || ^8.5.14 || ~9.5.2",
+    "symfony/finder": "^4.4.19 || ^5.2.3"
   },
   "config": {
     "platform": {
