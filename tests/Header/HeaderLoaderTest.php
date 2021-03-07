@@ -44,7 +44,7 @@ final class HeaderLoaderTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws \BrowserDetector\Loader\NotFoundException
      *
