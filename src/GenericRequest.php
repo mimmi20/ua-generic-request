@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2020, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -151,9 +151,7 @@ final class GenericRequest implements GenericRequestInterface
     private function filterHeaders(): void
     {
         $headers  = $this->headers;
-        $filtered = array_filter(self::HEADERS, static function ($value) use ($headers): bool {
-            return array_key_exists($value, $headers);
-        });
+        $filtered = array_filter(self::HEADERS, static fn ($value): bool => array_key_exists($value, $headers));
 
         foreach ($filtered as $header) {
             try {
