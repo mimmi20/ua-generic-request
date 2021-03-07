@@ -11,10 +11,10 @@
 declare(strict_types = 1);
 namespace UaRequest;
 
+use Laminas\Diactoros\HeaderSecurity;
+use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\MessageInterface;
 use UaRequest\Header\HeaderLoader;
-use Zend\Diactoros\HeaderSecurity;
-use Zend\Diactoros\ServerRequestFactory;
 
 final class GenericRequestFactory implements GenericRequestFactoryInterface
 {

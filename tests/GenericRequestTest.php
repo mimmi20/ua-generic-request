@@ -12,18 +12,18 @@ declare(strict_types = 1);
 namespace UaRequestTest;
 
 use BrowserDetector\Loader\NotFoundException;
+use Laminas\Diactoros\ServerRequestFactory;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
-use Zend\Diactoros\ServerRequestFactory;
 
 final class GenericRequestTest extends TestCase
 {
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -109,7 +109,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -153,7 +153,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -194,7 +194,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -235,7 +235,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -299,6 +299,7 @@ final class GenericRequestTest extends TestCase
 
     /**
      * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\InvalidArgumentException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -339,7 +340,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -402,7 +403,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -443,7 +444,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -506,7 +507,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -547,7 +548,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -610,7 +611,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -652,7 +653,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void

@@ -13,12 +13,12 @@ namespace UaRequestTest;
 
 use ExceptionalJSON\DecodeErrorException;
 use JsonClass\Json;
+use Laminas\Diactoros\ServerRequestFactory;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
-use Zend\Diactoros\ServerRequestFactory;
 
 final class GenericRequestFactoryTest extends TestCase
 {
@@ -34,7 +34,7 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -52,7 +52,7 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -69,7 +69,7 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -87,7 +87,7 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -114,7 +114,7 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -133,7 +133,7 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @return void
@@ -163,7 +163,7 @@ final class GenericRequestFactoryTest extends TestCase
      * @param string $expectedEngineUa
      *
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \PHPUnit\Framework\Exception
      *
      * @return void
      */
@@ -180,10 +180,8 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \Symfony\Component\Finder\Exception\DirectoryNotFoundException
      * @throws \LogicException
      * @throws \RuntimeException
-     * @throws \UnexpectedValueException
      *
      * @return array[]
      */

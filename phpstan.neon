@@ -14,7 +14,6 @@ parameters:
     - */tests/*/data/*
   ignoreErrors:
     - '~MockObject~'
-    - '~Useless \@throws~'
   exceptionRules:
     reportUnusedCatchesOfUncheckedExceptions: false
     uncheckedExceptions: []
