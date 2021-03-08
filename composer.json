@@ -24,7 +24,7 @@
   "require-dev": {
     "infection/infection": "^0.21.4",
     "mimmi20/coding-standard": "^2.0.1",
-    "mimmi20/json-class": "^2.0.17",
+    "mimmi20/json-class": "^3.0.0",
     "pepakriz/phpstan-exception-rules": "^0.11.6",
     "phpstan/extension-installer": "^1.1.0",
     "phpstan/phpstan": "^0.12.80",
