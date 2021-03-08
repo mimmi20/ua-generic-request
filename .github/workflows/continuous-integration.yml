@@ -393,7 +393,7 @@ jobs:
         with:
           token: "${{secrets.CODECOV_TOKEN}}"
           file: ".build/coverage/clover.xml"
-          flags: "phpunit,${{ matrix.coverage-drivers }}"
+          flags: "phpunit,php-${{ matrix.php-version }},${{ matrix.coverage-drivers }}"
 
       - name: "Run mutation tests with infection/infection"
         run: "vendor/bin/infection --min-covered-msi=76 --min-msi=76 --coverage=.build/coverage"
