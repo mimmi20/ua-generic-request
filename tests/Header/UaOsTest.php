@@ -9,18 +9,19 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequestTest\Header;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Header\UaOs;
 
 final class UaOsTest extends TestCase
 {
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
      */
     public function testData(): void
     {

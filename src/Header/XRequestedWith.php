@@ -9,16 +9,15 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
+
+use function preg_match;
 
 final class XRequestedWith implements HeaderInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
@@ -26,41 +25,27 @@ final class XRequestedWith implements HeaderInterface
 
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool
     {
         return false;
     }
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool
     {
         return 0 >= preg_match('/xmlhttprequest|fake/i', $this->value);
     }
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool
     {
         return false;
     }
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool
     {
         return false;

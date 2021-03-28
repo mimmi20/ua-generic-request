@@ -9,31 +9,29 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequestTest\Header;
 
 use BrowserDetector\Loader\NotFoundException;
+use PHPUnit\Framework\Exception;
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Constants;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoader;
 
 final class HeaderLoaderTest extends TestCase
 {
-    /** @var \UaRequest\Header\HeaderLoader */
-    private $subject;
+    private HeaderLoader $subject;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->subject = new HeaderLoader();
     }
 
     /**
-     * @throws \BrowserDetector\Loader\NotFoundException
-     *
-     * @return void
+     * @throws NotFoundException
      */
     public function testLoadFail(): void
     {
@@ -44,11 +42,9 @@ final class HeaderLoaderTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \BrowserDetector\Loader\NotFoundException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
+     * @throws NotFoundException
      */
     public function testLoadOk(): void
     {
@@ -60,10 +56,8 @@ final class HeaderLoaderTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
      */
     public function testHas(): void
     {

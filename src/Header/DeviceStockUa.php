@@ -9,16 +9,16 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
+
+use function mb_strtolower;
+use function preg_match;
 
 final class DeviceStockUa implements HeaderInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
@@ -26,41 +26,27 @@ final class DeviceStockUa implements HeaderInterface
 
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool
     {
         return 0 < preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|mi 2sc/i', mb_strtolower($this->value));
     }
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool
     {
         return 0 < preg_match('/opera mini/i', mb_strtolower($this->value));
     }
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool
     {
         return 0 < preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', mb_strtolower($this->value));
     }
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool
     {
         return 0 < preg_match('/trident|presto|webkit|gecko/i', mb_strtolower($this->value));

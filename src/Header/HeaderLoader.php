@@ -9,10 +9,13 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
 
 use BrowserDetector\Loader\NotFoundException;
 use UaRequest\Constants;
+
+use function array_key_exists;
 
 final class HeaderLoader implements HeaderLoaderInterface
 {
@@ -34,23 +37,13 @@ final class HeaderLoader implements HeaderLoaderInterface
         Constants::HEADER_UCBROWSER_UA => XUcbrowserUa::class,
     ];
 
-    /**
-     * @param string $key
-     *
-     * @return bool
-     */
     public function has(string $key): bool
     {
         return array_key_exists($key, self::OPTIONS);
     }
 
     /**
-     * @param string      $key
-     * @param string|null $value
-     *
-     * @throws \BrowserDetector\Loader\NotFoundException
-     *
-     * @return \UaRequest\Header\HeaderInterface
+     * @throws NotFoundException
      */
     public function load(string $key, ?string $value = null): HeaderInterface
     {

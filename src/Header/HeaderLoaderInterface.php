@@ -9,19 +9,16 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
 
 use BrowserDetector\Loader\LoaderInterface;
+use BrowserDetector\Loader\NotFoundException;
 
 interface HeaderLoaderInterface extends LoaderInterface
 {
     /**
-     * @param string      $key
-     * @param string|null $value
-     *
-     * @throws \BrowserDetector\Loader\NotFoundException
-     *
-     * @return \UaRequest\Header\HeaderInterface
+     * @throws NotFoundException
      */
     public function load(string $key, ?string $value = null): HeaderInterface;
 }

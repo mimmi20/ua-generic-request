@@ -9,24 +9,28 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequestTest;
 
 use BrowserDetector\Loader\NotFoundException;
 use Laminas\Diactoros\ServerRequestFactory;
+use PHPUnit\Framework\Exception;
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
 
+use function assert;
+
 final class GenericRequestTest extends TestCase
 {
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testConstruct(): void
     {
@@ -100,7 +104,7 @@ final class GenericRequestTest extends TestCase
             ->withConsecutive(['x-ucbrowser-ua'], ['device-stock-ua'], ['user-agent'])
             ->willReturnOnConsecutiveCalls($header1, $header2, $header3);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
 
         self::assertSame($expectedHeaders, $object->getHeaders());
@@ -109,10 +113,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testToarray(): void
     {
@@ -144,7 +146,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willReturn($header);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $array    = $original->getHeaders();
         $object   = (new GenericRequestFactory())->createRequestFromArray($array);
@@ -153,10 +155,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testToarraySimple(): void
     {
@@ -186,7 +186,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willReturn($header);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $array    = $original->getHeaders();
 
@@ -194,10 +194,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testForDevice(): void
     {
@@ -227,7 +225,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willReturn($header);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getDeviceUserAgent();
 
@@ -235,10 +233,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testForDevice2(): void
     {
@@ -290,7 +286,7 @@ final class GenericRequestTest extends TestCase
             ->withConsecutive(['device-stock-ua'], ['user-agent'])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getDeviceUserAgent();
 
@@ -298,11 +294,9 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws ExpectationFailedException
      * @throws \PHPUnit\Framework\InvalidArgumentException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws InvalidArgumentException
      */
     public function testForBrowser(): void
     {
@@ -332,7 +326,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willReturn($header);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getBrowserUserAgent();
 
@@ -340,10 +334,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testForBrowser2(): void
     {
@@ -395,7 +387,7 @@ final class GenericRequestTest extends TestCase
             ->withConsecutive(['x-ucbrowser-ua'], ['device-stock-ua'])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getBrowserUserAgent();
 
@@ -403,10 +395,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testForPlatform(): void
     {
@@ -436,7 +426,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willReturn($header);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getPlatformUserAgent();
 
@@ -444,10 +434,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testForPlatform2(): void
     {
@@ -499,7 +487,7 @@ final class GenericRequestTest extends TestCase
             ->withConsecutive(['device-stock-ua'], ['ua-os'])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getPlatformUserAgent();
 
@@ -507,10 +495,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testForEngine(): void
     {
@@ -540,7 +526,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willReturn($header);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getEngineUserAgent();
 
@@ -548,10 +534,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testForEngine2(): void
     {
@@ -603,7 +587,7 @@ final class GenericRequestTest extends TestCase
             ->withConsecutive(['device-stock-ua'], ['ua-os'])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $ua       = $original->getEngineUserAgent();
 
@@ -611,10 +595,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testGetFilteredHeaders(): void
     {
@@ -645,7 +627,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willReturn($header);
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $resultHeaders = $original->getFilteredHeaders();
 
@@ -653,10 +635,8 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testGetFilteredHeadersWithLoadException(): void
     {
@@ -686,7 +666,7 @@ final class GenericRequestTest extends TestCase
             ->method('load')
             ->willThrowException(new NotFoundException('not-found'));
 
-        /** @var HeaderLoaderInterface $loader */
+        assert($loader instanceof HeaderLoaderInterface);
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $resultHeaders = $original->getFilteredHeaders();
 

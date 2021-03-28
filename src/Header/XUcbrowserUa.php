@@ -9,16 +9,15 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
+
+use function preg_match;
 
 final class XUcbrowserUa implements HeaderInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
@@ -26,17 +25,12 @@ final class XUcbrowserUa implements HeaderInterface
 
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool
     {
         $matches = [];
@@ -48,17 +42,11 @@ final class XUcbrowserUa implements HeaderInterface
         return 'j2me' !== $matches['device'] && 'Opera' !== $matches['device'];
     }
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool
     {
         return (bool) preg_match('/pr\((?P<browser>[^\)]+)\);/', $this->value);
     }
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool
     {
         if (0 < preg_match('/ov\((?P<platform>[\d_\.]+)\);/', $this->value)) {
@@ -68,9 +56,6 @@ final class XUcbrowserUa implements HeaderInterface
         return (bool) preg_match('/ov\((?P<platform>[^\)]+)\);/', $this->value);
     }
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool
     {
         return (bool) preg_match('/re\((?P<engine>[^\)]+)\)/', $this->value);

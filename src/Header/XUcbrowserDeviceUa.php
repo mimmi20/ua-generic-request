@@ -9,16 +9,16 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
+
+use function mb_strtolower;
+use function preg_match;
 
 final class XUcbrowserDeviceUa implements HeaderInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
@@ -26,41 +26,27 @@ final class XUcbrowserDeviceUa implements HeaderInterface
 
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool
     {
         return '?' !== $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool
     {
         return (bool) preg_match('/msie|dorado|safari|obigo|netfront|s40ovibrowser|dolfin|(?<!browser\/)opera(?!\/9\.80| mobi)|blackberry/i', mb_strtolower($this->value));
     }
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool
     {
         return (bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|symbian|mre/i', mb_strtolower($this->value));
     }
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool
     {
         return false;

@@ -9,23 +9,21 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequestTest\Header;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Header\XRequestedWith;
 
 final class XRequestedWithTest extends TestCase
 {
     /**
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     *
      * @dataProvider providerUa
-     *
-     * @param string $ua
-     * @param bool   $hasBrowserInfo
-     *
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
      */
     public function testData(string $ua, bool $hasBrowserInfo): void
     {
@@ -39,7 +37,7 @@ final class XRequestedWithTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<int, array<int, bool|string>>
      */
     public function providerUa(): array
     {

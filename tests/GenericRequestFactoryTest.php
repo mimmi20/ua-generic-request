@@ -9,35 +9,42 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequestTest;
 
 use ExceptionalJSON\DecodeErrorException;
 use JsonClass\Json;
 use Laminas\Diactoros\ServerRequestFactory;
+use LogicException;
+use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Finder\SplFileInfo;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
+use UnexpectedValueException;
+
+use function array_merge;
+use function file_exists;
+use function is_array;
+
+use const PHP_EOL;
 
 final class GenericRequestFactoryTest extends TestCase
 {
-    /** @var \UaRequest\GenericRequestFactory */
-    private $object;
+    private GenericRequestFactory $object;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->object = new GenericRequestFactory();
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testCreateRequestFromArray(): void
     {
@@ -52,10 +59,8 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testCreateRequestFromEmptyHeaders(): void
     {
@@ -69,10 +74,8 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testCreateRequestFromString(): void
     {
@@ -87,16 +90,14 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testCreateRequestFromPsr7Message(): void
     {
-        $userAgent = 'testUA';
-        $deviceUa  = 'testDeviceUa';
-        $headers   = [
+        $userAgent       = 'testUA';
+        $deviceUa        = 'testDeviceUa';
+        $headers         = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
             'HTTP_X_UCBROWSER_DEVICE_UA' => $deviceUa,
         ];
@@ -114,10 +115,8 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testCreateRequestFromInvalidString(): void
     {
@@ -133,10 +132,8 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testCreateRequestFromInvalidArray(): void
     {
@@ -154,18 +151,12 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
+     * @param array<string> $headers
+     *
+     * @throws InvalidArgumentException
+     * @throws Exception
+     *
      * @dataProvider providerUa
-     *
-     * @param array  $headers
-     * @param string $expectedDeviceUa
-     * @param string $expectedBrowserUa
-     * @param string $expectedPlatformUa
-     * @param string $expectedEngineUa
-     *
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \PHPUnit\Framework\Exception
-     *
-     * @return void
      */
     public function testData(array $headers, string $expectedDeviceUa, string $expectedBrowserUa, string $expectedPlatformUa, string $expectedEngineUa): void
     {
@@ -180,10 +171,10 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @throws \LogicException
-     * @throws \RuntimeException
+     * @return array<array<string>>
      *
-     * @return array[]
+     * @throws LogicException
+     * @throws RuntimeException
      */
     public function providerUa(): array
     {
@@ -205,11 +196,11 @@ final class GenericRequestFactoryTest extends TestCase
         $allData = [];
 
         foreach ($finder as $file) {
-            /** @var \Symfony\Component\Finder\SplFileInfo $file */
+            /** @var SplFileInfo $file */
             $content = $file->getContents();
 
             if ('' === $content || PHP_EOL === $content) {
-                throw new \UnexpectedValueException('empty content');
+                throw new UnexpectedValueException('empty content');
             }
 
             try {
@@ -218,11 +209,11 @@ final class GenericRequestFactoryTest extends TestCase
                     true
                 );
             } catch (DecodeErrorException $e) {
-                throw new \UnexpectedValueException('invalid content', 0, $e);
+                throw new UnexpectedValueException('invalid content', 0, $e);
             }
 
             if (!is_array($data)) {
-                throw new \UnexpectedValueException('no array content');
+                throw new UnexpectedValueException('no array content');
             }
 
             $allData = array_merge($allData, $data);

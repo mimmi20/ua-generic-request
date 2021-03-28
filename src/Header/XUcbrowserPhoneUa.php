@@ -9,16 +9,16 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
+
+use function in_array;
+use function mb_strtolower;
 
 final class XUcbrowserPhoneUa implements HeaderInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
@@ -26,41 +26,27 @@ final class XUcbrowserPhoneUa implements HeaderInterface
 
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool
     {
         return !in_array(mb_strtolower($this->value), ['maui browser', 'sunmicro'], true);
     }
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool
     {
         return 'maui browser' === $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool
     {
         return false;
     }
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool
     {
         return false;
