@@ -9,37 +9,26 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest;
 
 interface GenericRequestInterface
 {
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function getHeaders(): array;
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getFilteredHeaders(): array;
 
-    /**
-     * @return string
-     */
     public function getBrowserUserAgent(): string;
 
-    /**
-     * @return string
-     */
     public function getDeviceUserAgent(): string;
 
-    /**
-     * @return string
-     */
     public function getPlatformUserAgent(): string;
 
-    /**
-     * @return string
-     */
     public function getEngineUserAgent(): string;
 }

@@ -9,16 +9,16 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
+
+use function mb_strtolower;
+use function preg_match;
 
 final class BaiduFlyflow implements HeaderInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
@@ -26,17 +26,12 @@ final class BaiduFlyflow implements HeaderInterface
 
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool
     {
         $hasMatch = preg_match('/;htc;htc;/i', mb_strtolower($this->value));
@@ -44,25 +39,16 @@ final class BaiduFlyflow implements HeaderInterface
         return false === $hasMatch || 0 === $hasMatch;
     }
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool
     {
         return false;
     }
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool
     {
         return false;
     }
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool
     {
         return false;

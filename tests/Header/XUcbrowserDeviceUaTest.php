@@ -9,25 +9,21 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequestTest\Header;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Header\XUcbrowserDeviceUa;
 
 final class XUcbrowserDeviceUaTest extends TestCase
 {
     /**
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     *
      * @dataProvider providerUa
-     *
-     * @param string $ua
-     * @param bool   $hasDeviceInfo
-     * @param bool   $hasBrowserInfo
-     * @param bool   $hasPlatformInfo
-     *
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
      */
     public function testData(string $ua, bool $hasDeviceInfo, bool $hasBrowserInfo, bool $hasPlatformInfo): void
     {
@@ -41,7 +37,7 @@ final class XUcbrowserDeviceUaTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<int, array<int, bool|string>>
      */
     public function providerUa(): array
     {

@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest;
 
 use BrowserDetector\Loader\NotFoundException;
@@ -16,17 +17,13 @@ use Psr\Http\Message\MessageInterface;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
 
+use function array_filter;
+use function array_key_exists;
+use function array_keys;
+use function is_string;
+
 final class GenericRequest implements GenericRequestInterface
 {
-    /** @var array */
-    private $headers = [];
-
-    /** @var HeaderInterface[] */
-    private $filteredHeaders = [];
-
-    /** @var HeaderLoaderInterface */
-    private $loader;
-
     private const HEADERS = [
         Constants::HEADER_DEVICE_UA,
         Constants::HEADER_UCBROWSER_UA,
@@ -51,16 +48,23 @@ final class GenericRequest implements GenericRequestInterface
         Constants::HEADER_WAP_PROFILE,
         Constants::HEADER_NB_CONTENT,
     ];
+    /** @var array<string, string> */
+    private array $headers = [];
 
-    /**
-     * @param MessageInterface      $message
-     * @param HeaderLoaderInterface $loader
-     */
+    /** @var array<HeaderInterface> */
+    private array $filteredHeaders = [];
+
+    private HeaderLoaderInterface $loader;
+
     public function __construct(MessageInterface $message, HeaderLoaderInterface $loader)
     {
         $this->loader = $loader;
 
         foreach (array_keys($message->getHeaders()) as $header) {
+            if (!is_string($header)) {
+                continue;
+            }
+
             $this->headers[$header] = $message->getHeaderLine($header);
         }
 
@@ -68,7 +72,7 @@ final class GenericRequest implements GenericRequestInterface
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function getHeaders(): array
     {
@@ -76,7 +80,7 @@ final class GenericRequest implements GenericRequestInterface
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getFilteredHeaders(): array
     {
@@ -89,9 +93,6 @@ final class GenericRequest implements GenericRequestInterface
         return $headers;
     }
 
-    /**
-     * @return string
-     */
     public function getBrowserUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -103,9 +104,6 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
-    /**
-     * @return string
-     */
     public function getDeviceUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -117,9 +115,6 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
-    /**
-     * @return string
-     */
     public function getPlatformUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -131,9 +126,6 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
-    /**
-     * @return string
-     */
     public function getEngineUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -145,13 +137,13 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
-    /**
-     * @return void
-     */
     private function filterHeaders(): void
     {
         $headers  = $this->headers;
-        $filtered = array_filter(self::HEADERS, static fn ($value): bool => array_key_exists($value, $headers));
+        $filtered = array_filter(
+            self::HEADERS,
+            static fn ($value): bool => array_key_exists($value, $headers)
+        );
 
         foreach ($filtered as $header) {
             try {

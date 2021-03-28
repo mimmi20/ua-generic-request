@@ -9,34 +9,21 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
 
 interface HeaderInterface
 {
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string;
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool;
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool;
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool;
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool;
 }

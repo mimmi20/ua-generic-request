@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest;
 
 use Laminas\Diactoros\HeaderSecurity;
@@ -16,14 +17,17 @@ use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\MessageInterface;
 use UaRequest\Header\HeaderLoader;
 
+use function mb_strpos;
+use function mb_strtoupper;
+use function preg_replace;
+use function str_replace;
+
 final class GenericRequestFactory implements GenericRequestFactoryInterface
 {
     /**
      * Creates Generic Request from the given HTTP Request (normally $_SERVER).
      *
-     * @param array $headers HTTP Request
-     *
-     * @return \UaRequest\GenericRequest
+     * @param array<string, string> $headers HTTP Request
      */
     public function createRequestFromArray(array $headers): GenericRequest
     {
@@ -50,10 +54,6 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
 
     /**
      * Create a Generic Request from the given $userAgent
-     *
-     * @param string $userAgent
-     *
-     * @return \UaRequest\GenericRequest
      */
     public function createRequestFromString(string $userAgent): GenericRequest
     {
@@ -68,21 +68,12 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
 
     /**
      * Create a Generic Request from a given PSR-7 HTTP message
-     *
-     * @param \Psr\Http\Message\MessageInterface $message
-     *
-     * @return \UaRequest\GenericRequest
      */
     public function createRequestFromPsr7Message(MessageInterface $message): GenericRequest
     {
         return new GenericRequest($message, new HeaderLoader());
     }
 
-    /**
-     * @param string $header
-     *
-     * @return string
-     */
     private function filterHeader(string $header): string
     {
         return (string) preg_replace(

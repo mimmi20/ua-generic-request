@@ -9,16 +9,13 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaRequest\Header;
 
 final class Useragent implements HeaderInterface
 {
-    /** @var string */
-    private $value;
+    private string $value;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
@@ -26,41 +23,27 @@ final class Useragent implements HeaderInterface
 
     /**
      * Retrieve header value
-     *
-     * @return string
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
-    /**
-     * @return bool
-     */
     public function hasDeviceInfo(): bool
     {
         return true;
     }
 
-    /**
-     * @return bool
-     */
     public function hasBrowserInfo(): bool
     {
         return true;
     }
 
-    /**
-     * @return bool
-     */
     public function hasPlatformInfo(): bool
     {
         return true;
     }
 
-    /**
-     * @return bool
-     */
     public function hasEngineInfo(): bool
     {
         return true;
