@@ -324,7 +324,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Update dependencies with composer"
-        run: "composer update --optimize-autoloader --prefer-dist --prefer-stable --no-progress --no-interaction -vv --ansi ${{ matrix.dependencies }}"
+        run: "composer update --optimize-autoloader --prefer-dist --prefer-stable --no-progress --no-interaction -vvv --ansi ${{ matrix.dependencies }}"
 
       - name: "Run unit tests with phpunit/phpunit"
         run: "vendor/bin/phpunit -c phpunit.xml --colors --no-coverage"
