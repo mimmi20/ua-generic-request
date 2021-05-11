@@ -16,7 +16,7 @@ tests/create-tests.php
 cache/cache/
 tests/temp/*.php
 tests/temp/*.ini
-.php_cs.cache
+.php-cs-fixer.cache
 .phpunit.result.cache
 infection-*.log
 clover.xml
