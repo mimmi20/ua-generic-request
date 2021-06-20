@@ -12,7 +12,6 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use function mb_strtolower;
 use function preg_match;
 
 final class BaiduFlyflow implements HeaderInterface
@@ -34,7 +33,7 @@ final class BaiduFlyflow implements HeaderInterface
 
     public function hasDeviceInfo(): bool
     {
-        $hasMatch = preg_match('/;htc;htc;/i', mb_strtolower($this->value));
+        $hasMatch = preg_match('/;htc;htc;/i', $this->value);
 
         return false === $hasMatch || 0 === $hasMatch;
     }

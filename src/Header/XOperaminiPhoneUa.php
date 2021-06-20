@@ -39,21 +39,21 @@ final class XOperaminiPhoneUa implements HeaderInterface
             return false;
         }
 
-        return (bool) preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|pantech|lg|casio|zte|mi 2sc/i', mb_strtolower($this->value));
+        return (bool) preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|pantech|lg|casio|zte|mi 2sc/i', $this->value);
     }
 
     public function hasBrowserInfo(): bool
     {
-        return (bool) preg_match('/opera mini/i', mb_strtolower($this->value));
+        return (bool) preg_match('/opera mini/i', $this->value);
     }
 
     public function hasPlatformInfo(): bool
     {
-        return (bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|mre/i', mb_strtolower($this->value));
+        return (bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', $this->value);
     }
 
     public function hasEngineInfo(): bool
     {
-        return (bool) preg_match('/trident|presto|webkit|gecko/i', mb_strtolower($this->value));
+        return (bool) preg_match('/trident|presto|webkit|gecko/i', $this->value);
     }
 }
