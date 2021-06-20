@@ -34,21 +34,21 @@ final class DeviceStockUa implements HeaderInterface
 
     public function hasDeviceInfo(): bool
     {
-        return 0 < preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|mi 2sc/i', mb_strtolower($this->value));
+        return (bool) preg_match('/samsung|nokia|blackberry|smartfren|sprint|iphone|lava|gionee|philips|htc|mi 2sc/i', mb_strtolower($this->value));
     }
 
     public function hasBrowserInfo(): bool
     {
-        return 0 < preg_match('/opera mini/i', mb_strtolower($this->value));
+        return (bool) preg_match('/opera mini/i', mb_strtolower($this->value));
     }
 
     public function hasPlatformInfo(): bool
     {
-        return 0 < preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', mb_strtolower($this->value));
+        return (bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk/i', mb_strtolower($this->value));
     }
 
     public function hasEngineInfo(): bool
     {
-        return 0 < preg_match('/trident|presto|webkit|gecko/i', mb_strtolower($this->value));
+        return (bool) preg_match('/trident|presto|webkit|gecko/i', mb_strtolower($this->value));
     }
 }

@@ -15,7 +15,6 @@ namespace UaRequestTest;
 use BrowserDetector\Loader\NotFoundException;
 use Laminas\Diactoros\ServerRequestFactory;
 use PHPUnit\Framework\Exception;
-use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Constants;
@@ -44,9 +43,9 @@ final class GenericRequestTest extends TestCase
         ];
 
         $expectedHeaders = [
-            'user-agent' => $userAgent,
-            'device-stock-ua' => $deviceUa,
-            'x-ucbrowser-ua' => $browserUa,
+            Constants::HEADER_USERAGENT => $userAgent,
+            Constants::HEADER_DEVICE_STOCK_UA => $deviceUa,
+            Constants::HEADER_UCBROWSER_UA => $browserUa,
         ];
 
         $header1 = $this->getMockBuilder(HeaderInterface::class)
@@ -97,11 +96,12 @@ final class GenericRequestTest extends TestCase
         $header3->expects(self::any())
             ->method('hasDeviceInfo')
             ->willReturn(true);
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::exactly(3))
             ->method('load')
-            ->withConsecutive(['x-ucbrowser-ua'], ['device-stock-ua'], ['user-agent'])
+            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $browserUa], [Constants::HEADER_DEVICE_STOCK_UA, $deviceUa], [Constants::HEADER_USERAGENT, $userAgent])
             ->willReturnOnConsecutiveCalls($header1, $header2, $header3);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -121,29 +121,26 @@ final class GenericRequestTest extends TestCase
         $userAgent = 'testUA';
         $headers   = [Constants::HEADER_HTTP_USERAGENT => $userAgent];
 
-        $expectedHeaders = ['user-agent' => $userAgent];
+        $expectedHeaders = [Constants::HEADER_USERAGENT => $userAgent];
 
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::once())
             ->method('load')
+            ->with(Constants::HEADER_USERAGENT, $userAgent)
             ->willReturn($header);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -166,31 +163,28 @@ final class GenericRequestTest extends TestCase
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::once())
             ->method('load')
+            ->with(Constants::HEADER_USERAGENT, $userAgent)
             ->willReturn($header);
 
         assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
         $array    = $original->getHeaders();
 
-        self::assertSame(['user-agent' => $userAgent], $array);
+        self::assertSame([Constants::HEADER_USERAGENT => $userAgent], $array);
     }
 
     /**
@@ -205,24 +199,21 @@ final class GenericRequestTest extends TestCase
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header->expects(self::once())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::once())
             ->method('load')
+            ->with(Constants::HEADER_DEVICE_STOCK_UA, $userAgent)
             ->willReturn($header);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -251,39 +242,33 @@ final class GenericRequestTest extends TestCase
             ->method('getValue')
             ->willReturn($userAgent);
         $header1->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header1->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header1->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header1->expects(self::once())
             ->method('hasDeviceInfo')
             ->willReturn(true);
+
         $header2 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header2->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent2);
+            ->method('getValue');
         $header2->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header2->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header2->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header2->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(true);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::exactly(2))
             ->method('load')
-            ->withConsecutive(['device-stock-ua'], ['user-agent'])
+            ->withConsecutive([Constants::HEADER_DEVICE_STOCK_UA, $userAgent], [Constants::HEADER_USERAGENT, $userAgent2])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -294,8 +279,7 @@ final class GenericRequestTest extends TestCase
     }
 
     /**
-     * @throws ExpectationFailedException
-     * @throws \PHPUnit\Framework\InvalidArgumentException
+     * @throws Exception
      * @throws InvalidArgumentException
      */
     public function testForBrowser(): void
@@ -306,24 +290,21 @@ final class GenericRequestTest extends TestCase
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header->expects(self::once())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::once())
             ->method('load')
+            ->with(Constants::HEADER_DEVICE_STOCK_UA, $userAgent)
             ->willReturn($header);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -349,42 +330,36 @@ final class GenericRequestTest extends TestCase
         $header1 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header1->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header1->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header1->expects(self::once())
             ->method('hasBrowserInfo')
             ->willReturn(false);
         $header1->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header1->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(true);
+            ->method('hasDeviceInfo');
         $header2 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header2->expects(self::once())
             ->method('getValue')
             ->willReturn($userAgent2);
         $header2->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header2->expects(self::once())
             ->method('hasBrowserInfo')
             ->willReturn(true);
         $header2->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header2->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(true);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::exactly(2))
             ->method('load')
-            ->withConsecutive(['x-ucbrowser-ua'], ['device-stock-ua'])
+            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $userAgent2], [Constants::HEADER_DEVICE_STOCK_UA, $userAgent])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -406,24 +381,22 @@ final class GenericRequestTest extends TestCase
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header->expects(self::once())
             ->method('hasPlatformInfo')
             ->willReturn(false);
         $header->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::once())
             ->method('load')
+            ->with(Constants::HEADER_DEVICE_STOCK_UA, $userAgent)
             ->willReturn($header);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -449,20 +422,16 @@ final class GenericRequestTest extends TestCase
         $header1 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header1->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header1->expects(self::once())
             ->method('hasPlatformInfo')
             ->willReturn(false);
         $header1->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header1->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header1->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(true);
+            ->method('hasDeviceInfo');
         $header2 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header2->expects(self::once())
@@ -472,19 +441,17 @@ final class GenericRequestTest extends TestCase
             ->method('hasPlatformInfo')
             ->willReturn(true);
         $header2->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(true);
+            ->method('hasBrowserInfo');
         $header2->expects(self::never())
-            ->method('hasEngineInfo')
-            ->willReturn(false);
+            ->method('hasEngineInfo');
         $header2->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(true);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::exactly(2))
             ->method('load')
-            ->withConsecutive(['device-stock-ua'], ['ua-os'])
+            ->withConsecutive([Constants::HEADER_DEVICE_STOCK_UA, $userAgent], [Constants::HEADER_UA_OS, $userAgent2])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -506,24 +473,22 @@ final class GenericRequestTest extends TestCase
         $header = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header->expects(self::once())
             ->method('hasEngineInfo')
             ->willReturn(false);
         $header->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::once())
             ->method('load')
+            ->with(Constants::HEADER_DEVICE_STOCK_UA, $userAgent)
             ->willReturn($header);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -549,42 +514,36 @@ final class GenericRequestTest extends TestCase
         $header1 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header1->expects(self::never())
-            ->method('getValue')
-            ->willReturn($userAgent);
+            ->method('getValue');
         $header1->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(false);
+            ->method('hasPlatformInfo');
         $header1->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header1->expects(self::once())
             ->method('hasEngineInfo')
             ->willReturn(false);
         $header1->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(true);
+            ->method('hasDeviceInfo');
         $header2 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
         $header2->expects(self::once())
             ->method('getValue')
             ->willReturn($userAgent2);
         $header2->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(true);
+            ->method('hasPlatformInfo');
         $header2->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(true);
+            ->method('hasBrowserInfo');
         $header2->expects(self::once())
             ->method('hasEngineInfo')
             ->willReturn(true);
         $header2->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(true);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::exactly(2))
             ->method('load')
-            ->withConsecutive(['device-stock-ua'], ['ua-os'])
+            ->withConsecutive([Constants::HEADER_DEVICE_STOCK_UA, $userAgent], [Constants::HEADER_UA_OS, $userAgent2])
             ->willReturnOnConsecutiveCalls($header1, $header2);
 
         assert($loader instanceof HeaderLoaderInterface);
@@ -601,31 +560,62 @@ final class GenericRequestTest extends TestCase
     public function testGetFilteredHeaders(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
-        $expectedHeaders = ['device-stock-ua' => $userAgent];
+        $browserUa       = 'pr(testBrowserUA)';
+        $deviceUa        = 'testDeviceUA';
+        $expectedHeaders = [
+            Constants::HEADER_UCBROWSER_UA => $browserUa,
+            Constants::HEADER_DEVICE_STOCK_UA => $deviceUa,
+            Constants::HEADER_USERAGENT => $userAgent,
+        ];
         $headers         = [
-            'HTTP_DEVICE_STOCK_UA' => $userAgent,
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            'HTTP_DEVICE_STOCK_UA' => $deviceUa,
+            'HTTP_X_UCBROWSER_UA' => $browserUa,
             'via' => 'test',
         ];
 
-        $header = $this->getMockBuilder(HeaderInterface::class)
+        $header1 = $this->getMockBuilder(HeaderInterface::class)
             ->getMock();
-        $header->expects(self::once())
+        $header1->expects(self::once())
+            ->method('getValue')
+            ->willReturn($browserUa);
+        $header1->expects(self::never())
+            ->method('hasPlatformInfo');
+        $header1->expects(self::never())
+            ->method('hasBrowserInfo');
+        $header1->expects(self::never())
+            ->method('hasDeviceInfo');
+
+        $header2 = $this->getMockBuilder(HeaderInterface::class)
+            ->getMock();
+        $header2->expects(self::once())
+            ->method('getValue')
+            ->willReturn($deviceUa);
+        $header2->expects(self::never())
+            ->method('hasPlatformInfo');
+        $header2->expects(self::never())
+            ->method('hasBrowserInfo');
+        $header2->expects(self::never())
+            ->method('hasDeviceInfo');
+
+        $header3 = $this->getMockBuilder(HeaderInterface::class)
+            ->getMock();
+        $header3->expects(self::once())
             ->method('getValue')
             ->willReturn($userAgent);
-        $header->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(true);
-        $header->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
-        $header->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+        $header3->expects(self::never())
+            ->method('hasPlatformInfo');
+        $header3->expects(self::never())
+            ->method('hasBrowserInfo');
+        $header3->expects(self::never())
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::once())
+        $loader->expects(self::exactly(3))
             ->method('load')
-            ->willReturn($header);
+            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $browserUa], [Constants::HEADER_DEVICE_STOCK_UA, $deviceUa], [Constants::HEADER_USERAGENT, $userAgent])
+            ->willReturn($header1, $header2, $header3);
 
         assert($loader instanceof HeaderLoaderInterface);
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -652,19 +642,88 @@ final class GenericRequestTest extends TestCase
         $header->expects(self::never())
             ->method('getValue');
         $header->expects(self::never())
-            ->method('hasPlatformInfo')
-            ->willReturn(true);
+            ->method('hasPlatformInfo');
         $header->expects(self::never())
-            ->method('hasBrowserInfo')
-            ->willReturn(false);
+            ->method('hasBrowserInfo');
         $header->expects(self::never())
-            ->method('hasDeviceInfo')
-            ->willReturn(false);
+            ->method('hasDeviceInfo');
+
         $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
         $loader->expects(self::once())
             ->method('load')
+            ->with(Constants::HEADER_DEVICE_STOCK_UA, $userAgent)
             ->willThrowException(new NotFoundException('not-found'));
+
+        assert($loader instanceof HeaderLoaderInterface);
+        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
+        $resultHeaders = $original->getFilteredHeaders();
+
+        self::assertSame($expectedHeaders, $resultHeaders);
+    }
+
+    /**
+     * @throws Exception
+     * @throws InvalidArgumentException
+     * @throws NotFoundException
+     */
+    public function testGetFilteredHeadersWithLoadException2(): void
+    {
+        $userAgent       = 'SAMSUNG-GT-S8500';
+        $browserUa       = 'pr(testBrowserUA)';
+        $deviceUa        = 'testDeviceUA';
+        $expectedHeaders = [
+            Constants::HEADER_UCBROWSER_UA => $browserUa,
+            Constants::HEADER_USERAGENT => $userAgent,
+        ];
+        $headers         = [
+            Constants::HEADER_HTTP_USERAGENT => $userAgent,
+            'x-unknown-header' => 'test',
+            'HTTP_DEVICE_STOCK_UA' => $deviceUa,
+            'HTTP_X_UCBROWSER_UA' => $browserUa,
+            'via' => 'test',
+        ];
+
+        $header1 = $this->getMockBuilder(HeaderInterface::class)
+            ->getMock();
+        $header1->expects(self::once())
+            ->method('getValue')
+            ->willReturn($browserUa);
+        $header1->expects(self::never())
+            ->method('hasPlatformInfo');
+        $header1->expects(self::never())
+            ->method('hasBrowserInfo');
+        $header1->expects(self::never())
+            ->method('hasDeviceInfo');
+
+        $header2 = $this->getMockBuilder(HeaderInterface::class)
+            ->getMock();
+        $header2->expects(self::once())
+            ->method('getValue')
+            ->willReturn($userAgent);
+        $header2->expects(self::never())
+            ->method('hasPlatformInfo');
+        $header2->expects(self::never())
+            ->method('hasBrowserInfo');
+        $header2->expects(self::never())
+            ->method('hasDeviceInfo');
+
+        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+            ->getMock();
+        $loader->expects(self::exactly(3))
+            ->method('load')
+            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $browserUa], [Constants::HEADER_DEVICE_STOCK_UA, $deviceUa], [Constants::HEADER_USERAGENT, $userAgent])
+            ->willReturnCallback(static function ($headerName) use ($header1, $header2) {
+                if (Constants::HEADER_UCBROWSER_UA === $headerName) {
+                    return $header1;
+                }
+
+                if (Constants::HEADER_USERAGENT === $headerName) {
+                    return $header2;
+                }
+
+                throw new NotFoundException('not-found');
+            });
 
         assert($loader instanceof HeaderLoaderInterface);
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
