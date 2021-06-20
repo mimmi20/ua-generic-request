@@ -12,7 +12,6 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use function mb_strtolower;
 use function preg_match;
 
 final class XUcbrowserDeviceUa implements HeaderInterface
@@ -39,12 +38,12 @@ final class XUcbrowserDeviceUa implements HeaderInterface
 
     public function hasBrowserInfo(): bool
     {
-        return (bool) preg_match('/msie|dorado|safari|obigo|netfront|s40ovibrowser|dolfin|(?<!browser\/)opera(?!\/9\.80| mobi)|blackberry/i', mb_strtolower($this->value));
+        return (bool) preg_match('/msie|dorado|safari|obigo|netfront|s40ovibrowser|dolfin|(?<!browser\/)opera(?!\/9\.80| mobi)|blackberry/i', $this->value);
     }
 
     public function hasPlatformInfo(): bool
     {
-        return (bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|symbian|mre/i', mb_strtolower($this->value));
+        return (bool) preg_match('/bada|android|blackberry|brew|iphone|mre|windows|mtk|symbian|mre/i', $this->value);
     }
 
     public function hasEngineInfo(): bool

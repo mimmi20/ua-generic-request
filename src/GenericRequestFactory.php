@@ -20,7 +20,6 @@ use UaRequest\Header\HeaderLoader;
 use function mb_strpos;
 use function mb_strtoupper;
 use function preg_replace;
-use function str_replace;
 
 final class GenericRequestFactory implements GenericRequestFactoryInterface
 {
@@ -34,9 +33,9 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
         $upperCaseHeaders = [];
 
         foreach ($headers as $header => $value) {
-            $upperCaseHeader = mb_strtoupper(str_replace('-', '_', $header));
+            $upperCaseHeader = mb_strtoupper($header);
 
-            if (0 !== mb_strpos($upperCaseHeader, 'HTTP_')) {
+            if (false === mb_strpos($upperCaseHeader, 'HTTP_')) {
                 $upperCaseHeader = 'HTTP_' . $upperCaseHeader;
             }
 

@@ -151,7 +151,7 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @param array<string> $headers
+     * @param array<string, string> $headers
      *
      * @throws InvalidArgumentException
      * @throws Exception
@@ -171,7 +171,8 @@ final class GenericRequestFactoryTest extends TestCase
     }
 
     /**
-     * @return array<array<string>>
+     * @return array<array<array<string, string>|string>>
+     * @phpstan-return array<array{0: array<string, string>, 1: string, 2: string, 3: string, 4: string}>
      *
      * @throws LogicException
      * @throws RuntimeException

@@ -35,7 +35,7 @@ final class XUcbrowserUa implements HeaderInterface
     {
         $matches = [];
 
-        if (!(bool) preg_match('/dv\((?P<device>[^\)]+)\);/', $this->value, $matches)) {
+        if (!preg_match('/dv\((?P<device>[^\)]+)\);/', $this->value, $matches)) {
             return false;
         }
 
@@ -49,7 +49,7 @@ final class XUcbrowserUa implements HeaderInterface
 
     public function hasPlatformInfo(): bool
     {
-        if (0 < preg_match('/ov\((?P<platform>[\d_\.]+)\);/', $this->value)) {
+        if (preg_match('/ov\((?P<platform>[\d_\.]+)\);/', $this->value)) {
             return false;
         }
 
