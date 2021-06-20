@@ -35,7 +35,7 @@ final class BaiduFlyflow implements HeaderInterface
     {
         $hasMatch = preg_match('/;htc;htc;/i', $this->value);
 
-        return false === $hasMatch || 0 === $hasMatch;
+        return !$hasMatch;
     }
 
     public function hasBrowserInfo(): bool

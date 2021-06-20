@@ -86,7 +86,6 @@ final class XOperaminiPhoneUaTest extends TestCase
             ['Motorola', false, false, false, false],
             ['Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_HD2_T8585; Windows Phone 6.5)', true, false, true, false],
             ['Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 710)', true, false, true, true],
-            ['Mozilla/5.0 (Bada 2.0.0)', false, false, true, false],
         ];
     }
 }
