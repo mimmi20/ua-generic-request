@@ -12,7 +12,6 @@ declare(strict_types = 1);
 
 namespace UaRequestTest;
 
-use BrowserDetector\Loader\NotFoundException;
 use Laminas\Diactoros\ServerRequestFactory;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
@@ -23,6 +22,7 @@ use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
+use UaRequest\NotFoundException;
 
 use function assert;
 

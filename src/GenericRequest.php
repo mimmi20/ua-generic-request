@@ -12,7 +12,6 @@ declare(strict_types = 1);
 
 namespace UaRequest;
 
-use BrowserDetector\Loader\NotFoundException;
 use Psr\Http\Message\MessageInterface;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
