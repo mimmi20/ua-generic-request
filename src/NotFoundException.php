@@ -10,14 +10,11 @@
 
 declare(strict_types = 1);
 
-namespace UaRequest\Header;
+namespace UaRequest;
 
-use UaRequest\NotFoundException;
+use UnexpectedValueException;
 
-interface HeaderLoaderInterface
+final class NotFoundException extends UnexpectedValueException
 {
-    /**
-     * @throws NotFoundException
-     */
-    public function load(string $key, ?string $value = null): HeaderInterface;
+    // nothing to do here
 }

@@ -12,8 +12,8 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use BrowserDetector\Loader\NotFoundException;
 use UaRequest\Constants;
+use UaRequest\NotFoundException;
 
 use function array_key_exists;
 
