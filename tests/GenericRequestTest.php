@@ -666,7 +666,6 @@ final class GenericRequestTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
-     * @throws NotFoundException
      */
     public function testGetFilteredHeadersWithLoadException2(): void
     {
@@ -736,7 +735,6 @@ final class GenericRequestTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
-     * @throws NotFoundException
      */
     public function testGetFilteredHeadersWithLoadException3(): void
     {
