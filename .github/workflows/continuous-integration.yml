@@ -461,10 +461,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.php.coverage.reportPaths=.build/coverage/clover.xml
-            -Dsonar.php.tests.reportPath=.build/coverage/phpunit.junit.xml
-            -Dsonar.sources=src/
-            -Dsonar.tests=tests/
+            -Dsonar.php.coverage.reportPaths=./.build/coverage/clover.xml
+            -Dsonar.php.tests.reportPath=./.build/coverage/phpunit.junit.xml
+            -Dsonar.sources=./src/
+            -Dsonar.tests=./tests/
 
       - name: "Run mutation tests with infection/infection"
         run: "infection -s --min-covered-msi=95 --min-msi=95 --coverage=.build/coverage --logger-github"
