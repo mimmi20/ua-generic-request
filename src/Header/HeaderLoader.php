@@ -45,7 +45,7 @@ final class HeaderLoader implements HeaderLoaderInterface
     /**
      * @throws NotFoundException
      */
-    public function load(string $key, ?string $value = null): HeaderInterface
+    public function load(string $key, string $value): HeaderInterface
     {
         if (!$this->has($key)) {
             throw new NotFoundException('the header with name "' . $key . '" was not found');

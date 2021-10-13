@@ -34,9 +34,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -78,9 +81,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -130,9 +136,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -182,9 +191,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -232,9 +244,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -284,9 +299,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -338,9 +356,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -393,9 +414,12 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
 
       - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.15.0"
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -424,11 +448,23 @@ jobs:
         run: "vendor/bin/phpunit -c phpunit.xml --verbose --coverage-clover=.build/coverage/clover.xml --coverage-text --coverage-xml=.build/coverage/coverage-xml --log-junit=.build/coverage/phpunit.junit.xml"
 
       - name: "Upload coverage to Codecov"
-        uses: "codecov/codecov-action@v2.0.2"
+        uses: "codecov/codecov-action@v2.1.0"
         with:
           file: ".build/coverage/clover.xml"
           flags: "phpunit,php-${{ matrix.php-version }},${{ matrix.coverage-drivers }},${{ matrix.php-version }},${{ matrix.operating-system }}"
           verbose: false
+
+      - name: "SonarCloud Scan"
+        uses: "SonarSource/sonarcloud-github-action@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.php.coverage.reportPaths=./.build/coverage/clover.xml
+            -Dsonar.php.tests.reportPath=./.build/coverage/phpunit.junit.xml
+            -Dsonar.sources=./src/
+            -Dsonar.tests=./tests/
 
       - name: "Run mutation tests with infection/infection"
         run: "infection -s --min-covered-msi=95 --min-msi=95 --coverage=.build/coverage --logger-github"

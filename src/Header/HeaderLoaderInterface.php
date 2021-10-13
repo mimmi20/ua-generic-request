@@ -19,5 +19,5 @@ interface HeaderLoaderInterface
     /**
      * @throws NotFoundException
      */
-    public function load(string $key, ?string $value = null): HeaderInterface;
+    public function load(string $key, string $value): HeaderInterface;
 }
