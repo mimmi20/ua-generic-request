@@ -465,7 +465,6 @@ jobs:
             -Dsonar.php.tests.reportPath=.build/coverage/phpunit.junit.xml
             -Dsonar.sources=src/
             -Dsonar.tests=tests/
-            -Dsonar.verbose=true
 
       - name: "Run mutation tests with infection/infection"
         run: "infection -s --min-covered-msi=95 --min-msi=95 --coverage=.build/coverage --logger-github"
