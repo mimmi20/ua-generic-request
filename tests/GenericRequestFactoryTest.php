@@ -12,7 +12,7 @@ declare(strict_types = 1);
 
 namespace UaRequestTest;
 
-use ExceptionalJSON\DecodeErrorException;
+use JsonClass\DecodeErrorException;
 use JsonClass\Json;
 use Laminas\Diactoros\ServerRequestFactory;
 use LogicException;
