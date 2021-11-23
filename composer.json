@@ -22,7 +22,7 @@
     "psr/http-message": "^1.0.1"
   },
   "require-dev": {
-    "mimmi20/coding-standard": "^2.5.0",
+    "mimmi20/coding-standard": "^2.5.1",
     "mimmi20/json-class": "^4.0.0",
     "phpstan/extension-installer": "^1.1.0",
     "phpstan/phpstan": "^1.2.0",
