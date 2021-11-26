@@ -19,17 +19,17 @@ use UaRequest\Header\Useragent;
 
 final class UseragentTest extends TestCase
 {
+    private const UA = 'Windows CE (Smartphone) - Version 5.2';
+
     /**
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      */
     public function testData(): void
     {
-        $ua = 'Windows CE (Smartphone) - Version 5.2';
+        $header = new Useragent(self::UA);
 
-        $header = new Useragent($ua);
-
-        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertSame(self::UA, $header->getValue(), 'header mismatch');
         self::assertTrue($header->hasDeviceInfo(), 'device info mismatch');
         self::assertTrue($header->hasBrowserInfo(), 'browser info mismatch');
         self::assertTrue($header->hasPlatformInfo(), 'platform info mismatch');

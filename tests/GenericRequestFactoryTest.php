@@ -35,6 +35,9 @@ use const PHP_EOL;
 
 final class GenericRequestFactoryTest extends TestCase
 {
+    private const HEADERS   = [];
+    private const DEVICE_UA = 'testDeviceUa';
+    private const PATH      = 'tests/data';
     private GenericRequestFactory $object;
 
     protected function setUp(): void
@@ -64,12 +67,10 @@ final class GenericRequestFactoryTest extends TestCase
      */
     public function testCreateRequestFromEmptyHeaders(): void
     {
-        $headers = [];
-
-        $result = $this->object->createRequestFromArray($headers);
+        $result = $this->object->createRequestFromArray(self::HEADERS);
 
         self::assertInstanceOf(GenericRequest::class, $result);
-        self::assertSame($headers, $result->getHeaders());
+        self::assertSame(self::HEADERS, $result->getHeaders());
         self::assertSame('', $result->getBrowserUserAgent());
     }
 
@@ -96,14 +97,13 @@ final class GenericRequestFactoryTest extends TestCase
     public function testCreateRequestFromPsr7Message(): void
     {
         $userAgent       = 'testUA';
-        $deviceUa        = 'testDeviceUa';
         $headers         = [
             Constants::HEADER_HTTP_USERAGENT => $userAgent,
-            'HTTP_X_UCBROWSER_DEVICE_UA' => $deviceUa,
+            'HTTP_X_UCBROWSER_DEVICE_UA' => self::DEVICE_UA,
         ];
         $expectedHeaders = [
             Constants::HEADER_USERAGENT => $userAgent,
-            Constants::HEADER_UCBROWSER_DEVICE_UA => $deviceUa,
+            Constants::HEADER_UCBROWSER_DEVICE_UA => self::DEVICE_UA,
         ];
 
         $result = $this->object->createRequestFromPsr7Message(ServerRequestFactory::fromGlobals($headers));
@@ -111,7 +111,7 @@ final class GenericRequestFactoryTest extends TestCase
         self::assertInstanceOf(GenericRequest::class, $result);
         self::assertSame($expectedHeaders, $result->getHeaders());
         self::assertSame($userAgent, $result->getBrowserUserAgent());
-        self::assertSame($deviceUa, $result->getDeviceUserAgent());
+        self::assertSame(self::DEVICE_UA, $result->getDeviceUserAgent());
     }
 
     /**
@@ -179,9 +179,7 @@ final class GenericRequestFactoryTest extends TestCase
      */
     public function providerUa(): array
     {
-        $path = 'tests/data';
-
-        if (!file_exists($path)) {
+        if (!file_exists(self::PATH)) {
             return [];
         }
 
@@ -192,7 +190,7 @@ final class GenericRequestFactoryTest extends TestCase
         $finder->ignoreVCS(true);
         $finder->sortByName();
         $finder->ignoreUnreadableDirs();
-        $finder->in($path);
+        $finder->in(self::PATH);
 
         $allData = [];
 

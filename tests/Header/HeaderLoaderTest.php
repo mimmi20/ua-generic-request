@@ -23,6 +23,7 @@ use UaRequest\NotFoundException;
 
 final class HeaderLoaderTest extends TestCase
 {
+    private const VALUE = 'header-value';
     private HeaderLoader $subject;
 
     protected function setUp(): void
@@ -48,11 +49,10 @@ final class HeaderLoaderTest extends TestCase
      */
     public function testLoadOk(): void
     {
-        $value  = 'header-value';
-        $header = $this->subject->load(Constants::HEADER_USERAGENT, $value);
+        $header = $this->subject->load(Constants::HEADER_USERAGENT, self::VALUE);
 
         self::assertInstanceOf(HeaderInterface::class, $header);
-        self::assertSame($value, $header->getValue());
+        self::assertSame(self::VALUE, $header->getValue());
     }
 
     /**

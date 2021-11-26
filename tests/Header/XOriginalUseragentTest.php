@@ -19,17 +19,17 @@ use UaRequest\Header\XOriginalUseragent;
 
 final class XOriginalUseragentTest extends TestCase
 {
+    private const UA = 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3';
+
     /**
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      */
     public function testData(): void
     {
-        $ua = 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3';
+        $header = new XOriginalUseragent(self::UA);
 
-        $header = new XOriginalUseragent($ua);
-
-        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertSame(self::UA, $header->getValue(), 'header mismatch');
         self::assertTrue($header->hasDeviceInfo(), 'device info mismatch');
         self::assertTrue($header->hasBrowserInfo(), 'browser info mismatch');
         self::assertTrue($header->hasPlatformInfo(), 'platform info mismatch');

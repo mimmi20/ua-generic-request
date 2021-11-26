@@ -19,16 +19,17 @@ use UaRequest\Header\UaOs;
 
 final class UaOsTest extends TestCase
 {
+    private const UA = 'Windows CE (Smartphone) - Version 5.2';
+
     /**
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      */
     public function testData(): void
     {
-        $ua     = 'Windows CE (Smartphone) - Version 5.2';
-        $header = new UaOs($ua);
+        $header = new UaOs(self::UA);
 
-        self::assertSame($ua, $header->getValue(), 'header mismatch');
+        self::assertSame(self::UA, $header->getValue(), 'header mismatch');
         self::assertFalse($header->hasDeviceInfo(), 'device info mismatch');
         self::assertFalse($header->hasBrowserInfo(), 'browser info mismatch');
         self::assertTrue($header->hasPlatformInfo(), 'platform info mismatch');
