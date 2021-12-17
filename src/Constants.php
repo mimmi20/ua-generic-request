@@ -64,4 +64,22 @@ final class Constants
     public const HEADER_MOBILE_GATEWAY = 'x-mobile-gateway';
 
     public const HEADER_NB_CONTENT = 'x-nb-content';
+
+    public const HEADER_SEC_CH_UA = 'Sec-CH-UA';
+
+    public const HEADER_SEC_CH_UA_ARCH = 'Sec-CH-UA-Arch';
+
+    public const HEADER_SEC_CH_UA_BITNESS = 'Sec-CH-UA-Bitness';
+
+    public const HEADER_SEC_CH_UA_FULL_VERSION = 'Sec-CH-UA-Full-Version';
+
+    public const HEADER_SEC_CH_UA_FULL_VERSION_LIST = 'Sec-CH-UA-Full-Version-List';
+
+    public const HEADER_SEC_CH_UA_MOBILE = 'Sec-CH-UA-Mobile';
+
+    public const HEADER_SEC_CH_UA_MODEL = 'Sec-CH-UA-Model';
+
+    public const HEADER_SEC_CH_UA_PLATFORM = 'Sec-CH-UA-Platform';
+
+    public const HEADER_SEC_CH_UA_PLATFORM_VERSION = 'Sec-CH-UA-Platform-Version';
 }

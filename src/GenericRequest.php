@@ -24,6 +24,15 @@ use function is_string;
 final class GenericRequest implements GenericRequestInterface
 {
     private const HEADERS = [
+        Constants::HEADER_SEC_CH_UA_MODEL,
+        Constants::HEADER_SEC_CH_UA_PLATFORM,
+        Constants::HEADER_SEC_CH_UA_PLATFORM_VERSION,
+        Constants::HEADER_SEC_CH_UA_FULL_VERSION_LIST,
+        Constants::HEADER_SEC_CH_UA,
+        Constants::HEADER_SEC_CH_UA_FULL_VERSION,
+        Constants::HEADER_SEC_CH_UA_BITNESS,
+        Constants::HEADER_SEC_CH_UA_ARCH,
+        Constants::HEADER_SEC_CH_UA_MOBILE,
         Constants::HEADER_DEVICE_UA,
         Constants::HEADER_UCBROWSER_UA,
         Constants::HEADER_UCBROWSER_DEVICE_UA,
