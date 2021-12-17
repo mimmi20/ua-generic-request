@@ -12,8 +12,6 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use function preg_match;
-
 final class SecChUaPlatformVersion implements HeaderInterface
 {
     private string $value;
