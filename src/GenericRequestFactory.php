@@ -24,6 +24,14 @@ use function preg_replace;
 final class GenericRequestFactory implements GenericRequestFactoryInterface
 {
     /**
+     * Create a Generic Request from the given $userAgent
+     */
+    public function createRequestFromString(string $userAgent): GenericRequest
+    {
+        return $this->createRequestFromArray([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
+    }
+
+    /**
      * Creates Generic Request from the given HTTP Request (normally $_SERVER).
      *
      * @param array<string, string> $headers HTTP Request
@@ -47,20 +55,6 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
         }
 
         $message = ServerRequestFactory::fromGlobals($upperCaseHeaders);
-
-        return $this->createRequestFromPsr7Message($message);
-    }
-
-    /**
-     * Create a Generic Request from the given $userAgent
-     */
-    public function createRequestFromString(string $userAgent): GenericRequest
-    {
-        if (!HeaderSecurity::isValid($userAgent)) {
-            $userAgent = $this->filterHeader($userAgent);
-        }
-
-        $message = ServerRequestFactory::fromGlobals([Constants::HEADER_HTTP_USERAGENT => $userAgent]);
 
         return $this->createRequestFromPsr7Message($message);
     }
