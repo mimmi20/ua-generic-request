@@ -12,25 +12,29 @@ declare(strict_types = 1);
 
 namespace UaRequestTest;
 
-use JsonClass\DecodeErrorException;
-use JsonClass\Json;
+use JsonException;
 use Laminas\Diactoros\ServerRequestFactory;
-use LogicException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use RegexIterator;
 use RuntimeException;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
 use UnexpectedValueException;
 
 use function array_merge;
+use function assert;
 use function file_exists;
+use function file_get_contents;
 use function is_array;
+use function is_string;
+use function json_decode;
 
+use const JSON_THROW_ON_ERROR;
 use const PHP_EOL;
 
 final class GenericRequestFactoryTest extends TestCase
@@ -174,7 +178,6 @@ final class GenericRequestFactoryTest extends TestCase
      * @return array<array<array<string, string>|string>>
      * @phpstan-return array<array{0: array<string, string>, 1: string, 2: string, 3: string, 4: string}>
      *
-     * @throws LogicException
      * @throws RuntimeException
      */
     public function providerUa(): array
@@ -185,31 +188,30 @@ final class GenericRequestFactoryTest extends TestCase
             return [];
         }
 
-        $finder = new Finder();
-        $finder->files();
-        $finder->name('*.json');
-        $finder->ignoreDotFiles(true);
-        $finder->ignoreVCS(true);
-        $finder->sortByName();
-        $finder->ignoreUnreadableDirs();
-        $finder->in($path);
+        $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
+        $files    = new RegexIterator($iterator, '/^.+\.json$/i', RegexIterator::GET_MATCH);
 
         $allData = [];
 
-        foreach ($finder as $file) {
-            /** @var SplFileInfo $file */
-            $content = $file->getContents();
+        foreach ($files as $file) {
+            assert(is_array($file));
+            $file = $file[0];
 
-            if ('' === $content || PHP_EOL === $content) {
+            assert(is_string($file));
+            $content = file_get_contents($file);
+
+            if (false === $content || '' === $content || PHP_EOL === $content) {
                 throw new UnexpectedValueException('empty content');
             }
 
             try {
-                $data = (new Json())->decode(
+                $data = json_decode(
                     $content,
-                    true
+                    true,
+                    512,
+                    JSON_THROW_ON_ERROR
                 );
-            } catch (DecodeErrorException $e) {
+            } catch (JsonException $e) {
                 throw new UnexpectedValueException('invalid content', 0, $e);
             }
 
