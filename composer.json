@@ -25,10 +25,10 @@
   "require-dev": {
     "mimmi20/coding-standard": "^2.6.2",
     "phpstan/extension-installer": "^1.1.0",
-    "phpstan/phpstan": "^1.4.1",
+    "phpstan/phpstan": "^1.4.2",
     "phpstan/phpstan-deprecation-rules": "^1.0.0",
     "phpstan/phpstan-phpunit": "^1.0.0",
-    "phpunit/phpunit": "^9.5.11"
+    "phpunit/phpunit": "^9.5.12"
   },
   "minimum-stability": "stable",
   "prefer-stable": true,
@@ -44,6 +44,10 @@
   },
   "config": {
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    }
   }
 }
