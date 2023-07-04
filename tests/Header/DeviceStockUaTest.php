@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,21 +12,22 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Header\DeviceStockUa;
 
 final class DeviceStockUaTest extends TestCase
 {
-    /**
-     * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
-     *
-     * @dataProvider providerUa
-     */
-    public function testData(string $ua, bool $hasDeviceInfo, bool $hasBrowserInfo, bool $hasPlatformInfo, bool $hasEngineInfo): void
-    {
+    /** @throws ExpectationFailedException */
+    #[DataProvider('providerUa')]
+    public function testData(
+        string $ua,
+        bool $hasDeviceInfo,
+        bool $hasBrowserInfo,
+        bool $hasPlatformInfo,
+        bool $hasEngineInfo,
+    ): void {
         $header = new DeviceStockUa($ua);
 
         self::assertSame($ua, $header->getValue(), 'header mismatch');
@@ -38,8 +39,10 @@ final class DeviceStockUaTest extends TestCase
 
     /**
      * @return array<int, array<int, bool|string>>
+     *
+     * @throws void
      */
-    public function providerUa(): array
+    public static function providerUa(): array
     {
         return [
             ['Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S5380D/S5380DZHLB1; U; Bada/2.0; zh-cn) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 Mobile HVGA SMM-MMS/1.2.0 OPN-B', true, false, true, true],

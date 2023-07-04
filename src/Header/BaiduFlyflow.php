@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,21 +16,23 @@ use function preg_match;
 
 final class BaiduFlyflow implements HeaderInterface
 {
-    private string $value;
-
-    public function __construct(string $value)
+    /** @throws void */
+    public function __construct(private readonly string $value)
     {
-        $this->value = $value;
+        // nothing to do
     }
 
     /**
      * Retrieve header value
+     *
+     * @throws void
      */
     public function getValue(): string
     {
         return $this->value;
     }
 
+    /** @throws void */
     public function hasDeviceInfo(): bool
     {
         $hasMatch = preg_match('/;htc;htc;/i', $this->value);
@@ -38,16 +40,19 @@ final class BaiduFlyflow implements HeaderInterface
         return !$hasMatch;
     }
 
+    /** @throws void */
     public function hasBrowserInfo(): bool
     {
         return false;
     }
 
+    /** @throws void */
     public function hasPlatformInfo(): bool
     {
         return false;
     }
 
+    /** @throws void */
     public function hasEngineInfo(): bool
     {
         return false;

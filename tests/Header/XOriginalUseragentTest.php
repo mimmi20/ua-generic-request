@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,15 +14,11 @@ namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Header\XOriginalUseragent;
 
 final class XOriginalUseragentTest extends TestCase
 {
-    /**
-     * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
-     */
+    /** @throws ExpectationFailedException */
     public function testData(): void
     {
         $ua = 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3';

@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,13 +14,13 @@ namespace UaRequestTest;
 
 use JsonException;
 use Laminas\Diactoros\ServerRequestFactory;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RegexIterator;
 use RuntimeException;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
@@ -41,15 +41,13 @@ final class GenericRequestFactoryTest extends TestCase
 {
     private GenericRequestFactory $object;
 
+    /** @throws void */
     protected function setUp(): void
     {
         $this->object = new GenericRequestFactory();
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testCreateRequestFromArray(): void
     {
         $userAgent = 'testUA';
@@ -62,10 +60,7 @@ final class GenericRequestFactoryTest extends TestCase
         self::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testCreateRequestFromEmptyHeaders(): void
     {
         $headers = [];
@@ -77,10 +72,7 @@ final class GenericRequestFactoryTest extends TestCase
         self::assertSame('', $result->getBrowserUserAgent());
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testCreateRequestFromString(): void
     {
         $userAgent = 'testUA';
@@ -93,10 +85,7 @@ final class GenericRequestFactoryTest extends TestCase
         self::assertSame($userAgent, $result->getBrowserUserAgent());
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testCreateRequestFromPsr7Message(): void
     {
         $userAgent       = 'testUA';
@@ -110,7 +99,9 @@ final class GenericRequestFactoryTest extends TestCase
             Constants::HEADER_UCBROWSER_DEVICE_UA => $deviceUa,
         ];
 
-        $result = $this->object->createRequestFromPsr7Message(ServerRequestFactory::fromGlobals($headers));
+        $result = $this->object->createRequestFromPsr7Message(
+            ServerRequestFactory::fromGlobals($headers),
+        );
 
         self::assertInstanceOf(GenericRequest::class, $result);
         self::assertSame($expectedHeaders, $result->getHeaders());
@@ -118,10 +109,7 @@ final class GenericRequestFactoryTest extends TestCase
         self::assertSame($deviceUa, $result->getDeviceUserAgent());
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testCreateRequestFromInvalidString(): void
     {
         $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
@@ -135,10 +123,7 @@ final class GenericRequestFactoryTest extends TestCase
         self::assertSame($resultUa, $result->getBrowserUserAgent());
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testCreateRequestFromInvalidArray(): void
     {
         $userAgent = "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT 5.0; SQQ52974OEM044059604956O~{┬ªM~┬UZUY\nPM)";
@@ -157,13 +142,16 @@ final class GenericRequestFactoryTest extends TestCase
     /**
      * @param array<string, string> $headers
      *
-     * @throws InvalidArgumentException
      * @throws Exception
-     *
-     * @dataProvider providerUa
      */
-    public function testData(array $headers, string $expectedDeviceUa, string $expectedBrowserUa, string $expectedPlatformUa, string $expectedEngineUa): void
-    {
+    #[DataProvider('providerUa')]
+    public function testData(
+        array $headers,
+        string $expectedDeviceUa,
+        string $expectedBrowserUa,
+        string $expectedPlatformUa,
+        string $expectedEngineUa,
+    ): void {
         $result = $this->object->createRequestFromArray($headers);
 
         self::assertInstanceOf(GenericRequest::class, $result);
@@ -179,8 +167,9 @@ final class GenericRequestFactoryTest extends TestCase
      * @phpstan-return array<array{0: array<string, string>, 1: string, 2: string, 3: string, 4: string}>
      *
      * @throws RuntimeException
+     * @throws UnexpectedValueException
      */
-    public function providerUa(): array
+    public static function providerUa(): array
     {
         $path = 'tests/data';
 
@@ -200,17 +189,12 @@ final class GenericRequestFactoryTest extends TestCase
             assert(is_string($file));
             $content = file_get_contents($file);
 
-            if (false === $content || '' === $content || PHP_EOL === $content) {
+            if ($content === false || $content === '' || $content === PHP_EOL) {
                 throw new UnexpectedValueException('empty content');
             }
 
             try {
-                $data = json_decode(
-                    $content,
-                    true,
-                    512,
-                    JSON_THROW_ON_ERROR
-                );
+                $data = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
             } catch (JsonException $e) {
                 throw new UnexpectedValueException('invalid content', 0, $e);
             }

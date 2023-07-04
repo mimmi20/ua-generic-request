@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,6 @@ use Laminas\Diactoros\ServerRequestFactory;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\MessageInterface;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Constants;
 use UaRequest\GenericRequest;
 use UaRequest\GenericRequestFactory;
@@ -28,10 +27,7 @@ use function assert;
 
 final class GenericRequestTest extends TestCase
 {
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testConstruct(): void
     {
         $userAgent = 'testUA';
@@ -98,12 +94,32 @@ final class GenericRequestTest extends TestCase
             ->method('hasDeviceInfo')
             ->willReturn(true);
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::exactly(3))
+        $matcher = self::exactly(3);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $browserUa], [Constants::HEADER_DEVICE_STOCK_UA, $deviceUa], [Constants::HEADER_USERAGENT, $userAgent])
-            ->willReturnOnConsecutiveCalls($header1, $header2, $header3);
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $browserUa, $deviceUa, $userAgent, $header1, $header2, $header3): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
+                        2 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                        default => self::assertSame(Constants::HEADER_USERAGENT, $key),
+                    };
+
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($browserUa, $value),
+                        2 => self::assertSame($deviceUa, $value),
+                        default => self::assertSame($userAgent, $value),
+                    };
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        2 => $header2,
+                        default => $header3,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -113,10 +129,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($deviceUa, $object->getDeviceUserAgent(), 'device ua mismatch');
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testToarray(): void
     {
         $userAgent = 'testUA';
@@ -152,10 +165,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($expectedHeaders, $object->getHeaders());
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testToarraySimple(): void
     {
         $userAgent = 'testUA';
@@ -188,10 +198,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame([Constants::HEADER_USERAGENT => $userAgent], $array);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForDevice(): void
     {
         $userAgent = 'testUA';
@@ -224,10 +231,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame('', $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForDevice2(): void
     {
         $userAgent  = 'SAMSUNG-GT-S8500';
@@ -265,12 +269,29 @@ final class GenericRequestTest extends TestCase
         $header2->expects(self::never())
             ->method('hasDeviceInfo');
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::exactly(2))
+        $matcher = self::exactly(2);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_DEVICE_STOCK_UA, $userAgent], [Constants::HEADER_USERAGENT, $userAgent2])
-            ->willReturnOnConsecutiveCalls($header1, $header2);
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $userAgent, $userAgent2, $header1, $header2): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                        default => self::assertSame(Constants::HEADER_USERAGENT, $key),
+                    };
+
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($userAgent, $value),
+                        default => self::assertSame($userAgent2, $value),
+                    };
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        default => $header2,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -279,10 +300,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($userAgent, $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForBrowser(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -315,10 +333,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame('', $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForBrowser2(): void
     {
         $userAgent  = 'SAMSUNG-GT-S8500';
@@ -356,12 +371,29 @@ final class GenericRequestTest extends TestCase
         $header2->expects(self::never())
             ->method('hasDeviceInfo');
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::exactly(2))
+        $matcher = self::exactly(2);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $userAgent2], [Constants::HEADER_DEVICE_STOCK_UA, $userAgent])
-            ->willReturnOnConsecutiveCalls($header1, $header2);
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $userAgent, $userAgent2, $header1, $header2): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
+                        default => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                    };
+
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($userAgent2, $value),
+                        default => self::assertSame($userAgent, $value),
+                    };
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        default => $header2,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -370,10 +402,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($userAgent2, $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForPlatform(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -407,10 +436,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame('', $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForPlatform2(): void
     {
         $userAgent  = 'SAMSUNG-GT-S8500';
@@ -448,12 +474,29 @@ final class GenericRequestTest extends TestCase
         $header2->expects(self::never())
             ->method('hasDeviceInfo');
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::exactly(2))
+        $matcher = self::exactly(2);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_DEVICE_STOCK_UA, $userAgent], [Constants::HEADER_UA_OS, $userAgent2])
-            ->willReturnOnConsecutiveCalls($header1, $header2);
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $userAgent2, $userAgent, $header1, $header2): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                        default => self::assertSame(Constants::HEADER_UA_OS, $key),
+                    };
+
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($userAgent, $value),
+                        default => self::assertSame($userAgent2, $value),
+                    };
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        default => $header2,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -462,10 +505,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($userAgent2, $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForEngine(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -499,10 +539,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame('', $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testForEngine2(): void
     {
         $userAgent  = 'SAMSUNG-GT-S8500';
@@ -540,12 +577,29 @@ final class GenericRequestTest extends TestCase
         $header2->expects(self::never())
             ->method('hasDeviceInfo');
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::exactly(2))
+        $matcher = self::exactly(2);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_DEVICE_STOCK_UA, $userAgent], [Constants::HEADER_UA_OS, $userAgent2])
-            ->willReturnOnConsecutiveCalls($header1, $header2);
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $userAgent2, $userAgent, $header1, $header2): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                        default => self::assertSame(Constants::HEADER_UA_OS, $key),
+                    };
+
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($userAgent, $value),
+                        default => self::assertSame($userAgent2, $value),
+                    };
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        default => $header2,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -554,10 +608,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($userAgent2, $ua);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testGetFilteredHeaders(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
@@ -611,12 +662,32 @@ final class GenericRequestTest extends TestCase
         $header3->expects(self::never())
             ->method('hasDeviceInfo');
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::exactly(3))
+        $matcher = self::exactly(3);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $browserUa], [Constants::HEADER_DEVICE_STOCK_UA, $deviceUa], [Constants::HEADER_USERAGENT, $userAgent])
-            ->willReturn($header1, $header2, $header3);
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $browserUa, $deviceUa, $userAgent, $header1, $header2, $header3): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
+                        2 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                        default => self::assertSame(Constants::HEADER_USERAGENT, $key),
+                    };
+
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($browserUa, $value),
+                        2 => self::assertSame($deviceUa, $value),
+                        default => self::assertSame($userAgent, $value),
+                    };
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        2 => $header2,
+                        default => $header3,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -625,10 +696,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($expectedHeaders, $resultHeaders);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testGetFilteredHeadersWithLoadException(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
@@ -663,10 +731,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($expectedHeaders, $resultHeaders);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testGetFilteredHeadersWithLoadException2(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
@@ -708,22 +773,32 @@ final class GenericRequestTest extends TestCase
         $header2->expects(self::never())
             ->method('hasDeviceInfo');
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->getMock();
-        $loader->expects(self::exactly(3))
+        $matcher = self::exactly(3);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $browserUa], [Constants::HEADER_DEVICE_STOCK_UA, $deviceUa], [Constants::HEADER_USERAGENT, $userAgent])
-            ->willReturnCallback(static function ($headerName) use ($header1, $header2) {
-                if (Constants::HEADER_UCBROWSER_UA === $headerName) {
-                    return $header1;
-                }
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $browserUa, $deviceUa, $userAgent, $header1, $header2): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
+                        2 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                        default => self::assertSame(Constants::HEADER_USERAGENT, $key),
+                    };
 
-                if (Constants::HEADER_USERAGENT === $headerName) {
-                    return $header2;
-                }
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($browserUa, $value),
+                        2 => self::assertSame($deviceUa, $value),
+                        default => self::assertSame($userAgent, $value),
+                    };
 
-                throw new NotFoundException('not-found');
-            });
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        2 => throw new NotFoundException('not-found'),
+                        default => $header2,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
@@ -732,10 +807,7 @@ final class GenericRequestTest extends TestCase
         self::assertSame($expectedHeaders, $resultHeaders);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testGetFilteredHeadersWithLoadException3(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
@@ -778,23 +850,33 @@ final class GenericRequestTest extends TestCase
         $header2->expects(self::never())
             ->method('hasDeviceInfo');
 
-        $loader = $this->getMockBuilder(HeaderLoaderInterface::class)
+        $loader  = $this->getMockBuilder(HeaderLoaderInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $loader->expects(self::exactly(3))
+        $matcher = self::exactly(3);
+        $loader->expects($matcher)
             ->method('load')
-            ->withConsecutive([Constants::HEADER_UCBROWSER_UA, $browserUa], [Constants::HEADER_DEVICE_STOCK_UA, $deviceUa], [Constants::HEADER_USERAGENT, $userAgent])
-            ->willReturnCallback(static function ($headerName) use ($header1, $header2) {
-                if (Constants::HEADER_UCBROWSER_UA === $headerName) {
-                    return $header1;
-                }
+            ->willReturnCallback(
+                static function (string $key, string $value) use ($matcher, $browserUa, $deviceUa, $userAgent, $header1, $header2): HeaderInterface {
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
+                        2 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
+                        default => self::assertSame(Constants::HEADER_USERAGENT, $key),
+                    };
 
-                if (Constants::HEADER_USERAGENT === $headerName) {
-                    return $header2;
-                }
+                    match ($matcher->numberOfInvocations()) {
+                        1 => self::assertSame($browserUa, $value),
+                        2 => self::assertSame($deviceUa, $value),
+                        default => self::assertSame($userAgent, $value),
+                    };
 
-                throw new NotFoundException('not-found');
-            });
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $header1,
+                        2 => throw new NotFoundException('not-found'),
+                        default => $header2,
+                    };
+                },
+            );
 
         $message = $this->getMockBuilder(MessageInterface::class)
             ->disableOriginalConstructor()
@@ -802,10 +884,28 @@ final class GenericRequestTest extends TestCase
         $message->expects(self::once())
             ->method('getHeaders')
             ->willReturn($headers);
-        $message->expects(self::exactly(5))
+        $matcher = self::exactly(5);
+        $message->expects($matcher)
             ->method('getHeaderLine')
-            ->withConsecutive([Constants::HEADER_USERAGENT], ['x-unknown-header'], [Constants::HEADER_DEVICE_STOCK_UA], [Constants::HEADER_UCBROWSER_UA], ['via'])
-            ->willReturnOnConsecutiveCalls($userAgent, 'test', $deviceUa, $browserUa, 'test');
+            ->willReturnCallback(
+                static function (string $name) use ($matcher, $browserUa, $deviceUa, $userAgent): string {
+                    match ($matcher->numberOfInvocations()) {
+                        2 => self::assertSame('x-unknown-header', $name),
+                        3 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $name),
+                        4 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $name),
+                        5 => self::assertSame('via', $name),
+                        default => self::assertSame(Constants::HEADER_USERAGENT, $name),
+                    };
+
+                    return match ($matcher->numberOfInvocations()) {
+                        2 => 'test',
+                        3 => $deviceUa,
+                        4 => $browserUa,
+                        5 => 'test',
+                        default => $userAgent,
+                    };
+                },
+            );
 
         assert($loader instanceof HeaderLoaderInterface);
         $original      = new GenericRequest($message, $loader);
