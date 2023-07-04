@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,19 +14,22 @@ namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Header\XUcbrowserUa;
 
 final class XUcbrowserUaTest extends TestCase
 {
     /**
      * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
      *
      * @dataProvider providerUa
      */
-    public function testData(string $ua, bool $hasDeviceInfo, bool $hasBrowserInfo, bool $hasPlatformInfo, bool $hasEngineInfo): void
-    {
+    public function testData(
+        string $ua,
+        bool $hasDeviceInfo,
+        bool $hasBrowserInfo,
+        bool $hasPlatformInfo,
+        bool $hasEngineInfo,
+    ): void {
         $header = new XUcbrowserUa($ua);
 
         self::assertSame($ua, $header->getValue(), 'header mismatch');
@@ -38,8 +41,10 @@ final class XUcbrowserUaTest extends TestCase
 
     /**
      * @return array<int, array<int, bool|string>>
+     *
+     * @throws void
      */
-    public function providerUa(): array
+    public static function providerUa(): array
     {
         return [
             ['pf(Linux);la(en-US);re(AppleWebKit/534.31 (KHTML, like Gecko));dv(Lenovo A369i Build/JDQ39);pr(UCBrowser/9.1.0.297);ov(Android 4.2.2);pi(480*762);ss(480*762);up(U3/0.8.0);er(U);bt(GZ);pm(1);bv(1);nm(0);im(0);sr(0);nt(3);', true, true, true, true],

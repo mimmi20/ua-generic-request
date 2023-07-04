@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,14 +14,12 @@ namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaRequest\Header\BaiduFlyflow;
 
 final class BaiduFlyflowTest extends TestCase
 {
     /**
      * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
      *
      * @dataProvider providerUa
      */
@@ -38,8 +36,10 @@ final class BaiduFlyflowTest extends TestCase
 
     /**
      * @return array<int, array<int, bool|string>>
+     *
+     * @throws void
      */
-    public function providerUa(): array
+    public static function providerUa(): array
     {
         return [
             ['Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12', true],

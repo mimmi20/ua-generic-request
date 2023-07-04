@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -56,18 +56,16 @@ final class GenericRequest implements GenericRequestInterface
         Constants::HEADER_WAP_PROFILE,
         Constants::HEADER_NB_CONTENT,
     ];
+
     /** @var array<string, string> */
     private array $headers = [];
 
     /** @var array<HeaderInterface> */
     private array $filteredHeaders = [];
 
-    private HeaderLoaderInterface $loader;
-
-    public function __construct(MessageInterface $message, HeaderLoaderInterface $loader)
+    /** @throws void */
+    public function __construct(MessageInterface $message, private readonly HeaderLoaderInterface $loader)
     {
-        $this->loader = $loader;
-
         foreach (array_keys($message->getHeaders()) as $header) {
             if (!is_string($header)) {
                 continue;
@@ -81,6 +79,8 @@ final class GenericRequest implements GenericRequestInterface
 
     /**
      * @return array<string, string>
+     *
+     * @throws void
      */
     public function getHeaders(): array
     {
@@ -89,6 +89,8 @@ final class GenericRequest implements GenericRequestInterface
 
     /**
      * @return array<string>
+     *
+     * @throws void
      */
     public function getFilteredHeaders(): array
     {
@@ -101,6 +103,7 @@ final class GenericRequest implements GenericRequestInterface
         return $headers;
     }
 
+    /** @throws void */
     public function getBrowserUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -112,6 +115,7 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
+    /** @throws void */
     public function getDeviceUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -123,6 +127,7 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
+    /** @throws void */
     public function getPlatformUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -134,6 +139,7 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
+    /** @throws void */
     public function getEngineUserAgent(): string
     {
         foreach ($this->filteredHeaders as $header) {
@@ -145,18 +151,19 @@ final class GenericRequest implements GenericRequestInterface
         return '';
     }
 
+    /** @throws void */
     private function filterHeaders(): void
     {
         $headers  = $this->headers;
         $filtered = array_filter(
             self::HEADERS,
-            static fn ($value): bool => array_key_exists($value, $headers)
+            static fn ($value): bool => array_key_exists($value, $headers),
         );
 
         foreach ($filtered as $header) {
             try {
                 $headerObj = $this->loader->load($header, $this->headers[$header]);
-            } catch (NotFoundException $e) {
+            } catch (NotFoundException) {
                 continue;
             }
 

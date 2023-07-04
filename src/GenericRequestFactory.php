@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-generic-request package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -25,6 +25,8 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
 {
     /**
      * Create a Generic Request from the given $userAgent
+     *
+     * @throws void
      */
     public function createRequestFromString(string $userAgent): GenericRequest
     {
@@ -35,6 +37,8 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
      * Creates Generic Request from the given HTTP Request (normally $_SERVER).
      *
      * @param array<string, string> $headers HTTP Request
+     *
+     * @throws void
      */
     public function createRequestFromArray(array $headers): GenericRequest
     {
@@ -43,7 +47,7 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
         foreach ($headers as $header => $value) {
             $upperCaseHeader = mb_strtoupper($header);
 
-            if (false === mb_strpos($upperCaseHeader, 'HTTP_')) {
+            if (mb_strpos($upperCaseHeader, 'HTTP_') === false) {
                 $upperCaseHeader = 'HTTP_' . $upperCaseHeader;
             }
 
@@ -61,18 +65,21 @@ final class GenericRequestFactory implements GenericRequestFactoryInterface
 
     /**
      * Create a Generic Request from a given PSR-7 HTTP message
+     *
+     * @throws void
      */
     public function createRequestFromPsr7Message(MessageInterface $message): GenericRequest
     {
         return new GenericRequest($message, new HeaderLoader());
     }
 
+    /** @throws void */
     private function filterHeader(string $header): string
     {
         return (string) preg_replace(
             ["#(?:(?:(?<!\r)\n)|(?:\r(?!\n))|(?:\r\n(?![ \t])))#", '/[^\x09\x0a\x0d\x20-\x7E\x80-\xFE]/'],
             '-',
-            $header
+            $header,
         );
     }
 }
