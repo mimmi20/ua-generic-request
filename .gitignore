@@ -13,10 +13,15 @@ result.txt
 phpunit.txt
 resources/browscap-*/
 tests/create-tests.php
-cache/cache/
+cache/*
+!cache/.gitkeep
 tests/temp/*.php
 tests/temp/*.ini
 .php-cs-fixer.cache
+.phplint-cache
 .phpunit.result.cache
+.phpcs.cache
 infection-*.log
-clover.xml
+rewrite*.php
+.reports/
+*.bak
