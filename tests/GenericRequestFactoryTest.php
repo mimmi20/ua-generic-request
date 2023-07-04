@@ -14,6 +14,7 @@ namespace UaRequestTest;
 
 use JsonException;
 use Laminas\Diactoros\ServerRequestFactory;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use RecursiveDirectoryIterator;
@@ -142,9 +143,8 @@ final class GenericRequestFactoryTest extends TestCase
      * @param array<string, string> $headers
      *
      * @throws Exception
-     *
-     * @dataProvider providerUa
      */
+    #[DataProvider('providerUa')]
     public function testData(
         array $headers,
         string $expectedDeviceUa,

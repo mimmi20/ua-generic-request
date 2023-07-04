@@ -12,17 +12,15 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\XPuffinUa;
 
 final class XPuffinUaTest extends TestCase
 {
-    /**
-     * @throws ExpectationFailedException
-     *
-     * @dataProvider providerUa
-     */
+    /** @throws ExpectationFailedException */
+    #[DataProvider('providerUa')]
     public function testData(string $ua, bool $hasDeviceInfo, bool $hasPlatformInfo): void
     {
         $header = new XPuffinUa($ua);
