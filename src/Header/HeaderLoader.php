@@ -44,13 +44,13 @@ final class HeaderLoader implements HeaderLoaderInterface
         Constants::HEADER_SEC_CH_UA_BITNESS => SecChUaBitness::class,
         Constants::HEADER_SEC_CH_UA_ARCH => SecChUaArch::class,
         Constants::HEADER_SEC_CH_UA_MOBILE => SecChUaMobile::class,
-        // Constants::HEADER_SKYFIRE_PHONE => null,
-        // Constants::HEADER_SKYFIRE_VERSION => null,
-        // Constants::HEADER_BLUECOAT_VIA => null,
-        // Constants::HEADER_BOLT_PHONE_UA => null,
-        // Constants::HEADER_MOBILE_UA => null,
-        // Constants::HEADER_WAP_PROFILE => null,
-        // Constants::HEADER_NB_CONTENT => null,
+        Constants::HEADER_SKYFIRE_PHONE => null,
+        Constants::HEADER_SKYFIRE_VERSION => null,
+        Constants::HEADER_BLUECOAT_VIA => null,
+        Constants::HEADER_BOLT_PHONE_UA => null,
+        Constants::HEADER_MOBILE_UA => null,
+        Constants::HEADER_WAP_PROFILE => null,
+        Constants::HEADER_NB_CONTENT => null,
     ];
 
     /** @throws void */
