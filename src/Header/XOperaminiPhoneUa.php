@@ -37,7 +37,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
     /** @throws void */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), ['mozilla/5.0 (bada 2.0.0)', 'motorola'], true)) {
+        if (mb_strtolower($this->value) === 'motorola') {
             return false;
         }
 
