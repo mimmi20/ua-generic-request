@@ -16,6 +16,9 @@ use UaRequest\NotFoundException;
 
 interface HeaderLoaderInterface
 {
+    /** @throws void */
+    public function has(string $key): bool;
+
     /** @throws NotFoundException */
     public function load(string $key, string $value): HeaderInterface;
 }

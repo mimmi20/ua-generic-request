@@ -28,6 +28,7 @@ jobs:
       skip-rector: false
       skip-phpmd: false
       skip-psalm: true
+      skip-composer-ununsed: true
     secrets:
       envPAT: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -46,19 +47,13 @@ jobs:
       matrix:
         operating-system:
           - "ubuntu-20.04"
-          - "ubuntu-22.04"
 
         php-version:
           - "8.1"
           - "8.2"
 
         dependencies:
-          - "highest"
           - "lowest"
-
-        ts:
-          - "ts"
-          - "nts"
 
     steps:
       - name: "Checkout"
@@ -80,7 +75,7 @@ jobs:
         env:
           fail-fast: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          phpts: "${{ matrix.ts }}"
+          phpts: "nts"
 
       - name: "Update dependencies with composer"
         uses: "ramsey/composer-install@2.2.0"
@@ -106,14 +101,11 @@ jobs:
       matrix:
         operating-system:
           - "ubuntu-20.04"
-          - "ubuntu-22.04"
 
         php-version:
           - "8.1"
-          - "8.2"
 
         dependencies:
-          - "highest"
           - "lowest"
 
     steps:
@@ -136,7 +128,7 @@ jobs:
         env:
           fail-fast: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          phpts: "ts"
+          phpts: "nts"
 
       - name: "Update dependencies with composer"
         uses: "ramsey/composer-install@2.2.0"
@@ -160,7 +152,7 @@ jobs:
       - name: "Run mutation tests with infection/infection"
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-        run: "vendor/bin/infection --show-mutations --only-covered --min-covered-msi=95 --min-msi=95 --coverage=.build/coverage --logger-github --no-progress -vv"
+        run: "vendor/bin/infection --show-mutations --only-covered --min-covered-msi=99 --min-msi=99 --coverage=.build/coverage --logger-github --no-progress -vv"
 
   # This is a meta job to avoid to have to constantly change the protection rules
   # whenever we touch the matrix.

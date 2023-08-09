@@ -12,7 +12,6 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use function in_array;
 use function mb_strtolower;
 use function preg_match;
 
@@ -37,7 +36,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
     /** @throws void */
     public function hasDeviceInfo(): bool
     {
-        if (in_array(mb_strtolower($this->value), ['mozilla/5.0 (bada 2.0.0)', 'motorola'], true)) {
+        if (mb_strtolower($this->value) === 'motorola') {
             return false;
         }
 

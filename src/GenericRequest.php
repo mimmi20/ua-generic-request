@@ -157,7 +157,7 @@ final class GenericRequest implements GenericRequestInterface
         $headers  = $this->headers;
         $filtered = array_filter(
             self::HEADERS,
-            static fn ($value): bool => array_key_exists($value, $headers),
+            fn ($value): bool => array_key_exists($value, $headers) && $this->loader->has($value),
         );
 
         foreach ($filtered as $header) {
