@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,45 +13,37 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use Override;
+
+use function trim;
+
 final class SecChUaFullVersion implements HeaderInterface
 {
+    use HeaderTrait;
+
     /** @throws void */
-    public function __construct(private readonly string $value)
+    #[Override]
+    public function hasClientVersion(): bool
     {
-        // nothing to do
+        $value = trim($this->value, '"\\\'');
+
+        return $value !== '';
     }
 
     /**
-     * Retrieve header value
-     *
      * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
-    public function getValue(): string
+    #[Override]
+    public function getClientVersion(string | null $code = null): string | null
     {
-        return $this->value;
-    }
+        $value = trim($this->value, '"\\\'');
 
-    /** @throws void */
-    public function hasDeviceInfo(): bool
-    {
-        return false;
-    }
+        if ($value === '') {
+            return null;
+        }
 
-    /** @throws void */
-    public function hasBrowserInfo(): bool
-    {
-        return true;
-    }
-
-    /** @throws void */
-    public function hasPlatformInfo(): bool
-    {
-        return false;
-    }
-
-    /** @throws void */
-    public function hasEngineInfo(): bool
-    {
-        return false;
+        return $value;
     }
 }

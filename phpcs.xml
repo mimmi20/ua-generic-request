@@ -10,7 +10,8 @@
     <rule ref="Mimmi20CodingStandard">
         <exclude name="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength"/>
         <exclude name="SlevomatCodingStandard.Complexity.Cognitive.ComplexityTooHigh"/>
-        <exclude name="Generic.Metrics.CyclomaticComplexity.TooHigh"/>
+        <exclude name="Generic.Metrics.CyclomaticComplexity"/>
+        <exclude name="SlevomatCodingStandard.Classes.ClassLength"/>
     </rule>
 
     <!-- Paths to check -->
@@ -18,4 +19,5 @@
     <file>tests</file>
     <file>.php-cs-fixer.php</file>
     <file>rector.php</file>
+    <file>composer-dependency-analyser.php</file>
 </ruleset>

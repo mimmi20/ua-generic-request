@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,45 +13,71 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use Override;
+
+use function preg_match;
+
 final class UaOs implements HeaderInterface
 {
+    use HeaderTrait;
+
     /** @throws void */
-    public function __construct(private readonly string $value)
+    #[Override]
+    public function hasPlatformCode(): bool
     {
-        // nothing to do
+        return (bool) preg_match('/Windows CE \(Pocket PC\) - Version \d+\.\d+/', $this->value);
     }
 
     /**
-     * Retrieve header value
-     *
      * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
-    public function getValue(): string
+    #[Override]
+    public function getPlatformCode(string | null $derivate = null): string | null
     {
-        return $this->value;
+        $matches = [];
+
+        if (
+            preg_match(
+                '/(?P<name>Windows CE) \(Pocket PC\) - Version \d+\.\d+/',
+                $this->value,
+                $matches,
+            )
+        ) {
+            return 'windows ce';
+        }
+
+        return null;
     }
 
     /** @throws void */
-    public function hasDeviceInfo(): bool
+    #[Override]
+    public function hasPlatformVersion(): bool
     {
-        return false;
+        return (bool) preg_match('/Windows CE \(Pocket PC\) - Version \d+\.\d+/', $this->value);
     }
 
-    /** @throws void */
-    public function hasBrowserInfo(): bool
+    /**
+     * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+     */
+    #[Override]
+    public function getPlatformVersion(string | null $code = null): string | null
     {
-        return false;
-    }
+        $matches = [];
 
-    /** @throws void */
-    public function hasPlatformInfo(): bool
-    {
-        return true;
-    }
+        if (
+            preg_match(
+                '/Windows CE \(Pocket PC\) - Version (?P<version>\d+\.\d+)/',
+                $this->value,
+                $matches,
+            )
+        ) {
+            return $matches['version'];
+        }
 
-    /** @throws void */
-    public function hasEngineInfo(): bool
-    {
-        return false;
+        return null;
     }
 }

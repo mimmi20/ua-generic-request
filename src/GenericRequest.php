@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,6 +13,7 @@ declare(strict_types = 1);
 
 namespace UaRequest;
 
+use Override;
 use Psr\Http\Message\MessageInterface;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
@@ -20,14 +22,20 @@ use function array_filter;
 use function array_key_exists;
 use function array_keys;
 use function is_string;
+use function mb_strtolower;
+use function mb_substr;
+use function serialize;
+use function sha1;
+use function str_starts_with;
 
 final class GenericRequest implements GenericRequestInterface
 {
-    private const HEADERS = [
+    private const array HEADERS = [
         Constants::HEADER_SEC_CH_UA_MODEL,
         Constants::HEADER_SEC_CH_UA_PLATFORM,
         Constants::HEADER_SEC_CH_UA_PLATFORM_VERSION,
         Constants::HEADER_SEC_CH_UA_FULL_VERSION_LIST,
+        Constants::HEADER_REQUESTED_WITH,
         Constants::HEADER_SEC_CH_UA,
         Constants::HEADER_SEC_CH_UA_FULL_VERSION,
         Constants::HEADER_SEC_CH_UA_BITNESS,
@@ -39,116 +47,85 @@ final class GenericRequest implements GenericRequestInterface
         Constants::HEADER_UCBROWSER_DEVICE,
         Constants::HEADER_UCBROWSER_PHONE_UA,
         Constants::HEADER_UCBROWSER_PHONE,
-        Constants::HEADER_DEVICE_STOCK_UA,
-        Constants::HEADER_SKYFIRE_PHONE,
         Constants::HEADER_OPERAMINI_PHONE_UA,
+        Constants::HEADER_DEVICE_STOCK_UA,
         Constants::HEADER_OPERAMINI_PHONE,
-        Constants::HEADER_SKYFIRE_VERSION,
-        Constants::HEADER_BLUECOAT_VIA,
-        Constants::HEADER_BOLT_PHONE_UA,
-        Constants::HEADER_MOBILE_UA,
-        Constants::HEADER_REQUESTED_WITH,
         Constants::HEADER_ORIGINAL_UA,
         Constants::HEADER_UA_OS,
         Constants::HEADER_BAIDU_FLYFLOW,
         Constants::HEADER_PUFFIN_UA,
         Constants::HEADER_USERAGENT,
-        Constants::HEADER_WAP_PROFILE,
-        Constants::HEADER_NB_CONTENT,
     ];
 
-    /** @var array<string, string> */
+    /** @var array<non-empty-string, non-empty-string> */
     private array $headers = [];
 
-    /** @var array<HeaderInterface> */
+    /** @var array<non-empty-string, HeaderInterface> */
     private array $filteredHeaders = [];
 
     /** @throws void */
-    public function __construct(MessageInterface $message, private readonly HeaderLoaderInterface $loader)
+    public function __construct(MessageInterface $message, private readonly HeaderLoaderInterface $headerLoader)
     {
         foreach (array_keys($message->getHeaders()) as $header) {
-            if (!is_string($header)) {
+            if (!is_string($header) || $header === '') {
                 continue;
             }
 
-            $this->headers[$header] = $message->getHeaderLine($header);
+            $headerLine = $message->getHeaderLine($header);
+
+            if ($headerLine === '') {
+                continue;
+            }
+
+            $header = mb_strtolower($header);
+
+            if (str_starts_with($header, 'http-') || str_starts_with($header, 'http_')) {
+                $header = mb_substr($header, 5);
+            }
+
+            if ($header === '') {
+                continue;
+            }
+
+            $this->headers[$header] = $headerLine;
         }
 
         $this->filterHeaders();
     }
 
     /**
-     * @return array<string, string>
+     * @return array<non-empty-string, non-empty-string>
      *
      * @throws void
      */
+    #[Override]
     public function getHeaders(): array
     {
         return $this->headers;
     }
 
     /**
-     * @return array<string>
+     * @return array<non-empty-string, HeaderInterface>
      *
      * @throws void
      */
+    #[Override]
     public function getFilteredHeaders(): array
     {
-        $headers = [];
+        return $this->filteredHeaders;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getHash(): string
+    {
+        $data = [];
 
         foreach ($this->filteredHeaders as $name => $header) {
-            $headers[$name] = $header->getValue();
+            $data[$name] = $header->getValue();
         }
 
-        return $headers;
-    }
-
-    /** @throws void */
-    public function getBrowserUserAgent(): string
-    {
-        foreach ($this->filteredHeaders as $header) {
-            if ($header->hasBrowserInfo()) {
-                return $header->getValue();
-            }
-        }
-
-        return '';
-    }
-
-    /** @throws void */
-    public function getDeviceUserAgent(): string
-    {
-        foreach ($this->filteredHeaders as $header) {
-            if ($header->hasDeviceInfo()) {
-                return $header->getValue();
-            }
-        }
-
-        return '';
-    }
-
-    /** @throws void */
-    public function getPlatformUserAgent(): string
-    {
-        foreach ($this->filteredHeaders as $header) {
-            if ($header->hasPlatformInfo()) {
-                return $header->getValue();
-            }
-        }
-
-        return '';
-    }
-
-    /** @throws void */
-    public function getEngineUserAgent(): string
-    {
-        foreach ($this->filteredHeaders as $header) {
-            if ($header->hasEngineInfo()) {
-                return $header->getValue();
-            }
-        }
-
-        return '';
+        return sha1(serialize($data));
     }
 
     /** @throws void */
@@ -157,12 +134,12 @@ final class GenericRequest implements GenericRequestInterface
         $headers  = $this->headers;
         $filtered = array_filter(
             self::HEADERS,
-            fn ($value): bool => array_key_exists($value, $headers) && $this->loader->has($value),
+            static fn (string $value): bool => array_key_exists(mb_strtolower($value), $headers),
         );
 
         foreach ($filtered as $header) {
             try {
-                $headerObj = $this->loader->load($header, $this->headers[$header]);
+                $headerObj = $this->headerLoader->load($header, $headers[mb_strtolower($header)]);
             } catch (NotFoundException) {
                 continue;
             }

@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,45 +13,106 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use Override;
+
+use function array_key_first;
+use function current;
+use function key;
+use function mb_strtolower;
+use function reset;
+use function str_contains;
+
 final class SecChUa implements HeaderInterface
 {
-    /** @throws void */
-    public function __construct(private readonly string $value)
-    {
-        // nothing to do
-    }
-
-    /**
-     * Retrieve header value
-     *
-     * @throws void
-     */
-    public function getValue(): string
-    {
-        return $this->value;
-    }
+    use HeaderTrait;
+    use SortTrait;
 
     /** @throws void */
-    public function hasDeviceInfo(): bool
+    #[Override]
+    public function hasClientCode(): bool
     {
-        return false;
+        $list = $this->sort();
+
+        if ($list === null || $list === []) {
+            return false;
+        }
+
+        $key  = array_key_first($list);
+        $code = mb_strtolower($key);
+
+        return !str_contains($code, 'brand') && $code !== 'chromium';
     }
 
     /** @throws void */
-    public function hasBrowserInfo(): bool
+    #[Override]
+    public function getClientCode(): string | null
     {
-        return true;
+        $list = $this->sort();
+
+        if ($list === null || $list === []) {
+            return null;
+        }
+
+        $key  = array_key_first($list);
+        $code = mb_strtolower($key);
+
+        if (str_contains($code, 'brand')) {
+            return null;
+        }
+
+        return match ($code) {
+            'operamobile' => 'opera mobile',
+            'huaweibrowser' => 'huawei-browser',
+            'yandex' => 'yabrowser',
+            'microsoft edge' => 'edge mobile',
+            'google chrome' => 'chrome',
+            'avastsecurebrowser' => 'avast secure browser',
+            'wavebrowser' => 'wave-browser',
+            'duckduckgo' => 'duckduck app',
+            'samsung internet' => 'samsungbrowser',
+            'norton secure browser', 'norton private browser' => 'norton-secure-browser',
+            'microsoft edge webview2' => 'edge webview',
+            'headlesschrome' => 'headless-chrome',
+            default => $code,
+        };
     }
 
     /** @throws void */
-    public function hasPlatformInfo(): bool
+    #[Override]
+    public function hasClientVersion(): bool
     {
-        return false;
+        $list = $this->sort();
+
+        if ($list === null || $list === []) {
+            return false;
+        }
+
+        $key  = array_key_first($list);
+        $code = mb_strtolower($key);
+
+        return !str_contains($code, 'brand') && $code !== 'chromium';
     }
 
     /** @throws void */
-    public function hasEngineInfo(): bool
+    #[Override]
+    public function getClientVersion(string | null $code = null): string | null
     {
-        return false;
+        $list = $this->sort();
+
+        if ($list === null || $list === []) {
+            return null;
+        }
+
+        reset($list);
+        $version = current($list);
+        $key     = key($list);
+
+        $code = mb_strtolower($key);
+
+        if (str_contains($code, 'brand')) {
+            return null;
+        }
+
+        return $version;
     }
 }
