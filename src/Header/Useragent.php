@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,45 +13,320 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use Override;
+use UaLoader\BrowserLoaderInterface;
+use UaLoader\EngineLoaderInterface;
+use UaLoader\Exception\NotFoundException;
+use UaLoader\PlatformLoaderInterface;
+use UaNormalizer\Normalizer\Exception\Exception;
+use UaNormalizer\NormalizerFactory;
+use UaParser\BrowserParserInterface;
+use UaParser\DeviceParserInterface;
+use UaParser\EngineParserInterface;
+use UaParser\PlatformParserInterface;
+use UnexpectedValueException;
+
+use function mb_strtolower;
+use function preg_match;
+use function str_replace;
+
 final class Useragent implements HeaderInterface
 {
-    /** @throws void */
-    public function __construct(private readonly string $value)
-    {
-        // nothing to do
+    use HeaderTrait;
+
+    private readonly string $normalizedValue;
+
+    /** @throws Exception */
+    public function __construct(
+        string $value,
+        private readonly DeviceParserInterface $deviceParser,
+        private readonly PlatformParserInterface $platformParser,
+        private readonly BrowserParserInterface $browserParser,
+        private readonly EngineParserInterface $engineParser,
+        private readonly NormalizerFactory $normalizerFactory,
+        private readonly BrowserLoaderInterface $browserLoader,
+        private readonly PlatformLoaderInterface $platformLoader,
+        private readonly EngineLoaderInterface $engineLoader,
+    ) {
+        $this->value = $value;
+
+        $normalizer = $this->normalizerFactory->build();
+
+        $this->normalizedValue = $normalizer->normalize($value);
     }
 
     /**
-     * Retrieve header value
+     * Retrieve normalized header value
      *
      * @throws void
      */
-    public function getValue(): string
+    #[Override]
+    public function getNormalizedValue(): string
     {
-        return $this->value;
+        return $this->normalizedValue;
     }
 
     /** @throws void */
-    public function hasDeviceInfo(): bool
+    #[Override]
+    public function hasDeviceCode(): bool
     {
         return true;
     }
 
     /** @throws void */
-    public function hasBrowserInfo(): bool
+    #[Override]
+    public function getDeviceCode(): string | null
+    {
+        $matches = [];
+
+        if (preg_match('/dv\((?P<device>[^)]+)\);/', $this->normalizedValue, $matches)) {
+            $code = $this->deviceParser->parse($matches['device']);
+
+            if ($code !== '') {
+                return $code;
+            }
+        }
+
+        $code = $this->deviceParser->parse($this->normalizedValue);
+
+        if ($code === '') {
+            return null;
+        }
+
+        return $code;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasClientCode(): bool
     {
         return true;
     }
 
     /** @throws void */
-    public function hasPlatformInfo(): bool
+    #[Override]
+    public function getClientCode(): string | null
+    {
+        $matches = [];
+
+        if (preg_match('/pr\((?P<client>[^\/)]+)(?:\/[\d.]+)?\);/', $this->normalizedValue, $matches)) {
+            $code = mb_strtolower($matches['client']);
+
+            if ($code === 'ucbrowser') {
+                return $code;
+            }
+        }
+
+        try {
+            $code = $this->browserParser->parse($this->normalizedValue);
+
+            if ($code === '') {
+                return null;
+            }
+
+            return $code;
+        } catch (UnexpectedValueException) {
+            // do nothing
+        }
+
+        return null;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasClientVersion(): bool
     {
         return true;
     }
 
     /** @throws void */
-    public function hasEngineInfo(): bool
+    #[Override]
+    public function getClientVersion(string | null $code = null): string | null
+    {
+        $matches = [];
+
+        if (preg_match('/pr\([^\/]+\/(?P<version>[\d.]+)\);/', $this->normalizedValue, $matches)) {
+            return $matches['version'];
+        }
+
+        if ($code === null) {
+            try {
+                $code = $this->browserParser->parse($this->normalizedValue);
+
+                if ($code === '') {
+                    return null;
+                }
+            } catch (UnexpectedValueException) {
+                return null;
+            }
+        }
+
+        try {
+            [$browser] = $this->browserLoader->load($code, $this->normalizedValue);
+        } catch (NotFoundException) {
+            return null;
+        }
+
+        return $browser['version'] ?? null;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasPlatformCode(): bool
     {
         return true;
+    }
+
+    /**
+     * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+     */
+    #[Override]
+    public function getPlatformCode(string | null $derivate = null): string | null
+    {
+        $matches = [];
+
+        if (
+            preg_match(
+                '/ov\((?P<platform>wds|android) (?:[\d_.]+)\);/i',
+                $this->normalizedValue,
+                $matches,
+            )
+        ) {
+            $code = mb_strtolower($matches['platform']);
+
+            return match ($code) {
+                'wds' => 'windows phone',
+                default => 'android',
+            };
+        }
+
+        if (preg_match('/pf\((?P<platform>[^)]+)\);/', $this->normalizedValue, $matches)) {
+            $code = mb_strtolower($matches['platform']);
+
+            return match ($code) {
+                'symbian', 'java' => $code,
+                'windows' => 'windows phone',
+                '42', '44' => 'ios',
+                'linux' => 'android',
+                default => null,
+            };
+        }
+
+        $code = $this->platformParser->parse($this->normalizedValue);
+
+        if ($code === '') {
+            return null;
+        }
+
+        return $code;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasPlatformVersion(): bool
+    {
+        return true;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getPlatformVersion(string | null $code = null): string | null
+    {
+        $matches = [];
+
+        if (
+            preg_match(
+                '/ov\((?:(wds|android) )?(?P<version>[\d_.]+)\);/i',
+                $this->normalizedValue,
+                $matches,
+            )
+        ) {
+            return str_replace('_', '.', $matches['version']);
+        }
+
+        if ($code === null) {
+            $code = $this->platformParser->parse($this->normalizedValue);
+
+            if ($code === '') {
+                return null;
+            }
+        }
+
+        try {
+            $platform = $this->platformLoader->load($code, $this->normalizedValue);
+        } catch (NotFoundException) {
+            return null;
+        }
+
+        return $platform['version'] ?? null;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasEngineCode(): bool
+    {
+        return true;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getEngineCode(): string | null
+    {
+        $matches = [];
+
+        if (
+            preg_match('/(?<!o)re\((?P<engine>[^\/)]+)(?:\/[\d.]+)?/', $this->normalizedValue, $matches)
+        ) {
+            $code = mb_strtolower($matches['engine']);
+
+            return match ($code) {
+                'applewebkit' => 'webkit',
+                default => $code,
+            };
+        }
+
+        $code = $this->engineParser->parse($this->normalizedValue);
+
+        if ($code === '') {
+            return null;
+        }
+
+        return $code;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasEngineVersion(): bool
+    {
+        return true;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getEngineVersion(string | null $code = null): string | null
+    {
+        $matches = [];
+
+        if (preg_match('/(?<!o)re\([^\/]+\/(?P<version>[\d.]+)/', $this->normalizedValue, $matches)) {
+            return $matches['version'];
+        }
+
+        if ($code === null) {
+            $code = $this->engineParser->parse($this->normalizedValue);
+
+            if ($code === '') {
+                return null;
+            }
+        }
+
+        try {
+            $engine = $this->engineLoader->load($code, $this->normalizedValue);
+        } catch (UnexpectedValueException) {
+            return null;
+        }
+
+        return $engine['version'] ?? null;
     }
 }

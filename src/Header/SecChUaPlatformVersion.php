@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,45 +13,49 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use Override;
+
+use function mb_strtolower;
+use function trim;
+
 final class SecChUaPlatformVersion implements HeaderInterface
 {
-    /** @throws void */
-    public function __construct(private readonly string $value)
-    {
-        // nothing to do
-    }
+    use HeaderTrait;
 
-    /**
-     * Retrieve header value
-     *
-     * @throws void
-     */
-    public function getValue(): string
+    /** @throws void */
+    #[Override]
+    public function hasPlatformVersion(): bool
     {
-        return $this->value;
+        $value = trim($this->value, '"\\\'');
+
+        return $value !== '';
     }
 
     /** @throws void */
-    public function hasDeviceInfo(): bool
+    #[Override]
+    public function getPlatformVersion(string | null $code = null): string | null
     {
-        return false;
-    }
+        $value = trim($this->value, '"\\\'');
 
-    /** @throws void */
-    public function hasBrowserInfo(): bool
-    {
-        return false;
-    }
+        if ($value === '') {
+            return null;
+        }
 
-    /** @throws void */
-    public function hasPlatformInfo(): bool
-    {
-        return true;
-    }
+        if (mb_strtolower($code ?? '') === 'windows') {
+            $windowsVersion = (float) $value;
 
-    /** @throws void */
-    public function hasEngineInfo(): bool
-    {
-        return false;
+            if ($windowsVersion < 1) {
+                $windowsVersion     *= 10;
+                $minorVersionMapping = [1 => '7', 2 => '8', 3 => '8.1'];
+
+                $value = $minorVersionMapping[$windowsVersion] ?? $value;
+            } elseif ($windowsVersion > 0 && $windowsVersion < 11) {
+                $value = '10';
+            } elseif ($windowsVersion > 10) {
+                $value = '11';
+            }
+        }
+
+        return $value;
     }
 }

@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -21,15 +22,70 @@ interface HeaderInterface
      */
     public function getValue(): string;
 
-    /** @throws void */
-    public function hasDeviceInfo(): bool;
+    /**
+     * Retrieve normalized header value
+     *
+     * @throws void
+     */
+    public function getNormalizedValue(): string;
 
     /** @throws void */
-    public function hasBrowserInfo(): bool;
+    public function hasDeviceArchitecture(): bool;
 
     /** @throws void */
-    public function hasPlatformInfo(): bool;
+    public function getDeviceArchitecture(): string | null;
 
     /** @throws void */
-    public function hasEngineInfo(): bool;
+    public function hasDeviceBitness(): bool;
+
+    /** @throws void */
+    public function getDeviceBitness(): int | null;
+
+    /** @throws void */
+    public function hasDeviceIsMobile(): bool;
+
+    /** @throws void */
+    public function getDeviceIsMobile(): bool | null;
+
+    /** @throws void */
+    public function hasDeviceCode(): bool;
+
+    /** @throws void */
+    public function getDeviceCode(): string | null;
+
+    /** @throws void */
+    public function hasClientCode(): bool;
+
+    /** @throws void */
+    public function getClientCode(): string | null;
+
+    /** @throws void */
+    public function hasClientVersion(): bool;
+
+    /** @throws void */
+    public function getClientVersion(string | null $code = null): string | null;
+
+    /** @throws void */
+    public function hasPlatformCode(): bool;
+
+    /** @throws void */
+    public function getPlatformCode(string | null $derivate = null): string | null;
+
+    /** @throws void */
+    public function hasPlatformVersion(): bool;
+
+    /** @throws void */
+    public function getPlatformVersion(string | null $code = null): string | null;
+
+    /** @throws void */
+    public function hasEngineCode(): bool;
+
+    /** @throws void */
+    public function getEngineCode(): string | null;
+
+    /** @throws void */
+    public function hasEngineVersion(): bool;
+
+    /** @throws void */
+    public function getEngineVersion(string | null $code = null): string | null;
 }

@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,51 +18,132 @@ use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\XOperaminiPhone;
 
+use function sprintf;
+
 final class XOperaminiPhoneTest extends TestCase
 {
     /** @throws ExpectationFailedException */
     #[DataProvider('providerUa')]
-    public function testData(string $ua, bool $hasDeviceInfo): void
+    public function testData(string $ua, bool $hasDeviceInfo, string | null $deviceCode): void
     {
         $header = new XOperaminiPhone($ua);
 
-        self::assertSame($ua, $header->getValue(), 'header mismatch');
-        self::assertSame($hasDeviceInfo, $header->hasDeviceInfo(), 'device info mismatch');
-        self::assertFalse($header->hasBrowserInfo(), 'browser info mismatch');
-        self::assertFalse($header->hasPlatformInfo(), 'platform info mismatch');
-        self::assertFalse($header->hasEngineInfo(), 'engine info mismatch');
+        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame(
+            $ua,
+            $header->getNormalizedValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasDeviceArchitecture(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getDeviceArchitecture(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasDeviceBitness(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getDeviceBitness(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasDeviceIsMobile(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getDeviceIsMobile(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertSame(
+            $hasDeviceInfo,
+            $header->hasDeviceCode(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertSame(
+            $deviceCode,
+            $header->getDeviceCode(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse($header->hasClientCode(), sprintf('browser info mismatch for ua "%s"', $ua));
+        self::assertNull(
+            $header->getClientCode(),
+            sprintf('browser info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasClientVersion(),
+            sprintf('browser info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getClientVersion(),
+            sprintf('browser info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasPlatformCode(),
+            sprintf('platform info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getPlatformCode(),
+            sprintf('platform info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasPlatformVersion(),
+            sprintf('platform info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getPlatformVersion(),
+            sprintf('platform info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse($header->hasEngineCode(), sprintf('engine info mismatch for ua "%s"', $ua));
+        self::assertNull(
+            $header->getEngineCode(),
+            sprintf('engine info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasEngineVersion(),
+            sprintf('engine info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getEngineVersion(),
+            sprintf('engine info mismatch for ua "%s"', $ua),
+        );
     }
 
     /**
-     * @return array<int, array<int, bool|string>>
+     * @return array<int, array<int, bool|string|null>>
      *
      * @throws void
      */
     public static function providerUa(): array
     {
         return [
-            ['RIM # BlackBerry 8520', true],
-            ['Samsung # GT-S8500', true],
-            ['Samsung # GT-i8000', true],
-            ['RIM # BlackBerry 8900', true],
-            ['HTC # Touch Pro/T7272/TyTn III', true],
-            ['Android #', false],
-            ['? # ?', false],
-            ['BlackBerry # 9700', true],
-            ['Blackberry # 9300', true],
-            ['Samsung # SCH-U380', true],
-            ['Pantech # TXT8045', true],
-            ['ZTE # F-450', true],
-            ['LG # VN271', true],
-            ['Casio # C781', true],
-            ['Samsung # SCH-U485', true],
-            ['Pantech # CDM8992', true],
-            ['LG # VN530', true],
-            ['Samsung # SCH-U680', true],
-            ['Pantech # CDM8999', true],
-            ['Apple # iPhone', true],
-            ['Motorola # A1000', true],
-            ['HTC # HD2', true],
+            ['RIM # BlackBerry 8520', true, 'rim=blackberry 8520'],
+            ['Samsung # GT-S8500', true, 'samsung=samsung gt-s8500'],
+            ['Samsung # GT-i8000', true, 'samsung=samsung gt-i8000'],
+            ['RIM # BlackBerry 8900', true, 'rim=blackberry 8900'],
+            ['HTC # Touch Pro/T7272/TyTn III', true, 'htc=htc t7272'],
+            ['Android #', false, null],
+            ['? # ?', false, null],
+            ['BlackBerry # 9700', true, 'rim=blackberry 9700'],
+            ['Blackberry # 9300', true, 'rim=blackberry 9300'],
+            ['Samsung # SCH-U380', true, 'samsung=samsung sch-u380'],
+            ['Pantech # TXT8045', true, 'pantech=pantech txt8045'],
+            ['ZTE # F-450', true, 'zte=zte f-450'],
+            ['LG # VN271', true, 'lg=lg vn271'],
+            ['Casio # C781', true, 'casio=casio c781'],
+            ['Samsung # SCH-U485', true, 'samsung=samsung sch-u485'],
+            ['Pantech # CDM8992', true, 'pantech=pantech cdm8992'],
+            ['LG # VN530', true, 'lg=lg vn530'],
+            ['Samsung # SCH-U680', true, 'samsung=samsung sch-u680'],
+            ['Pantech # CDM8999', true, 'pantech=pantech cdm8999'],
+            ['Apple # iPhone', true, 'apple=apple iphone'],
+            ['Motorola # A1000', true, 'motorola=motorola a1000'],
+            ['HTC # HD2', true, 'htc=htc t8585'],
+            [' HTC # HD2', false, null],
+            ['HTC # HD2 ', true, null],
         ];
     }
 }

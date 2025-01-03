@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,45 +13,55 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use Override;
+
+use function in_array;
+use function mb_strtolower;
+use function trim;
+
 final class SecChUaPlatform implements HeaderInterface
 {
-    /** @throws void */
-    public function __construct(private readonly string $value)
-    {
-        // nothing to do
-    }
+    use HeaderTrait;
 
-    /**
-     * Retrieve header value
-     *
-     * @throws void
-     */
-    public function getValue(): string
+    /** @throws void */
+    #[Override]
+    public function hasPlatformCode(): bool
     {
-        return $this->value;
+        $value = trim($this->value, '"\\\'');
+        $code  = mb_strtolower($value);
+
+        return !in_array($code, ['', 'unknown'], true);
     }
 
     /** @throws void */
-    public function hasDeviceInfo(): bool
+    #[Override]
+    public function getPlatformCode(string | null $derivate = null): string | null
     {
-        return false;
+        $value = trim($this->value, '"\\\'');
+        $code  = mb_strtolower($value);
+
+        if ($derivate !== null) {
+            $derivate     = mb_strtolower($derivate);
+            $derivateCode = $this->getCode($derivate);
+
+            if ($derivateCode !== null) {
+                return $derivateCode;
+            }
+        }
+
+        return $this->getCode($code);
     }
 
     /** @throws void */
-    public function hasBrowserInfo(): bool
+    private function getCode(string $code): string | null
     {
-        return false;
-    }
-
-    /** @throws void */
-    public function hasPlatformInfo(): bool
-    {
-        return true;
-    }
-
-    /** @throws void */
-    public function hasEngineInfo(): bool
-    {
-        return false;
+        return match ($code) {
+            'android', 'linux', 'chromeos', 'lindows' => $code,
+            'macos', 'mac os x' => 'mac os x',
+            'chrome os', 'chromium os' => 'chromeos',
+            'windows', 'win32' => 'windows',
+            'harmonyos' => 'harmony-os',
+            default => null,
+        };
     }
 }

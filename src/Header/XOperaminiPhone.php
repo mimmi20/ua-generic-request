@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,48 +13,65 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use function in_array;
+use Override;
+
 use function mb_strtolower;
+use function preg_match;
 
 final class XOperaminiPhone implements HeaderInterface
 {
-    /** @throws void */
-    public function __construct(private readonly string $value)
-    {
-        // nothing to do
-    }
+    use HeaderTrait;
 
-    /**
-     * Retrieve header value
-     *
-     * @throws void
-     */
-    public function getValue(): string
+    /** @throws void */
+    #[Override]
+    public function hasDeviceCode(): bool
     {
-        return $this->value;
+        return preg_match(
+            '/^(?:rim|htc|samsung|apple|casio|motorola|pantech|lg|zte|blackberry) # .*/i',
+            $this->value,
+        ) === 1;
     }
 
     /** @throws void */
-    public function hasDeviceInfo(): bool
+    #[Override]
+    public function getDeviceCode(): string | null
     {
-        return !in_array(mb_strtolower($this->value), ['? # ?', 'android #'], true);
-    }
+        $matches = [];
 
-    /** @throws void */
-    public function hasBrowserInfo(): bool
-    {
-        return false;
-    }
+        if (
+            preg_match(
+                '/^(?P<company>rim|htc|samsung|apple|casio|motorola|pantech|lg|zte|blackberry) # (?P<device>.*)/i',
+                $this->value,
+                $matches,
+            )
+        ) {
+            $code = mb_strtolower($matches['company'] . ' ' . $matches['device']);
 
-    /** @throws void */
-    public function hasPlatformInfo(): bool
-    {
-        return false;
-    }
+            return match ($code) {
+                'rim blackberry 8520' => 'rim=blackberry 8520',
+                'rim blackberry 8900' => 'rim=blackberry 8900',
+                'blackberry 9700' => 'rim=blackberry 9700',
+                'blackberry 9300' => 'rim=blackberry 9300',
+                'samsung gt-s8500' => 'samsung=samsung gt-s8500',
+                'samsung gt-i8000' => 'samsung=samsung gt-i8000',
+                'samsung sch-u380' => 'samsung=samsung sch-u380',
+                'samsung sch-u485' => 'samsung=samsung sch-u485',
+                'samsung sch-u680' => 'samsung=samsung sch-u680',
+                'htc touch pro/t7272/tytn iii' => 'htc=htc t7272',
+                'htc hd2' => 'htc=htc t8585',
+                'pantech txt8045' => 'pantech=pantech txt8045',
+                'pantech cdm8999' => 'pantech=pantech cdm8999',
+                'pantech cdm8992' => 'pantech=pantech cdm8992',
+                'zte f-450' => 'zte=zte f-450',
+                'lg vn271' => 'lg=lg vn271',
+                'lg vn530' => 'lg=lg vn530',
+                'motorola a1000' => 'motorola=motorola a1000',
+                'casio c781' => 'casio=casio c781',
+                'apple iphone' => 'apple=apple iphone',
+                default => null,
+            };
+        }
 
-    /** @throws void */
-    public function hasEngineInfo(): bool
-    {
-        return false;
+        return null;
     }
 }

@@ -1,8 +1,9 @@
 <?php
+
 /**
- * This file is part of the ua-generic-request package.
+ * This file is part of the mimmi20/ua-generic-request package.
  *
- * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,47 +13,76 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use Override;
+
+use function mb_strtolower;
 use function preg_match;
 
 final class XPuffinUa implements HeaderInterface
 {
+    use HeaderTrait;
+
     /** @throws void */
-    public function __construct(private readonly string $value)
+    #[Override]
+    public function hasDeviceCode(): bool
     {
-        // nothing to do
+        return (bool) preg_match('/android|iphone os/i', $this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getDeviceCode(): string | null
+    {
+        $matches = [];
+
+        if (preg_match('/(?:android|iphone os)\/(?P<device>[^\/]+)/i', $this->value, $matches)) {
+            $code = mb_strtolower($matches['device']);
+
+            return match ($code) {
+                'ipad4,1' => 'apple=apple ipad 4,1',
+                'iphone7,1' => 'apple=apple iphone 7,1',
+                'iphone6,1' => 'apple=apple iphone 6,1',
+                'iphone 3gs' => 'apple=apple iphone 2,1',
+                'd6503' => 'sony=sony d6503',
+                'sm-g900f' => 'samsung=samsung sm-g900f',
+                'samsung-sm-n910a' => 'samsung=samsung sm-n910a',
+                'sm-t310' => 'samsung=samsung sm-t310',
+                'nexus 10' => 'google=google nexus 10',
+                'bq edison' => 'bq=bq edison',
+                'lenovoa3300-hv' => 'lenovo=lenovo a3300-hv',
+                default => null,
+            };
+        }
+
+        return null;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasPlatformCode(): bool
+    {
+        return (bool) preg_match('/android|iphone os/i', $this->value);
     }
 
     /**
-     * Retrieve header value
-     *
      * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
-    public function getValue(): string
+    #[Override]
+    public function getPlatformCode(string | null $derivate = null): string | null
     {
-        return $this->value;
-    }
+        $matches = [];
 
-    /** @throws void */
-    public function hasDeviceInfo(): bool
-    {
-        return true;
-    }
+        if (preg_match('/(?P<platform>android|iphone os)/i', $this->value, $matches)) {
+            $code = mb_strtolower($matches['platform']);
 
-    /** @throws void */
-    public function hasBrowserInfo(): bool
-    {
-        return false;
-    }
+            return match ($code) {
+                'iphone os' => 'ios',
+                default => $code,
+            };
+        }
 
-    /** @throws void */
-    public function hasPlatformInfo(): bool
-    {
-        return (bool) preg_match('/(?P<platform>Android|iPhone OS)/', $this->value);
-    }
-
-    /** @throws void */
-    public function hasEngineInfo(): bool
-    {
-        return false;
+        return null;
     }
 }
