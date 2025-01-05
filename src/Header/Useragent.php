@@ -162,12 +162,16 @@ final class Useragent implements HeaderInterface
         }
 
         try {
-            [$browser] = $this->browserLoader->load($code, $this->normalizedValue);
+            ['client' => $browser] = $this->browserLoader->load($code, $this->normalizedValue);
         } catch (NotFoundException) {
             return null;
         }
 
-        return $browser['version'] ?? null;
+        try {
+            return $browser->getVersion()->getVersion();
+        } catch (UnexpectedValueException) {
+            return null;
+        }
     }
 
     /** @throws void */
@@ -260,7 +264,11 @@ final class Useragent implements HeaderInterface
             return null;
         }
 
-        return $platform['version'] ?? null;
+        try {
+            return $platform->getVersion()->getVersion();
+        } catch (UnexpectedValueException) {
+            return null;
+        }
     }
 
     /** @throws void */
@@ -327,6 +335,10 @@ final class Useragent implements HeaderInterface
             return null;
         }
 
-        return $engine['version'] ?? null;
+        try {
+            return $engine->getVersion()->getVersion();
+        } catch (UnexpectedValueException) {
+            return null;
+        }
     }
 }

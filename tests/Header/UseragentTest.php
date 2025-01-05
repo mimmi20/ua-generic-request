@@ -13,6 +13,9 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
+use BrowserDetector\Version\Exception\NotNumericException;
+use BrowserDetector\Version\NullVersion;
+use BrowserDetector\Version\VersionBuilder;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
@@ -27,6 +30,10 @@ use UaParser\DeviceParserInterface;
 use UaParser\EngineParserInterface;
 use UaParser\PlatformParserInterface;
 use UaRequest\Header\Useragent;
+use UaResult\Browser\Browser;
+use UaResult\Company\Company;
+use UaResult\Engine\Engine;
+use UaResult\Os\Os;
 use UnexpectedValueException;
 
 use function sprintf;
@@ -36,6 +43,7 @@ final class UseragentTest extends TestCase
     /**
      * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NotNumericException
      */
     #[DataProvider('providerUa')]
     public function testData(
@@ -101,7 +109,13 @@ final class UseragentTest extends TestCase
             ->expects(self::any())
             ->method('load')
             ->with($engineCode)
-            ->willReturn(['version' => $engineVersion]);
+            ->willReturn(
+                new Engine(
+                    name: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set((string) $engineVersion),
+                ),
+            );
 
         $normalizerFactory = new NormalizerFactory();
 
@@ -245,7 +259,7 @@ final class UseragentTest extends TestCase
                 'engineUa' => 'Mozilla/5.0 (Linux; Android 7.0; B1-7A0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Mobile Safari/537.36',
                 'engineCode' => 'webkit',
                 'hasEngineVersion' => true,
-                'engineVersion' => '534.20',
+                'engineVersion' => '534.20.0',
             ],
             [
                 'ua' => 'dv(iPh14,4);pr(UCBrowse/11a);ov(17a);ss(375x812);bt(GJ);pm(0);bv(0);nm(0);im(0);nt(2);',
@@ -679,21 +693,43 @@ final class UseragentTest extends TestCase
             ->expects(self::once())
             ->method('load')
             ->with($clientKey, $ua)
-            ->willReturn([[]]);
+            ->willReturn(
+                [
+                    'client' => new Browser(
+                        name: null,
+                        version: new NullVersion(),
+                        manufacturer: new Company(type: '', name: null, brandname: null),
+                        type: new \UaBrowserType\Browser(),
+                    ),
+                ],
+            );
 
         $platformLoader = $this->createMock(PlatformLoaderInterface::class);
         $platformLoader
             ->expects(self::once())
             ->method('load')
             ->with($platformKey, $ua)
-            ->willReturn([]);
+            ->willReturn(
+                new Os(
+                    name: null,
+                    marketingName: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: new NullVersion(),
+                ),
+            );
 
         $engineLoader = $this->createMock(EngineLoaderInterface::class);
         $engineLoader
             ->expects(self::once())
             ->method('load')
             ->with($engineKey, $ua)
-            ->willReturn([]);
+            ->willReturn(
+                new Engine(
+                    name: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: new NullVersion(),
+                ),
+            );
 
         $normalizerFactory = new NormalizerFactory();
 
@@ -795,6 +831,7 @@ final class UseragentTest extends TestCase
     /**
      * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NotNumericException
      */
     public function testDataWithVersions(): void
     {
@@ -804,9 +841,9 @@ final class UseragentTest extends TestCase
         $clientKey   = 'test-client-key';
         $engineKey   = 'test-engine-key';
 
-        $browserVersion  = '1.2';
-        $platformVersion = '2.4';
-        $engineVersion   = '4.8';
+        $browserVersion  = '1.2.0';
+        $platformVersion = '2.4.0';
+        $engineVersion   = '4.8.0';
 
         $deviceParser = $this->createMock(DeviceParserInterface::class);
         $deviceParser
@@ -841,21 +878,43 @@ final class UseragentTest extends TestCase
             ->expects(self::once())
             ->method('load')
             ->with($clientKey, $ua)
-            ->willReturn([['version' => $browserVersion]]);
+            ->willReturn(
+                [
+                    'client' => new Browser(
+                        name: null,
+                        version: (new VersionBuilder())->set($browserVersion),
+                        manufacturer: new Company(type: '', name: null, brandname: null),
+                        type: new \UaBrowserType\Browser(),
+                    ),
+                ],
+            );
 
         $platformLoader = $this->createMock(PlatformLoaderInterface::class);
         $platformLoader
             ->expects(self::once())
             ->method('load')
             ->with($platformKey, $ua)
-            ->willReturn(['version' => $platformVersion]);
+            ->willReturn(
+                new Os(
+                    name: null,
+                    marketingName: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($platformVersion),
+                ),
+            );
 
         $engineLoader = $this->createMock(EngineLoaderInterface::class);
         $engineLoader
             ->expects(self::once())
             ->method('load')
             ->with($engineKey, $ua)
-            ->willReturn(['version' => $engineVersion]);
+            ->willReturn(
+                new Engine(
+                    name: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($engineVersion),
+                ),
+            );
 
         $normalizerFactory = new NormalizerFactory();
 
@@ -960,6 +1019,7 @@ final class UseragentTest extends TestCase
     /**
      * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NotNumericException
      */
     public function testDataWithClientParserException(): void
     {
@@ -968,8 +1028,8 @@ final class UseragentTest extends TestCase
         $platformKey = 'test-platform-key';
         $engineKey   = 'test-engine-key';
 
-        $platformVersion = '2.4';
-        $engineVersion   = '4.8';
+        $platformVersion = '2.4.0';
+        $engineVersion   = '4.8.0';
 
         $clientException = new NotFoundException('client-exception');
 
@@ -1011,14 +1071,27 @@ final class UseragentTest extends TestCase
             ->expects(self::once())
             ->method('load')
             ->with($platformKey, $ua)
-            ->willReturn(['version' => $platformVersion]);
+            ->willReturn(
+                new Os(
+                    name: null,
+                    marketingName: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($platformVersion),
+                ),
+            );
 
         $engineLoader = $this->createMock(EngineLoaderInterface::class);
         $engineLoader
             ->expects(self::once())
             ->method('load')
             ->with($engineKey, $ua)
-            ->willReturn(['version' => $engineVersion]);
+            ->willReturn(
+                new Engine(
+                    name: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($engineVersion),
+                ),
+            );
 
         $normalizerFactory = new NormalizerFactory();
 
@@ -1121,6 +1194,7 @@ final class UseragentTest extends TestCase
     /**
      * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NotNumericException
      */
     public function testDataWithClientParserException2(): void
     {
@@ -1129,8 +1203,8 @@ final class UseragentTest extends TestCase
         $platformKey = 'test-platform-key';
         $engineKey   = 'test-engine-key';
 
-        $platformVersion = '2.4';
-        $engineVersion   = '4.8';
+        $platformVersion = '2.4.0';
+        $engineVersion   = '4.8.0';
 
         $clientException = new UnexpectedValueException('client-exception');
 
@@ -1172,14 +1246,27 @@ final class UseragentTest extends TestCase
             ->expects(self::once())
             ->method('load')
             ->with($platformKey, $ua)
-            ->willReturn(['version' => $platformVersion]);
+            ->willReturn(
+                new Os(
+                    name: null,
+                    marketingName: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($platformVersion),
+                ),
+            );
 
         $engineLoader = $this->createMock(EngineLoaderInterface::class);
         $engineLoader
             ->expects(self::once())
             ->method('load')
             ->with($engineKey, $ua)
-            ->willReturn(['version' => $engineVersion]);
+            ->willReturn(
+                new Engine(
+                    name: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($engineVersion),
+                ),
+            );
 
         $normalizerFactory = new NormalizerFactory();
 
@@ -1282,6 +1369,7 @@ final class UseragentTest extends TestCase
     /**
      * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NotNumericException
      */
     public function testDataWithClientParserException3(): void
     {
@@ -1290,8 +1378,8 @@ final class UseragentTest extends TestCase
         $platformKey = 'test-platform-key';
         $engineKey   = 'test-engine-key';
 
-        $platformVersion = '2.4';
-        $engineVersion   = '4.8';
+        $platformVersion = '2.4.0';
+        $engineVersion   = '4.8.0';
 
         $clientException = new NotFoundException('client-exception');
 
@@ -1333,14 +1421,27 @@ final class UseragentTest extends TestCase
             ->expects(self::once())
             ->method('load')
             ->with($platformKey, $ua)
-            ->willReturn(['version' => $platformVersion]);
+            ->willReturn(
+                new Os(
+                    name: null,
+                    marketingName: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($platformVersion),
+                ),
+            );
 
         $engineLoader = $this->createMock(EngineLoaderInterface::class);
         $engineLoader
             ->expects(self::once())
             ->method('load')
             ->with($engineKey, $ua)
-            ->willReturn(['version' => $engineVersion]);
+            ->willReturn(
+                new Engine(
+                    name: null,
+                    manufacturer: new Company(type: '', name: null, brandname: null),
+                    version: (new VersionBuilder())->set($engineVersion),
+                ),
+            );
 
         $normalizerFactory = new NormalizerFactory();
 
