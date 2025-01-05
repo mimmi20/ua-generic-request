@@ -162,7 +162,7 @@ final class Useragent implements HeaderInterface
         }
 
         try {
-            $browser = $this->browserLoader->load($code, $this->normalizedValue);
+            ['client' => $browser] = $this->browserLoader->load($code, $this->normalizedValue);
         } catch (NotFoundException) {
             return null;
         }

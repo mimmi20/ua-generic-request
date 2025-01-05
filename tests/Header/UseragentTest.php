@@ -694,12 +694,14 @@ final class UseragentTest extends TestCase
             ->method('load')
             ->with($clientKey, $ua)
             ->willReturn(
-                new Browser(
-                    name: null,
-                    version: new NullVersion(),
-                    manufacturer: new Company(type: '', name: null, brandname: null),
-                    type: new \UaBrowserType\Browser(),
-                ),
+                [
+                    'client' => new Browser(
+                        name: null,
+                        version: new NullVersion(),
+                        manufacturer: new Company(type: '', name: null, brandname: null),
+                        type: new \UaBrowserType\Browser(),
+                    ),
+                ],
             );
 
         $platformLoader = $this->createMock(PlatformLoaderInterface::class);
@@ -877,12 +879,14 @@ final class UseragentTest extends TestCase
             ->method('load')
             ->with($clientKey, $ua)
             ->willReturn(
-                new Browser(
-                    name: null,
-                    version: (new VersionBuilder())->set($browserVersion),
-                    manufacturer: new Company(type: '', name: null, brandname: null),
-                    type: new \UaBrowserType\Browser(),
-                ),
+                [
+                    'client' => new Browser(
+                        name: null,
+                        version: (new VersionBuilder())->set($browserVersion),
+                        manufacturer: new Company(type: '', name: null, brandname: null),
+                        type: new \UaBrowserType\Browser(),
+                    ),
+                ],
             );
 
         $platformLoader = $this->createMock(PlatformLoaderInterface::class);
