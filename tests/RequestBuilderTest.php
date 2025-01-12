@@ -186,6 +186,8 @@ final class RequestBuilderTest extends TestCase
         $result = $object->buildRequest(
             [
                 'user-agent' => $useragent,
+                1 => $useragent . "\r" . $useragent,
+                'x-test' => $useragent . "\r\n" . $useragent,
                 'http-x-requested-with' => $requestedWith,
             ],
         );
@@ -223,6 +225,8 @@ final class RequestBuilderTest extends TestCase
         $result = $object->buildRequest(
             [
                 'user-agent' => $useragent,
+                1 => $useragent . "\r" . $useragent,
+                '' => $useragent . "\r\n" . $useragent,
                 'http_x-requested-with' => $requestedWith,
             ],
         );

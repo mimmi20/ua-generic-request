@@ -81,7 +81,7 @@ final readonly class RequestBuilder implements RequestBuilderInterface
         $filteredHeaders = array_filter(
             $inputHeaders,
             static function (string $value, string | int $key): bool {
-                if (!is_string($key)) {
+                if (!is_string($key) || $key === '') {
                     return false;
                 }
 
