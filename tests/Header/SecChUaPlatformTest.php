@@ -16,7 +16,7 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use UaRequest\Header\SecChUaPlatform;
+use UaRequest\Header\PlatformCodeHeader;
 
 use function sprintf;
 
@@ -26,7 +26,7 @@ final class SecChUaPlatformTest extends TestCase
     #[DataProvider('providerUa')]
     public function testData(string $ua, bool $hasPlatform, string | null $platform): void
     {
-        $header = new SecChUaPlatform($ua);
+        $header = new PlatformCodeHeader($ua);
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(
@@ -138,7 +138,7 @@ final class SecChUaPlatformTest extends TestCase
     /** @throws ExpectationFailedException */
     public function testHeaderWithDerivate(): void
     {
-        $header = new SecChUaPlatform('"Android"');
+        $header = new PlatformCodeHeader('"Android"');
 
         self::assertSame(
             'harmony-os',
@@ -149,7 +149,7 @@ final class SecChUaPlatformTest extends TestCase
     /** @throws ExpectationFailedException */
     public function testHeaderWithDerivate2(): void
     {
-        $header = new SecChUaPlatform('"Android"');
+        $header = new PlatformCodeHeader('"Android"');
 
         self::assertSame(
             'android',

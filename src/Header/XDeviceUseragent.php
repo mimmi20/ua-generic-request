@@ -18,6 +18,9 @@ use UaNormalizer\Normalizer\Exception\Exception;
 use UaNormalizer\NormalizerFactory;
 use UaParser\DeviceParserInterface;
 
+/**
+ * @deprecated use {@see DeviceCodeOnlyHeader}
+ */
 final class XDeviceUseragent implements HeaderInterface
 {
     use HeaderTrait;

@@ -16,7 +16,7 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use UaRequest\Header\SecChUa;
+use UaRequest\Header\ClientOnlyHeader;
 
 use function sprintf;
 
@@ -31,7 +31,7 @@ final class SecChUaTest extends TestCase
         bool $hasClientVersion,
         string | null $clientVersion,
     ): void {
-        $header = new SecChUa($ua);
+        $header = new ClientOnlyHeader($ua);
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(

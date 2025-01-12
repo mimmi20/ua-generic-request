@@ -19,6 +19,9 @@ use function in_array;
 use function mb_strtolower;
 use function trim;
 
+/**
+ * @deprecated use {@see PlatformCodeOnlyHeader}
+ */
 final class SecChUaPlatform implements HeaderInterface
 {
     use HeaderTrait;

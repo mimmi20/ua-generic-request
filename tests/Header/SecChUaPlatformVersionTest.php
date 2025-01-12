@@ -16,7 +16,7 @@ namespace UaRequestTest\Header;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use UaRequest\Header\SecChUaPlatformVersion;
+use UaRequest\Header\PlatformVersionHeader;
 
 use function sprintf;
 
@@ -26,7 +26,7 @@ final class SecChUaPlatformVersionTest extends TestCase
     #[DataProvider('providerUa')]
     public function testData(string $ua, string | null $code, bool $hasVersion, string | null $version): void
     {
-        $header = new SecChUaPlatformVersion($ua);
+        $header = new PlatformVersionHeader($ua);
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(

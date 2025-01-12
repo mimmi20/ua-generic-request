@@ -18,6 +18,9 @@ use Override;
 use function mb_strtolower;
 use function trim;
 
+/**
+ * @deprecated use {@see PlatformVersionOnlyHeader}
+ */
 final class SecChUaPlatformVersion implements HeaderInterface
 {
     use HeaderTrait;

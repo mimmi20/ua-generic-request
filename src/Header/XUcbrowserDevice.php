@@ -21,6 +21,9 @@ use UaParser\DeviceParserInterface;
 use function in_array;
 use function mb_strtolower;
 
+/**
+ * @deprecated use {@see DeviceCodeOnlyHeader}
+ */
 final class XUcbrowserDevice implements HeaderInterface
 {
     use HeaderTrait;

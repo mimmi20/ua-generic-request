@@ -18,6 +18,9 @@ use Override;
 use function mb_strtolower;
 use function preg_match;
 
+/**
+ * @deprecated use {ClientHeader}
+ */
 final class XRequestedWith implements HeaderInterface
 {
     use HeaderTrait;

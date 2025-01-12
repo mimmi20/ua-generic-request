@@ -17,6 +17,9 @@ use Override;
 
 use function preg_match;
 
+/**
+ * @deprecated use {@see PlatformHeader}
+ */
 final class UaOs implements HeaderInterface
 {
     use HeaderTrait;

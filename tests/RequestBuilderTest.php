@@ -201,23 +201,12 @@ final class RequestBuilderTest extends TestCase
 
         $request = new class () implements GenericRequestInterface {
             /**
-             * @return array<non-empty-string, non-empty-string>
-             *
-             * @throws void
-             */
-            #[Override]
-            public function getHeaders(): array
-            {
-                return [];
-            }
-
-            /**
              * @return array<non-empty-string, HeaderInterface>
              *
              * @throws void
              */
             #[Override]
-            public function getFilteredHeaders(): array
+            public function getHeaders(): array
             {
                 return [];
             }

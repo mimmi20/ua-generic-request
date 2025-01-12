@@ -57,44 +57,56 @@ final class GenericRequest implements GenericRequestInterface
         Constants::HEADER_USERAGENT,
     ];
 
-    /** @var array<non-empty-string, non-empty-string> */
-    private array $headers = [];
-
     /** @var array<non-empty-string, HeaderInterface> */
-    private array $filteredHeaders = [];
+    private array $headers = [];
 
     /** @throws void */
     public function __construct(MessageInterface $message, private readonly HeaderLoaderInterface $headerLoader)
     {
-        foreach (array_keys($message->getHeaders()) as $header) {
-            if (!is_string($header) || $header === '') {
-                continue;
-            }
+        $filteredHeaders = array_filter(
+            array: $message->getHeaders(),
+            callback: function (int|string $header) use ($message): bool {
+                if (!is_string($header) || $header === '') {
+                    return false;
+                }
 
+                $headerLine = $message->getHeaderLine($header);
+
+                if ($headerLine === '') {
+                    return false;
+                }
+
+                $header = mb_strtolower($header);
+
+                if (str_starts_with($header, 'http-') || str_starts_with($header, 'http_')) {
+                    $header = mb_substr($header, 5);
+                }
+
+                return $header !== '';
+            },
+            mode: ARRAY_FILTER_USE_KEY,
+        );
+
+        $filtered = array_filter(
+            array: self::HEADERS,
+            callback: static fn (string $value): bool => array_key_exists(mb_strtolower($value), $filteredHeaders),
+        );
+
+        foreach ($filtered as $header) {
             $headerLine = $message->getHeaderLine($header);
 
-            if ($headerLine === '') {
+            try {
+                $headerObj = $this->headerLoader->load($header, $headerLine);
+            } catch (NotFoundException) {
                 continue;
             }
 
-            $header = mb_strtolower($header);
-
-            if (str_starts_with($header, 'http-') || str_starts_with($header, 'http_')) {
-                $header = mb_substr($header, 5);
-            }
-
-            if ($header === '') {
-                continue;
-            }
-
-            $this->headers[$header] = $headerLine;
+            $this->headers[$header] = $headerObj;
         }
-
-        $this->filterHeaders();
     }
 
     /**
-     * @return array<non-empty-string, non-empty-string>
+     * @return array<non-empty-string, HeaderInterface>
      *
      * @throws void
      */
@@ -104,47 +116,16 @@ final class GenericRequest implements GenericRequestInterface
         return $this->headers;
     }
 
-    /**
-     * @return array<non-empty-string, HeaderInterface>
-     *
-     * @throws void
-     */
-    #[Override]
-    public function getFilteredHeaders(): array
-    {
-        return $this->filteredHeaders;
-    }
-
     /** @throws void */
     #[Override]
     public function getHash(): string
     {
         $data = [];
 
-        foreach ($this->filteredHeaders as $name => $header) {
+        foreach ($this->headers as $name => $header) {
             $data[$name] = $header->getValue();
         }
 
         return sha1(serialize($data));
-    }
-
-    /** @throws void */
-    private function filterHeaders(): void
-    {
-        $headers  = $this->headers;
-        $filtered = array_filter(
-            self::HEADERS,
-            static fn (string $value): bool => array_key_exists(mb_strtolower($value), $headers),
-        );
-
-        foreach ($filtered as $header) {
-            try {
-                $headerObj = $this->headerLoader->load($header, $headers[mb_strtolower($header)]);
-            } catch (NotFoundException) {
-                continue;
-            }
-
-            $this->filteredHeaders[$header] = $headerObj;
-        }
     }
 }

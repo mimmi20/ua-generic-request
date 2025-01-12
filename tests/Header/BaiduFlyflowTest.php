@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use UaParser\DeviceParserInterface;
-use UaRequest\Header\BaiduFlyflow;
+use UaRequest\Header\DeviceCodeOnlyHeader;
 
 use function preg_match;
 use function sprintf;
@@ -46,7 +46,7 @@ final class BaiduFlyflowTest extends TestCase
             ->with($ua)
             ->willReturn($deviceCode);
 
-        $header = new BaiduFlyflow($ua, $deviceParser);
+        $header = new DeviceCodeOnlyHeader($ua, $deviceParser);
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(

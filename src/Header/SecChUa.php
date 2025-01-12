@@ -22,6 +22,9 @@ use function mb_strtolower;
 use function reset;
 use function str_contains;
 
+/**
+ * @deprecated use {@see ClientHeader}
+ */
 final class SecChUa implements HeaderInterface
 {
     use HeaderTrait;
