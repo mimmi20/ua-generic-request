@@ -17,15 +17,10 @@ use Override;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
-use UaParser\DeviceParserInterface;
-
 use UaParser\EngineCodeInterface;
 use UaParser\EngineVersionInterface;
 use UaParser\PlatformCodeInterface;
 use UaParser\PlatformVersionInterface;
-use function mb_strtolower;
-use function preg_match;
-use function str_replace;
 
 final class FullHeader implements HeaderInterface
 {
@@ -80,15 +75,11 @@ final class FullHeader implements HeaderInterface
         return $this->clientVersion->hasClientVersion($this->value);
     }
 
-    /**
-     * @throws void
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-     */
+    /** @throws void */
     #[Override]
     public function getClientVersion(string | null $code = null): string | null
     {
-        return $this->clientVersion->getClientVersion($this->value);
+        return $this->clientVersion->getClientVersion($this->value, $code);
     }
 
     /** @throws void */
@@ -98,11 +89,7 @@ final class FullHeader implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /**
-     * @throws void
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-     */
+    /** @throws void */
     #[Override]
     public function getPlatformCode(string | null $derivate = null): string | null
     {

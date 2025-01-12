@@ -14,20 +14,8 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
-use UaParser\DeviceCodeInterface;
-use UaParser\EngineCodeInterface;
-use UaParser\EngineVersionInterface;
-use UaParser\PlatformCodeInterface;
-use UaParser\PlatformVersionInterface;
-use function array_key_first;
-use function current;
-use function key;
-use function mb_strtolower;
-use function reset;
-use function str_contains;
 
 final class ClientHeader implements HeaderInterface
 {

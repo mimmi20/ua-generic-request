@@ -14,20 +14,14 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-use UaNormalizer\Normalizer\Exception\Exception;
-use UaNormalizer\NormalizerFactory;
 use UaParser\DeviceCodeInterface;
-use UaParser\DeviceParserInterface;
 use UaParser\PlatformCodeInterface;
-use UaParser\PlatformParserInterface;
-
-use function preg_match;
 
 final class XUcbrowserDeviceUa implements HeaderInterface
 {
     use HeaderTrait;
 
-    /** @throws Exception */
+    /** @throws void */
     public function __construct(
         string $value,
         private readonly DeviceCodeInterface $deviceCode,
@@ -57,9 +51,7 @@ final class XUcbrowserDeviceUa implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /**
-     * @throws void
-     */
+    /** @throws void */
     #[Override]
     public function getPlatformCode(string | null $derivate = null): string | null
     {

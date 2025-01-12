@@ -19,12 +19,14 @@ use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
 use UaParser\EngineCodeInterface;
+use UaParser\EngineVersionInterface;
 use UaParser\PlatformCodeInterface;
-use UaRequest\Header\XOperaminiPhoneUa;
+use UaParser\PlatformVersionInterface;
+use UaRequest\Header\FullHeader;
 
 use function sprintf;
 
-final class XOperaminiPhoneUaTest extends TestCase
+final class FullHeaderTest extends TestCase
 {
     /** @throws ExpectationFailedException */
     public function testData(): void
@@ -79,6 +81,18 @@ final class XOperaminiPhoneUaTest extends TestCase
             ->with($ua)
             ->willReturn('abc');
 
+        $platformVersion = $this->createMock(PlatformVersionInterface::class);
+        $platformVersion
+            ->expects(self::once())
+            ->method('hasPlatformVersion')
+            ->with($ua)
+            ->willReturn(true);
+        $platformVersion
+            ->expects(self::once())
+            ->method('getPlatformVersion')
+            ->with($ua)
+            ->willReturn('def');
+
         $engineCode = $this->createMock(EngineCodeInterface::class);
         $engineCode
             ->expects(self::once())
@@ -91,13 +105,27 @@ final class XOperaminiPhoneUaTest extends TestCase
             ->with($ua)
             ->willReturn('ghi');
 
-        $header = new XOperaminiPhoneUa(
+        $engineVersion = $this->createMock(EngineVersionInterface::class);
+        $engineVersion
+            ->expects(self::once())
+            ->method('hasEngineVersion')
+            ->with($ua)
+            ->willReturn(true);
+        $engineVersion
+            ->expects(self::once())
+            ->method('getEngineVersion')
+            ->with($ua)
+            ->willReturn('jkl');
+
+        $header = new FullHeader(
             value: $ua,
             deviceCode: $deviceCode,
             clientCode: $clientCode,
             clientVersion: $clientVersion,
             platformCode: $platformCode,
+            platformVersion: $platformVersion,
             engineCode: $engineCode,
+            engineVersion: $engineVersion,
         );
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
@@ -138,11 +166,12 @@ final class XOperaminiPhoneUaTest extends TestCase
             $header->getPlatformCode(),
         );
 
-        self::assertFalse(
+        self::assertTrue(
             $header->hasPlatformVersion(),
         );
 
-        self::assertNull(
+        self::assertSame(
+            'def',
             $header->getPlatformVersion(),
         );
 
@@ -155,11 +184,12 @@ final class XOperaminiPhoneUaTest extends TestCase
             $header->getEngineCode(),
         );
 
-        self::assertFalse(
+        self::assertTrue(
             $header->hasEngineVersion(),
         );
 
-        self::assertNull(
+        self::assertSame(
+            'jkl',
             $header->getEngineVersion(),
         );
     }

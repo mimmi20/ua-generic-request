@@ -14,21 +14,14 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-
-use UaNormalizer\Normalizer\Exception\Exception;
-use UaParser\ClientCodeInterface;
-use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
-use UaParser\EngineCodeInterface;
 use UaParser\PlatformCodeInterface;
-use function mb_strtolower;
-use function preg_match;
 
 final class XPuffinUa implements HeaderInterface
 {
     use HeaderTrait;
 
-    /** @throws Exception */
+    /** @throws void */
     public function __construct(
         string $value,
         private readonly DeviceCodeInterface $deviceCode,
@@ -58,11 +51,7 @@ final class XPuffinUa implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /**
-     * @throws void
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-     */
+    /** @throws void */
     #[Override]
     public function getPlatformCode(string | null $derivate = null): string | null
     {

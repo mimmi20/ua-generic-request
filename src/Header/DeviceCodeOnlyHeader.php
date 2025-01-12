@@ -15,9 +15,6 @@ namespace UaRequest\Header;
 
 use Override;
 use UaParser\DeviceCodeInterface;
-use UaParser\DeviceParserInterface;
-
-use function preg_match;
 
 final class DeviceCodeOnlyHeader implements HeaderInterface
 {

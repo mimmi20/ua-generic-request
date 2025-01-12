@@ -17,15 +17,7 @@ use Laminas\Diactoros\HeaderSecurity;
 use Laminas\Diactoros\ServerRequestFactory;
 use Override;
 use Psr\Http\Message\MessageInterface;
-use UaLoader\BrowserLoaderInterface;
-use UaLoader\EngineLoaderInterface;
-use UaLoader\PlatformLoaderInterface;
-use UaNormalizer\NormalizerFactory;
-use UaParser\BrowserParserInterface;
-use UaParser\DeviceParserInterface;
-use UaParser\EngineParserInterface;
-use UaParser\PlatformParserInterface;
-use UaRequest\Header\HeaderLoader;
+use UaRequest\Header\HeaderLoaderInterface;
 
 use function array_filter;
 use function is_array;
@@ -38,16 +30,8 @@ use const ARRAY_FILTER_USE_BOTH;
 final readonly class RequestBuilder implements RequestBuilderInterface
 {
     /** @throws void */
-    public function __construct(
-        private DeviceParserInterface $deviceParser,
-        private PlatformParserInterface $platformParser,
-        private BrowserParserInterface $browserParser,
-        private EngineParserInterface $engineParser,
-        private NormalizerFactory $normalizerFactory,
-        private BrowserLoaderInterface $browserLoader,
-        private PlatformLoaderInterface $platformLoader,
-        private EngineLoaderInterface $engineLoader,
-    ) {
+    public function __construct(private HeaderLoaderInterface $headerLoader)
+    {
         // nothing to do
     }
 
@@ -132,19 +116,7 @@ final readonly class RequestBuilder implements RequestBuilderInterface
      */
     private function createRequestFromPsr7Message(MessageInterface $message): GenericRequest
     {
-        return new GenericRequest(
-            $message,
-            new HeaderLoader(
-                $this->deviceParser,
-                $this->platformParser,
-                $this->browserParser,
-                $this->engineParser,
-                $this->normalizerFactory,
-                $this->browserLoader,
-                $this->platformLoader,
-                $this->engineLoader,
-            ),
-        );
+        return new GenericRequest($message, $this->headerLoader);
     }
 
     /** @throws void */

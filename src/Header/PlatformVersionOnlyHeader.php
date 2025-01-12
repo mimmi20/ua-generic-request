@@ -14,20 +14,15 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-
 use UaParser\PlatformVersionInterface;
-use function mb_strtolower;
-use function trim;
 
 final class PlatformVersionOnlyHeader implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
-    public function __construct(
-        string $value,
-        private readonly PlatformVersionInterface $platformVersion,
-    ) {
+    public function __construct(string $value, private readonly PlatformVersionInterface $platformVersion)
+    {
         $this->value = $value;
     }
 

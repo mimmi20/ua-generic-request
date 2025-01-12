@@ -14,15 +14,8 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-
-use UaNormalizer\Normalizer\Exception\Exception;
 use UaParser\ClientCodeInterface;
-use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
-use UaParser\EngineCodeInterface;
-use UaParser\PlatformCodeInterface;
-use function in_array;
-use function mb_strtolower;
 
 final class XUcbrowserPhoneUa implements HeaderInterface
 {

@@ -63,33 +63,38 @@ final class GenericRequest implements GenericRequestInterface
     /** @throws void */
     public function __construct(MessageInterface $message, private readonly HeaderLoaderInterface $headerLoader)
     {
-        $filteredHeaders = array_filter(
-            array: $message->getHeaders(),
-            callback: function (int|string $header) use ($message): bool {
-                if (!is_string($header) || $header === '') {
-                    return false;
-                }
+        $filteredHeaders = [];
 
-                $headerLine = $message->getHeaderLine($header);
+        foreach (array_keys($message->getHeaders()) as $header) {
+            if (!is_string($header) || $header === '') {
+                continue;
+            }
 
-                if ($headerLine === '') {
-                    return false;
-                }
+            $headerLine = $message->getHeaderLine($header);
 
-                $header = mb_strtolower($header);
+            if ($headerLine === '') {
+                continue;
+            }
 
-                if (str_starts_with($header, 'http-') || str_starts_with($header, 'http_')) {
-                    $header = mb_substr($header, 5);
-                }
+            $header = mb_strtolower($header);
 
-                return $header !== '';
-            },
-            mode: ARRAY_FILTER_USE_KEY,
-        );
+            if (str_starts_with($header, 'http-') || str_starts_with($header, 'http_')) {
+                $header = mb_substr($header, 5);
+            }
+
+            if ($header === '') {
+                continue;
+            }
+
+            $filteredHeaders[$header] = $headerLine;
+        }
 
         $filtered = array_filter(
             array: self::HEADERS,
-            callback: static fn (string $value): bool => array_key_exists(mb_strtolower($value), $filteredHeaders),
+            callback: static fn (string $value): bool => array_key_exists(
+                mb_strtolower($value),
+                $filteredHeaders,
+            ),
         );
 
         foreach ($filtered as $header) {

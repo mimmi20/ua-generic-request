@@ -14,10 +14,8 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-
 use UaParser\PlatformCodeInterface;
 use UaParser\PlatformVersionInterface;
-use function preg_match;
 
 final class PlatformHeader implements HeaderInterface
 {

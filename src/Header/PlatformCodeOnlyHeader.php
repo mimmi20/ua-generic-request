@@ -14,21 +14,15 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-
 use UaParser\PlatformCodeInterface;
-use function in_array;
-use function mb_strtolower;
-use function trim;
 
 final class PlatformCodeOnlyHeader implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
-    public function __construct(
-        string $value,
-        private readonly PlatformCodeInterface $platformCode,
-    ) {
+    public function __construct(string $value, private readonly PlatformCodeInterface $platformCode)
+    {
         $this->value = $value;
     }
 

@@ -14,24 +14,17 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-use UaNormalizer\Normalizer\Exception\Exception;
-use UaNormalizer\NormalizerFactory;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
-use UaParser\DeviceParserInterface;
 use UaParser\EngineCodeInterface;
-use UaParser\EngineParserInterface;
-
 use UaParser\PlatformCodeInterface;
-use function mb_strtolower;
-use function preg_match;
 
 final class XOperaminiPhoneUa implements HeaderInterface
 {
     use HeaderTrait;
 
-    /** @throws Exception */
+    /** @throws void */
     public function __construct(
         string $value,
         private readonly DeviceCodeInterface $deviceCode,
@@ -66,7 +59,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    public function getClientCode(): string
+    public function getClientCode(): string | null
     {
         return $this->clientCode->getClientCode($this->value);
     }
@@ -78,9 +71,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
         return $this->clientVersion->hasClientVersion($this->value);
     }
 
-    /**
-     * @throws void
-     */
+    /** @throws void */
     #[Override]
     public function getClientVersion(string | null $code = null): string | null
     {
@@ -94,9 +85,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /**
-     * @throws void
-     */
+    /** @throws void */
     #[Override]
     public function getPlatformCode(string | null $derivate = null): string | null
     {
