@@ -20,6 +20,9 @@ use function mb_strtolower;
 use function preg_match;
 use function str_replace;
 
+/**
+ * @deprecated use {@see FullHeader}
+ */
 final class XUcbrowserUa implements HeaderInterface
 {
     use HeaderTrait;

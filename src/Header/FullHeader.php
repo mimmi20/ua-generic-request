@@ -14,31 +14,33 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-use UaNormalizer\Normalizer\Exception\Exception;
-use UaNormalizer\NormalizerFactory;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
 use UaParser\DeviceParserInterface;
-use UaParser\EngineCodeInterface;
-use UaParser\EngineParserInterface;
 
+use UaParser\EngineCodeInterface;
+use UaParser\EngineVersionInterface;
 use UaParser\PlatformCodeInterface;
+use UaParser\PlatformVersionInterface;
 use function mb_strtolower;
 use function preg_match;
+use function str_replace;
 
-final class XOperaminiPhoneUa implements HeaderInterface
+final class FullHeader implements HeaderInterface
 {
     use HeaderTrait;
 
-    /** @throws Exception */
+    /** @throws void */
     public function __construct(
         string $value,
         private readonly DeviceCodeInterface $deviceCode,
         private readonly ClientCodeInterface $clientCode,
         private readonly ClientVersionInterface $clientVersion,
         private readonly PlatformCodeInterface $platformCode,
+        private readonly PlatformVersionInterface $platformVersion,
         private readonly EngineCodeInterface $engineCode,
+        private readonly EngineVersionInterface $engineVersion,
     ) {
         $this->value = $value;
     }
@@ -66,7 +68,7 @@ final class XOperaminiPhoneUa implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    public function getClientCode(): string
+    public function getClientCode(): string | null
     {
         return $this->clientCode->getClientCode($this->value);
     }
@@ -80,11 +82,13 @@ final class XOperaminiPhoneUa implements HeaderInterface
 
     /**
      * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
     public function getClientVersion(string | null $code = null): string | null
     {
-        return $this->clientVersion->getClientVersion($this->value, $code);
+        return $this->clientVersion->getClientVersion($this->value);
     }
 
     /** @throws void */
@@ -96,6 +100,8 @@ final class XOperaminiPhoneUa implements HeaderInterface
 
     /**
      * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
     public function getPlatformCode(string | null $derivate = null): string | null
@@ -105,9 +111,9 @@ final class XOperaminiPhoneUa implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    public function hasEngineCode(): bool
+    public function hasPlatformVersion(): bool
     {
-        return $this->engineCode->hasEngineCode($this->value);
+        return $this->platformVersion->hasPlatformVersion($this->value);
     }
 
     /**
@@ -116,8 +122,40 @@ final class XOperaminiPhoneUa implements HeaderInterface
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
-    public function getEngineCode(string | null $code = null): string | null
+    public function getPlatformVersion(string | null $code = null): string | null
+    {
+        return $this->platformVersion->getPlatformVersion($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasEngineCode(): bool
+    {
+        return $this->engineCode->hasEngineCode($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getEngineCode(): string | null
     {
         return $this->engineCode->getEngineCode($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasEngineVersion(): bool
+    {
+        return $this->engineVersion->hasEngineVersion($this->value);
+    }
+
+    /**
+     * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+     */
+    #[Override]
+    public function getEngineVersion(string | null $code = null): string | null
+    {
+        return $this->engineVersion->getEngineVersion($this->value);
     }
 }

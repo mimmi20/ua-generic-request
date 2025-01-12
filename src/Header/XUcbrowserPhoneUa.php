@@ -15,6 +15,12 @@ namespace UaRequest\Header;
 
 use Override;
 
+use UaNormalizer\Normalizer\Exception\Exception;
+use UaParser\ClientCodeInterface;
+use UaParser\ClientVersionInterface;
+use UaParser\DeviceCodeInterface;
+use UaParser\EngineCodeInterface;
+use UaParser\PlatformCodeInterface;
 use function in_array;
 use function mb_strtolower;
 
@@ -23,39 +29,39 @@ final class XUcbrowserPhoneUa implements HeaderInterface
     use HeaderTrait;
 
     /** @throws void */
+    public function __construct(
+        string $value,
+        private readonly DeviceCodeInterface $deviceCode,
+        private readonly ClientCodeInterface $clientCode,
+    ) {
+        $this->value = $value;
+    }
+
+    /** @throws void */
     #[Override]
     public function hasDeviceCode(): bool
     {
-        return !in_array(mb_strtolower($this->value), ['maui browser', 'sunmicro'], true);
+        return $this->deviceCode->hasDeviceCode($this->value);
     }
 
     /** @throws void */
     #[Override]
     public function getDeviceCode(): string | null
     {
-        $code = mb_strtolower($this->value);
-
-        return match ($code) {
-            'nokia701' => 'nokia=nokia 701',
-            'nokiac3-01' => 'nokia=nokia c3-01',
-            'nokia305' => 'nokia=nokia 305',
-            'gt-s5233s' => 'samsung=samsung gt-s5233s',
-            'sonyericssonj108i' => 'sony=sonyericsson j108i',
-            default => null,
-        };
+        return $this->deviceCode->getDeviceCode($this->value);
     }
 
     /** @throws void */
     #[Override]
     public function hasClientCode(): bool
     {
-        return $this->value === 'maui browser';
+        return $this->clientCode->hasClientCode($this->value);
     }
 
     /** @throws void */
     #[Override]
     public function getClientCode(): string | null
     {
-        return $this->value === 'maui browser' ? 'maui browser' : null;
+        return $this->clientCode->getClientCode($this->value);
     }
 }

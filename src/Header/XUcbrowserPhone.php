@@ -18,6 +18,9 @@ use Override;
 use function in_array;
 use function mb_strtolower;
 
+/**
+ * @deprecated
+ */
 final class XUcbrowserPhone implements HeaderInterface
 {
     use HeaderTrait;
