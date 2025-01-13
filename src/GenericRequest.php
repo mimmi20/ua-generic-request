@@ -54,6 +54,7 @@ final class GenericRequest implements GenericRequestInterface
         Constants::HEADER_UA_OS,
         Constants::HEADER_BAIDU_FLYFLOW,
         Constants::HEADER_PUFFIN_UA,
+        Constants::HEADER_CRAWLED_BY,
         Constants::HEADER_USERAGENT,
     ];
 
