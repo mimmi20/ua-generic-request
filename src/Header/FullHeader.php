@@ -18,9 +18,11 @@ use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
 use UaParser\EngineCodeInterface;
+use UaParser\EngineVersionInterface;
 use UaParser\PlatformCodeInterface;
+use UaParser\PlatformVersionInterface;
 
-final class XOperaminiPhoneUa implements HeaderInterface
+final class FullHeader implements HeaderInterface
 {
     use HeaderTrait;
 
@@ -31,7 +33,9 @@ final class XOperaminiPhoneUa implements HeaderInterface
         private readonly ClientCodeInterface $clientCode,
         private readonly ClientVersionInterface $clientVersion,
         private readonly PlatformCodeInterface $platformCode,
+        private readonly PlatformVersionInterface $platformVersion,
         private readonly EngineCodeInterface $engineCode,
+        private readonly EngineVersionInterface $engineVersion,
     ) {
         $this->value = $value;
     }
@@ -94,19 +98,43 @@ final class XOperaminiPhoneUa implements HeaderInterface
 
     /** @throws void */
     #[Override]
+    public function hasPlatformVersion(): bool
+    {
+        return $this->platformVersion->hasPlatformVersion($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getPlatformVersion(string | null $code = null): string | null
+    {
+        return $this->platformVersion->getPlatformVersion($this->value, $code);
+    }
+
+    /** @throws void */
+    #[Override]
     public function hasEngineCode(): bool
     {
         return $this->engineCode->hasEngineCode($this->value);
     }
 
-    /**
-     * @throws void
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-     */
+    /** @throws void */
     #[Override]
-    public function getEngineCode(string | null $code = null): string | null
+    public function getEngineCode(): string | null
     {
         return $this->engineCode->getEngineCode($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasEngineVersion(): bool
+    {
+        return $this->engineVersion->hasEngineVersion($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getEngineVersion(string | null $code = null): string | null
+    {
+        return $this->engineVersion->getEngineVersion($this->value, $code);
     }
 }

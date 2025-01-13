@@ -54,18 +54,18 @@ final class GenericRequest implements GenericRequestInterface
         Constants::HEADER_UA_OS,
         Constants::HEADER_BAIDU_FLYFLOW,
         Constants::HEADER_PUFFIN_UA,
+        Constants::HEADER_CRAWLED_BY,
         Constants::HEADER_USERAGENT,
     ];
 
-    /** @var array<non-empty-string, non-empty-string> */
-    private array $headers = [];
-
     /** @var array<non-empty-string, HeaderInterface> */
-    private array $filteredHeaders = [];
+    private array $headers = [];
 
     /** @throws void */
     public function __construct(MessageInterface $message, private readonly HeaderLoaderInterface $headerLoader)
     {
+        $filteredHeaders = [];
+
         foreach (array_keys($message->getHeaders()) as $header) {
             if (!is_string($header) || $header === '') {
                 continue;
@@ -87,14 +87,33 @@ final class GenericRequest implements GenericRequestInterface
                 continue;
             }
 
-            $this->headers[$header] = $headerLine;
+            $filteredHeaders[$header] = $headerLine;
         }
 
-        $this->filterHeaders();
+        $filtered = array_filter(
+            array: self::HEADERS,
+            callback: static fn (string $value): bool => array_key_exists(
+                mb_strtolower($value),
+                $filteredHeaders,
+            ),
+        );
+
+        foreach ($filtered as $header) {
+            try {
+                $headerObj = $this->headerLoader->load(
+                    $header,
+                    $filteredHeaders[mb_strtolower($header)],
+                );
+            } catch (NotFoundException) {
+                continue;
+            }
+
+            $this->headers[$header] = $headerObj;
+        }
     }
 
     /**
-     * @return array<non-empty-string, non-empty-string>
+     * @return array<non-empty-string, HeaderInterface>
      *
      * @throws void
      */
@@ -104,47 +123,16 @@ final class GenericRequest implements GenericRequestInterface
         return $this->headers;
     }
 
-    /**
-     * @return array<non-empty-string, HeaderInterface>
-     *
-     * @throws void
-     */
-    #[Override]
-    public function getFilteredHeaders(): array
-    {
-        return $this->filteredHeaders;
-    }
-
     /** @throws void */
     #[Override]
     public function getHash(): string
     {
         $data = [];
 
-        foreach ($this->filteredHeaders as $name => $header) {
+        foreach ($this->headers as $name => $header) {
             $data[$name] = $header->getValue();
         }
 
         return sha1(serialize($data));
-    }
-
-    /** @throws void */
-    private function filterHeaders(): void
-    {
-        $headers  = $this->headers;
-        $filtered = array_filter(
-            self::HEADERS,
-            static fn (string $value): bool => array_key_exists(mb_strtolower($value), $headers),
-        );
-
-        foreach ($filtered as $header) {
-            try {
-                $headerObj = $this->headerLoader->load($header, $headers[mb_strtolower($header)]);
-            } catch (NotFoundException) {
-                continue;
-            }
-
-            $this->filteredHeaders[$header] = $headerObj;
-        }
     }
 }

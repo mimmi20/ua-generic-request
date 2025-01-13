@@ -18,18 +18,11 @@ use UaRequest\Header\HeaderInterface;
 interface GenericRequestInterface
 {
     /**
-     * @return array<non-empty-string, non-empty-string>
-     *
-     * @throws void
-     */
-    public function getHeaders(): array;
-
-    /**
      * @return array<non-empty-string, HeaderInterface>
      *
      * @throws void
      */
-    public function getFilteredHeaders(): array;
+    public function getHeaders(): array;
 
     /** @throws void */
     public function getHash(): string;

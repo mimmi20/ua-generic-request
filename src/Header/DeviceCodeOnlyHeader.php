@@ -14,16 +14,14 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-use UaParser\DeviceParserInterface;
+use UaParser\DeviceCodeInterface;
 
-use function preg_match;
-
-final class BaiduFlyflow implements HeaderInterface
+final class DeviceCodeOnlyHeader implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
-    public function __construct(string $value, private readonly DeviceParserInterface $deviceParser)
+    public function __construct(string $value, private readonly DeviceCodeInterface $deviceCode)
     {
         $this->value = $value;
     }
@@ -32,25 +30,13 @@ final class BaiduFlyflow implements HeaderInterface
     #[Override]
     public function hasDeviceCode(): bool
     {
-        $hasMatch = preg_match('/;htc;htc;/i', $this->value);
-
-        return !$hasMatch;
+        return $this->deviceCode->hasDeviceCode($this->value);
     }
 
     /** @throws void */
     #[Override]
     public function getDeviceCode(): string | null
     {
-        if (preg_match('/;htc;htc;/i', $this->value)) {
-            return null;
-        }
-
-        $code = $this->deviceParser->parse($this->value);
-
-        if ($code === '') {
-            return null;
-        }
-
-        return $code;
+        return $this->deviceCode->getDeviceCode($this->value);
     }
 }

@@ -14,34 +14,16 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-use UaParser\DeviceCodeInterface;
 use UaParser\PlatformCodeInterface;
 
-final class XUcbrowserDeviceUa implements HeaderInterface
+final class PlatformCodeOnlyHeader implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
-    public function __construct(
-        string $value,
-        private readonly DeviceCodeInterface $deviceCode,
-        private readonly PlatformCodeInterface $platformCode,
-    ) {
+    public function __construct(string $value, private readonly PlatformCodeInterface $platformCode)
+    {
         $this->value = $value;
-    }
-
-    /** @throws void */
-    #[Override]
-    public function hasDeviceCode(): bool
-    {
-        return $this->deviceCode->hasDeviceCode($this->value);
-    }
-
-    /** @throws void */
-    #[Override]
-    public function getDeviceCode(): string | null
-    {
-        return $this->deviceCode->getDeviceCode($this->value);
     }
 
     /** @throws void */

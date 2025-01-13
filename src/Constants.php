@@ -91,6 +91,9 @@ final class Constants
     public const string HEADER_NB_CONTENT = 'x-nb-content';
 
     /** @api */
+    public const string HEADER_CRAWLED_BY = 'x-crawled-by';
+
+    /** @api */
     public const string HEADER_SEC_CH_UA = 'Sec-CH-UA';
 
     /** @api */

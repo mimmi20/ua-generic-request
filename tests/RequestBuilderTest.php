@@ -18,16 +18,9 @@ use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use UaLoader\BrowserLoaderInterface;
-use UaLoader\EngineLoaderInterface;
-use UaLoader\PlatformLoaderInterface;
-use UaNormalizer\NormalizerFactory;
-use UaParser\BrowserParserInterface;
-use UaParser\DeviceParserInterface;
-use UaParser\EngineParserInterface;
-use UaParser\PlatformParserInterface;
 use UaRequest\GenericRequestInterface;
 use UaRequest\Header\HeaderInterface;
+use UaRequest\Header\HeaderLoaderInterface;
 use UaRequest\RequestBuilder;
 
 use function assert;
@@ -43,25 +36,9 @@ final class RequestBuilderTest extends TestCase
     {
         $useragent = 'testagent';
 
-        $deviceParser      = $this->createMock(DeviceParserInterface::class);
-        $platformParser    = $this->createMock(PlatformParserInterface::class);
-        $browserParser     = $this->createMock(BrowserParserInterface::class);
-        $engineParser      = $this->createMock(EngineParserInterface::class);
-        $browserLoader     = $this->createMock(BrowserLoaderInterface::class);
-        $platformLoader    = $this->createMock(PlatformLoaderInterface::class);
-        $engineLoader      = $this->createMock(EngineLoaderInterface::class);
-        $normalizerFactory = new NormalizerFactory();
+        $headerLoader = $this->createMock(HeaderLoaderInterface::class);
 
-        $object = new RequestBuilder(
-            $deviceParser,
-            $platformParser,
-            $browserParser,
-            $engineParser,
-            $normalizerFactory,
-            $browserLoader,
-            $platformLoader,
-            $engineLoader,
-        );
+        $object = new RequestBuilder($headerLoader);
 
         $result = $object->buildRequest($useragent);
         assert(
@@ -74,7 +51,12 @@ final class RequestBuilderTest extends TestCase
         );
 
         self::assertInstanceOf(GenericRequestInterface::class, $result);
-        self::assertSame(['user-agent' => $useragent], $result->getHeaders());
+
+        $headers = $result->getHeaders();
+
+        self::assertCount(1, $headers);
+        self::assertArrayHasKey('user-agent', $headers);
+        self::assertInstanceOf(HeaderInterface::class, $headers['user-agent']);
     }
 
     /**
@@ -85,25 +67,9 @@ final class RequestBuilderTest extends TestCase
     {
         $useragent = 'testagent';
 
-        $deviceParser      = $this->createMock(DeviceParserInterface::class);
-        $platformParser    = $this->createMock(PlatformParserInterface::class);
-        $browserParser     = $this->createMock(BrowserParserInterface::class);
-        $engineParser      = $this->createMock(EngineParserInterface::class);
-        $browserLoader     = $this->createMock(BrowserLoaderInterface::class);
-        $platformLoader    = $this->createMock(PlatformLoaderInterface::class);
-        $engineLoader      = $this->createMock(EngineLoaderInterface::class);
-        $normalizerFactory = new NormalizerFactory();
+        $headerLoader = $this->createMock(HeaderLoaderInterface::class);
 
-        $object = new RequestBuilder(
-            $deviceParser,
-            $platformParser,
-            $browserParser,
-            $engineParser,
-            $normalizerFactory,
-            $browserLoader,
-            $platformLoader,
-            $engineLoader,
-        );
+        $object = new RequestBuilder($headerLoader);
 
         $result = $object->buildRequest(
             ['user-agent' => $useragent, 1 => $useragent . "\r" . $useragent, 'x-test' => $useragent . "\r\n" . $useragent],
@@ -118,10 +84,12 @@ final class RequestBuilderTest extends TestCase
         );
 
         self::assertInstanceOf(GenericRequestInterface::class, $result);
-        self::assertSame(
-            ['user-agent' => $useragent, 'x-test' => $useragent . '-' . $useragent],
-            $result->getHeaders(),
-        );
+
+        $headers = $result->getHeaders();
+
+        self::assertCount(1, $headers);
+        self::assertArrayHasKey('user-agent', $headers);
+        self::assertInstanceOf(HeaderInterface::class, $headers['user-agent']);
     }
 
     /**
@@ -132,25 +100,9 @@ final class RequestBuilderTest extends TestCase
     {
         $useragent = 'testagent';
 
-        $deviceParser      = $this->createMock(DeviceParserInterface::class);
-        $platformParser    = $this->createMock(PlatformParserInterface::class);
-        $browserParser     = $this->createMock(BrowserParserInterface::class);
-        $engineParser      = $this->createMock(EngineParserInterface::class);
-        $browserLoader     = $this->createMock(BrowserLoaderInterface::class);
-        $platformLoader    = $this->createMock(PlatformLoaderInterface::class);
-        $engineLoader      = $this->createMock(EngineLoaderInterface::class);
-        $normalizerFactory = new NormalizerFactory();
+        $headerLoader = $this->createMock(HeaderLoaderInterface::class);
 
-        $object = new RequestBuilder(
-            $deviceParser,
-            $platformParser,
-            $browserParser,
-            $engineParser,
-            $normalizerFactory,
-            $browserLoader,
-            $platformLoader,
-            $engineLoader,
-        );
+        $object = new RequestBuilder($headerLoader);
 
         $message = ServerRequestFactory::fromGlobals(
             ['HTTP_USER_AGENT' => $useragent, 'HTTP_X_TEST' => $useragent . "\r\n " . $useragent],
@@ -167,10 +119,12 @@ final class RequestBuilderTest extends TestCase
         );
 
         self::assertInstanceOf(GenericRequestInterface::class, $result);
-        self::assertSame(
-            ['user-agent' => $useragent, 'x-test' => $useragent . ' ' . $useragent],
-            $result->getHeaders(),
-        );
+
+        $headers = $result->getHeaders();
+
+        self::assertCount(1, $headers);
+        self::assertArrayHasKey('user-agent', $headers);
+        self::assertInstanceOf(HeaderInterface::class, $headers['user-agent']);
     }
 
     /**
@@ -179,45 +133,18 @@ final class RequestBuilderTest extends TestCase
      */
     public function testBuildRequestFromRequest(): void
     {
-        $deviceParser      = $this->createMock(DeviceParserInterface::class);
-        $platformParser    = $this->createMock(PlatformParserInterface::class);
-        $browserParser     = $this->createMock(BrowserParserInterface::class);
-        $engineParser      = $this->createMock(EngineParserInterface::class);
-        $browserLoader     = $this->createMock(BrowserLoaderInterface::class);
-        $platformLoader    = $this->createMock(PlatformLoaderInterface::class);
-        $engineLoader      = $this->createMock(EngineLoaderInterface::class);
-        $normalizerFactory = new NormalizerFactory();
+        $headerLoader = $this->createMock(HeaderLoaderInterface::class);
 
-        $object = new RequestBuilder(
-            $deviceParser,
-            $platformParser,
-            $browserParser,
-            $engineParser,
-            $normalizerFactory,
-            $browserLoader,
-            $platformLoader,
-            $engineLoader,
-        );
+        $object = new RequestBuilder($headerLoader);
 
         $request = new class () implements GenericRequestInterface {
-            /**
-             * @return array<non-empty-string, non-empty-string>
-             *
-             * @throws void
-             */
-            #[Override]
-            public function getHeaders(): array
-            {
-                return [];
-            }
-
             /**
              * @return array<non-empty-string, HeaderInterface>
              *
              * @throws void
              */
             #[Override]
-            public function getFilteredHeaders(): array
+            public function getHeaders(): array
             {
                 return [];
             }
@@ -252,29 +179,15 @@ final class RequestBuilderTest extends TestCase
         $useragent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
 
-        $deviceParser      = $this->createMock(DeviceParserInterface::class);
-        $platformParser    = $this->createMock(PlatformParserInterface::class);
-        $browserParser     = $this->createMock(BrowserParserInterface::class);
-        $engineParser      = $this->createMock(EngineParserInterface::class);
-        $browserLoader     = $this->createMock(BrowserLoaderInterface::class);
-        $platformLoader    = $this->createMock(PlatformLoaderInterface::class);
-        $engineLoader      = $this->createMock(EngineLoaderInterface::class);
-        $normalizerFactory = new NormalizerFactory();
+        $headerLoader = $this->createMock(HeaderLoaderInterface::class);
 
-        $object = new RequestBuilder(
-            $deviceParser,
-            $platformParser,
-            $browserParser,
-            $engineParser,
-            $normalizerFactory,
-            $browserLoader,
-            $platformLoader,
-            $engineLoader,
-        );
+        $object = new RequestBuilder($headerLoader);
 
         $result = $object->buildRequest(
             [
                 'user-agent' => $useragent,
+                1 => $useragent . "\r" . $useragent,
+                'x-test' => $useragent . "\r\n" . $useragent,
                 'http-x-requested-with' => $requestedWith,
             ],
         );
@@ -288,16 +201,12 @@ final class RequestBuilderTest extends TestCase
         );
 
         self::assertInstanceOf(GenericRequestInterface::class, $result);
-        self::assertSame(
-            ['user-agent' => $useragent, 'x-requested-with' => $requestedWith],
-            $result->getHeaders(),
-        );
 
-        $filteredHeaders = $result->getFilteredHeaders();
+        $headers = $result->getHeaders();
 
-        self::assertCount(2, $filteredHeaders);
-        self::assertArrayHasKey('user-agent', $filteredHeaders);
-        self::assertArrayHasKey('x-requested-with', $filteredHeaders);
+        self::assertCount(2, $headers);
+        self::assertArrayHasKey('user-agent', $headers);
+        self::assertArrayHasKey('x-requested-with', $headers);
     }
 
     /**
@@ -309,29 +218,15 @@ final class RequestBuilderTest extends TestCase
         $useragent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
 
-        $deviceParser      = $this->createMock(DeviceParserInterface::class);
-        $platformParser    = $this->createMock(PlatformParserInterface::class);
-        $browserParser     = $this->createMock(BrowserParserInterface::class);
-        $engineParser      = $this->createMock(EngineParserInterface::class);
-        $browserLoader     = $this->createMock(BrowserLoaderInterface::class);
-        $platformLoader    = $this->createMock(PlatformLoaderInterface::class);
-        $engineLoader      = $this->createMock(EngineLoaderInterface::class);
-        $normalizerFactory = new NormalizerFactory();
+        $headerLoader = $this->createMock(HeaderLoaderInterface::class);
 
-        $object = new RequestBuilder(
-            $deviceParser,
-            $platformParser,
-            $browserParser,
-            $engineParser,
-            $normalizerFactory,
-            $browserLoader,
-            $platformLoader,
-            $engineLoader,
-        );
+        $object = new RequestBuilder($headerLoader);
 
         $result = $object->buildRequest(
             [
                 'user-agent' => $useragent,
+                1 => $useragent . "\r" . $useragent,
+                '' => $useragent . "\r\n" . $useragent,
                 'http_x-requested-with' => $requestedWith,
             ],
         );
@@ -345,16 +240,12 @@ final class RequestBuilderTest extends TestCase
         );
 
         self::assertInstanceOf(GenericRequestInterface::class, $result);
-        self::assertSame(
-            ['user-agent' => $useragent, 'x-requested-with' => $requestedWith],
-            $result->getHeaders(),
-        );
 
-        $filteredHeaders = $result->getFilteredHeaders();
+        $headers = $result->getHeaders();
 
-        self::assertCount(2, $filteredHeaders);
-        self::assertArrayHasKey('user-agent', $filteredHeaders);
-        self::assertArrayHasKey('x-requested-with', $filteredHeaders);
+        self::assertCount(2, $headers);
+        self::assertArrayHasKey('user-agent', $headers);
+        self::assertArrayHasKey('x-requested-with', $headers);
     }
 
     /**
@@ -366,25 +257,9 @@ final class RequestBuilderTest extends TestCase
         $useragent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
 
-        $deviceParser      = $this->createMock(DeviceParserInterface::class);
-        $platformParser    = $this->createMock(PlatformParserInterface::class);
-        $browserParser     = $this->createMock(BrowserParserInterface::class);
-        $engineParser      = $this->createMock(EngineParserInterface::class);
-        $browserLoader     = $this->createMock(BrowserLoaderInterface::class);
-        $platformLoader    = $this->createMock(PlatformLoaderInterface::class);
-        $engineLoader      = $this->createMock(EngineLoaderInterface::class);
-        $normalizerFactory = new NormalizerFactory();
+        $headerLoader = $this->createMock(HeaderLoaderInterface::class);
 
-        $object = new RequestBuilder(
-            $deviceParser,
-            $platformParser,
-            $browserParser,
-            $engineParser,
-            $normalizerFactory,
-            $browserLoader,
-            $platformLoader,
-            $engineLoader,
-        );
+        $object = new RequestBuilder($headerLoader);
 
         $result = $object->buildRequest(
             [
@@ -402,14 +277,10 @@ final class RequestBuilderTest extends TestCase
         );
 
         self::assertInstanceOf(GenericRequestInterface::class, $result);
-        self::assertSame(
-            ['user-agent' => $useragent, 'http+x-requested-with' => $requestedWith],
-            $result->getHeaders(),
-        );
 
-        $filteredHeaders = $result->getFilteredHeaders();
+        $headers = $result->getHeaders();
 
-        self::assertCount(1, $filteredHeaders);
-        self::assertArrayHasKey('user-agent', $filteredHeaders);
+        self::assertCount(1, $headers);
+        self::assertArrayHasKey('user-agent', $headers);
     }
 }

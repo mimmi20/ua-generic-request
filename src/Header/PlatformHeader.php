@@ -14,34 +14,20 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-use UaParser\DeviceCodeInterface;
 use UaParser\PlatformCodeInterface;
+use UaParser\PlatformVersionInterface;
 
-final class XUcbrowserDeviceUa implements HeaderInterface
+final class PlatformHeader implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
     public function __construct(
         string $value,
-        private readonly DeviceCodeInterface $deviceCode,
         private readonly PlatformCodeInterface $platformCode,
+        private readonly PlatformVersionInterface $platformVersion,
     ) {
         $this->value = $value;
-    }
-
-    /** @throws void */
-    #[Override]
-    public function hasDeviceCode(): bool
-    {
-        return $this->deviceCode->hasDeviceCode($this->value);
-    }
-
-    /** @throws void */
-    #[Override]
-    public function getDeviceCode(): string | null
-    {
-        return $this->deviceCode->getDeviceCode($this->value);
     }
 
     /** @throws void */
@@ -56,5 +42,19 @@ final class XUcbrowserDeviceUa implements HeaderInterface
     public function getPlatformCode(string | null $derivate = null): string | null
     {
         return $this->platformCode->getPlatformCode($this->value, $derivate);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasPlatformVersion(): bool
+    {
+        return $this->platformVersion->hasPlatformVersion($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getPlatformVersion(string | null $code = null): string | null
+    {
+        return $this->platformVersion->getPlatformVersion($this->value, $code);
     }
 }

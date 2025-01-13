@@ -15,33 +15,19 @@ namespace UaRequest\Header;
 
 use Override;
 use UaParser\ClientCodeInterface;
-use UaParser\DeviceCodeInterface;
+use UaParser\ClientVersionInterface;
 
-final class XUcbrowserPhoneUa implements HeaderInterface
+final class ClientHeader implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
     public function __construct(
         string $value,
-        private readonly DeviceCodeInterface $deviceCode,
         private readonly ClientCodeInterface $clientCode,
+        private readonly ClientVersionInterface $clientVersion,
     ) {
         $this->value = $value;
-    }
-
-    /** @throws void */
-    #[Override]
-    public function hasDeviceCode(): bool
-    {
-        return $this->deviceCode->hasDeviceCode($this->value);
-    }
-
-    /** @throws void */
-    #[Override]
-    public function getDeviceCode(): string | null
-    {
-        return $this->deviceCode->getDeviceCode($this->value);
     }
 
     /** @throws void */
@@ -56,5 +42,19 @@ final class XUcbrowserPhoneUa implements HeaderInterface
     public function getClientCode(): string | null
     {
         return $this->clientCode->getClientCode($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasClientVersion(): bool
+    {
+        return $this->clientVersion->hasClientVersion($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getClientVersion(string | null $code = null): string | null
+    {
+        return $this->clientVersion->getClientVersion($this->value, $code);
     }
 }

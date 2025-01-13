@@ -23,6 +23,7 @@ use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
 use UaRequest\NotFoundException;
 
+use function array_keys;
 use function mb_strtoupper;
 
 final class GenericRequestTest extends TestCase
@@ -40,9 +41,9 @@ final class GenericRequestTest extends TestCase
         ];
 
         $expectedHeaders = [
-            Constants::HEADER_USERAGENT => $userAgent,
-            Constants::HEADER_DEVICE_STOCK_UA => $deviceUa,
             Constants::HEADER_UCBROWSER_UA => $browserUa,
+            Constants::HEADER_DEVICE_STOCK_UA => $deviceUa,
+            Constants::HEADER_USERAGENT => $userAgent,
         ];
 
         $header1 = $this->createMock(HeaderInterface::class);
@@ -121,7 +122,7 @@ final class GenericRequestTest extends TestCase
 
         $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
 
-        self::assertSame($expectedHeaders, $object->getHeaders());
+        self::assertSame(array_keys($expectedHeaders), array_keys($object->getHeaders()));
     }
 
     /** @throws Exception */
@@ -153,16 +154,12 @@ final class GenericRequestTest extends TestCase
 
         $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
 
-        self::assertSame(
-            [Constants::HEADER_USERAGENT => $userAgent, 'x-test' => 'test'],
-            $original->getHeaders(),
-        );
-        self::assertSame([Constants::HEADER_USERAGENT => $header], $original->getFilteredHeaders());
+        self::assertSame([Constants::HEADER_USERAGENT => $header], $original->getHeaders());
         self::assertSame('65f857531eabdc37d27f0bce4f03f36863cf88e7', $original->getHash());
     }
 
     /** @throws Exception */
-    public function testGetFilteredHeaders(): void
+    public function testGetHeaders(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
         $browserUa = 'pr(testBrowserUA)';
@@ -242,14 +239,14 @@ final class GenericRequestTest extends TestCase
             );
 
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
     }
 
     /** @throws Exception */
-    public function testGetFilteredHeadersWithLoadException(): void
+    public function testGetHeadersWithLoadException(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
         $expectedHeaders = [];
@@ -277,14 +274,14 @@ final class GenericRequestTest extends TestCase
             ->willThrowException(new NotFoundException('not-found'));
 
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('8739602554c7f3241958e3cc9b57fdecb474d508', $original->getHash());
     }
 
     /** @throws Exception */
-    public function testGetFilteredHeadersWithLoadException2(): void
+    public function testGetHeadersWithLoadException2(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
         $browserUa = 'pr(testBrowserUA)';
@@ -353,14 +350,14 @@ final class GenericRequestTest extends TestCase
             );
 
         $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $original->getHash());
     }
 
     /** @throws Exception */
-    public function testGetFilteredHeadersWithLoadException3(): void
+    public function testGetHeadersWithLoadException3(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
         $browserUa = 'pr(testBrowserUA)';
@@ -457,7 +454,7 @@ final class GenericRequestTest extends TestCase
             );
 
         $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $original->getHash());
@@ -572,14 +569,14 @@ final class GenericRequestTest extends TestCase
             );
 
         $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
     }
 
     /** @throws Exception */
-    public function testGetFilteredHeaders3(): void
+    public function testGetHeaders3(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
         $browserUa = 'pr(testBrowserUA)';
@@ -687,14 +684,14 @@ final class GenericRequestTest extends TestCase
             );
 
         $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
     }
 
     /** @throws Exception */
-    public function testGetFilteredHeaders4(): void
+    public function testGetHeaders4(): void
     {
         $userAgent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
@@ -777,14 +774,14 @@ final class GenericRequestTest extends TestCase
             );
 
         $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('fe38d00b3fa8a78553f2a052cc1c881d32241312', $original->getHash());
     }
 
     /** @throws Exception */
-    public function testGetFilteredHeaders5(): void
+    public function testGetHeaders5(): void
     {
         $userAgent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
@@ -836,7 +833,7 @@ final class GenericRequestTest extends TestCase
             );
 
         $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getFilteredHeaders();
+        $resultHeaders = $original->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
         self::assertSame('7ac574c15f9aa5f4ed68a391cc956b5368a56b18', $original->getHash());

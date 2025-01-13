@@ -14,75 +14,47 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
-
-use function mb_strtolower;
-use function preg_match;
+use UaParser\DeviceCodeInterface;
+use UaParser\PlatformCodeInterface;
 
 final class XPuffinUa implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
+    public function __construct(
+        string $value,
+        private readonly DeviceCodeInterface $deviceCode,
+        private readonly PlatformCodeInterface $platformCode,
+    ) {
+        $this->value = $value;
+    }
+
+    /** @throws void */
     #[Override]
     public function hasDeviceCode(): bool
     {
-        return (bool) preg_match('/android|iphone os/i', $this->value);
+        return $this->deviceCode->hasDeviceCode($this->value);
     }
 
     /** @throws void */
     #[Override]
     public function getDeviceCode(): string | null
     {
-        $matches = [];
-
-        if (preg_match('/(?:android|iphone os)\/(?P<device>[^\/]+)/i', $this->value, $matches)) {
-            $code = mb_strtolower($matches['device']);
-
-            return match ($code) {
-                'ipad4,1' => 'apple=apple ipad 4,1',
-                'iphone7,1' => 'apple=apple iphone 7,1',
-                'iphone6,1' => 'apple=apple iphone 6,1',
-                'iphone 3gs' => 'apple=apple iphone 2,1',
-                'd6503' => 'sony=sony d6503',
-                'sm-g900f' => 'samsung=samsung sm-g900f',
-                'samsung-sm-n910a' => 'samsung=samsung sm-n910a',
-                'sm-t310' => 'samsung=samsung sm-t310',
-                'nexus 10' => 'google=google nexus 10',
-                'bq edison' => 'bq=bq edison',
-                'lenovoa3300-hv' => 'lenovo=lenovo a3300-hv',
-                default => null,
-            };
-        }
-
-        return null;
+        return $this->deviceCode->getDeviceCode($this->value);
     }
 
     /** @throws void */
     #[Override]
     public function hasPlatformCode(): bool
     {
-        return (bool) preg_match('/android|iphone os/i', $this->value);
+        return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /**
-     * @throws void
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-     */
+    /** @throws void */
     #[Override]
     public function getPlatformCode(string | null $derivate = null): string | null
     {
-        $matches = [];
-
-        if (preg_match('/(?P<platform>android|iphone os)/i', $this->value, $matches)) {
-            $code = mb_strtolower($matches['platform']);
-
-            return match ($code) {
-                'iphone os' => 'ios',
-                default => $code,
-            };
-        }
-
-        return null;
+        return $this->platformCode->getPlatformCode($this->value, $derivate);
     }
 }
