@@ -98,10 +98,11 @@ final class GenericRequest implements GenericRequestInterface
         );
 
         foreach ($filtered as $header) {
-            $headerLine = $message->getHeaderLine($header);
-
             try {
-                $headerObj = $this->headerLoader->load($header, $headerLine);
+                $headerObj = $this->headerLoader->load(
+                    $header,
+                    $filteredHeaders[mb_strtolower($header)],
+                );
             } catch (NotFoundException) {
                 continue;
             }
