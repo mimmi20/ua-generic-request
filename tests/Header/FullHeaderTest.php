@@ -66,7 +66,7 @@ final class FullHeaderTest extends TestCase
         $clientVersion
             ->expects(self::once())
             ->method('getClientVersion')
-            ->with($ua)
+            ->with($ua, null)
             ->willReturn('zzz');
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
@@ -78,7 +78,7 @@ final class FullHeaderTest extends TestCase
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
-            ->with($ua)
+            ->with($ua, null)
             ->willReturn('abc');
 
         $platformVersion = $this->createMock(PlatformVersionInterface::class);
@@ -90,7 +90,7 @@ final class FullHeaderTest extends TestCase
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersion')
-            ->with($ua)
+            ->with($ua, null)
             ->willReturn('def');
 
         $engineCode = $this->createMock(EngineCodeInterface::class);
@@ -114,7 +114,7 @@ final class FullHeaderTest extends TestCase
         $engineVersion
             ->expects(self::once())
             ->method('getEngineVersion')
-            ->with($ua)
+            ->with($ua, null)
             ->willReturn('jkl');
 
         $header = new FullHeader(

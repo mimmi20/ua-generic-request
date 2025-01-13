@@ -103,15 +103,11 @@ final class FullHeader implements HeaderInterface
         return $this->platformVersion->hasPlatformVersion($this->value);
     }
 
-    /**
-     * @throws void
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-     */
+    /** @throws void */
     #[Override]
     public function getPlatformVersion(string | null $code = null): string | null
     {
-        return $this->platformVersion->getPlatformVersion($this->value);
+        return $this->platformVersion->getPlatformVersion($this->value, $code);
     }
 
     /** @throws void */
@@ -135,14 +131,10 @@ final class FullHeader implements HeaderInterface
         return $this->engineVersion->hasEngineVersion($this->value);
     }
 
-    /**
-     * @throws void
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-     */
+    /** @throws void */
     #[Override]
     public function getEngineVersion(string | null $code = null): string | null
     {
-        return $this->engineVersion->getEngineVersion($this->value);
+        return $this->engineVersion->getEngineVersion($this->value, $code);
     }
 }
