@@ -21,7 +21,7 @@
     "laminas/laminas-diactoros": "^3.5.0",
     "mimmi20/ua-loader-interface": "^3.0.0",
     "mimmi20/ua-normalizer": "^7.0.0",
-    "mimmi20/ua-parser-interface": "^1.0.0",
+    "mimmi20/ua-parser-interface": "^2.0.0",
     "psr/http-message": "^1.1 || ^2.0"
   },
   "require-dev": {
