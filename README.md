@@ -7,8 +7,11 @@
 ## Code Status
 
 [![codecov](https://codecov.io/gh/mimmi20/ua-generic-request/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/ua-generic-request)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/dff8d0a2ce0c7df2d03f/test_coverage)](https://codeclimate.com/github/mimmi20/ua-generic-request/test_coverage)
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/mimmi20/ua-generic-request.svg)](https://isitmaintained.com/project/mimmi20/ua-generic-request "Average time to resolve an issue")
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/mimmi20/ua-generic-request.svg)](https://isitmaintained.com/project/mimmi20/ua-generic-request "Percentage of issues still open")
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmimmi20%2Fua-generic-request%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/mimmi20/ua-generic-request/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dff8d0a2ce0c7df2d03f/maintainability)](https://codeclimate.com/github/mimmi20/ua-generic-request/maintainability)
 
 ## Requirements
 
