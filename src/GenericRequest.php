@@ -93,17 +93,14 @@ final class GenericRequest implements GenericRequestInterface
         $filtered = array_filter(
             array: self::HEADERS,
             callback: static fn (string $value): bool => array_key_exists(
-                mb_strtolower($value),
+                $value,
                 $filteredHeaders,
             ),
         );
 
         foreach ($filtered as $header) {
             try {
-                $headerObj = $this->headerLoader->load(
-                    $header,
-                    $filteredHeaders[mb_strtolower($header)],
-                );
+                $headerObj = $this->headerLoader->load($header, $filteredHeaders[$header]);
             } catch (NotFoundException) {
                 continue;
             }

@@ -94,31 +94,31 @@ final class Constants
     public const string HEADER_CRAWLED_BY = 'x-crawled-by';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA = 'Sec-CH-UA';
+    public const string HEADER_SEC_CH_UA = 'sec-ch-ua';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_ARCH = 'Sec-CH-UA-Arch';
+    public const string HEADER_SEC_CH_UA_ARCH = 'sec-ch-ua-arch';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_BITNESS = 'Sec-CH-UA-Bitness';
+    public const string HEADER_SEC_CH_UA_BITNESS = 'sec-ch-ua-bitness';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_FULL_VERSION = 'Sec-CH-UA-Full-Version';
+    public const string HEADER_SEC_CH_UA_FULL_VERSION = 'sec-ch-ua-full-version';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_FULL_VERSION_LIST = 'Sec-CH-UA-Full-Version-List';
+    public const string HEADER_SEC_CH_UA_FULL_VERSION_LIST = 'sec-ch-ua-full-version-list';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_MOBILE = 'Sec-CH-UA-Mobile';
+    public const string HEADER_SEC_CH_UA_MOBILE = 'sec-ch-ua-mobile';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_MODEL = 'Sec-CH-UA-Model';
+    public const string HEADER_SEC_CH_UA_MODEL = 'sec-ch-ua-model';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_PLATFORM = 'Sec-CH-UA-Platform';
+    public const string HEADER_SEC_CH_UA_PLATFORM = 'sec-ch-ua-platform';
 
     /** @api */
-    public const string HEADER_SEC_CH_UA_PLATFORM_VERSION = 'Sec-CH-UA-Platform-Version';
+    public const string HEADER_SEC_CH_UA_PLATFORM_VERSION = 'sec-ch-ua-platform-version';
 
     /** @api */
     public const string HEADER_TEST = 'unknown header';
