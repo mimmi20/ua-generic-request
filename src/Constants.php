@@ -95,4 +95,7 @@ final class Constants
 
     /** @api */
     public const string HEADER_SEC_CH_UA_PLATFORM_VERSION = 'sec-ch-ua-platform-version';
+
+    /** @api */
+    public const string HEADER_TEST = 'unknown header';
 }
