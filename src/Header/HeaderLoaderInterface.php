@@ -13,20 +13,19 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use UaRequest\Constants;
 use UaRequest\NotFoundException;
 
 interface HeaderLoaderInterface
 {
     /**
-     * @param Constants::HEADER_* $key
+     * @param non-empty-string $key
      *
      * @throws void
      */
     public function has(string $key): bool;
 
     /**
-     * @param Constants::HEADER_* $key
+     * @param non-empty-string $key
      *
      * @throws NotFoundException
      */
