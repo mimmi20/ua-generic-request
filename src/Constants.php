@@ -31,15 +31,6 @@ final class Constants
     public const string HEADER_DEVICE_UA = 'x-device-user-agent';
 
     /** @api */
-    public const string HEADER_SKYFIRE_VERSION = 'x-skyfire-version';
-
-    /** @api */
-    public const string HEADER_SKYFIRE_PHONE = 'x-skyfire-phone';
-
-    /** @api */
-    public const string HEADER_BLUECOAT_VIA = 'x-bluecoat-via';
-
-    /** @api */
     public const string HEADER_OPERAMINI_PHONE_UA = 'x-operamini-phone-ua';
 
     /** @api */
@@ -64,12 +55,6 @@ final class Constants
     public const string HEADER_ORIGINAL_UA = 'x-original-user-agent';
 
     /** @api */
-    public const string HEADER_BOLT_PHONE_UA = 'x-bolt-phone-ua';
-
-    /** @api */
-    public const string HEADER_MOBILE_UA = 'x-mobile-ua';
-
-    /** @api */
     public const string HEADER_REQUESTED_WITH = 'x-requested-with';
 
     /** @api */
@@ -79,16 +64,7 @@ final class Constants
     public const string HEADER_BAIDU_FLYFLOW = 'baidu-flyflow';
 
     /** @api */
-    public const string HEADER_WAP_PROFILE = 'x-wap-profile';
-
-    /** @api */
     public const string HEADER_PUFFIN_UA = 'x-puffin-ua';
-
-    /** @api */
-    public const string HEADER_MOBILE_GATEWAY = 'x-mobile-gateway';
-
-    /** @api */
-    public const string HEADER_NB_CONTENT = 'x-nb-content';
 
     /** @api */
     public const string HEADER_CRAWLED_BY = 'x-crawled-by';
@@ -119,7 +95,4 @@ final class Constants
 
     /** @api */
     public const string HEADER_SEC_CH_UA_PLATFORM_VERSION = 'sec-ch-ua-platform-version';
-
-    /** @api */
-    public const string HEADER_TEST = 'unknown header';
 }
