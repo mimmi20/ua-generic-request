@@ -15,8 +15,8 @@ namespace UaRequestTest;
 
 use Laminas\Diactoros\ServerRequestFactory;
 use Override;
+use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
-use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use UaRequest\GenericRequestInterface;
 use UaRequest\Header\HeaderInterface;
@@ -29,8 +29,9 @@ use function sprintf;
 final class RequestBuilderTest extends TestCase
 {
     /**
-     * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testBuildRequestFromUaString(): void
     {
@@ -60,8 +61,9 @@ final class RequestBuilderTest extends TestCase
     }
 
     /**
-     * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testBuildRequestFromHeaderArray(): void
     {
@@ -93,8 +95,9 @@ final class RequestBuilderTest extends TestCase
     }
 
     /**
-     * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testBuildRequestFromMessage(): void
     {
@@ -128,8 +131,9 @@ final class RequestBuilderTest extends TestCase
     }
 
     /**
-     * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testBuildRequestFromRequest(): void
     {
@@ -171,8 +175,9 @@ final class RequestBuilderTest extends TestCase
     }
 
     /**
-     * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testBuildRequestFromHeaderArray2(): void
     {
@@ -210,8 +215,9 @@ final class RequestBuilderTest extends TestCase
     }
 
     /**
-     * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testBuildRequestFromHeaderArray3(): void
     {
@@ -249,8 +255,9 @@ final class RequestBuilderTest extends TestCase
     }
 
     /**
-     * @throws ExpectationFailedException
      * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testBuildRequestFromHeaderArray4(): void
     {
