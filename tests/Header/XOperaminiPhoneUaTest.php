@@ -13,7 +13,8 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
-use PHPUnit\Framework\ExpectationFailedException;
+use PHPUnit\Event\NoPreviousThrowableException;
+use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
@@ -26,7 +27,11 @@ use function sprintf;
 
 final class XOperaminiPhoneUaTest extends TestCase
 {
-    /** @throws ExpectationFailedException */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testData(): void
     {
         $ua = 'Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12';

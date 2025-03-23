@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace UaRequestTest\Header;
 
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\ExpectationFailedException;
+use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\SecChUaBitness;
 
@@ -22,7 +22,7 @@ use function sprintf;
 
 final class SecChUaBitnessTest extends TestCase
 {
-    /** @throws ExpectationFailedException */
+    /** @throws Exception */
     #[DataProvider('providerUa')]
     public function testData(string $ua, bool $hasBits, int | null $bits): void
     {

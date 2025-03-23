@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace UaRequestTest;
 
 use Laminas\Diactoros\ServerRequestFactory;
+use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\MessageInterface;
@@ -28,7 +29,11 @@ use function mb_strtoupper;
 
 final class GenericRequestTest extends TestCase
 {
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testConstruct(): void
     {
         $userAgent = 'testUA';
@@ -125,7 +130,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame(array_keys($expectedHeaders), array_keys($object->getHeaders()));
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testToArraySimple(): void
     {
         $userAgent = 'testUA';
@@ -158,7 +167,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('65f857531eabdc37d27f0bce4f03f36863cf88e7', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetHeaders(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -245,7 +258,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetHeadersWithLoadException(): void
     {
         $userAgent       = 'SAMSUNG-GT-S8500';
@@ -280,7 +297,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('8739602554c7f3241958e3cc9b57fdecb474d508', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetHeadersWithLoadException2(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -356,7 +377,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetHeadersWithLoadException3(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -460,7 +485,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetFilteredHeaders2(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -575,7 +604,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetHeaders3(): void
     {
         $userAgent = 'SAMSUNG-GT-S8500';
@@ -690,7 +723,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetHeaders4(): void
     {
         $userAgent     = '+Simple Browser';
@@ -780,7 +817,11 @@ final class GenericRequestTest extends TestCase
         self::assertSame('fe38d00b3fa8a78553f2a052cc1c881d32241312', $original->getHash());
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     public function testGetHeaders5(): void
     {
         $userAgent     = '+Simple Browser';
