@@ -20,7 +20,7 @@
     "ext-mbstring": "*",
     "laminas/laminas-diactoros": "^3.5.0",
     "mimmi20/ua-loader-interface": "^4.0.1",
-    "mimmi20/ua-normalizer": "^7.0.0",
+    "mimmi20/ua-normalizer": "^7.0.1",
     "mimmi20/ua-parser-interface": "^2.0.0",
     "psr/http-message": "^1.1 || ^2.0"
   },
