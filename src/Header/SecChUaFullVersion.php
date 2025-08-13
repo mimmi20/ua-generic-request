@@ -15,7 +15,7 @@ namespace UaRequest\Header;
 
 use Override;
 
-use function trim;
+use function mb_trim;
 
 final class SecChUaFullVersion implements HeaderInterface
 {
@@ -25,7 +25,7 @@ final class SecChUaFullVersion implements HeaderInterface
     #[Override]
     public function hasClientVersion(): bool
     {
-        $value = trim($this->value, '"\\\'');
+        $value = mb_trim($this->value, '"\\\'');
 
         return $value !== '';
     }
@@ -38,7 +38,7 @@ final class SecChUaFullVersion implements HeaderInterface
     #[Override]
     public function getClientVersion(string | null $code = null): string | null
     {
-        $value = trim($this->value, '"\\\'');
+        $value = mb_trim($this->value, '"\\\'');
 
         if ($value === '') {
             return null;
