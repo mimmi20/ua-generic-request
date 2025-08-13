@@ -15,7 +15,7 @@ namespace UaRequest\Header;
 
 use Override;
 
-use function trim;
+use function mb_trim;
 
 final class SecChUaArch implements HeaderInterface
 {
@@ -25,7 +25,7 @@ final class SecChUaArch implements HeaderInterface
     #[Override]
     public function hasDeviceArchitecture(): bool
     {
-        $value = trim($this->value, '"\\\'');
+        $value = mb_trim($this->value, '"\\\'');
 
         return $value !== '';
     }
@@ -34,7 +34,7 @@ final class SecChUaArch implements HeaderInterface
     #[Override]
     public function getDeviceArchitecture(): string | null
     {
-        $value = trim($this->value, '"\\\'');
+        $value = mb_trim($this->value, '"\\\'');
 
         if ($value === '') {
             return null;

@@ -15,7 +15,7 @@ namespace UaRequest\Header;
 
 use Override;
 
-use function trim;
+use function mb_trim;
 
 final class SecChUaBitness implements HeaderInterface
 {
@@ -25,7 +25,7 @@ final class SecChUaBitness implements HeaderInterface
     #[Override]
     public function hasDeviceBitness(): bool
     {
-        $value = trim($this->value, '"\\\'');
+        $value = mb_trim($this->value, '"\\\'');
 
         return $value !== '';
     }
@@ -34,7 +34,7 @@ final class SecChUaBitness implements HeaderInterface
     #[Override]
     public function getDeviceBitness(): int | null
     {
-        $value = trim($this->value, '"\\\'');
+        $value = mb_trim($this->value, '"\\\'');
 
         if ($value === '') {
             return null;
