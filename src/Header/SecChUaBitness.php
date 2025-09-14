@@ -14,7 +14,11 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
+use TypeError;
+use UaResult\Bits\Bits;
+use ValueError;
 
+use function is_numeric;
 use function mb_trim;
 
 final class SecChUaBitness implements HeaderInterface
@@ -27,19 +31,33 @@ final class SecChUaBitness implements HeaderInterface
     {
         $value = mb_trim($this->value, '"\\\'');
 
-        return $value !== '';
+        if ($value === '' || !is_numeric($value)) {
+            return false;
+        }
+
+        try {
+            Bits::from((int) $value);
+        } catch (ValueError | TypeError) {
+            return false;
+        }
+
+        return true;
     }
 
     /** @throws void */
     #[Override]
-    public function getDeviceBitness(): int | null
+    public function getDeviceBitness(): Bits
     {
         $value = mb_trim($this->value, '"\\\'');
 
-        if ($value === '') {
-            return null;
+        if ($value === '' || !is_numeric($value)) {
+            return Bits::unknown;
         }
 
-        return (int) $value;
+        try {
+            return Bits::from((int) $value);
+        } catch (ValueError | TypeError) {
+            return Bits::unknown;
+        }
     }
 }

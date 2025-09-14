@@ -17,6 +17,8 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\SecChUaBitness;
+use UaResult\Bits\Bits;
+use UaResult\Device\Architecture;
 
 use function sprintf;
 
@@ -24,7 +26,7 @@ final class SecChUaBitnessTest extends TestCase
 {
     /** @throws Exception */
     #[DataProvider('providerUa')]
-    public function testData(string $ua, bool $hasBits, int | null $bits): void
+    public function testData(string $ua, bool $hasBits, Bits $bits): void
     {
         $header = new SecChUaBitness($ua);
 
@@ -38,7 +40,8 @@ final class SecChUaBitnessTest extends TestCase
             $header->hasDeviceArchitecture(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
-        self::assertNull(
+        self::assertSame(
+            Architecture::unknown,
             $header->getDeviceArchitecture(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
@@ -110,16 +113,18 @@ final class SecChUaBitnessTest extends TestCase
     }
 
     /**
-     * @return array<int, array<int, bool|int|string|null>>
+     * @return array<int, list<Bits|bool|string>>
      *
      * @throws void
      */
     public static function providerUa(): array
     {
         return [
-            ['64', true, 64],
-            ['"64"', true, 64],
-            ['""', false, null],
+            ['64', true, Bits::sixtyfour],
+            ['"64"', true, Bits::sixtyfour],
+            ['""', false, Bits::unknown],
+            ['"22"', false, Bits::unknown],
+            ['"abc"', false, Bits::unknown],
         ];
     }
 }

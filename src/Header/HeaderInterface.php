@@ -13,6 +13,9 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use UaResult\Bits\Bits;
+use UaResult\Device\Architecture;
+
 interface HeaderInterface
 {
     /**
@@ -33,13 +36,13 @@ interface HeaderInterface
     public function hasDeviceArchitecture(): bool;
 
     /** @throws void */
-    public function getDeviceArchitecture(): string | null;
+    public function getDeviceArchitecture(): Architecture;
 
     /** @throws void */
     public function hasDeviceBitness(): bool;
 
     /** @throws void */
-    public function getDeviceBitness(): int | null;
+    public function getDeviceBitness(): Bits;
 
     /** @throws void */
     public function hasDeviceIsMobile(): bool;

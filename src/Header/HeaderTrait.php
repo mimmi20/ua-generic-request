@@ -14,6 +14,8 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
+use UaResult\Bits\Bits;
+use UaResult\Device\Architecture;
 
 // @phpcs:disable SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion
 trait HeaderTrait
@@ -57,9 +59,9 @@ trait HeaderTrait
 
     /** @throws void */
     #[Override]
-    public function getDeviceArchitecture(): string | null
+    public function getDeviceArchitecture(): Architecture
     {
-        return null;
+        return Architecture::unknown;
     }
 
     /** @throws void */
@@ -71,9 +73,9 @@ trait HeaderTrait
 
     /** @throws void */
     #[Override]
-    public function getDeviceBitness(): int | null
+    public function getDeviceBitness(): Bits
     {
-        return null;
+        return Bits::unknown;
     }
 
     /** @throws void */
