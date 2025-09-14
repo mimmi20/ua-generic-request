@@ -14,6 +14,9 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
+use TypeError;
+use UaResult\Device\Architecture;
+use ValueError;
 
 use function mb_trim;
 
@@ -27,19 +30,33 @@ final class SecChUaArch implements HeaderInterface
     {
         $value = mb_trim($this->value, '"\\\'');
 
-        return $value !== '';
+        if ($value === '') {
+            return false;
+        }
+
+        try {
+            Architecture::from($value);
+        } catch (ValueError | TypeError) {
+            return false;
+        }
+
+        return true;
     }
 
     /** @throws void */
     #[Override]
-    public function getDeviceArchitecture(): string | null
+    public function getDeviceArchitecture(): Architecture
     {
         $value = mb_trim($this->value, '"\\\'');
 
         if ($value === '') {
-            return null;
+            return Architecture::unknown;
         }
 
-        return $value;
+        try {
+            return Architecture::from($value);
+        } catch (ValueError | TypeError) {
+            return Architecture::unknown;
+        }
     }
 }

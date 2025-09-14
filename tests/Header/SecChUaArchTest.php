@@ -17,6 +17,8 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\SecChUaArch;
+use UaResult\Bits\Bits;
+use UaResult\Device\Architecture;
 
 use function sprintf;
 
@@ -24,7 +26,7 @@ final class SecChUaArchTest extends TestCase
 {
     /** @throws Exception */
     #[DataProvider('providerUa')]
-    public function testData(string $ua, bool $hasArch, string | null $arch): void
+    public function testData(string $ua, bool $hasArch, Architecture $arch): void
     {
         $header = new SecChUaArch($ua);
 
@@ -48,7 +50,8 @@ final class SecChUaArchTest extends TestCase
             $header->hasDeviceBitness(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
-        self::assertNull(
+        self::assertSame(
+            Bits::unknown,
             $header->getDeviceBitness(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
@@ -110,17 +113,18 @@ final class SecChUaArchTest extends TestCase
     }
 
     /**
-     * @return array<int, array<int, bool|string|null>>
+     * @return array<int, list<Architecture|bool|string>>
      *
      * @throws void
      */
     public static function providerUa(): array
     {
         return [
-            ['arm', true, 'arm'],
-            ['"arm"', true, 'arm'],
-            ['"x86"', true, 'x86'],
-            ['""', false, null],
+            ['arm', true, Architecture::arm],
+            ['"arm"', true, Architecture::arm],
+            ['"x86"', true, Architecture::x86],
+            ['""', false, Architecture::unknown],
+            ['"abc"', false, Architecture::unknown],
         ];
     }
 }
