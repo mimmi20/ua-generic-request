@@ -13,22 +13,36 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
+use BrowserDetector\Version\Exception\NotNumericException;
+use BrowserDetector\Version\NullVersion;
+use BrowserDetector\Version\VersionBuilder;
+use BrowserDetector\Version\VersionInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Header\SecChUaFullVersion;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
+use UnexpectedValueException;
 
+use function assert;
 use function sprintf;
 
 final class SecChUaFullVersionTest extends TestCase
 {
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws NotNumericException
+     * @throws UnexpectedValueException
+     */
     #[DataProvider('providerUa')]
     public function testData(string $ua, bool $hasVersion, string | null $version): void
     {
         $header = new SecChUaFullVersion($ua);
+
+        $versionClient = (new VersionBuilder())->set((string) $version);
+
+        assert($versionClient instanceof VersionInterface);
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(
@@ -78,8 +92,8 @@ final class SecChUaFullVersionTest extends TestCase
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
-            $version,
-            $header->getClientVersion(),
+            $versionClient->getVersion(),
+            $header->getClientVersion()->getVersion(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
@@ -94,7 +108,8 @@ final class SecChUaFullVersionTest extends TestCase
             $header->hasPlatformVersion(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
-        self::assertNull(
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getPlatformVersion(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
@@ -107,7 +122,8 @@ final class SecChUaFullVersionTest extends TestCase
             $header->hasEngineVersion(),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
-        self::assertNull(
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getEngineVersion(),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );

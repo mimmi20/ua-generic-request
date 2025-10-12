@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use BrowserDetector\Version\VersionInterface;
 use Override;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
@@ -77,7 +78,7 @@ final class FullHeader implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    public function getClientVersion(string | null $code = null): string | null
+    public function getClientVersion(string | null $code = null): VersionInterface
     {
         return $this->clientVersion->getClientVersion($this->value, $code);
     }
@@ -105,7 +106,7 @@ final class FullHeader implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    public function getPlatformVersion(string | null $code = null): string | null
+    public function getPlatformVersion(string | null $code = null): VersionInterface
     {
         return $this->platformVersion->getPlatformVersion($this->value, $code);
     }
@@ -133,7 +134,7 @@ final class FullHeader implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    public function getEngineVersion(string | null $code = null): string | null
+    public function getEngineVersion(string | null $code = null): VersionInterface
     {
         return $this->engineVersion->getEngineVersion($this->value, $code);
     }

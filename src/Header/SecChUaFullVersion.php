@@ -13,6 +13,10 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use BrowserDetector\Version\Exception\NotNumericException;
+use BrowserDetector\Version\NullVersion;
+use BrowserDetector\Version\VersionBuilder;
+use BrowserDetector\Version\VersionInterface;
 use Override;
 
 use function mb_trim;
@@ -31,19 +35,19 @@ final class SecChUaFullVersion implements HeaderInterface
     }
 
     /**
-     * @throws void
+     * @throws NotNumericException
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
-    public function getClientVersion(string | null $code = null): string | null
+    public function getClientVersion(string | null $code = null): VersionInterface
     {
         $value = mb_trim($this->value, '"\\\'');
 
         if ($value === '') {
-            return null;
+            return new NullVersion();
         }
 
-        return $value;
+        return (new VersionBuilder())->set($value);
     }
 }

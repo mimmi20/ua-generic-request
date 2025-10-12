@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use BrowserDetector\Version\VersionInterface;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
 
@@ -66,7 +67,7 @@ interface HeaderInterface
     public function hasClientVersion(): bool;
 
     /** @throws void */
-    public function getClientVersion(string | null $code = null): string | null;
+    public function getClientVersion(string | null $code = null): VersionInterface;
 
     /** @throws void */
     public function hasPlatformCode(): bool;
@@ -78,7 +79,7 @@ interface HeaderInterface
     public function hasPlatformVersion(): bool;
 
     /** @throws void */
-    public function getPlatformVersion(string | null $code = null): string | null;
+    public function getPlatformVersion(string | null $code = null): VersionInterface;
 
     /** @throws void */
     public function hasEngineCode(): bool;
@@ -90,5 +91,5 @@ interface HeaderInterface
     public function hasEngineVersion(): bool;
 
     /** @throws void */
-    public function getEngineVersion(string | null $code = null): string | null;
+    public function getEngineVersion(string | null $code = null): VersionInterface;
 }

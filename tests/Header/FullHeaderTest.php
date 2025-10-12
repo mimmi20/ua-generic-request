@@ -13,6 +13,8 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
+use BrowserDetector\Version\Exception\NotNumericException;
+use BrowserDetector\Version\Version;
 use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
@@ -33,10 +35,15 @@ final class FullHeaderTest extends TestCase
      * @throws Exception
      * @throws NoPreviousThrowableException
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NotNumericException
      */
     public function testData(): void
     {
         $ua = 'Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12';
+
+        $versionClient = new Version('4');
+        $versionOs     = new Version('6');
+        $versionEngine = new Version('10');
 
         $deviceCode = $this->createMock(DeviceCodeInterface::class);
         $deviceCode
@@ -72,7 +79,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('getClientVersion')
             ->with($ua, null)
-            ->willReturn('zzz');
+            ->willReturn($versionClient);
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
         $platformCode
@@ -96,7 +103,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('getPlatformVersion')
             ->with($ua, null)
-            ->willReturn('def');
+            ->willReturn($versionOs);
 
         $engineCode = $this->createMock(EngineCodeInterface::class);
         $engineCode
@@ -120,7 +127,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('getEngineVersion')
             ->with($ua, null)
-            ->willReturn('jkl');
+            ->willReturn($versionEngine);
 
         $header = new FullHeader(
             value: $ua,
@@ -158,7 +165,7 @@ final class FullHeaderTest extends TestCase
         );
 
         self::assertSame(
-            'zzz',
+            $versionClient,
             $header->getClientVersion(),
         );
 
@@ -176,7 +183,7 @@ final class FullHeaderTest extends TestCase
         );
 
         self::assertSame(
-            'def',
+            $versionOs,
             $header->getPlatformVersion(),
         );
 
@@ -194,7 +201,7 @@ final class FullHeaderTest extends TestCase
         );
 
         self::assertSame(
-            'jkl',
+            $versionEngine,
             $header->getEngineVersion(),
         );
     }

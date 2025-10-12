@@ -13,6 +13,8 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use BrowserDetector\Version\NullVersion;
+use BrowserDetector\Version\VersionInterface;
 use Override;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
@@ -133,9 +135,9 @@ trait HeaderTrait
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
-    public function getClientVersion(string | null $code = null): string | null
+    public function getClientVersion(string | null $code = null): VersionInterface
     {
-        return null;
+        return new NullVersion();
     }
 
     /** @throws void */
@@ -169,9 +171,9 @@ trait HeaderTrait
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
-    public function getPlatformVersion(string | null $code = null): string | null
+    public function getPlatformVersion(string | null $code = null): VersionInterface
     {
-        return null;
+        return new NullVersion();
     }
 
     /** @throws void */
@@ -201,8 +203,8 @@ trait HeaderTrait
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
-    public function getEngineVersion(string | null $code = null): string | null
+    public function getEngineVersion(string | null $code = null): VersionInterface
     {
-        return null;
+        return new NullVersion();
     }
 }

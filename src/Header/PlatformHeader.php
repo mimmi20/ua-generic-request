@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use BrowserDetector\Version\VersionInterface;
 use Override;
 use UaParser\PlatformCodeInterface;
 use UaParser\PlatformVersionInterface;
@@ -53,7 +54,7 @@ final class PlatformHeader implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    public function getPlatformVersion(string | null $code = null): string | null
+    public function getPlatformVersion(string | null $code = null): VersionInterface
     {
         return $this->platformVersion->getPlatformVersion($this->value, $code);
     }
