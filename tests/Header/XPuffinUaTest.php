@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
+use BrowserDetector\Version\NullVersion;
 use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
@@ -82,7 +83,8 @@ final class XPuffinUaTest extends TestCase
             $header->hasClientVersion(),
         );
 
-        self::assertNull(
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getClientVersion(),
         );
 
@@ -99,7 +101,8 @@ final class XPuffinUaTest extends TestCase
             $header->hasPlatformVersion(),
         );
 
-        self::assertNull(
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getPlatformVersion(),
         );
 
@@ -115,7 +118,8 @@ final class XPuffinUaTest extends TestCase
             $header->hasEngineVersion(),
         );
 
-        self::assertNull(
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getEngineVersion(),
         );
     }

@@ -13,6 +13,9 @@ declare(strict_types = 1);
 
 namespace UaRequestTest\Header;
 
+use BrowserDetector\Version\Exception\NotNumericException;
+use BrowserDetector\Version\NullVersion;
+use BrowserDetector\Version\Version;
 use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
@@ -31,10 +34,13 @@ final class XOperaminiPhoneUaTest extends TestCase
      * @throws Exception
      * @throws NoPreviousThrowableException
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NotNumericException
      */
     public function testData(): void
     {
         $ua = 'Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12';
+
+        $versionClient = new Version('4');
 
         $deviceCode = $this->createMock(DeviceCodeInterface::class);
         $deviceCode
@@ -70,7 +76,7 @@ final class XOperaminiPhoneUaTest extends TestCase
             ->expects(self::once())
             ->method('getClientVersion')
             ->with($ua)
-            ->willReturn('zzz');
+            ->willReturn($versionClient);
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
         $platformCode
@@ -130,7 +136,7 @@ final class XOperaminiPhoneUaTest extends TestCase
         );
 
         self::assertSame(
-            'zzz',
+            $versionClient,
             $header->getClientVersion(),
         );
 
@@ -147,7 +153,8 @@ final class XOperaminiPhoneUaTest extends TestCase
             $header->hasPlatformVersion(),
         );
 
-        self::assertNull(
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getPlatformVersion(),
         );
 
@@ -164,7 +171,8 @@ final class XOperaminiPhoneUaTest extends TestCase
             $header->hasEngineVersion(),
         );
 
-        self::assertNull(
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getEngineVersion(),
         );
     }
