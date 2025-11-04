@@ -78,24 +78,11 @@ final class XRequestedWithTest extends TestCase
             ->with($ua, null)
             ->willReturn('abc');
 
-        $platformVersion = $this->createMock(PlatformVersionInterface::class);
-        $platformVersion
-            ->expects(self::once())
-            ->method('hasPlatformVersion')
-            ->with($ua)
-            ->willReturn(true);
-        $platformVersion
-            ->expects(self::once())
-            ->method('getPlatformVersion')
-            ->with($ua, null)
-            ->willReturn($versionOs);
-
         $header = new XRequestedWith(
             value: $ua,
             clientCode: $clientCode,
             clientVersion: $clientVersion,
             platformCode: $platformCode,
-            platformVersion: $platformVersion,
         );
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
@@ -135,12 +122,12 @@ final class XRequestedWithTest extends TestCase
             $header->getPlatformCode(),
         );
 
-        self::assertTrue(
+        self::assertFalse(
             $header->hasPlatformVersion(),
         );
 
-        self::assertSame(
-            $versionOs,
+        self::assertInstanceOf(
+            NullVersion::class,
             $header->getPlatformVersion(),
         );
 

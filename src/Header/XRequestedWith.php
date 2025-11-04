@@ -30,7 +30,6 @@ final class XRequestedWith implements HeaderInterface
         private readonly ClientCodeInterface $clientCode,
         private readonly ClientVersionInterface $clientVersion,
         private readonly PlatformCodeInterface $platformCode,
-        private readonly PlatformVersionInterface $platformVersion,
     ) {
         $this->value = $value;
     }
@@ -75,19 +74,5 @@ final class XRequestedWith implements HeaderInterface
     public function getPlatformCode(string | null $derivate = null): string | null
     {
         return $this->platformCode->getPlatformCode($this->value, $derivate);
-    }
-
-    /** @throws void */
-    #[Override]
-    public function hasPlatformVersion(): bool
-    {
-        return $this->platformVersion->hasPlatformVersion($this->value);
-    }
-
-    /** @throws void */
-    #[Override]
-    public function getPlatformVersion(string | null $code = null): VersionInterface
-    {
-        return $this->platformVersion->getPlatformVersion($this->value, $code);
     }
 }
