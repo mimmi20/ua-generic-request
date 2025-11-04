@@ -18,7 +18,6 @@ use Override;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\PlatformCodeInterface;
-use UaParser\PlatformVersionInterface;
 
 final class XRequestedWith implements HeaderInterface
 {

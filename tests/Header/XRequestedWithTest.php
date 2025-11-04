@@ -22,7 +22,6 @@ use PHPUnit\Framework\TestCase;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\PlatformCodeInterface;
-use UaParser\PlatformVersionInterface;
 use UaRequest\Header\XRequestedWith;
 
 use function sprintf;
@@ -40,7 +39,6 @@ final class XRequestedWithTest extends TestCase
         $ua = 'Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12';
 
         $versionClient = new Version('4');
-        $versionOs     = new Version('6');
 
         $clientCode = $this->createMock(ClientCodeInterface::class);
         $clientCode
