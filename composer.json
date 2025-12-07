@@ -35,6 +35,7 @@
     "ext-xml": "*",
     "ext-xmlwriter": "*",
     "infection/infection": "^0.31.9",
+    "jbelien/phpstan-sarif-formatter": "^1.2.0",
     "mimmi20/coding-standard": "^7.0.2",
     "mimmi20/ua-browser-type": "^12.0.1",
     "nikic/php-parser": "^5.6.2",
