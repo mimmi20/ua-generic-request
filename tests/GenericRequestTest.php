@@ -52,48 +52,50 @@ final class GenericRequestTest extends TestCase
         ];
 
         $header1 = $this->createMock(HeaderInterface::class);
-        $header1->expects(self::any())
+        $header1->expects(self::never())
             ->method('getValue')
             ->willReturn($deviceUa);
-        $header1->expects(self::any())
+        $header1->expects(self::never())
             ->method('hasPlatformCode')
             ->willReturn(false);
-        $header1->expects(self::any())
+        $header1->expects(self::never())
             ->method('hasClientCode')
             ->willReturn(false);
-        $header1->expects(self::any())
+        $header1->expects(self::never())
             ->method('hasDeviceCode')
             ->willReturn(true);
+
         $header2 = $this->createMock(HeaderInterface::class);
-        $header2->expects(self::any())
+        $header2->expects(self::never())
             ->method('getValue')
             ->willReturn($browserUa);
-        $header2->expects(self::any())
+        $header2->expects(self::never())
             ->method('hasPlatformCode')
             ->willReturn(false);
-        $header2->expects(self::any())
+        $header2->expects(self::never())
             ->method('hasClientCode')
             ->willReturn(true);
-        $header2->expects(self::any())
+        $header2->expects(self::never())
             ->method('hasEngineCode')
             ->willReturn(true);
-        $header2->expects(self::any())
+        $header2->expects(self::never())
             ->method('hasDeviceCode')
             ->willReturn(false);
+
         $header3 = $this->createMock(HeaderInterface::class);
-        $header3->expects(self::any())
+        $header3->expects(self::never())
             ->method('getValue')
             ->willReturn($userAgent);
-        $header3->expects(self::any())
+        $header3->expects(self::never())
             ->method('hasPlatformCode')
             ->willReturn(true);
-        $header3->expects(self::any())
+        $header3->expects(self::never())
             ->method('hasClientCode')
             ->willReturn(true);
-        $header3->expects(self::any())
+        $header3->expects(self::never())
             ->method('hasEngineCode')
             ->willReturn(true);
-        $header3->expects(self::any())
+        $header3->expects(self::never())
             ->method('hasDeviceCode')
             ->willReturn(true);
 

@@ -49,7 +49,8 @@ final class ClientHeader implements HeaderInterface
     #[Override]
     public function hasClientVersion(): bool
     {
-        return $this->clientVersion->hasClientVersion($this->value);
+        return $this->clientCode->hasClientCode($this->value)
+            && $this->clientVersion->hasClientVersion($this->value);
     }
 
     /** @throws void */
