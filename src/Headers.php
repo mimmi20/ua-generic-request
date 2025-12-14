@@ -140,8 +140,7 @@ enum Headers: string
                 self::HEADER_BAIDU_FLYFLOW => 22,
                 self::HEADER_PUFFIN_UA => 23,
                 self::HEADER_CRAWLED_BY => 24,
-                self::HEADER_USERAGENT => 25,
-                default => 26,
+                default => 25,
             };
         }
 

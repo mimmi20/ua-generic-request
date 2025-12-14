@@ -50,10 +50,6 @@ final class SecChUaBitness implements HeaderInterface
     {
         $value = mb_trim($this->value, '"\\\'');
 
-        if ($value === '' || !is_numeric($value)) {
-            return Bits::unknown;
-        }
-
         try {
             return Bits::from((int) $value);
         } catch (ValueError | TypeError) {

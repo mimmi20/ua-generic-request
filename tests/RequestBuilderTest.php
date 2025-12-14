@@ -37,7 +37,20 @@ final class RequestBuilderTest extends TestCase
     {
         $useragent = 'testagent';
 
+        $header = $this->createMock(HeaderInterface::class);
+        $header
+            ->expects(self::never())
+            ->method('getValue');
+
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
+        $headerLoader
+            ->expects(self::never())
+            ->method('has');
+        $headerLoader
+            ->expects(self::once())
+            ->method('load')
+            ->with('user-agent', $useragent)
+            ->willReturn($header);
 
         $object = new RequestBuilder($headerLoader);
 
@@ -57,7 +70,7 @@ final class RequestBuilderTest extends TestCase
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);
-        self::assertInstanceOf(HeaderInterface::class, $headers['user-agent']);
+        self::assertSame($header, $headers['user-agent']);
     }
 
     /**
@@ -69,7 +82,20 @@ final class RequestBuilderTest extends TestCase
     {
         $useragent = 'testagent';
 
+        $header = $this->createMock(HeaderInterface::class);
+        $header
+            ->expects(self::never())
+            ->method('getValue');
+
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
+        $headerLoader
+            ->expects(self::never())
+            ->method('has');
+        $headerLoader
+            ->expects(self::once())
+            ->method('load')
+            ->with('user-agent', $useragent)
+            ->willReturn($header);
 
         $object = new RequestBuilder($headerLoader);
 
@@ -91,7 +117,7 @@ final class RequestBuilderTest extends TestCase
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);
-        self::assertInstanceOf(HeaderInterface::class, $headers['user-agent']);
+        self::assertSame($header, $headers['user-agent']);
     }
 
     /**
@@ -103,7 +129,20 @@ final class RequestBuilderTest extends TestCase
     {
         $useragent = 'testagent';
 
+        $header = $this->createMock(HeaderInterface::class);
+        $header
+            ->expects(self::never())
+            ->method('getValue');
+
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
+        $headerLoader
+            ->expects(self::never())
+            ->method('has');
+        $headerLoader
+            ->expects(self::once())
+            ->method('load')
+            ->with('user-agent', $useragent)
+            ->willReturn($header);
 
         $object = new RequestBuilder($headerLoader);
 
@@ -127,7 +166,7 @@ final class RequestBuilderTest extends TestCase
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);
-        self::assertInstanceOf(HeaderInterface::class, $headers['user-agent']);
+        self::assertSame($header, $headers['user-agent']);
     }
 
     /**
@@ -138,6 +177,12 @@ final class RequestBuilderTest extends TestCase
     public function testBuildRequestFromRequest(): void
     {
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
+        $headerLoader
+            ->expects(self::never())
+            ->method('has');
+        $headerLoader
+            ->expects(self::never())
+            ->method('load');
 
         $object = new RequestBuilder($headerLoader);
 
@@ -184,7 +229,29 @@ final class RequestBuilderTest extends TestCase
         $useragent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
 
+        $header1 = $this->createMock(HeaderInterface::class);
+        $header1
+            ->expects(self::never())
+            ->method('getValue');
+
+        $header2 = $this->createMock(HeaderInterface::class);
+        $header2
+            ->expects(self::never())
+            ->method('getValue');
+
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
+        $headerLoader
+            ->expects(self::never())
+            ->method('has');
+        $headerLoader
+            ->expects(self::exactly(2))
+            ->method('load')
+            ->willReturnMap(
+                [
+                    ['x-requested-with', $requestedWith, $header1],
+                    ['user-agent', $useragent, $header2],
+                ],
+            );
 
         $object = new RequestBuilder($headerLoader);
 
@@ -212,6 +279,8 @@ final class RequestBuilderTest extends TestCase
         self::assertCount(2, $headers);
         self::assertArrayHasKey('user-agent', $headers);
         self::assertArrayHasKey('x-requested-with', $headers);
+        self::assertSame($header1, $headers['x-requested-with']);
+        self::assertSame($header2, $headers['user-agent']);
     }
 
     /**
@@ -224,7 +293,29 @@ final class RequestBuilderTest extends TestCase
         $useragent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
 
+        $header1 = $this->createMock(HeaderInterface::class);
+        $header1
+            ->expects(self::never())
+            ->method('getValue');
+
+        $header2 = $this->createMock(HeaderInterface::class);
+        $header2
+            ->expects(self::never())
+            ->method('getValue');
+
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
+        $headerLoader
+            ->expects(self::never())
+            ->method('has');
+        $headerLoader
+            ->expects(self::exactly(2))
+            ->method('load')
+            ->willReturnMap(
+                [
+                    ['x-requested-with', $requestedWith, $header1],
+                    ['user-agent', $useragent, $header2],
+                ],
+            );
 
         $object = new RequestBuilder($headerLoader);
 
@@ -252,6 +343,8 @@ final class RequestBuilderTest extends TestCase
         self::assertCount(2, $headers);
         self::assertArrayHasKey('user-agent', $headers);
         self::assertArrayHasKey('x-requested-with', $headers);
+        self::assertSame($header1, $headers['x-requested-with']);
+        self::assertSame($header2, $headers['user-agent']);
     }
 
     /**
@@ -264,7 +357,20 @@ final class RequestBuilderTest extends TestCase
         $useragent     = '+Simple Browser';
         $requestedWith = 'com.massimple.nacion.parana.es';
 
+        $header = $this->createMock(HeaderInterface::class);
+        $header
+            ->expects(self::never())
+            ->method('getValue');
+
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
+        $headerLoader
+            ->expects(self::never())
+            ->method('has');
+        $headerLoader
+            ->expects(self::once())
+            ->method('load')
+            ->with('user-agent', $useragent)
+            ->willReturn($header);
 
         $object = new RequestBuilder($headerLoader);
 
@@ -289,5 +395,6 @@ final class RequestBuilderTest extends TestCase
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);
+        self::assertSame($header, $headers['user-agent']);
     }
 }

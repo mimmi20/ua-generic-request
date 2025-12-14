@@ -49,7 +49,8 @@ final class PlatformHeader implements HeaderInterface
     #[Override]
     public function hasPlatformVersion(): bool
     {
-        return $this->platformVersion->hasPlatformVersion($this->value);
+        return $this->platformCode->hasPlatformCode($this->value)
+            && $this->platformVersion->hasPlatformVersion($this->value);
     }
 
     /** @throws void */
