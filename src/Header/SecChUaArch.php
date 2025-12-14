@@ -49,10 +49,6 @@ final class SecChUaArch implements HeaderInterface
     {
         $value = mb_trim($this->value, '"\\\'');
 
-        if ($value === '') {
-            return Architecture::unknown;
-        }
-
         try {
             return Architecture::from($value);
         } catch (ValueError | TypeError) {

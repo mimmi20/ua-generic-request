@@ -14,7 +14,6 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use BrowserDetector\Version\Exception\NotNumericException;
-use BrowserDetector\Version\NullVersion;
 use BrowserDetector\Version\VersionBuilder;
 use BrowserDetector\Version\VersionInterface;
 use Override;
@@ -43,10 +42,6 @@ final class SecChUaFullVersion implements HeaderInterface
     public function getClientVersion(string | null $code = null): VersionInterface
     {
         $value = mb_trim($this->value, '"\\\'');
-
-        if ($value === '') {
-            return new NullVersion();
-        }
 
         return (new VersionBuilder())->set($value);
     }
