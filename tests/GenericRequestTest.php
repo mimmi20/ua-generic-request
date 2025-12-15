@@ -19,10 +19,10 @@ use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\MessageInterface;
 use UaRequest\Constants;
+use UaRequest\Exception\NotFoundException;
 use UaRequest\GenericRequest;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
-use UaRequest\NotFoundException;
 
 use function array_keys;
 use function mb_strtoupper;

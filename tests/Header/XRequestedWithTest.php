@@ -14,11 +14,15 @@ declare(strict_types = 1);
 namespace Header;
 
 use BrowserDetector\Version\NullVersion;
+use Override;
 use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use UaData\CompanyInterface;
+use UaData\OsInterface;
 use UaParser\ClientCodeInterface;
 use UaParser\PlatformCodeInterface;
+use UaRequest\Exception\NotFoundException;
 use UaRequest\Header\XRequestedWith;
 
 use function sprintf;
@@ -29,10 +33,76 @@ final class XRequestedWithTest extends TestCase
      * @throws Exception
      * @throws NoPreviousThrowableException
      * @throws \PHPUnit\Framework\MockObject\Exception
+     * @throws NotFoundException
      */
     public function testData(): void
     {
         $ua = 'Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12';
+
+        $os = new class () implements OsInterface {
+            /** @throws void */
+            #[Override]
+            public function getName(): string | null
+            {
+                return null;
+            }
+
+            /** @throws void */
+            #[Override]
+            public function getMarketingName(): string | null
+            {
+                return null;
+            }
+
+            /** @throws void */
+            #[Override]
+            public function getManufacturer(): CompanyInterface
+            {
+                return new class () implements CompanyInterface {
+                    /** @throws void */
+                    #[Override]
+                    public function getName(): string | null
+                    {
+                        return null;
+                    }
+
+                    /** @throws void */
+                    #[Override]
+                    public function getBrandname(): string | null
+                    {
+                        return null;
+                    }
+
+                    /** @throws void */
+                    #[Override]
+                    public function getKey(): string
+                    {
+                        return '';
+                    }
+                };
+            }
+
+            /**
+             * @return array{factory: class-string|null, search: array<int, string>|null, value?: float|int|string}
+             *
+             * @throws void
+             */
+            #[Override]
+            public function getVersion(): array
+            {
+                return [
+                    'factory' => null,
+                    'search' => null,
+                ];
+            }
+
+            /** @throws void */
+            #[Override]
+            public function getKey(): string
+            {
+                return '';
+            }
+        };
 
         $clientCode = $this->createMock(ClientCodeInterface::class);
         $clientCode
@@ -56,7 +126,7 @@ final class XRequestedWithTest extends TestCase
             ->expects(self::once())
             ->method('getPlatformCode')
             ->with($ua, null)
-            ->willReturn('abc');
+            ->willReturn($os);
 
         $header = new XRequestedWith(value: $ua, clientCode: $clientCode, platformCode: $platformCode);
 
@@ -93,7 +163,7 @@ final class XRequestedWithTest extends TestCase
         );
 
         self::assertSame(
-            'abc',
+            $os,
             $header->getPlatformCode(),
         );
 
@@ -110,9 +180,13 @@ final class XRequestedWithTest extends TestCase
             $header->hasEngineCode(),
         );
 
-        self::assertNull(
-            $header->getEngineCode(),
-        );
+        try {
+            $header->getEngineCode();
+
+            self::fail('Exception expected');
+        } catch (NotFoundException) {
+            // do nothing
+        }
 
         self::assertFalse(
             $header->hasEngineVersion(),

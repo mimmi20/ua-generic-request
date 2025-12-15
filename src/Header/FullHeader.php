@@ -15,6 +15,8 @@ namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
 use Override;
+use UaData\EngineInterface;
+use UaData\OsInterface;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
@@ -22,6 +24,7 @@ use UaParser\EngineCodeInterface;
 use UaParser\EngineVersionInterface;
 use UaParser\PlatformCodeInterface;
 use UaParser\PlatformVersionInterface;
+use UaRequest\Exception\NotFoundException;
 
 final class FullHeader implements HeaderInterface
 {
@@ -90,9 +93,9 @@ final class FullHeader implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /** @throws void */
+    /** @throws NotFoundException */
     #[Override]
-    public function getPlatformCode(string | null $derivate = null): string | null
+    public function getPlatformCode(string | null $derivate = null): OsInterface
     {
         return $this->platformCode->getPlatformCode($this->value, $derivate);
     }
@@ -118,9 +121,9 @@ final class FullHeader implements HeaderInterface
         return $this->engineCode->hasEngineCode($this->value);
     }
 
-    /** @throws void */
+    /** @throws NotFoundException */
     #[Override]
-    public function getEngineCode(): string | null
+    public function getEngineCode(): EngineInterface
     {
         return $this->engineCode->getEngineCode($this->value);
     }

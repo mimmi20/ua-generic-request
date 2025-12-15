@@ -15,6 +15,7 @@ namespace UaRequest;
 
 use Override;
 use Psr\Http\Message\MessageInterface;
+use UaRequest\Exception\NotFoundException;
 use UaRequest\Header\HeaderInterface;
 use UaRequest\Header\HeaderLoaderInterface;
 

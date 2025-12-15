@@ -16,6 +16,9 @@ namespace UaRequest\Header;
 use BrowserDetector\Version\NullVersion;
 use BrowserDetector\Version\VersionInterface;
 use Override;
+use UaData\EngineInterface;
+use UaData\OsInterface;
+use UaRequest\Exception\NotFoundException;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
 
@@ -148,14 +151,14 @@ trait HeaderTrait
     }
 
     /**
-     * @throws void
+     * @throws NotFoundException
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
-    public function getPlatformCode(string | null $derivate = null): string | null
+    public function getPlatformCode(string | null $derivate = null): OsInterface
     {
-        return null;
+        throw new NotFoundException();
     }
 
     /** @throws void */
@@ -183,11 +186,11 @@ trait HeaderTrait
         return false;
     }
 
-    /** @throws void */
+    /** @throws NotFoundException */
     #[Override]
-    public function getEngineCode(): string | null
+    public function getEngineCode(): EngineInterface
     {
-        return null;
+        throw new NotFoundException();
     }
 
     /** @throws void */

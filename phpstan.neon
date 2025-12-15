@@ -109,6 +109,7 @@ parameters:
 
   ignoreErrors:
     - '~will always evaluate to true~'
+    - '~UaRequest\\Exception\\NotFoundException~'
     -
       message: '~Parameter #1 \$request of method UaRequest\\RequestBuilder::buildRequest\(\) expects array<non-empty-string, non-empty-string>~'
       path: tests/RequestBuilderTest.php

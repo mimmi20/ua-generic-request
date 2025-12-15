@@ -14,8 +14,10 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use Override;
+use UaData\OsInterface;
 use UaParser\ClientCodeInterface;
 use UaParser\PlatformCodeInterface;
+use UaRequest\Exception\NotFoundException;
 
 final class XRequestedWith implements HeaderInterface
 {
@@ -51,9 +53,9 @@ final class XRequestedWith implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /** @throws void */
+    /** @throws NotFoundException */
     #[Override]
-    public function getPlatformCode(string | null $derivate = null): string | null
+    public function getPlatformCode(string | null $derivate = null): OsInterface
     {
         return $this->platformCode->getPlatformCode($this->value, $derivate);
     }

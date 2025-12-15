@@ -15,11 +15,14 @@ namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
 use Override;
+use UaData\EngineInterface;
+use UaData\OsInterface;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
 use UaParser\DeviceCodeInterface;
 use UaParser\EngineCodeInterface;
 use UaParser\PlatformCodeInterface;
+use UaRequest\Exception\NotFoundException;
 
 final class XOperaminiPhoneUa implements HeaderInterface
 {
@@ -86,9 +89,9 @@ final class XOperaminiPhoneUa implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /** @throws void */
+    /** @throws NotFoundException */
     #[Override]
-    public function getPlatformCode(string | null $derivate = null): string | null
+    public function getPlatformCode(string | null $derivate = null): OsInterface
     {
         return $this->platformCode->getPlatformCode($this->value, $derivate);
     }
@@ -101,12 +104,12 @@ final class XOperaminiPhoneUa implements HeaderInterface
     }
 
     /**
-     * @throws void
+     * @throws NotFoundException
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
-    public function getEngineCode(string | null $code = null): string | null
+    public function getEngineCode(string | null $code = null): EngineInterface
     {
         return $this->engineCode->getEngineCode($this->value);
     }

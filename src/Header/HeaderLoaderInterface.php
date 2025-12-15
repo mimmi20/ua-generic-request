@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
-use UaRequest\NotFoundException;
+use UaRequest\Exception\NotFoundException;
 
 interface HeaderLoaderInterface
 {

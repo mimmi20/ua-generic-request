@@ -14,6 +14,9 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
+use UaData\EngineInterface;
+use UaData\OsInterface;
+use UaRequest\Exception\NotFoundException;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
 
@@ -72,8 +75,8 @@ interface HeaderInterface
     /** @throws void */
     public function hasPlatformCode(): bool;
 
-    /** @throws void */
-    public function getPlatformCode(string | null $derivate = null): string | null;
+    /** @throws NotFoundException */
+    public function getPlatformCode(string | null $derivate = null): OsInterface;
 
     /** @throws void */
     public function hasPlatformVersion(): bool;
@@ -84,8 +87,8 @@ interface HeaderInterface
     /** @throws void */
     public function hasEngineCode(): bool;
 
-    /** @throws void */
-    public function getEngineCode(): string | null;
+    /** @throws NotFoundException */
+    public function getEngineCode(): EngineInterface;
 
     /** @throws void */
     public function hasEngineVersion(): bool;

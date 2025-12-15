@@ -19,6 +19,7 @@ use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaParser\ClientCodeInterface;
 use UaParser\DeviceCodeInterface;
+use UaRequest\Exception\NotFoundException;
 use UaRequest\Header\XUcbrowserPhoneUa;
 
 use function sprintf;
@@ -93,9 +94,13 @@ final class XUcbrowserPhoneUaTest extends TestCase
             $header->hasPlatformCode(),
         );
 
-        self::assertNull(
-            $header->getPlatformCode(),
-        );
+        try {
+            $header->getPlatformCode();
+
+            self::fail('Exception expected');
+        } catch (NotFoundException) {
+            // do nothing
+        }
 
         self::assertFalse(
             $header->hasPlatformVersion(),
@@ -110,9 +115,13 @@ final class XUcbrowserPhoneUaTest extends TestCase
             $header->hasEngineCode(),
         );
 
-        self::assertNull(
-            $header->getEngineCode(),
-        );
+        try {
+            $header->getEngineCode();
+
+            self::fail('Exception expected');
+        } catch (NotFoundException) {
+            // do nothing
+        }
 
         self::assertFalse(
             $header->hasEngineVersion(),

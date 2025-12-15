@@ -15,8 +15,10 @@ namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
 use Override;
+use UaData\OsInterface;
 use UaParser\PlatformCodeInterface;
 use UaParser\PlatformVersionInterface;
+use UaRequest\Exception\NotFoundException;
 
 final class PlatformHeader implements HeaderInterface
 {
@@ -38,9 +40,9 @@ final class PlatformHeader implements HeaderInterface
         return $this->platformCode->hasPlatformCode($this->value);
     }
 
-    /** @throws void */
+    /** @throws NotFoundException */
     #[Override]
-    public function getPlatformCode(string | null $derivate = null): string | null
+    public function getPlatformCode(string | null $derivate = null): OsInterface
     {
         return $this->platformCode->getPlatformCode($this->value, $derivate);
     }
