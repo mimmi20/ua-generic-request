@@ -17,6 +17,7 @@ use BrowserDetector\Version\NullVersion;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use UaRequest\Exception\NotFoundException;
 use UaRequest\Header\SecChUaBitness;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
@@ -87,10 +88,15 @@ final class SecChUaBitnessTest extends TestCase
             $header->hasPlatformCode(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
-        self::assertNull(
-            $header->getPlatformCode(),
-            sprintf('platform info mismatch for ua "%s"', $ua),
-        );
+
+        try {
+            $header->getPlatformCode();
+
+            self::fail('Exception expected');
+        } catch (NotFoundException) {
+            // do nothing
+        }
+
         self::assertFalse(
             $header->hasPlatformVersion(),
             sprintf('platform info mismatch for ua "%s"', $ua),
@@ -101,10 +107,15 @@ final class SecChUaBitnessTest extends TestCase
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
         self::assertFalse($header->hasEngineCode(), sprintf('engine info mismatch for ua "%s"', $ua));
-        self::assertNull(
-            $header->getEngineCode(),
-            sprintf('engine info mismatch for ua "%s"', $ua),
-        );
+
+        try {
+            $header->getEngineCode();
+
+            self::fail('Exception expected');
+        } catch (NotFoundException) {
+            // do nothing
+        }
+
         self::assertFalse(
             $header->hasEngineVersion(),
             sprintf('engine info mismatch for ua "%s"', $ua),
