@@ -72,6 +72,12 @@ interface HeaderInterface
     public function getDeviceCode(): string | null;
 
     /** @throws void */
+    public function hasDeviceIsWow64(): bool;
+
+    /** @throws void */
+    public function getDeviceIsWow64(): bool | null;
+
+    /** @throws void */
     public function hasClientCode(): bool;
 
     /** @throws void */

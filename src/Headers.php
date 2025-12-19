@@ -51,6 +51,8 @@ enum Headers: string
 
     case HEADER_SEC_CH_UA_PLATFORM_VERSION = Constants::HEADER_SEC_CH_UA_PLATFORM_VERSION;
 
+    case HEADER_SEC_CH_WOW64 = Constants::HEADER_SEC_CH_WOW64;
+
     case HEADER_UA_OS = Constants::HEADER_UA_OS;
 
     case HEADER_CRAWLED_BY = Constants::HEADER_CRAWLED_BY;
@@ -129,21 +131,22 @@ enum Headers: string
                 self::HEADER_SEC_CH_UA_ARCH => 9,
                 self::HEADER_SEC_CH_FORM_FACTORS => 10,
                 self::HEADER_SEC_CH_UA_MOBILE => 11,
-                self::HEADER_DEVICE_UA => 12,
-                self::HEADER_UCBROWSER_UA => 13,
-                self::HEADER_UCBROWSER_DEVICE_UA => 14,
-                self::HEADER_UCBROWSER_DEVICE => 15,
-                self::HEADER_UCBROWSER_PHONE_UA => 16,
-                self::HEADER_UCBROWSER_PHONE => 17,
-                self::HEADER_OPERAMINI_PHONE_UA => 18,
-                self::HEADER_DEVICE_STOCK_UA => 19,
-                self::HEADER_OPERAMINI_PHONE => 20,
-                self::HEADER_ORIGINAL_UA => 21,
-                self::HEADER_UA_OS => 22,
-                self::HEADER_BAIDU_FLYFLOW => 23,
-                self::HEADER_PUFFIN_UA => 24,
-                self::HEADER_CRAWLED_BY => 25,
-                default => 26,
+                self::HEADER_SEC_CH_WOW64 => 12,
+                self::HEADER_DEVICE_UA => 13,
+                self::HEADER_UCBROWSER_UA => 14,
+                self::HEADER_UCBROWSER_DEVICE_UA => 15,
+                self::HEADER_UCBROWSER_DEVICE => 16,
+                self::HEADER_UCBROWSER_PHONE_UA => 17,
+                self::HEADER_UCBROWSER_PHONE => 18,
+                self::HEADER_OPERAMINI_PHONE_UA => 19,
+                self::HEADER_DEVICE_STOCK_UA => 20,
+                self::HEADER_OPERAMINI_PHONE => 21,
+                self::HEADER_ORIGINAL_UA => 22,
+                self::HEADER_UA_OS => 23,
+                self::HEADER_BAIDU_FLYFLOW => 24,
+                self::HEADER_PUFFIN_UA => 25,
+                self::HEADER_CRAWLED_BY => 26,
+                default => 27,
             };
         }
 
