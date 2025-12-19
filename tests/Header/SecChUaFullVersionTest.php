@@ -92,6 +92,14 @@ final class SecChUaFullVersionTest extends TestCase
             $header->getDeviceCode(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
+        self::assertFalse(
+            $header->hasDeviceIsWow64(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $header->getDeviceIsWow64(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
         self::assertFalse($header->hasClientCode(), sprintf('browser info mismatch for ua "%s"', $ua));
         self::assertNull(
             $header->getClientCode(),
