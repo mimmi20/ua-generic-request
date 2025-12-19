@@ -21,6 +21,7 @@ use UaRequest\Exception\NotFoundException;
 use UaRequest\Header\SecChUaBitness;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
+use UaResult\Device\FormFactor;
 
 use function sprintf;
 
@@ -45,6 +46,15 @@ final class SecChUaBitnessTest extends TestCase
         self::assertSame(
             Architecture::unknown,
             $header->getDeviceArchitecture(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasDeviceFormFactor(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertSame(
+            [FormFactor::unknown],
+            $header->getDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(

@@ -21,6 +21,7 @@ use UaData\OsInterface;
 use UaRequest\Exception\NotFoundException;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
+use UaResult\Device\FormFactor;
 
 // @phpcs:disable SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion
 trait HeaderTrait
@@ -67,6 +68,24 @@ trait HeaderTrait
     public function getDeviceArchitecture(): Architecture
     {
         return Architecture::unknown;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasDeviceFormFactor(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @return list<FormFactor>
+     *
+     * @throws void
+     */
+    #[Override]
+    public function getDeviceFormFactor(): array
+    {
+        return [FormFactor::unknown];
     }
 
     /** @throws void */

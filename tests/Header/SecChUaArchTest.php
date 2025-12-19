@@ -21,6 +21,7 @@ use UaRequest\Exception\NotFoundException;
 use UaRequest\Header\SecChUaArch;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
+use UaResult\Device\FormFactor;
 
 use function sprintf;
 
@@ -46,6 +47,15 @@ final class SecChUaArchTest extends TestCase
         self::assertSame(
             $arch,
             $header->getDeviceArchitecture(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $header->hasDeviceFormFactor(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertSame(
+            [FormFactor::unknown],
+            $header->getDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
@@ -128,7 +138,7 @@ final class SecChUaArchTest extends TestCase
     }
 
     /**
-     * @return array<int, list<Architecture|bool|string>>
+     * @return list<list<Architecture|bool|string>>
      *
      * @throws void
      */
