@@ -79,6 +79,9 @@ final class Constants
     public const string HEADER_SEC_CH_UA_BITNESS = 'sec-ch-ua-bitness';
 
     /** @api */
+    public const string HEADER_SEC_CH_FORM_FACTORS = 'sec-ch-ua-form-factors';
+
+    /** @api */
     public const string HEADER_SEC_CH_UA_FULL_VERSION = 'sec-ch-ua-full-version';
 
     /** @api */

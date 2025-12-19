@@ -19,6 +19,7 @@ use UaData\OsInterface;
 use UaRequest\Exception\NotFoundException;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
+use UaResult\Device\FormFactor;
 
 interface HeaderInterface
 {
@@ -41,6 +42,16 @@ interface HeaderInterface
 
     /** @throws void */
     public function getDeviceArchitecture(): Architecture;
+
+    /** @throws void */
+    public function hasDeviceFormFactor(): bool;
+
+    /**
+     * @return list<FormFactor>
+     *
+     * @throws void
+     */
+    public function getDeviceFormFactor(): array;
 
     /** @throws void */
     public function hasDeviceBitness(): bool;

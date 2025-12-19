@@ -11,40 +11,31 @@
 
 declare(strict_types = 1);
 
-namespace UaRequestTest\Header;
+namespace Header;
 
-use BrowserDetector\Version\Exception\NotNumericException;
 use BrowserDetector\Version\NullVersion;
-use BrowserDetector\Version\VersionBuilder;
-use BrowserDetector\Version\VersionInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaRequest\Exception\NotFoundException;
-use UaRequest\Header\SecChUaFullVersion;
+use UaRequest\Header\SecChUaFormFactors;
 use UaResult\Bits\Bits;
 use UaResult\Device\Architecture;
 use UaResult\Device\FormFactor;
-use UnexpectedValueException;
 
-use function assert;
 use function sprintf;
 
-final class SecChUaFullVersionTest extends TestCase
+final class SecChUaFormFactorsTest extends TestCase
 {
     /**
+     * @param list<FormFactor> $factors
+     *
      * @throws Exception
-     * @throws NotNumericException
-     * @throws UnexpectedValueException
      */
     #[DataProvider('providerUa')]
-    public function testData(string $ua, bool $hasVersion, string | null $version): void
+    public function testData(string $ua, bool $hasFormFactor, array $factors): void
     {
-        $header = new SecChUaFullVersion($ua);
-
-        $versionClient = (new VersionBuilder())->set((string) $version);
-
-        assert($versionClient instanceof VersionInterface);
+        $header = new SecChUaFormFactors($ua);
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(
@@ -61,12 +52,13 @@ final class SecChUaFullVersionTest extends TestCase
             $header->getDeviceArchitecture(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
-        self::assertFalse(
+        self::assertSame(
+            $hasFormFactor,
             $header->hasDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
-            [FormFactor::unknown],
+            $factors,
             $header->getDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
@@ -97,14 +89,13 @@ final class SecChUaFullVersionTest extends TestCase
             $header->getClientCode(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
-        self::assertSame(
-            $hasVersion,
+        self::assertFalse(
             $header->hasClientVersion(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
-        self::assertSame(
-            $versionClient->getVersion(),
-            $header->getClientVersion()->getVersion(),
+        self::assertInstanceOf(
+            NullVersion::class,
+            $header->getClientVersion(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
@@ -151,16 +142,21 @@ final class SecChUaFullVersionTest extends TestCase
     }
 
     /**
-     * @return array<int, array<int, bool|string|null>>
+     * @return list<list<list<FormFactor>|bool|string>>
      *
      * @throws void
      */
     public static function providerUa(): array
     {
         return [
-            ['98.0.4758.102', true, '98.0.4758.102'],
-            ['"98.0.4758.102"', true, '98.0.4758.102'],
-            ['""', false, null],
+            ['"Mobile"', true, [FormFactor::mobile]],
+            ['"Desktop"', true, [FormFactor::desktop]],
+            ['"Tablet"', true, [FormFactor::tablet]],
+            ['"Automotive"', true, [FormFactor::automotive]],
+            ['"Xr"', true, [FormFactor::xr]],
+            ['""', false, []],
+            ['"EInk", "Watch"', true, [FormFactor::eink, FormFactor::watch]],
+            ['"abc"', false, [FormFactor::unknown]],
         ];
     }
 }
