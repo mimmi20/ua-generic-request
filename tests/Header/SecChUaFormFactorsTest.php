@@ -142,7 +142,7 @@ final class SecChUaFormFactorsTest extends TestCase
     }
 
     /**
-     * @return list<list<list<FormFactor>|bool|string>>
+     * @return list<list<bool|list<FormFactor>|string>>
      *
      * @throws void
      */
