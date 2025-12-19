@@ -132,6 +132,20 @@ trait HeaderTrait
 
     /** @throws void */
     #[Override]
+    public function hasDeviceIsWow64(): bool
+    {
+        return false;
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getDeviceIsWow64(): bool | null
+    {
+        return null;
+    }
+
+    /** @throws void */
+    #[Override]
     public function hasClientCode(): bool
     {
         return false;
