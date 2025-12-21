@@ -13,9 +13,11 @@ declare(strict_types = 1);
 
 namespace UaRequest\Header;
 
+use BrowserDetector\Version\VersionInterface;
 use Override;
 use UaData\OsInterface;
 use UaParser\ClientCodeInterface;
+use UaParser\ClientVersionInterface;
 use UaParser\PlatformCodeInterface;
 use UaRequest\Exception\NotFoundException;
 
@@ -27,6 +29,7 @@ final class XRequestedWith implements HeaderInterface
     public function __construct(
         string $value,
         private readonly ClientCodeInterface $clientCode,
+        private readonly ClientVersionInterface $clientVersion,
         private readonly PlatformCodeInterface $platformCode,
     ) {
         $this->value = $value;
@@ -44,6 +47,20 @@ final class XRequestedWith implements HeaderInterface
     public function getClientCode(): string | null
     {
         return $this->clientCode->getClientCode($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasClientVersion(): bool
+    {
+        return $this->clientVersion->hasClientVersion($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getClientVersion(string | null $code = null): VersionInterface
+    {
+        return $this->clientVersion->getClientVersion($this->value, $code);
     }
 
     /** @throws void */
