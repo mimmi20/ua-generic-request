@@ -18,6 +18,7 @@ use BrowserDetector\Version\Version;
 use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use UaData\Os;
 use UaParser\PlatformVersionInterface;
 use UaRequest\Header\PlatformVersionOnlyHeader;
 
@@ -46,7 +47,12 @@ final class PlatformVersionOnlyHeaderTest extends TestCase
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersion')
-            ->with($ua)
+            ->with($ua, null)
+            ->willReturn($versionPlatform);
+        $platformVersion
+            ->expects(self::once())
+            ->method('getPlatformVersionWithOs')
+            ->with($ua, Os::unknown)
             ->willReturn($versionPlatform);
 
         $header = new PlatformVersionOnlyHeader($ua, $platformVersion);
@@ -60,6 +66,11 @@ final class PlatformVersionOnlyHeaderTest extends TestCase
         self::assertSame(
             $versionPlatform,
             $header->getPlatformVersion(),
+        );
+
+        self::assertSame(
+            $versionPlatform,
+            $header->getPlatformVersionWithOs(Os::unknown),
         );
     }
 }
