@@ -14,7 +14,6 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
-use Deprecated;
 use Override;
 use UaData\EngineInterface;
 use UaData\OsInterface;
@@ -110,14 +109,6 @@ final class FullHeader implements HeaderInterface
 
     /** @throws void */
     #[Override]
-    #[Deprecated(message: 'use getPlatformVersionWithOs() instead', since: '15.0.6')]
-    public function getPlatformVersion(string | null $code = null): VersionInterface
-    {
-        return $this->platformVersion->getPlatformVersion($this->value, $code);
-    }
-
-    /** @throws void */
-    #[Override]
     public function getPlatformVersionWithOs(OsInterface $os): VersionInterface
     {
         return $this->platformVersion->getPlatformVersionWithOs($this->value, $os);
@@ -142,14 +133,6 @@ final class FullHeader implements HeaderInterface
     public function hasEngineVersion(): bool
     {
         return $this->engineVersion->hasEngineVersion($this->value);
-    }
-
-    /** @throws void */
-    #[Override]
-    #[Deprecated(message: 'use getEngineVersionWithEngine() instead', since: '15.0.6')]
-    public function getEngineVersion(string | null $code = null): VersionInterface
-    {
-        return $this->engineVersion->getEngineVersion($this->value, $code);
     }
 
     /** @throws void */

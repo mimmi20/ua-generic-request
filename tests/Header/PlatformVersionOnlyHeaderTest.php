@@ -46,11 +46,6 @@ final class PlatformVersionOnlyHeaderTest extends TestCase
             ->willReturn(true);
         $platformVersion
             ->expects(self::once())
-            ->method('getPlatformVersion')
-            ->with($ua, null)
-            ->willReturn($versionPlatform);
-        $platformVersion
-            ->expects(self::once())
             ->method('getPlatformVersionWithOs')
             ->with($ua, Os::unknown)
             ->willReturn($versionPlatform);
@@ -61,11 +56,6 @@ final class PlatformVersionOnlyHeaderTest extends TestCase
 
         self::assertTrue(
             $header->hasPlatformVersion(),
-        );
-
-        self::assertSame(
-            $versionPlatform,
-            $header->getPlatformVersion(),
         );
 
         self::assertSame(

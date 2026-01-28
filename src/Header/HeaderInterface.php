@@ -14,7 +14,6 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
-use Deprecated;
 use UaData\EngineInterface;
 use UaData\OsInterface;
 use UaRequest\Exception\NotFoundException;
@@ -100,10 +99,6 @@ interface HeaderInterface
     public function hasPlatformVersion(): bool;
 
     /** @throws void */
-    #[Deprecated(message: 'use getPlatformVersionWithOs() instead', since: '15.0.6')]
-    public function getPlatformVersion(string | null $code = null): VersionInterface;
-
-    /** @throws void */
     public function getPlatformVersionWithOs(OsInterface $os): VersionInterface;
 
     /** @throws void */
@@ -114,10 +109,6 @@ interface HeaderInterface
 
     /** @throws void */
     public function hasEngineVersion(): bool;
-
-    /** @throws void */
-    #[Deprecated(message: 'use getEngineVersionWithEngine() instead', since: '15.0.6')]
-    public function getEngineVersion(string | null $code = null): VersionInterface;
 
     /** @throws void */
     public function getEngineVersionWithEngine(EngineInterface $engine): VersionInterface;

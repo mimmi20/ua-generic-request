@@ -232,11 +232,6 @@ final class FullHeaderTest extends TestCase
             ->willReturn(true);
         $platformVersion
             ->expects(self::once())
-            ->method('getPlatformVersion')
-            ->with($ua, null)
-            ->willReturn($versionOs);
-        $platformVersion
-            ->expects(self::once())
             ->method('getPlatformVersionWithOs')
             ->with($ua, Os::unknown)
             ->willReturn($versionOs);
@@ -259,11 +254,6 @@ final class FullHeaderTest extends TestCase
             ->method('hasEngineVersion')
             ->with($ua)
             ->willReturn(true);
-        $engineVersion
-            ->expects(self::once())
-            ->method('getEngineVersion')
-            ->with($ua, null)
-            ->willReturn($versionEngine);
         $engineVersion
             ->expects(self::once())
             ->method('getEngineVersionWithEngine')
@@ -325,11 +315,6 @@ final class FullHeaderTest extends TestCase
 
         self::assertSame(
             $versionOs,
-            $header->getPlatformVersion(),
-        );
-
-        self::assertSame(
-            $versionOs,
             $header->getPlatformVersionWithOs(Os::unknown),
         );
 
@@ -344,12 +329,6 @@ final class FullHeaderTest extends TestCase
 
         self::assertTrue(
             $header->hasEngineVersion(),
-        );
-
-        self::assertSame(
-            $versionEngine,
-            $header->getEngineVersion(),
-            sprintf('engine info mismatch for ua "%s"', $ua),
         );
 
         self::assertSame(
