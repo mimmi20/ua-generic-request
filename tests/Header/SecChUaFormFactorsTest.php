@@ -17,6 +17,8 @@ use BrowserDetector\Version\NullVersion;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use UaData\Engine;
+use UaData\Os;
 use UaRequest\Exception\NotFoundException;
 use UaRequest\Header\SecChUaFormFactors;
 use UaResult\Bits\Bits;
@@ -128,6 +130,11 @@ final class SecChUaFormFactorsTest extends TestCase
             $header->getPlatformVersion(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
+        self::assertInstanceOf(
+            NullVersion::class,
+            $header->getPlatformVersionWithOs(Os::unknown),
+            sprintf('platform info mismatch for ua "%s"', $ua),
+        );
         self::assertFalse($header->hasEngineCode(), sprintf('engine info mismatch for ua "%s"', $ua));
 
         try {
@@ -145,6 +152,11 @@ final class SecChUaFormFactorsTest extends TestCase
         self::assertInstanceOf(
             NullVersion::class,
             $header->getEngineVersion(),
+            sprintf('engine info mismatch for ua "%s"', $ua),
+        );
+        self::assertInstanceOf(
+            NullVersion::class,
+            $header->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
+use Deprecated;
 use Override;
 use UaData\OsInterface;
 use UaParser\PlatformCodeInterface;
@@ -57,8 +58,16 @@ final class PlatformHeader implements HeaderInterface
 
     /** @throws void */
     #[Override]
+    #[Deprecated(message: 'use getPlatformVersionWithOs() instead', since: '15.0.6')]
     public function getPlatformVersion(string | null $code = null): VersionInterface
     {
         return $this->platformVersion->getPlatformVersion($this->value, $code);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getPlatformVersionWithOs(OsInterface $os): VersionInterface
+    {
+        return $this->platformVersion->getPlatformVersionWithOs($this->value, $os);
     }
 }

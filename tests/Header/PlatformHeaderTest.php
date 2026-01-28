@@ -20,6 +20,7 @@ use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaData\CompanyInterface;
+use UaData\Os;
 use UaData\OsInterface;
 use UaParser\PlatformCodeInterface;
 use UaParser\PlatformVersionInterface;
@@ -129,7 +130,12 @@ final class PlatformHeaderTest extends TestCase
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersion')
-            ->with($ua)
+            ->with($ua, null)
+            ->willReturn($versionPlatform);
+        $platformVersion
+            ->expects(self::once())
+            ->method('getPlatformVersionWithOs')
+            ->with($ua, Os::unknown)
             ->willReturn($versionPlatform);
 
         $header = new PlatformHeader($ua, $platformCode, $platformVersion);
@@ -152,6 +158,11 @@ final class PlatformHeaderTest extends TestCase
         self::assertSame(
             $versionPlatform,
             $header->getPlatformVersion(),
+        );
+
+        self::assertSame(
+            $versionPlatform,
+            $header->getPlatformVersionWithOs(Os::unknown),
         );
     }
 
@@ -252,7 +263,12 @@ final class PlatformHeaderTest extends TestCase
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersion')
-            ->with($ua)
+            ->with($ua, null)
+            ->willReturn($versionPlatform);
+        $platformVersion
+            ->expects(self::once())
+            ->method('getPlatformVersionWithOs')
+            ->with($ua, Os::unknown)
             ->willReturn($versionPlatform);
 
         $header = new PlatformHeader($ua, $platformCode, $platformVersion);
@@ -275,6 +291,11 @@ final class PlatformHeaderTest extends TestCase
         self::assertSame(
             $versionPlatform,
             $header->getPlatformVersion(),
+        );
+
+        self::assertSame(
+            $versionPlatform,
+            $header->getPlatformVersionWithOs(Os::unknown),
         );
     }
 
@@ -377,7 +398,12 @@ final class PlatformHeaderTest extends TestCase
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersion')
-            ->with($ua)
+            ->with($ua, null)
+            ->willReturn($versionPlatform);
+        $platformVersion
+            ->expects(self::once())
+            ->method('getPlatformVersionWithOs')
+            ->with($ua, Os::unknown)
             ->willReturn($versionPlatform);
 
         $header = new PlatformHeader($ua, $platformCode, $platformVersion);
@@ -400,6 +426,11 @@ final class PlatformHeaderTest extends TestCase
         self::assertSame(
             $versionPlatform,
             $header->getPlatformVersion(),
+        );
+
+        self::assertSame(
+            $versionPlatform,
+            $header->getPlatformVersionWithOs(Os::unknown),
         );
     }
 }

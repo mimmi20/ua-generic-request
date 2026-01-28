@@ -15,6 +15,7 @@ namespace UaRequest\Header;
 
 use BrowserDetector\Version\NullVersion;
 use BrowserDetector\Version\VersionInterface;
+use Deprecated;
 use Override;
 use UaData\EngineInterface;
 use UaData\OsInterface;
@@ -207,7 +208,19 @@ trait HeaderTrait
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
+    #[Deprecated(message: 'use getPlatformVersionWithOs() instead', since: '15.0.6')]
     public function getPlatformVersion(string | null $code = null): VersionInterface
+    {
+        return new NullVersion();
+    }
+
+    /**
+     * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+     */
+    #[Override]
+    public function getPlatformVersionWithOs(OsInterface $os): VersionInterface
     {
         return new NullVersion();
     }
@@ -239,7 +252,19 @@ trait HeaderTrait
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
     #[Override]
+    #[Deprecated(message: 'use getEngineVersionWithEngine() instead', since: '15.0.6')]
     public function getEngineVersion(string | null $code = null): VersionInterface
+    {
+        return new NullVersion();
+    }
+
+    /**
+     * @throws void
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+     */
+    #[Override]
+    public function getEngineVersionWithEngine(EngineInterface $engine): VersionInterface
     {
         return new NullVersion();
     }

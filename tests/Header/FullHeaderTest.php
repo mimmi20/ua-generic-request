@@ -20,7 +20,9 @@ use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaData\CompanyInterface;
+use UaData\Engine;
 use UaData\EngineInterface;
+use UaData\Os;
 use UaData\OsInterface;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
@@ -233,6 +235,11 @@ final class FullHeaderTest extends TestCase
             ->method('getPlatformVersion')
             ->with($ua, null)
             ->willReturn($versionOs);
+        $platformVersion
+            ->expects(self::once())
+            ->method('getPlatformVersionWithOs')
+            ->with($ua, Os::unknown)
+            ->willReturn($versionOs);
 
         $engineCode = $this->createMock(EngineCodeInterface::class);
         $engineCode
@@ -256,6 +263,11 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('getEngineVersion')
             ->with($ua, null)
+            ->willReturn($versionEngine);
+        $engineVersion
+            ->expects(self::once())
+            ->method('getEngineVersionWithEngine')
+            ->with($ua, Engine::unknown)
             ->willReturn($versionEngine);
 
         $header = new FullHeader(
@@ -316,6 +328,11 @@ final class FullHeaderTest extends TestCase
             $header->getPlatformVersion(),
         );
 
+        self::assertSame(
+            $versionOs,
+            $header->getPlatformVersionWithOs(Os::unknown),
+        );
+
         self::assertTrue(
             $header->hasEngineCode(),
         );
@@ -332,6 +349,13 @@ final class FullHeaderTest extends TestCase
         self::assertSame(
             $versionEngine,
             $header->getEngineVersion(),
+            sprintf('engine info mismatch for ua "%s"', $ua),
+        );
+
+        self::assertSame(
+            $versionEngine,
+            $header->getEngineVersionWithEngine(Engine::unknown),
+            sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }
 }
