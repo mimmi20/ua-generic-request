@@ -286,12 +286,6 @@ final class XOperaminiPhoneUaTest extends TestCase
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getPlatformVersion(),
-            sprintf('platform info mismatch for ua "%s"', $ua),
-        );
-
-        self::assertInstanceOf(
-            NullVersion::class,
             $header->getPlatformVersionWithOs(Os::unknown),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
@@ -307,12 +301,6 @@ final class XOperaminiPhoneUaTest extends TestCase
 
         self::assertFalse(
             $header->hasEngineVersion(),
-        );
-
-        self::assertInstanceOf(
-            NullVersion::class,
-            $header->getEngineVersion(),
-            sprintf('engine info mismatch for ua "%s"', $ua),
         );
 
         self::assertInstanceOf(
