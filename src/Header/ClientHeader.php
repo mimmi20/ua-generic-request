@@ -15,8 +15,12 @@ namespace UaRequest\Header;
 
 use BrowserDetector\Version\VersionInterface;
 use Override;
+use UaData\EngineInterface;
 use UaParser\ClientCodeInterface;
 use UaParser\ClientVersionInterface;
+use UaParser\EngineCodeInterface;
+use UaParser\EngineVersionInterface;
+use UaRequest\Exception\NotFoundException;
 
 final class ClientHeader implements HeaderInterface
 {
@@ -27,6 +31,8 @@ final class ClientHeader implements HeaderInterface
         string $value,
         private readonly ClientCodeInterface $clientCode,
         private readonly ClientVersionInterface $clientVersion,
+        private readonly EngineCodeInterface $engineCode,
+        private readonly EngineVersionInterface $engineVersion,
     ) {
         $this->value = $value;
     }
@@ -58,5 +64,34 @@ final class ClientHeader implements HeaderInterface
     public function getClientVersion(string | null $code = null): VersionInterface
     {
         return $this->clientVersion->getClientVersion($this->value, $code);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasEngineCode(): bool
+    {
+        return $this->engineCode->hasEngineCode($this->value);
+    }
+
+    /** @throws NotFoundException */
+    #[Override]
+    public function getEngineCode(): EngineInterface
+    {
+        return $this->engineCode->getEngineCode($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasEngineVersion(): bool
+    {
+        return $this->engineCode->hasEngineCode($this->value)
+            && $this->engineVersion->hasEngineVersion($this->value);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function getEngineVersionWithEngine(EngineInterface $engine): VersionInterface
+    {
+        return $this->engineVersion->getEngineVersionWithEngine($this->value, $engine);
     }
 }
