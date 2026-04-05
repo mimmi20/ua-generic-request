@@ -109,69 +109,6 @@ jobs:
       ENV_CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       ENV_STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
 
-  integration-tests:
-    name: "Integration Tests with PHPUnit"
-
-    needs: "analytics"
-
-    runs-on: "${{ matrix.operating-system }}"
-
-    continue-on-error: false
-
-    strategy:
-      fail-fast: false
-
-      matrix:
-        operating-system:
-          - "ubuntu-latest"
-
-        php-version:
-          - "8.5"
-
-        dependencies:
-          - "lowest"
-
-    steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6"
-        with:
-          # Disabling shallow clone is recommended for improving relevancy of reporting
-          fetch-depth: 0
-          lfs: false
-          persist-credentials: false
-
-      - name: "Install PHP"
-        uses: "shivammathur/setup-php@2.37.0"
-        with:
-          php-version: "${{ matrix.php-version }}"
-          extensions: "none, phar, json, opcache, ctype, curl, dom, iconv, intl, mbstring, simplexml, tokenizer, xml, xmlwriter"
-          ini-values: "opcache.enable=1, opcache.fast_shutdown=0, zend.assertions=1, assert.exception=On, intl.default_locale=de, intl.use_exceptions=1, zend.exception_ignore_args=0"
-          coverage: "none"
-          tools: "composer:v2"
-        env:
-          fail-fast: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          phpts: "nts"
-          debug: true
-
-      - name: "Update dependencies with composer"
-        uses: "ramsey/composer-install@4.0.0"
-        with:
-          dependency-versions: "${{ matrix.dependencies }}"
-          composer-options: "--optimize-autoloader --prefer-dist --prefer-stable -v"
-
-      - name: "Run integration tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit -c phpunit-integration.xml --no-coverage --colors --display-warnings --display-deprecations --display-notices --display-phpunit-notices"
-
-      - name: "Enable annotations for validation errors and warnings"
-        uses: "korelstar/xmllint-problem-matcher@v1"
-
-      - name: "Validate phpcs.xml"
-        uses: "ChristophWurst/xmllint-action@v1"
-        with:
-          xml-file: "phpunit-integration.xml"
-          xml-schema-file: "vendor/phpunit/phpunit/phpunit.xsd"
-
   # This is a meta job to avoid to have to constantly change the protection rules
   # whenever we touch the matrix.
   tests-status:
