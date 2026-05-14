@@ -121,9 +121,9 @@ enum Headers: string
 
             $headerSort[$header] = match ($enum) {
                 self::HEADER_SEC_CH_UA_MODEL => 1,
-                self::HEADER_SEC_CH_UA_PLATFORM => 2,
-                self::HEADER_SEC_CH_UA_PLATFORM_VERSION => 3,
-                self::HEADER_REQUESTED_WITH => 4,
+                self::HEADER_REQUESTED_WITH => 2,
+                self::HEADER_SEC_CH_UA_PLATFORM => 3,
+                self::HEADER_SEC_CH_UA_PLATFORM_VERSION => 4,
                 self::HEADER_SEC_CH_UA_FULL_VERSION_LIST => 5,
                 self::HEADER_SEC_CH_UA => 6,
                 self::HEADER_SEC_CH_UA_FULL_VERSION => 7,
