@@ -57,8 +57,6 @@ final class SecChUaPlatformHeader implements HeaderInterface
      * @return non-empty-string|null
      *
      * @throws void
-     *
-     * @phpcs:disable SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
      */
     #[Override]
     public function getDeviceCode(): string | null
