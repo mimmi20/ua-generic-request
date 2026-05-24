@@ -25,9 +25,7 @@ use UaRequest\Header\PlatformCodeOnlyHeader;
 
 use function sprintf;
 
-/**
- * @deprecated Not required
- */
+/** @deprecated Not required */
 final class PlatformCodeOnlyHeaderTest extends TestCase
 {
     /**

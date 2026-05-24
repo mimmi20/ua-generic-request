@@ -18,9 +18,7 @@ use UaData\OsInterface;
 use UaParser\PlatformCodeInterface;
 use UaRequest\Exception\NotFoundException;
 
-/**
- * @deprecated Not used
- */
+/** @deprecated Not used */
 final class PlatformCodeOnlyHeader implements HeaderInterface
 {
     use HeaderTrait;
