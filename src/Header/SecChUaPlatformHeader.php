@@ -15,17 +15,20 @@ namespace UaRequest\Header;
 
 use Override;
 use UaData\OsInterface;
+use UaParser\DeviceCodeInterface;
 use UaParser\PlatformCodeInterface;
 use UaRequest\Exception\NotFoundException;
 
-/** @deprecated Not used */
-final class PlatformCodeOnlyHeader implements HeaderInterface
+final class SecChUaPlatformHeader implements HeaderInterface
 {
     use HeaderTrait;
 
     /** @throws void */
-    public function __construct(string $value, private readonly PlatformCodeInterface $platformCode)
-    {
+    public function __construct(
+        string $value,
+        private readonly PlatformCodeInterface $platformCode,
+        private readonly DeviceCodeInterface $deviceCode,
+    ) {
         $this->value = $value;
     }
 
@@ -41,5 +44,23 @@ final class PlatformCodeOnlyHeader implements HeaderInterface
     public function getPlatformCode(string | null $derivate = null): OsInterface
     {
         return $this->platformCode->getPlatformCode($this->value, $derivate);
+    }
+
+    /** @throws void */
+    #[Override]
+    public function hasDeviceCode(): bool
+    {
+        return $this->deviceCode->hasDeviceCode($this->value);
+    }
+
+    /**
+     * @return non-empty-string|null
+     *
+     * @throws void
+     */
+    #[Override]
+    public function getDeviceCode(): string | null
+    {
+        return $this->deviceCode->getDeviceCode($this->value);
     }
 }
