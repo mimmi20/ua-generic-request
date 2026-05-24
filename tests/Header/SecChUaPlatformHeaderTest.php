@@ -19,16 +19,14 @@ use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaData\CompanyInterface;
 use UaData\OsInterface;
+use UaParser\DeviceCodeInterface;
 use UaParser\PlatformCodeInterface;
 use UaRequest\Exception\NotFoundException;
-use UaRequest\Header\PlatformCodeOnlyHeader;
+use UaRequest\Header\SecChUaPlatformHeader;
 
 use function sprintf;
 
-/**
- * @deprecated Not required
- */
-final class PlatformCodeOnlyHeaderTest extends TestCase
+final class SecChUaPlatformHeaderTest extends TestCase
 {
     /**
      * @throws Exception
@@ -117,7 +115,19 @@ final class PlatformCodeOnlyHeaderTest extends TestCase
             ->with($ua)
             ->willReturn($os);
 
-        $header = new PlatformCodeOnlyHeader($ua, $platformCode);
+        $deviceCode = $this->createMock(DeviceCodeInterface::class);
+        $deviceCode
+            ->expects(self::once())
+            ->method('hasDeviceCode')
+            ->with($ua)
+            ->willReturn(false);
+        $deviceCode
+            ->expects(self::once())
+            ->method('getDeviceCode')
+            ->with($ua)
+            ->willReturn(null);
+
+        $header = new SecChUaPlatformHeader($ua, $platformCode, $deviceCode);
 
         self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
@@ -128,6 +138,14 @@ final class PlatformCodeOnlyHeaderTest extends TestCase
         self::assertSame(
             $os,
             $header->getPlatformCode(),
+        );
+
+        self::assertFalse(
+            $header->hasDeviceCode(),
+        );
+
+        self::assertNull(
+            $header->getDeviceCode(),
         );
     }
 }
