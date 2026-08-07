@@ -17,7 +17,6 @@ use BrowserDetector\Version\Exception\NotNumericException;
 use BrowserDetector\Version\NullVersion;
 use BrowserDetector\Version\Version;
 use Override;
-use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaData\CompanyInterface;
@@ -36,8 +35,6 @@ final class XRequestedWithTest extends TestCase
 {
     /**
      * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
      * @throws NotFoundException
      * @throws NotNumericException
      */

@@ -16,7 +16,6 @@ namespace Header;
 use BrowserDetector\Version\Exception\NotNumericException;
 use BrowserDetector\Version\Version;
 use Override;
-use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaData\CompanyInterface;
@@ -34,8 +33,6 @@ final class ClientHeaderTest extends TestCase
 {
     /**
      * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
      * @throws NotNumericException
      */
     public function testData(): void
@@ -200,8 +197,6 @@ final class ClientHeaderTest extends TestCase
 
     /**
      * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
      * @throws NotNumericException
      */
     public function testData2(): void
@@ -364,8 +359,6 @@ final class ClientHeaderTest extends TestCase
 
     /**
      * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
      * @throws NotNumericException
      */
     public function testData3(): void
