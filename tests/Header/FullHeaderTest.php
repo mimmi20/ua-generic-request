@@ -16,7 +16,6 @@ namespace UaRequestTest\Header;
 use BrowserDetector\Version\Exception\NotNumericException;
 use BrowserDetector\Version\Version;
 use Override;
-use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaData\CompanyInterface;
@@ -40,8 +39,6 @@ final class FullHeaderTest extends TestCase
 {
     /**
      * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
      * @throws NotNumericException
      * @throws NotFoundException
      */

@@ -15,7 +15,6 @@ namespace UaRequestTest;
 
 use Laminas\Diactoros\ServerRequestFactory;
 use Override;
-use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use UaRequest\GenericRequestInterface;
@@ -28,11 +27,7 @@ use function sprintf;
 
 final class RequestBuilderTest extends TestCase
 {
-    /**
-     * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     */
+    /** @throws Exception */
     public function testBuildRequestFromUaString(): void
     {
         $useragent = 'testagent';
@@ -73,11 +68,7 @@ final class RequestBuilderTest extends TestCase
         self::assertSame($header, $headers['user-agent']);
     }
 
-    /**
-     * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     */
+    /** @throws Exception */
     public function testBuildRequestFromHeaderArray(): void
     {
         $useragent = 'testagent';
@@ -120,11 +111,7 @@ final class RequestBuilderTest extends TestCase
         self::assertSame($header, $headers['user-agent']);
     }
 
-    /**
-     * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     */
+    /** @throws Exception */
     public function testBuildRequestFromMessage(): void
     {
         $useragent = 'testagent';
@@ -169,11 +156,7 @@ final class RequestBuilderTest extends TestCase
         self::assertSame($header, $headers['user-agent']);
     }
 
-    /**
-     * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     */
+    /** @throws Exception */
     public function testBuildRequestFromRequest(): void
     {
         $headerLoader = $this->createMock(HeaderLoaderInterface::class);
@@ -219,11 +202,7 @@ final class RequestBuilderTest extends TestCase
         self::assertSame($request, $result);
     }
 
-    /**
-     * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     */
+    /** @throws Exception */
     public function testBuildRequestFromHeaderArray2(): void
     {
         $useragent     = '+Simple Browser';
@@ -283,11 +262,7 @@ final class RequestBuilderTest extends TestCase
         self::assertSame($header2, $headers['user-agent']);
     }
 
-    /**
-     * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     */
+    /** @throws Exception */
     public function testBuildRequestFromHeaderArray3(): void
     {
         $useragent     = '+Simple Browser';
@@ -347,11 +322,7 @@ final class RequestBuilderTest extends TestCase
         self::assertSame($header2, $headers['user-agent']);
     }
 
-    /**
-     * @throws Exception
-     * @throws NoPreviousThrowableException
-     * @throws \PHPUnit\Framework\MockObject\Exception
-     */
+    /** @throws Exception */
     public function testBuildRequestFromHeaderArray4(): void
     {
         $useragent     = '+Simple Browser';
