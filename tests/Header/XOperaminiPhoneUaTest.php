@@ -168,14 +168,14 @@ final class XOperaminiPhoneUaTest extends TestCase
             }
         };
 
-        $versionClient = new Version('4');
+        $version = new Version('4');
 
         $deviceCode = $this->createMock(DeviceCodeInterface::class);
         $deviceCode
             ->expects(self::once())
             ->method('hasDeviceCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $deviceCode
             ->expects(self::once())
             ->method('getDeviceCode')
@@ -187,7 +187,7 @@ final class XOperaminiPhoneUaTest extends TestCase
             ->expects(self::once())
             ->method('hasClientCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientCode
             ->expects(self::once())
             ->method('getClientCode')
@@ -199,19 +199,19 @@ final class XOperaminiPhoneUaTest extends TestCase
             ->expects(self::once())
             ->method('hasClientVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientVersion
             ->expects(self::once())
             ->method('getClientVersion')
             ->with($ua)
-            ->willReturn($versionClient);
+            ->willReturn($version);
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
         $platformCode
             ->expects(self::once())
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
@@ -223,14 +223,14 @@ final class XOperaminiPhoneUaTest extends TestCase
             ->expects(self::once())
             ->method('hasEngineCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineCode
             ->expects(self::once())
             ->method('getEngineCode')
             ->with($ua)
             ->willReturn($engine);
 
-        $header = new XOperaminiPhoneUa(
+        $xOperaminiPhoneUa = new XOperaminiPhoneUa(
             value: $ua,
             deviceCode: $deviceCode,
             clientCode: $clientCode,
@@ -239,70 +239,74 @@ final class XOperaminiPhoneUaTest extends TestCase
             engineCode: $engineCode,
         );
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame(
+            $ua,
+            $xOperaminiPhoneUa->getValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
 
         self::assertTrue(
-            $header->hasDeviceCode(),
+            $xOperaminiPhoneUa->hasDeviceCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getDeviceCode(),
+            $xOperaminiPhoneUa->getDeviceCode(),
         );
 
         self::assertTrue(
-            $header->hasClientCode(),
+            $xOperaminiPhoneUa->hasClientCode(),
         );
 
         self::assertSame(
             'yyy',
-            $header->getClientCode(),
+            $xOperaminiPhoneUa->getClientCode(),
         );
 
         self::assertTrue(
-            $header->hasClientVersion(),
+            $xOperaminiPhoneUa->hasClientVersion(),
         );
 
         self::assertSame(
-            $versionClient,
-            $header->getClientVersion(),
+            $version,
+            $xOperaminiPhoneUa->getClientVersion(),
         );
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $xOperaminiPhoneUa->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $xOperaminiPhoneUa->getPlatformCode(),
         );
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $xOperaminiPhoneUa->hasPlatformVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $xOperaminiPhoneUa->getPlatformVersionWithOs(Os::unknown),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
 
         self::assertTrue(
-            $header->hasEngineCode(),
+            $xOperaminiPhoneUa->hasEngineCode(),
         );
 
         self::assertSame(
             $engine,
-            $header->getEngineCode(),
+            $xOperaminiPhoneUa->getEngineCode(),
         );
 
         self::assertFalse(
-            $header->hasEngineVersion(),
+            $xOperaminiPhoneUa->hasEngineVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $xOperaminiPhoneUa->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

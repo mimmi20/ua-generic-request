@@ -37,7 +37,7 @@ final class XUcbrowserPhoneUaTest extends TestCase
             ->expects(self::once())
             ->method('hasDeviceCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $deviceCode
             ->expects(self::once())
             ->method('getDeviceCode')
@@ -49,50 +49,58 @@ final class XUcbrowserPhoneUaTest extends TestCase
             ->expects(self::once())
             ->method('hasClientCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientCode
             ->expects(self::once())
             ->method('getClientCode')
             ->with($ua)
             ->willReturn('yyy');
 
-        $header = new XUcbrowserPhoneUa(value: $ua, deviceCode: $deviceCode, clientCode: $clientCode);
+        $xUcbrowserPhoneUa = new XUcbrowserPhoneUa(
+            value: $ua,
+            deviceCode: $deviceCode,
+            clientCode: $clientCode,
+        );
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame(
+            $ua,
+            $xUcbrowserPhoneUa->getValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
 
         self::assertTrue(
-            $header->hasDeviceCode(),
+            $xUcbrowserPhoneUa->hasDeviceCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getDeviceCode(),
+            $xUcbrowserPhoneUa->getDeviceCode(),
         );
 
         self::assertTrue(
-            $header->hasClientCode(),
+            $xUcbrowserPhoneUa->hasClientCode(),
         );
 
         self::assertSame(
             'yyy',
-            $header->getClientCode(),
+            $xUcbrowserPhoneUa->getClientCode(),
         );
 
         self::assertFalse(
-            $header->hasClientVersion(),
+            $xUcbrowserPhoneUa->hasClientVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getClientVersion(),
+            $xUcbrowserPhoneUa->getClientVersion(),
         );
 
         self::assertFalse(
-            $header->hasPlatformCode(),
+            $xUcbrowserPhoneUa->hasPlatformCode(),
         );
 
         try {
-            $header->getPlatformCode();
+            $xUcbrowserPhoneUa->getPlatformCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -100,21 +108,21 @@ final class XUcbrowserPhoneUaTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $xUcbrowserPhoneUa->hasPlatformVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $xUcbrowserPhoneUa->getPlatformVersionWithOs(Os::unknown),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
 
         self::assertFalse(
-            $header->hasEngineCode(),
+            $xUcbrowserPhoneUa->hasEngineCode(),
         );
 
         try {
-            $header->getEngineCode();
+            $xUcbrowserPhoneUa->getEngineCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -122,12 +130,12 @@ final class XUcbrowserPhoneUaTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasEngineVersion(),
+            $xUcbrowserPhoneUa->hasEngineVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $xUcbrowserPhoneUa->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

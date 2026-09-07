@@ -104,9 +104,9 @@ final readonly class RequestBuilder implements RequestBuilderInterface
             $headers[$header] = $value;
         }
 
-        $message = ServerRequestFactory::fromGlobals($headers);
+        $serverRequest = ServerRequestFactory::fromGlobals($headers);
 
-        return $this->createRequestFromPsr7Message($message);
+        return $this->createRequestFromPsr7Message($serverRequest);
     }
 
     /**

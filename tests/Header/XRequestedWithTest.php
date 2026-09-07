@@ -42,7 +42,7 @@ final class XRequestedWithTest extends TestCase
     {
         $ua = 'Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12';
 
-        $versionClient = new Version('4');
+        $version = new Version('4');
 
         $os = new class () implements OsInterface {
             /** @throws void */
@@ -114,7 +114,7 @@ final class XRequestedWithTest extends TestCase
             ->expects(self::once())
             ->method('hasClientCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientCode
             ->expects(self::once())
             ->method('getClientCode')
@@ -126,85 +126,85 @@ final class XRequestedWithTest extends TestCase
             ->expects(self::once())
             ->method('hasClientVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientVersion
             ->expects(self::once())
             ->method('getClientVersion')
             ->with($ua, null)
-            ->willReturn($versionClient);
+            ->willReturn($version);
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
         $platformCode
             ->expects(self::once())
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
             ->with($ua, null)
             ->willReturn($os);
 
-        $header = new XRequestedWith(
+        $xRequestedWith = new XRequestedWith(
             value: $ua,
             clientCode: $clientCode,
             clientVersion: $clientVersion,
             platformCode: $platformCode,
         );
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $xRequestedWith->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertFalse(
-            $header->hasDeviceCode(),
+            $xRequestedWith->hasDeviceCode(),
         );
 
         self::assertNull(
-            $header->getDeviceCode(),
+            $xRequestedWith->getDeviceCode(),
         );
 
         self::assertTrue(
-            $header->hasClientCode(),
+            $xRequestedWith->hasClientCode(),
         );
 
         self::assertSame(
             'yyy',
-            $header->getClientCode(),
+            $xRequestedWith->getClientCode(),
         );
 
         self::assertTrue(
-            $header->hasClientVersion(),
+            $xRequestedWith->hasClientVersion(),
         );
 
         self::assertSame(
-            $versionClient,
-            $header->getClientVersion(),
+            $version,
+            $xRequestedWith->getClientVersion(),
         );
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $xRequestedWith->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $xRequestedWith->getPlatformCode(),
         );
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $xRequestedWith->hasPlatformVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $xRequestedWith->getPlatformVersionWithOs(Os::unknown),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
 
         self::assertFalse(
-            $header->hasEngineCode(),
+            $xRequestedWith->hasEngineCode(),
         );
 
         try {
-            $header->getEngineCode();
+            $xRequestedWith->getEngineCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -212,12 +212,12 @@ final class XRequestedWithTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasEngineVersion(),
+            $xRequestedWith->hasEngineVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $xRequestedWith->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

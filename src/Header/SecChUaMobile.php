@@ -15,6 +15,8 @@ namespace UaRequest\Header;
 
 use Override;
 
+use function in_array;
+
 final class SecChUaMobile implements HeaderInterface
 {
     use HeaderTrait;
@@ -30,6 +32,6 @@ final class SecChUaMobile implements HeaderInterface
     #[Override]
     public function getDeviceIsMobile(): bool
     {
-        return $this->value === '1' || $this->value === '?1' || $this->value === '"?1"';
+        return in_array($this->value, ['1', '?1', '"?1"'], strict: true);
     }
 }

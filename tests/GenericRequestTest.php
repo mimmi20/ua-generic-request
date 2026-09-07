@@ -52,13 +52,13 @@ final class GenericRequestTest extends TestCase
             ->willReturn($deviceUa);
         $header1->expects(self::never())
             ->method('hasPlatformCode')
-            ->willReturn(false);
+            ->willReturn(value: false);
         $header1->expects(self::never())
             ->method('hasClientCode')
-            ->willReturn(false);
+            ->willReturn(value: false);
         $header1->expects(self::never())
             ->method('hasDeviceCode')
-            ->willReturn(true);
+            ->willReturn(value: true);
 
         $header2 = $this->createMock(HeaderInterface::class);
         $header2->expects(self::never())
@@ -66,16 +66,16 @@ final class GenericRequestTest extends TestCase
             ->willReturn($browserUa);
         $header2->expects(self::never())
             ->method('hasPlatformCode')
-            ->willReturn(false);
+            ->willReturn(value: false);
         $header2->expects(self::never())
             ->method('hasClientCode')
-            ->willReturn(true);
+            ->willReturn(value: true);
         $header2->expects(self::never())
             ->method('hasEngineCode')
-            ->willReturn(true);
+            ->willReturn(value: true);
         $header2->expects(self::never())
             ->method('hasDeviceCode')
-            ->willReturn(false);
+            ->willReturn(value: false);
 
         $header3 = $this->createMock(HeaderInterface::class);
         $header3->expects(self::never())
@@ -83,38 +83,38 @@ final class GenericRequestTest extends TestCase
             ->willReturn($userAgent);
         $header3->expects(self::never())
             ->method('hasPlatformCode')
-            ->willReturn(true);
+            ->willReturn(value: true);
         $header3->expects(self::never())
             ->method('hasClientCode')
-            ->willReturn(true);
+            ->willReturn(value: true);
         $header3->expects(self::never())
             ->method('hasEngineCode')
-            ->willReturn(true);
+            ->willReturn(value: true);
         $header3->expects(self::never())
             ->method('hasDeviceCode')
-            ->willReturn(true);
+            ->willReturn(value: true);
 
         $loader = $this->createMock(HeaderLoaderInterface::class);
         $loader->expects(self::never())
             ->method('has');
-        $matcher = self::exactly(3);
-        $loader->expects($matcher)
+        $invokedCount = self::exactly(3);
+        $loader->expects($invokedCount)
             ->method('load')
             ->willReturnCallback(
-                static function (string $key, string $value) use ($matcher, $browserUa, $deviceUa, $userAgent, $header1, $header2, $header3): HeaderInterface {
-                    match ($matcher->numberOfInvocations()) {
+                static function (string $key, string $value) use ($invokedCount, $browserUa, $deviceUa, $userAgent, $header1, $header2, $header3): HeaderInterface {
+                    match ($invokedCount->numberOfInvocations()) {
                         1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
                         2 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
                         default => self::assertSame(Constants::HEADER_USERAGENT, $key),
                     };
 
-                    match ($matcher->numberOfInvocations()) {
+                    match ($invokedCount->numberOfInvocations()) {
                         1 => self::assertSame($browserUa, $value),
                         2 => self::assertSame($deviceUa, $value),
                         default => self::assertSame($userAgent, $value),
                     };
 
-                    return match ($matcher->numberOfInvocations()) {
+                    return match ($invokedCount->numberOfInvocations()) {
                         1 => $header1,
                         2 => $header2,
                         default => $header3,
@@ -122,9 +122,9 @@ final class GenericRequestTest extends TestCase
                 },
             );
 
-        $object = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
+        $genericRequest = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
 
-        self::assertSame(array_keys($expectedHeaders), array_keys($object->getHeaders()));
+        self::assertSame(array_keys($expectedHeaders), array_keys($genericRequest->getHeaders()));
     }
 
     /** @throws Exception */
@@ -154,10 +154,10 @@ final class GenericRequestTest extends TestCase
             ->with(Constants::HEADER_USERAGENT, $userAgent)
             ->willReturn($header);
 
-        $original = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
+        $genericRequest = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
 
-        self::assertSame([Constants::HEADER_USERAGENT => $header], $original->getHeaders());
-        self::assertSame('65f857531eabdc37d27f0bce4f03f36863cf88e7', $original->getHash());
+        self::assertSame([Constants::HEADER_USERAGENT => $header], $genericRequest->getHeaders());
+        self::assertSame('65f857531eabdc37d27f0bce4f03f36863cf88e7', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -215,24 +215,24 @@ final class GenericRequestTest extends TestCase
         $loader = $this->createMock(HeaderLoaderInterface::class);
         $loader->expects(self::never())
             ->method('has');
-        $matcher = self::exactly(3);
-        $loader->expects($matcher)
+        $invokedCount = self::exactly(3);
+        $loader->expects($invokedCount)
             ->method('load')
             ->willReturnCallback(
-                static function (string $key, string $value) use ($matcher, $browserUa, $deviceUa, $userAgent, $header1, $header2, $header3): HeaderInterface {
-                    match ($matcher->numberOfInvocations()) {
+                static function (string $key, string $value) use ($invokedCount, $browserUa, $deviceUa, $userAgent, $header1, $header2, $header3): HeaderInterface {
+                    match ($invokedCount->numberOfInvocations()) {
                         1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
                         2 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
                         default => self::assertSame(Constants::HEADER_USERAGENT, $key),
                     };
 
-                    match ($matcher->numberOfInvocations()) {
+                    match ($invokedCount->numberOfInvocations()) {
                         1 => self::assertSame($browserUa, $value),
                         2 => self::assertSame($deviceUa, $value),
                         default => self::assertSame($userAgent, $value),
                     };
 
-                    return match ($matcher->numberOfInvocations()) {
+                    return match ($invokedCount->numberOfInvocations()) {
                         1 => $header1,
                         2 => $header2,
                         default => $header3,
@@ -240,11 +240,11 @@ final class GenericRequestTest extends TestCase
                 },
             );
 
-        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
+        self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -275,11 +275,11 @@ final class GenericRequestTest extends TestCase
             ->with(Constants::HEADER_DEVICE_STOCK_UA, $userAgent)
             ->willThrowException(new NotFoundException('not-found'));
 
-        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('8739602554c7f3241958e3cc9b57fdecb474d508', $original->getHash());
+        self::assertSame('8739602554c7f3241958e3cc9b57fdecb474d508', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -326,24 +326,24 @@ final class GenericRequestTest extends TestCase
         $loader = $this->createMock(HeaderLoaderInterface::class);
         $loader->expects(self::never())
             ->method('has');
-        $matcher = self::exactly(3);
-        $loader->expects($matcher)
+        $invokedCount = self::exactly(3);
+        $loader->expects($invokedCount)
             ->method('load')
             ->willReturnCallback(
-                static function (string $key, string $value) use ($matcher, $browserUa, $deviceUa, $userAgent, $header1, $header2): HeaderInterface {
-                    match ($matcher->numberOfInvocations()) {
+                static function (string $key, string $value) use ($invokedCount, $browserUa, $deviceUa, $userAgent, $header1, $header2): HeaderInterface {
+                    match ($invokedCount->numberOfInvocations()) {
                         1 => self::assertSame(Constants::HEADER_UCBROWSER_UA, $key),
                         2 => self::assertSame(Constants::HEADER_DEVICE_STOCK_UA, $key),
                         default => self::assertSame(Constants::HEADER_USERAGENT, $key),
                     };
 
-                    match ($matcher->numberOfInvocations()) {
+                    match ($invokedCount->numberOfInvocations()) {
                         1 => self::assertSame($browserUa, $value),
                         2 => self::assertSame($deviceUa, $value),
                         default => self::assertSame($userAgent, $value),
                     };
 
-                    return match ($matcher->numberOfInvocations()) {
+                    return match ($invokedCount->numberOfInvocations()) {
                         1 => $header1,
                         2 => throw new NotFoundException('not-found'),
                         default => $header2,
@@ -351,11 +351,11 @@ final class GenericRequestTest extends TestCase
                 },
             );
 
-        $original      = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest(ServerRequestFactory::fromGlobals($headers), $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $original->getHash());
+        self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -455,11 +455,11 @@ final class GenericRequestTest extends TestCase
                 },
             );
 
-        $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest($message, $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $original->getHash());
+        self::assertSame('f7191df756b36dcfd684d6976dbbebb180da9410', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -570,11 +570,11 @@ final class GenericRequestTest extends TestCase
                 },
             );
 
-        $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest($message, $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
+        self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -685,11 +685,11 @@ final class GenericRequestTest extends TestCase
                 },
             );
 
-        $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest($message, $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $original->getHash());
+        self::assertSame('230c34f734fa2f80c81be71068dd4ccad2dc0ff2', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -775,11 +775,11 @@ final class GenericRequestTest extends TestCase
                 },
             );
 
-        $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest($message, $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('fe38d00b3fa8a78553f2a052cc1c881d32241312', $original->getHash());
+        self::assertSame('fe38d00b3fa8a78553f2a052cc1c881d32241312', $genericRequest->getHash());
     }
 
     /** @throws Exception */
@@ -817,27 +817,27 @@ final class GenericRequestTest extends TestCase
         $message->expects(self::once())
             ->method('getHeaders')
             ->willReturn($headers);
-        $matcher = self::exactly(2);
-        $message->expects($matcher)
+        $invokedCount = self::exactly(2);
+        $message->expects($invokedCount)
             ->method('getHeaderLine')
             ->willReturnCallback(
-                static function (string $name) use ($matcher, $userAgent, $requestedWith): string {
-                    match ($matcher->numberOfInvocations()) {
+                static function (string $name) use ($invokedCount, $userAgent, $requestedWith): string {
+                    match ($invokedCount->numberOfInvocations()) {
                         1 => self::assertSame(Constants::HEADER_USERAGENT, $name),
                         default => self::assertSame('http-', $name),
                     };
 
-                    return match ($matcher->numberOfInvocations()) {
+                    return match ($invokedCount->numberOfInvocations()) {
                         1 => $userAgent,
                         default => $requestedWith,
                     };
                 },
             );
 
-        $original      = new GenericRequest($message, $loader);
-        $resultHeaders = $original->getHeaders();
+        $genericRequest = new GenericRequest($message, $loader);
+        $resultHeaders  = $genericRequest->getHeaders();
 
         self::assertSame($expectedHeaders, $resultHeaders);
-        self::assertSame('7ac574c15f9aa5f4ed68a391cc956b5368a56b18', $original->getHash());
+        self::assertSame('7ac574c15f9aa5f4ed68a391cc956b5368a56b18', $genericRequest->getHash());
     }
 }

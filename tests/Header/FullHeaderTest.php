@@ -178,7 +178,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasDeviceCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $deviceCode
             ->expects(self::once())
             ->method('getDeviceCode')
@@ -190,7 +190,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasClientCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientCode
             ->expects(self::once())
             ->method('getClientCode')
@@ -202,7 +202,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasClientVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientVersion
             ->expects(self::once())
             ->method('getClientVersion')
@@ -214,7 +214,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
@@ -226,7 +226,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasPlatformVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersionWithOs')
@@ -238,7 +238,7 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasEngineCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineCode
             ->expects(self::once())
             ->method('getEngineCode')
@@ -250,14 +250,14 @@ final class FullHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasEngineVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineVersion
             ->expects(self::once())
             ->method('getEngineVersionWithEngine')
             ->with($ua, Engine::unknown)
             ->willReturn($versionEngine);
 
-        $header = new FullHeader(
+        $fullHeader = new FullHeader(
             value: $ua,
             deviceCode: $deviceCode,
             clientCode: $clientCode,
@@ -268,69 +268,69 @@ final class FullHeaderTest extends TestCase
             engineVersion: $engineVersion,
         );
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $fullHeader->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertTrue(
-            $header->hasDeviceCode(),
+            $fullHeader->hasDeviceCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getDeviceCode(),
+            $fullHeader->getDeviceCode(),
         );
 
         self::assertTrue(
-            $header->hasClientCode(),
+            $fullHeader->hasClientCode(),
         );
 
         self::assertSame(
             'yyy',
-            $header->getClientCode(),
+            $fullHeader->getClientCode(),
         );
 
         self::assertTrue(
-            $header->hasClientVersion(),
+            $fullHeader->hasClientVersion(),
         );
 
         self::assertSame(
             $versionClient,
-            $header->getClientVersion(),
+            $fullHeader->getClientVersion(),
         );
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $fullHeader->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $fullHeader->getPlatformCode(),
         );
 
         self::assertTrue(
-            $header->hasPlatformVersion(),
+            $fullHeader->hasPlatformVersion(),
         );
 
         self::assertSame(
             $versionOs,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $fullHeader->getPlatformVersionWithOs(Os::unknown),
         );
 
         self::assertTrue(
-            $header->hasEngineCode(),
+            $fullHeader->hasEngineCode(),
         );
 
         self::assertSame(
             $engine,
-            $header->getEngineCode(),
+            $fullHeader->getEngineCode(),
         );
 
         self::assertTrue(
-            $header->hasEngineVersion(),
+            $fullHeader->hasEngineVersion(),
         );
 
         self::assertSame(
             $versionEngine,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $fullHeader->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

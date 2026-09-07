@@ -108,7 +108,7 @@ final class XPuffinUaTest extends TestCase
             ->expects(self::once())
             ->method('hasDeviceCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $deviceCode
             ->expects(self::once())
             ->method('getDeviceCode')
@@ -120,68 +120,68 @@ final class XPuffinUaTest extends TestCase
             ->expects(self::once())
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
             ->with($ua)
             ->willReturn($os);
 
-        $header = new XPuffinUa(value: $ua, deviceCode: $deviceCode, platformCode: $platformCode);
+        $xPuffinUa = new XPuffinUa(value: $ua, deviceCode: $deviceCode, platformCode: $platformCode);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $xPuffinUa->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertTrue(
-            $header->hasDeviceCode(),
+            $xPuffinUa->hasDeviceCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getDeviceCode(),
+            $xPuffinUa->getDeviceCode(),
         );
 
         self::assertFalse(
-            $header->hasClientCode(),
+            $xPuffinUa->hasClientCode(),
         );
 
         self::assertNull(
-            $header->getClientCode(),
+            $xPuffinUa->getClientCode(),
         );
 
         self::assertFalse(
-            $header->hasClientVersion(),
+            $xPuffinUa->hasClientVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getClientVersion(),
+            $xPuffinUa->getClientVersion(),
         );
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $xPuffinUa->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $xPuffinUa->getPlatformCode(),
         );
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $xPuffinUa->hasPlatformVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $xPuffinUa->getPlatformVersionWithOs(Os::unknown),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
 
         self::assertFalse(
-            $header->hasEngineCode(),
+            $xPuffinUa->hasEngineCode(),
         );
 
         try {
-            $header->getEngineCode();
+            $xPuffinUa->getEngineCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -189,12 +189,12 @@ final class XPuffinUaTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasEngineVersion(),
+            $xPuffinUa->hasEngineVersion(),
         );
 
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $xPuffinUa->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

@@ -33,31 +33,35 @@ final class PlatformVersionOnlyHeaderTest extends TestCase
     {
         $ua = 'Microsoft Windows NT 8.10.14219.0;4.0.30508.0;HUAWEI;HUAWEI W2-U00;4a1b5d7105057f0c0208d83c699276ff92cedbff;2.5.0.12';
 
-        $versionPlatform = new Version('4');
+        $version = new Version('4');
 
         $platformVersion = $this->createMock(PlatformVersionInterface::class);
         $platformVersion
             ->expects(self::once())
             ->method('hasPlatformVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersionWithOs')
             ->with($ua, Os::unknown)
-            ->willReturn($versionPlatform);
+            ->willReturn($version);
 
-        $header = new PlatformVersionOnlyHeader($ua, $platformVersion);
+        $platformVersionOnlyHeader = new PlatformVersionOnlyHeader($ua, $platformVersion);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame(
+            $ua,
+            $platformVersionOnlyHeader->getValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
 
         self::assertTrue(
-            $header->hasPlatformVersion(),
+            $platformVersionOnlyHeader->hasPlatformVersion(),
         );
 
         self::assertSame(
-            $versionPlatform,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $version,
+            $platformVersionOnlyHeader->getPlatformVersionWithOs(Os::unknown),
         );
     }
 }

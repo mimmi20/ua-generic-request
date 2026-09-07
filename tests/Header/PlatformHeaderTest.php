@@ -104,14 +104,14 @@ final class PlatformHeaderTest extends TestCase
             }
         };
 
-        $versionPlatform = new Version('4');
+        $version = new Version('4');
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
         $platformCode
             ->expects(self::exactly(2))
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
@@ -123,33 +123,33 @@ final class PlatformHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasPlatformVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersionWithOs')
             ->with($ua, Os::unknown)
-            ->willReturn($versionPlatform);
+            ->willReturn($version);
 
-        $header = new PlatformHeader($ua, $platformCode, $platformVersion);
+        $platformHeader = new PlatformHeader($ua, $platformCode, $platformVersion);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $platformHeader->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $platformHeader->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $platformHeader->getPlatformCode(),
         );
 
         self::assertTrue(
-            $header->hasPlatformVersion(),
+            $platformHeader->hasPlatformVersion(),
         );
 
         self::assertSame(
-            $versionPlatform,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $version,
+            $platformHeader->getPlatformVersionWithOs(Os::unknown),
         );
     }
 
@@ -227,14 +227,14 @@ final class PlatformHeaderTest extends TestCase
             }
         };
 
-        $versionPlatform = new Version('4');
+        $version = new Version('4');
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
         $platformCode
             ->expects(self::exactly(2))
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(false);
+            ->willReturn(value: false);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
@@ -249,28 +249,28 @@ final class PlatformHeaderTest extends TestCase
             ->expects(self::once())
             ->method('getPlatformVersionWithOs')
             ->with($ua, Os::unknown)
-            ->willReturn($versionPlatform);
+            ->willReturn($version);
 
-        $header = new PlatformHeader($ua, $platformCode, $platformVersion);
+        $platformHeader = new PlatformHeader($ua, $platformCode, $platformVersion);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $platformHeader->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertFalse(
-            $header->hasPlatformCode(),
+            $platformHeader->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $platformHeader->getPlatformCode(),
         );
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $platformHeader->hasPlatformVersion(),
         );
 
         self::assertSame(
-            $versionPlatform,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $version,
+            $platformHeader->getPlatformVersionWithOs(Os::unknown),
         );
     }
 
@@ -348,14 +348,14 @@ final class PlatformHeaderTest extends TestCase
             }
         };
 
-        $versionPlatform = new Version('4');
+        $version = new Version('4');
 
         $platformCode = $this->createMock(PlatformCodeInterface::class);
         $platformCode
             ->expects(self::exactly(2))
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
@@ -367,33 +367,33 @@ final class PlatformHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasPlatformVersion')
             ->with($ua)
-            ->willReturn(false);
+            ->willReturn(value: false);
         $platformVersion
             ->expects(self::once())
             ->method('getPlatformVersionWithOs')
             ->with($ua, Os::unknown)
-            ->willReturn($versionPlatform);
+            ->willReturn($version);
 
-        $header = new PlatformHeader($ua, $platformCode, $platformVersion);
+        $platformHeader = new PlatformHeader($ua, $platformCode, $platformVersion);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $platformHeader->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $platformHeader->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $platformHeader->getPlatformCode(),
         );
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $platformHeader->hasPlatformVersion(),
         );
 
         self::assertSame(
-            $versionPlatform,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $version,
+            $platformHeader->getPlatformVersionWithOs(Os::unknown),
         );
     }
 }
