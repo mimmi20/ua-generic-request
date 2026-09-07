@@ -30,87 +30,93 @@ use function sprintf;
 final class SecChUaArchTest extends TestCase
 {
     /** @throws Exception */
-    #[DataProvider('providerUa')]
+    #[DataProvider(methodName: 'providerUa')]
     public function testData(string $ua, bool $hasArch, Architecture $arch): void
     {
-        $header = new SecChUaArch($ua);
+        $secChUaArch = new SecChUaArch($ua);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $secChUaArch->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(
             $ua,
-            $header->getNormalizedValue(),
+            $secChUaArch->getNormalizedValue(),
             sprintf('value mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             $hasArch,
-            $header->hasDeviceArchitecture(),
+            $secChUaArch->hasDeviceArchitecture(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             $arch,
-            $header->getDeviceArchitecture(),
+            $secChUaArch->getDeviceArchitecture(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceFormFactor(),
+            $secChUaArch->hasDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             [FormFactor::unknown],
-            $header->getDeviceFormFactor(),
+            $secChUaArch->getDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceBitness(),
+            $secChUaArch->hasDeviceBitness(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             Bits::unknown,
-            $header->getDeviceBitness(),
+            $secChUaArch->getDeviceBitness(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceIsMobile(),
+            $secChUaArch->hasDeviceIsMobile(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertNull(
-            $header->getDeviceIsMobile(),
-            sprintf('device info mismatch for ua "%s"', $ua),
-        );
-        self::assertFalse($header->hasDeviceCode(), sprintf('device info mismatch for ua "%s"', $ua));
-        self::assertNull(
-            $header->getDeviceCode(),
+            $secChUaArch->getDeviceIsMobile(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceIsWow64(),
+            $secChUaArch->hasDeviceCode(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertNull(
-            $header->getDeviceIsWow64(),
+            $secChUaArch->getDeviceCode(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
-        self::assertFalse($header->hasClientCode(), sprintf('browser info mismatch for ua "%s"', $ua));
+        self::assertFalse(
+            $secChUaArch->hasDeviceIsWow64(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
         self::assertNull(
-            $header->getClientCode(),
+            $secChUaArch->getDeviceIsWow64(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $secChUaArch->hasClientCode(),
+            sprintf('browser info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $secChUaArch->getClientCode(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasClientVersion(),
+            $secChUaArch->hasClientVersion(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getClientVersion(),
+            $secChUaArch->getClientVersion(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasPlatformCode(),
+            $secChUaArch->hasPlatformCode(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
 
         try {
-            $header->getPlatformCode();
+            $secChUaArch->getPlatformCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -118,18 +124,21 @@ final class SecChUaArchTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $secChUaArch->hasPlatformVersion(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $secChUaArch->getPlatformVersionWithOs(Os::unknown),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
-        self::assertFalse($header->hasEngineCode(), sprintf('engine info mismatch for ua "%s"', $ua));
+        self::assertFalse(
+            $secChUaArch->hasEngineCode(),
+            sprintf('engine info mismatch for ua "%s"', $ua),
+        );
 
         try {
-            $header->getEngineCode();
+            $secChUaArch->getEngineCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -137,12 +146,12 @@ final class SecChUaArchTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasEngineVersion(),
+            $secChUaArch->hasEngineVersion(),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $secChUaArch->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

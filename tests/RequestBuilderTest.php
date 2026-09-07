@@ -47,21 +47,21 @@ final class RequestBuilderTest extends TestCase
             ->with('user-agent', $useragent)
             ->willReturn($header);
 
-        $object = new RequestBuilder($headerLoader);
+        $requestBuilder = new RequestBuilder($headerLoader);
 
-        $result = $object->buildRequest($useragent);
+        $genericRequest = $requestBuilder->buildRequest($useragent);
         assert(
-            $result instanceof GenericRequestInterface,
+            $genericRequest instanceof GenericRequestInterface,
             sprintf(
                 '$result should be an instance of %s, but is %s',
                 GenericRequestInterface::class,
-                $result::class,
+                $genericRequest::class,
             ),
         );
 
-        self::assertInstanceOf(GenericRequestInterface::class, $result);
+        self::assertInstanceOf(GenericRequestInterface::class, $genericRequest);
 
-        $headers = $result->getHeaders();
+        $headers = $genericRequest->getHeaders();
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);
@@ -88,23 +88,23 @@ final class RequestBuilderTest extends TestCase
             ->with('user-agent', $useragent)
             ->willReturn($header);
 
-        $object = new RequestBuilder($headerLoader);
+        $requestBuilder = new RequestBuilder($headerLoader);
 
-        $result = $object->buildRequest(
+        $genericRequest = $requestBuilder->buildRequest(
             ['user-agent' => $useragent, 1 => $useragent . "\r" . $useragent, 'x-test' => $useragent . "\r\n" . $useragent],
         );
         assert(
-            $result instanceof GenericRequestInterface,
+            $genericRequest instanceof GenericRequestInterface,
             sprintf(
                 '$result should be an instance of %s, but is %s',
                 GenericRequestInterface::class,
-                $result::class,
+                $genericRequest::class,
             ),
         );
 
-        self::assertInstanceOf(GenericRequestInterface::class, $result);
+        self::assertInstanceOf(GenericRequestInterface::class, $genericRequest);
 
-        $headers = $result->getHeaders();
+        $headers = $genericRequest->getHeaders();
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);
@@ -131,25 +131,25 @@ final class RequestBuilderTest extends TestCase
             ->with('user-agent', $useragent)
             ->willReturn($header);
 
-        $object = new RequestBuilder($headerLoader);
+        $requestBuilder = new RequestBuilder($headerLoader);
 
-        $message = ServerRequestFactory::fromGlobals(
+        $serverRequest = ServerRequestFactory::fromGlobals(
             ['HTTP_USER_AGENT' => $useragent, 'HTTP_X_TEST' => $useragent . "\r\n " . $useragent],
         );
 
-        $result = $object->buildRequest($message);
+        $genericRequest = $requestBuilder->buildRequest($serverRequest);
         assert(
-            $result instanceof GenericRequestInterface,
+            $genericRequest instanceof GenericRequestInterface,
             sprintf(
                 '$result should be an instance of %s, but is %s',
                 GenericRequestInterface::class,
-                $result::class,
+                $genericRequest::class,
             ),
         );
 
-        self::assertInstanceOf(GenericRequestInterface::class, $result);
+        self::assertInstanceOf(GenericRequestInterface::class, $genericRequest);
 
-        $headers = $result->getHeaders();
+        $headers = $genericRequest->getHeaders();
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);
@@ -167,7 +167,7 @@ final class RequestBuilderTest extends TestCase
             ->expects(self::never())
             ->method('load');
 
-        $object = new RequestBuilder($headerLoader);
+        $requestBuilder = new RequestBuilder($headerLoader);
 
         $request = new class () implements GenericRequestInterface {
             /**
@@ -189,17 +189,17 @@ final class RequestBuilderTest extends TestCase
             }
         };
 
-        $result = $object->buildRequest($request);
+        $genericRequest = $requestBuilder->buildRequest($request);
         assert(
-            $result instanceof GenericRequestInterface,
+            $genericRequest instanceof GenericRequestInterface,
             sprintf(
                 '$result should be an instance of %s, but is %s',
                 GenericRequestInterface::class,
-                $result::class,
+                $genericRequest::class,
             ),
         );
 
-        self::assertSame($request, $result);
+        self::assertSame($request, $genericRequest);
     }
 
     /** @throws Exception */
@@ -232,9 +232,9 @@ final class RequestBuilderTest extends TestCase
                 ],
             );
 
-        $object = new RequestBuilder($headerLoader);
+        $requestBuilder = new RequestBuilder($headerLoader);
 
-        $result = $object->buildRequest(
+        $genericRequest = $requestBuilder->buildRequest(
             [
                 'user-agent' => $useragent,
                 1 => $useragent . "\r" . $useragent,
@@ -243,17 +243,17 @@ final class RequestBuilderTest extends TestCase
             ],
         );
         assert(
-            $result instanceof GenericRequestInterface,
+            $genericRequest instanceof GenericRequestInterface,
             sprintf(
                 '$result should be an instance of %s, but is %s',
                 GenericRequestInterface::class,
-                $result::class,
+                $genericRequest::class,
             ),
         );
 
-        self::assertInstanceOf(GenericRequestInterface::class, $result);
+        self::assertInstanceOf(GenericRequestInterface::class, $genericRequest);
 
-        $headers = $result->getHeaders();
+        $headers = $genericRequest->getHeaders();
 
         self::assertCount(2, $headers);
         self::assertArrayHasKey('user-agent', $headers);
@@ -292,9 +292,9 @@ final class RequestBuilderTest extends TestCase
                 ],
             );
 
-        $object = new RequestBuilder($headerLoader);
+        $requestBuilder = new RequestBuilder($headerLoader);
 
-        $result = $object->buildRequest(
+        $genericRequest = $requestBuilder->buildRequest(
             [
                 'user-agent' => $useragent,
                 1 => $useragent . "\r" . $useragent,
@@ -303,17 +303,17 @@ final class RequestBuilderTest extends TestCase
             ],
         );
         assert(
-            $result instanceof GenericRequestInterface,
+            $genericRequest instanceof GenericRequestInterface,
             sprintf(
                 '$result should be an instance of %s, but is %s',
                 GenericRequestInterface::class,
-                $result::class,
+                $genericRequest::class,
             ),
         );
 
-        self::assertInstanceOf(GenericRequestInterface::class, $result);
+        self::assertInstanceOf(GenericRequestInterface::class, $genericRequest);
 
-        $headers = $result->getHeaders();
+        $headers = $genericRequest->getHeaders();
 
         self::assertCount(2, $headers);
         self::assertArrayHasKey('user-agent', $headers);
@@ -343,26 +343,26 @@ final class RequestBuilderTest extends TestCase
             ->with('user-agent', $useragent)
             ->willReturn($header);
 
-        $object = new RequestBuilder($headerLoader);
+        $requestBuilder = new RequestBuilder($headerLoader);
 
-        $result = $object->buildRequest(
+        $genericRequest = $requestBuilder->buildRequest(
             [
                 'user-agent' => $useragent,
                 'http+x-requested-with' => $requestedWith,
             ],
         );
         assert(
-            $result instanceof GenericRequestInterface,
+            $genericRequest instanceof GenericRequestInterface,
             sprintf(
                 '$result should be an instance of %s, but is %s',
                 GenericRequestInterface::class,
-                $result::class,
+                $genericRequest::class,
             ),
         );
 
-        self::assertInstanceOf(GenericRequestInterface::class, $result);
+        self::assertInstanceOf(GenericRequestInterface::class, $genericRequest);
 
-        $headers = $result->getHeaders();
+        $headers = $genericRequest->getHeaders();
 
         self::assertCount(1, $headers);
         self::assertArrayHasKey('user-agent', $headers);

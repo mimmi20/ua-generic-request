@@ -105,24 +105,28 @@ final class PlatformCodeOnlyHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
             ->with($ua)
             ->willReturn($os);
 
-        $header = new PlatformCodeOnlyHeader($ua, $platformCode);
+        $platformCodeOnlyHeader = new PlatformCodeOnlyHeader($ua, $platformCode);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame(
+            $ua,
+            $platformCodeOnlyHeader->getValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $platformCodeOnlyHeader->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $platformCodeOnlyHeader->getPlatformCode(),
         );
     }
 }

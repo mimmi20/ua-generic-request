@@ -34,87 +34,97 @@ final class SecChUaFormFactorsTest extends TestCase
      *
      * @throws Exception
      */
-    #[DataProvider('providerUa')]
+    #[DataProvider(methodName: 'providerUa')]
     public function testData(string $ua, bool $hasFormFactor, array $factors): void
     {
-        $header = new SecChUaFormFactors($ua);
+        $secChUaFormFactors = new SecChUaFormFactors($ua);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
         self::assertSame(
             $ua,
-            $header->getNormalizedValue(),
+            $secChUaFormFactors->getValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
+        self::assertSame(
+            $ua,
+            $secChUaFormFactors->getNormalizedValue(),
             sprintf('value mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceArchitecture(),
+            $secChUaFormFactors->hasDeviceArchitecture(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             Architecture::unknown,
-            $header->getDeviceArchitecture(),
+            $secChUaFormFactors->getDeviceArchitecture(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             $hasFormFactor,
-            $header->hasDeviceFormFactor(),
+            $secChUaFormFactors->hasDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             $factors,
-            $header->getDeviceFormFactor(),
+            $secChUaFormFactors->getDeviceFormFactor(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceBitness(),
+            $secChUaFormFactors->hasDeviceBitness(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertSame(
             Bits::unknown,
-            $header->getDeviceBitness(),
+            $secChUaFormFactors->getDeviceBitness(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceIsMobile(),
+            $secChUaFormFactors->hasDeviceIsMobile(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertNull(
-            $header->getDeviceIsMobile(),
-            sprintf('device info mismatch for ua "%s"', $ua),
-        );
-        self::assertFalse($header->hasDeviceCode(), sprintf('device info mismatch for ua "%s"', $ua));
-        self::assertNull(
-            $header->getDeviceCode(),
+            $secChUaFormFactors->getDeviceIsMobile(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasDeviceIsWow64(),
+            $secChUaFormFactors->hasDeviceCode(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
         self::assertNull(
-            $header->getDeviceIsWow64(),
+            $secChUaFormFactors->getDeviceCode(),
             sprintf('device info mismatch for ua "%s"', $ua),
         );
-        self::assertFalse($header->hasClientCode(), sprintf('browser info mismatch for ua "%s"', $ua));
+        self::assertFalse(
+            $secChUaFormFactors->hasDeviceIsWow64(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
         self::assertNull(
-            $header->getClientCode(),
+            $secChUaFormFactors->getDeviceIsWow64(),
+            sprintf('device info mismatch for ua "%s"', $ua),
+        );
+        self::assertFalse(
+            $secChUaFormFactors->hasClientCode(),
+            sprintf('browser info mismatch for ua "%s"', $ua),
+        );
+        self::assertNull(
+            $secChUaFormFactors->getClientCode(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasClientVersion(),
+            $secChUaFormFactors->hasClientVersion(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getClientVersion(),
+            $secChUaFormFactors->getClientVersion(),
             sprintf('browser info mismatch for ua "%s"', $ua),
         );
         self::assertFalse(
-            $header->hasPlatformCode(),
+            $secChUaFormFactors->hasPlatformCode(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
 
         try {
-            $header->getPlatformCode();
+            $secChUaFormFactors->getPlatformCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -122,18 +132,21 @@ final class SecChUaFormFactorsTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasPlatformVersion(),
+            $secChUaFormFactors->hasPlatformVersion(),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getPlatformVersionWithOs(Os::unknown),
+            $secChUaFormFactors->getPlatformVersionWithOs(Os::unknown),
             sprintf('platform info mismatch for ua "%s"', $ua),
         );
-        self::assertFalse($header->hasEngineCode(), sprintf('engine info mismatch for ua "%s"', $ua));
+        self::assertFalse(
+            $secChUaFormFactors->hasEngineCode(),
+            sprintf('engine info mismatch for ua "%s"', $ua),
+        );
 
         try {
-            $header->getEngineCode();
+            $secChUaFormFactors->getEngineCode();
 
             self::fail('Exception expected');
         } catch (NotFoundException) {
@@ -141,12 +154,12 @@ final class SecChUaFormFactorsTest extends TestCase
         }
 
         self::assertFalse(
-            $header->hasEngineVersion(),
+            $secChUaFormFactors->hasEngineVersion(),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
         self::assertInstanceOf(
             NullVersion::class,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $secChUaFormFactors->getEngineVersionWithEngine(Engine::unknown),
             sprintf('engine info mismatch for ua "%s"', $ua),
         );
     }

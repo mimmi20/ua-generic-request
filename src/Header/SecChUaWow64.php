@@ -15,6 +15,8 @@ namespace UaRequest\Header;
 
 use Override;
 
+use function in_array;
+
 final class SecChUaWow64 implements HeaderInterface
 {
     use HeaderTrait;
@@ -30,6 +32,6 @@ final class SecChUaWow64 implements HeaderInterface
     #[Override]
     public function getDeviceIsWow64(): bool
     {
-        return $this->value === '1' || $this->value === '?1' || $this->value === '"?1"';
+        return in_array($this->value, ['1', '?1', '"?1"'], strict: true);
     }
 }

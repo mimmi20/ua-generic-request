@@ -105,7 +105,7 @@ final class SecChUaPlatformHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasPlatformCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $platformCode
             ->expects(self::once())
             ->method('getPlatformCode')
@@ -117,32 +117,36 @@ final class SecChUaPlatformHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasDeviceCode')
             ->with($ua)
-            ->willReturn(false);
+            ->willReturn(value: false);
         $deviceCode
             ->expects(self::once())
             ->method('getDeviceCode')
             ->with($ua)
-            ->willReturn(null);
+            ->willReturn(value: null);
 
-        $header = new SecChUaPlatformHeader($ua, $platformCode, $deviceCode);
+        $secChUaPlatformHeader = new SecChUaPlatformHeader($ua, $platformCode, $deviceCode);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame(
+            $ua,
+            $secChUaPlatformHeader->getValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
 
         self::assertTrue(
-            $header->hasPlatformCode(),
+            $secChUaPlatformHeader->hasPlatformCode(),
         );
 
         self::assertSame(
             $os,
-            $header->getPlatformCode(),
+            $secChUaPlatformHeader->getPlatformCode(),
         );
 
         self::assertFalse(
-            $header->hasDeviceCode(),
+            $secChUaPlatformHeader->hasDeviceCode(),
         );
 
         self::assertNull(
-            $header->getDeviceCode(),
+            $secChUaPlatformHeader->getDeviceCode(),
         );
     }
 }

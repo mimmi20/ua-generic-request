@@ -32,24 +32,28 @@ final class DeviceCodeOnlyHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasDeviceCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $deviceCode
             ->expects(self::once())
             ->method('getDeviceCode')
             ->with($ua)
             ->willReturn('xxx');
 
-        $header = new DeviceCodeOnlyHeader($ua, $deviceCode);
+        $deviceCodeOnlyHeader = new DeviceCodeOnlyHeader($ua, $deviceCode);
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame(
+            $ua,
+            $deviceCodeOnlyHeader->getValue(),
+            sprintf('value mismatch for ua "%s"', $ua),
+        );
 
         self::assertTrue(
-            $header->hasDeviceCode(),
+            $deviceCodeOnlyHeader->hasDeviceCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getDeviceCode(),
+            $deviceCodeOnlyHeader->getDeviceCode(),
         );
     }
 }

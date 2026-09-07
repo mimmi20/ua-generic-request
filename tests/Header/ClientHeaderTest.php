@@ -105,7 +105,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::exactly(2))
             ->method('hasClientCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientCode
             ->expects(self::once())
             ->method('getClientCode')
@@ -117,7 +117,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasClientVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientVersion
             ->expects(self::once())
             ->method('getClientVersion')
@@ -129,7 +129,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::exactly(2))
             ->method('hasEngineCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineCode
             ->expects(self::once())
             ->method('getEngineCode')
@@ -141,14 +141,14 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasEngineVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineVersion
             ->expects(self::once())
             ->method('getEngineVersionWithEngine')
             ->with($ua, Engine::unknown)
             ->willReturn($versionEngine);
 
-        $header = new ClientHeader(
+        $clientHeader = new ClientHeader(
             value: $ua,
             clientCode: $clientCode,
             clientVersion: $clientVersion,
@@ -156,42 +156,42 @@ final class ClientHeaderTest extends TestCase
             engineVersion: $engineVersion,
         );
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $clientHeader->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertTrue(
-            $header->hasClientCode(),
+            $clientHeader->hasClientCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getClientCode(),
+            $clientHeader->getClientCode(),
         );
 
         self::assertTrue(
-            $header->hasClientVersion(),
+            $clientHeader->hasClientVersion(),
         );
 
         self::assertSame(
             $versionClient,
-            $header->getClientVersion(),
+            $clientHeader->getClientVersion(),
         );
 
         self::assertTrue(
-            $header->hasEngineCode(),
+            $clientHeader->hasEngineCode(),
         );
 
         self::assertSame(
             $engine,
-            $header->getEngineCode(),
+            $clientHeader->getEngineCode(),
         );
 
         self::assertTrue(
-            $header->hasEngineVersion(),
+            $clientHeader->hasEngineVersion(),
         );
 
         self::assertSame(
             $versionEngine,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $clientHeader->getEngineVersionWithEngine(Engine::unknown),
         );
     }
 
@@ -269,7 +269,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::exactly(2))
             ->method('hasClientCode')
             ->with($ua)
-            ->willReturn(false);
+            ->willReturn(value: false);
         $clientCode
             ->expects(self::once())
             ->method('getClientCode')
@@ -291,7 +291,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::exactly(2))
             ->method('hasEngineCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineCode
             ->expects(self::once())
             ->method('getEngineCode')
@@ -303,14 +303,14 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasEngineVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineVersion
             ->expects(self::once())
             ->method('getEngineVersionWithEngine')
             ->with($ua, Engine::unknown)
             ->willReturn($versionEngine);
 
-        $header = new ClientHeader(
+        $clientHeader = new ClientHeader(
             value: $ua,
             clientCode: $clientCode,
             clientVersion: $clientVersion,
@@ -318,42 +318,42 @@ final class ClientHeaderTest extends TestCase
             engineVersion: $engineVersion,
         );
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $clientHeader->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertFalse(
-            $header->hasClientCode(),
+            $clientHeader->hasClientCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getClientCode(),
+            $clientHeader->getClientCode(),
         );
 
         self::assertFalse(
-            $header->hasClientVersion(),
+            $clientHeader->hasClientVersion(),
         );
 
         self::assertSame(
             $versionClient,
-            $header->getClientVersion(),
+            $clientHeader->getClientVersion(),
         );
 
         self::assertTrue(
-            $header->hasEngineCode(),
+            $clientHeader->hasEngineCode(),
         );
 
         self::assertSame(
             $engine,
-            $header->getEngineCode(),
+            $clientHeader->getEngineCode(),
         );
 
         self::assertTrue(
-            $header->hasEngineVersion(),
+            $clientHeader->hasEngineVersion(),
         );
 
         self::assertSame(
             $versionEngine,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $clientHeader->getEngineVersionWithEngine(Engine::unknown),
         );
     }
 
@@ -431,7 +431,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::exactly(2))
             ->method('hasClientCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $clientCode
             ->expects(self::once())
             ->method('getClientCode')
@@ -443,7 +443,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasClientVersion')
             ->with($ua)
-            ->willReturn(false);
+            ->willReturn(value: false);
         $clientVersion
             ->expects(self::once())
             ->method('getClientVersion')
@@ -455,7 +455,7 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::exactly(2))
             ->method('hasEngineCode')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineCode
             ->expects(self::once())
             ->method('getEngineCode')
@@ -467,14 +467,14 @@ final class ClientHeaderTest extends TestCase
             ->expects(self::once())
             ->method('hasEngineVersion')
             ->with($ua)
-            ->willReturn(true);
+            ->willReturn(value: true);
         $engineVersion
             ->expects(self::once())
             ->method('getEngineVersionWithEngine')
             ->with($ua, Engine::unknown)
             ->willReturn($versionEngine);
 
-        $header = new ClientHeader(
+        $clientHeader = new ClientHeader(
             value: $ua,
             clientCode: $clientCode,
             clientVersion: $clientVersion,
@@ -482,42 +482,42 @@ final class ClientHeaderTest extends TestCase
             engineVersion: $engineVersion,
         );
 
-        self::assertSame($ua, $header->getValue(), sprintf('value mismatch for ua "%s"', $ua));
+        self::assertSame($ua, $clientHeader->getValue(), sprintf('value mismatch for ua "%s"', $ua));
 
         self::assertTrue(
-            $header->hasClientCode(),
+            $clientHeader->hasClientCode(),
         );
 
         self::assertSame(
             'xxx',
-            $header->getClientCode(),
+            $clientHeader->getClientCode(),
         );
 
         self::assertFalse(
-            $header->hasClientVersion(),
+            $clientHeader->hasClientVersion(),
         );
 
         self::assertSame(
             $versionClient,
-            $header->getClientVersion(),
+            $clientHeader->getClientVersion(),
         );
 
         self::assertTrue(
-            $header->hasEngineCode(),
+            $clientHeader->hasEngineCode(),
         );
 
         self::assertSame(
             $engine,
-            $header->getEngineCode(),
+            $clientHeader->getEngineCode(),
         );
 
         self::assertTrue(
-            $header->hasEngineVersion(),
+            $clientHeader->hasEngineVersion(),
         );
 
         self::assertSame(
             $versionEngine,
-            $header->getEngineVersionWithEngine(Engine::unknown),
+            $clientHeader->getEngineVersionWithEngine(Engine::unknown),
         );
     }
 }
