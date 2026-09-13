@@ -17,7 +17,6 @@ use BrowserDetector\Version\NullVersion;
 use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-use UaData\CompanyInterface;
 use UaData\Engine;
 use UaData\Os;
 use UaData\OsInterface;
@@ -55,30 +54,9 @@ final class XPuffinUaTest extends TestCase
 
             /** @throws void */
             #[Override]
-            public function getManufacturer(): CompanyInterface
+            public function getManufacturer(): string
             {
-                return new class () implements CompanyInterface {
-                    /** @throws void */
-                    #[Override]
-                    public function getName(): string | null
-                    {
-                        return null;
-                    }
-
-                    /** @throws void */
-                    #[Override]
-                    public function getBrandname(): string | null
-                    {
-                        return null;
-                    }
-
-                    /** @throws void */
-                    #[Override]
-                    public function getKey(): string
-                    {
-                        return '';
-                    }
-                };
+                return '';
             }
 
             /**

@@ -18,7 +18,6 @@ use BrowserDetector\Version\Version;
 use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-use UaData\CompanyInterface;
 use UaData\Engine;
 use UaData\EngineInterface;
 use UaData\Os;
@@ -56,30 +55,9 @@ final class FullHeaderTest extends TestCase
 
             /** @throws void */
             #[Override]
-            public function getManufacturer(): CompanyInterface
+            public function getManufacturer(): string
             {
-                return new class () implements CompanyInterface {
-                    /** @throws void */
-                    #[Override]
-                    public function getName(): string | null
-                    {
-                        return null;
-                    }
-
-                    /** @throws void */
-                    #[Override]
-                    public function getBrandname(): string | null
-                    {
-                        return null;
-                    }
-
-                    /** @throws void */
-                    #[Override]
-                    public function getKey(): string
-                    {
-                        return '';
-                    }
-                };
+                return '';
             }
 
             /**
@@ -121,30 +99,9 @@ final class FullHeaderTest extends TestCase
 
             /** @throws void */
             #[Override]
-            public function getManufacturer(): CompanyInterface
+            public function getManufacturer(): string
             {
-                return new class () implements CompanyInterface {
-                    /** @throws void */
-                    #[Override]
-                    public function getName(): string | null
-                    {
-                        return null;
-                    }
-
-                    /** @throws void */
-                    #[Override]
-                    public function getBrandname(): string | null
-                    {
-                        return null;
-                    }
-
-                    /** @throws void */
-                    #[Override]
-                    public function getKey(): string
-                    {
-                        return '';
-                    }
-                };
+                return '';
             }
 
             /**
