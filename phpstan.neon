@@ -121,6 +121,10 @@ parameters:
       path: tests/RequestBuilderTest.php
     -
       identifier: argument.named
+    -
+      identifier: phpunit.noAssertFuncCallInTests
+    -
+      identifier: symplify.requiredInterfaceContractNamespace
 
 services:
   errorFormatter.sarif:
